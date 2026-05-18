@@ -1,6 +1,7 @@
 using Application.Interfaces;
 using Infrastructure.Authentication;
 using Infrastructure.Data;
+using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -49,12 +50,17 @@ builder.Services.Configure<JwtSettings>(
     builder.Configuration.GetSection("JwtSettings"));
 
 builder.Services.AddScoped<IAuthService, AuthService>();
-
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 
 
+//Repo
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var app = builder.Build();
 
 

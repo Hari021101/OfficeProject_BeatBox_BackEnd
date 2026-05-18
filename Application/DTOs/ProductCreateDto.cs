@@ -1,9 +1,7 @@
-﻿namespace Domain.Entities;
+namespace Application.DTOs;
 
-public class Product
+public class ProductCreateDto
 {
-    public Guid Id { get; set; }
-
     public string Name { get; set; } = string.Empty;
 
     public string Description { get; set; } = string.Empty;
@@ -18,11 +16,7 @@ public class Product
 
     public Guid CategoryId { get; set; }
 
-    public Category? Category { get; set; }
-
     public string Brand { get; set; } = string.Empty;
-
-    public double? Rating { get; set; }
 
     public string BatteryLife { get; set; } = string.Empty;
 

@@ -1,6 +1,6 @@
-﻿namespace Domain.Entities;
+namespace Application.DTOs;
 
-public class Product
+public class ProductResponseDto
 {
     public Guid Id { get; set; }
 
@@ -18,7 +18,7 @@ public class Product
 
     public Guid CategoryId { get; set; }
 
-    public Category? Category { get; set; }
+    public string CategoryName { get; set; } = string.Empty;
 
     public string Brand { get; set; } = string.Empty;
 
