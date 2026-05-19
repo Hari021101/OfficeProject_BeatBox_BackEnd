@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Infrastructure.Repositories;
+using Application.Common.Mappings;
 
 namespace Infrastructure
 {
@@ -60,6 +62,11 @@ namespace Infrastructure
             });
 
             services.AddAuthorization();
+
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
+
+            services.AddAutoMapper(cfg => cfg.AddMaps(typeof(ProductProfile).Assembly));
 
             return services;
         }
