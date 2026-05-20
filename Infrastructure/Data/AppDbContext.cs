@@ -16,7 +16,12 @@ namespace Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Custom EF Configurations can be added here if needed
+            
+            builder.Entity<Product>(entity =>
+            {
+                entity.Property(p => p.Price).HasColumnType("decimal(18,2)");
+                entity.Property(p => p.DiscountPrice).HasColumnType("decimal(18,2)");
+            });
         }
     }
 }
