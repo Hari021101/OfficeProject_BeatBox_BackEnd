@@ -13,4 +13,6 @@ public class Category
     public Category? ParentCategory { get; set; }
 
     public ICollection<Category>? SubCategories { get; set; }
+    public ICollection<Product> Products { get; set; }
+        = new List<Product>();
 }
