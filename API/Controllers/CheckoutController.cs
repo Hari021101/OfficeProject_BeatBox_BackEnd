@@ -2,10 +2,11 @@ using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers;
 
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class CheckoutController : ControllerBase
@@ -20,7 +21,7 @@ public class CheckoutController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Checkout([FromBody] OrderCreateDto orderCreateDto)
     {
-        var userId = "test-user";//var userId = User.Identity.Name;
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);//var userId = User.Identity.Name;//var userId = "test-user";
         var order = await _orderService.CreateOrderAsync(userId, orderCreateDto);
         return Ok(order);
     }

@@ -2,6 +2,8 @@ using Application.DTOs;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Services;
 
@@ -9,11 +11,13 @@ public class CartService : ICartService
 {
     private readonly ICartRepository _cartRepository;
     private readonly IMapper _mapper;
+    private readonly IProductRepository _productRepository;
 
-    public CartService(ICartRepository cartRepository, IMapper mapper)
+    public CartService(ICartRepository cartRepository, IMapper mapper,IProductRepository productRepository)
     {
         _cartRepository = cartRepository;
         _mapper = mapper;
+        _productRepository = productRepository;
     }
 
     public async Task<CartDto> GetCartAsync(string userId)
@@ -40,13 +44,22 @@ public class CartService : ICartService
             await _cartRepository.SaveChangesAsync();
         }
 
+        // Fetch product from database
+        var product = await _productRepository.GetByIdAsync(cartAddDto.ProductId);
+
+        if (product == null)
+            throw new Exception("Product not found");
+
+        decimal productPrice = product.Price;
+
         // Create cart item
         var cartItem = new CartItem
         {
             CartId = cart.CartId,
             ProductId = cartAddDto.ProductId,
             Quantity = cartAddDto.Quantity,
-            UnitPrice = 0
+            UnitPrice = product.Price
+
         };
 
         await _cartRepository.AddCartItemAsync(cartItem);

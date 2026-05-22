@@ -26,7 +26,15 @@ public class OrderService : IOrderService
         var order = new Order
         {
             UserId = userId,
-            ShippingAddress = orderCreateDto.ShippingAddress,
+            ShippingAddress =
+    $"{orderCreateDto.ShippingAddress.FullName}, " +
+    $"{orderCreateDto.ShippingAddress.AddressLine1}, " +
+    $"{orderCreateDto.ShippingAddress.AddressLine2}, " +
+    $"{orderCreateDto.ShippingAddress.City}, " +
+    $"{orderCreateDto.ShippingAddress.State}, " +
+    $"{orderCreateDto.ShippingAddress.PostalCode}, " +
+    $"{orderCreateDto.ShippingAddress.Country}, " +
+    $"Phone: {orderCreateDto.ShippingAddress.Phone}",
             CreatedDate = DateTime.UtcNow,
             Status = "Pending",
             TotalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice),

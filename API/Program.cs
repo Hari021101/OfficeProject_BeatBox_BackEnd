@@ -1,4 +1,6 @@
+using Domain.Entities;
 using Infrastructure;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -52,6 +54,48 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+
+    var roleManager =
+        services.GetRequiredService<RoleManager<IdentityRole>>();
+
+    var userManager =
+        services.GetRequiredService<UserManager<AppUser>>();
+
+    // Create Admin Role
+    if (!await roleManager.RoleExistsAsync("Admin"))
+    {
+        await roleManager.CreateAsync(
+            new IdentityRole("Admin"));
+    }
+
+    // Create Admin User
+    var adminEmail = "admin@beatbox.com";
+
+    var adminUser =
+        await userManager.FindByEmailAsync(adminEmail);
+
+    if (adminUser == null)
+    {
+        adminUser = new AppUser
+        {
+            FullName = "BeatBox Admin",
+            Email = adminEmail,
+            UserName = adminEmail
+        };
+
+        await userManager.CreateAsync(
+            adminUser,
+            "Admin@123");
+
+        await userManager.AddToRoleAsync(
+            adminUser,
+            "Admin");
+    }
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

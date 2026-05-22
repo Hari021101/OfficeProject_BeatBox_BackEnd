@@ -24,7 +24,7 @@ namespace Infrastructure
                     b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
             // Register ASP.NET Core Identity
-            services.AddIdentityCore<AppUser>(opt =>
+            services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
                 opt.Password.RequireDigit = false;
                 opt.Password.RequireLowercase = false;
@@ -33,8 +33,8 @@ namespace Infrastructure
                 opt.Password.RequiredLength = 6;
                 opt.User.RequireUniqueEmail = true;
             })
-            .AddEntityFrameworkStores<AppDbContext>()
-            .AddSignInManager<SignInManager<AppUser>>();
+           .AddEntityFrameworkStores<AppDbContext>()
+           .AddDefaultTokenProviders();
 
             // Register Token Service
             services.AddScoped<ITokenService, TokenService>();
