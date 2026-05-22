@@ -2,10 +2,11 @@ using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers;
 
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class CartController : ControllerBase
@@ -20,7 +21,7 @@ public class CartController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetCart()
     {
-        var userId = "test-user";
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);//var userId = User.Identity.Name; //var userId = "test-user";
         var cart = await _cartService.GetCartAsync(userId);
         return Ok(cart);
     }
@@ -28,7 +29,7 @@ public class CartController : ControllerBase
     [HttpPost("add")]
     public async Task<IActionResult> AddToCart([FromBody] CartAddDto cartAddDto)
     {
-        var userId = "test-user";
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         await _cartService.AddToCartAsync(userId, cartAddDto);
         return Ok(new { Message = "Product added to cart successfully." });
     }
@@ -36,7 +37,7 @@ public class CartController : ControllerBase
     [HttpPut("update")]
     public async Task<IActionResult> UpdateCartItem([FromBody] CartUpdateDto cartUpdateDto)
     {
-        var userId = "test-user";
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         await _cartService.UpdateCartItemAsync(userId, cartUpdateDto);
         return Ok(new { Message = "Cart item updated successfully." });
     }
@@ -44,7 +45,7 @@ public class CartController : ControllerBase
     [HttpDelete("remove/{id}")]
     public async Task<IActionResult> RemoveCartItem(int id)
     {
-        var userId = "test-user";
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         await _cartService.RemoveCartItemAsync(userId, id);
         return Ok(new { Message = "Cart item removed successfully." });
     }
@@ -52,7 +53,7 @@ public class CartController : ControllerBase
     [HttpDelete("clear")]
     public async Task<IActionResult> ClearCart()
     {
-        var userId = "test-user";//var userId = User.Identity.Name;
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         await _cartService.ClearCartAsync(userId);
         return Ok(new { Message = "Cart cleared successfully." });
     }

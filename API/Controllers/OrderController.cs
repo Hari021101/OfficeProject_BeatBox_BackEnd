@@ -2,10 +2,11 @@ using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers;
 
-//[Authorize]
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class OrderController : ControllerBase
@@ -20,7 +21,7 @@ public class OrderController : ControllerBase
     [HttpGet("my-orders")]
     public async Task<IActionResult> GetMyOrders()
     {
-        var userId = "test-user";
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         var orders = await _orderService.GetUserOrdersAsync(userId);
         return Ok(orders);
     }
@@ -28,7 +29,7 @@ public class OrderController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetOrderById(int id)
     {
-        var userId = "test-user";
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         var order = await _orderService.GetOrderByIdAsync(userId, id);
         return Ok(order);
     }
@@ -44,7 +45,7 @@ public class OrderController : ControllerBase
     [HttpPut("cancel/{id}")]
     public async Task<IActionResult> CancelOrder(int id)
     {
-        var userId = "test-user";//var userId = User.Identity.Name;
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);//var userId = User.Identity.Name;//var userId = "test-user";//
         await _orderService.CancelOrderAsync(userId, id);
         return Ok(new { Message = "Order cancelled successfully." });
     }

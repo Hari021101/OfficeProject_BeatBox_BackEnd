@@ -1,4 +1,6 @@
+using Domain.Entities;
 using Infrastructure;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -54,9 +56,6 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 var app = builder.Build();
-
-// Use our custom Global Exception Handling Middleware
-app.UseMiddleware<API.Middleware.ExceptionMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
