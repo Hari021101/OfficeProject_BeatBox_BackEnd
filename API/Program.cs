@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddSignalR();
 
 // Register Clean Architecture Infrastructure Services (DbContext, Identity, JWT, etc.)
 builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -16,7 +17,8 @@ builder.Services.AddCors(options =>
     {
         policy.AllowAnyHeader()
               .AllowAnyMethod()
-              .WithOrigins("http://localhost:5173");
+              .AllowCredentials()
+              .WithOrigins("http://localhost:5173", "http://localhost:5174", "http://localhost:5175");
     });
 });
 
@@ -53,6 +55,9 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+// Use our custom Global Exception Handling Middleware
+app.UseMiddleware<API.Middleware.ExceptionMiddleware>();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -78,5 +83,8 @@ app.MapGet("/", async context =>
 
 // Map controllers (e.g. AccountController)
 app.MapControllers();
+
+// Map SignalR Hubs
+app.MapHub<API.Hubs.OrderHub>("/hubs/order");
 
 app.Run();
