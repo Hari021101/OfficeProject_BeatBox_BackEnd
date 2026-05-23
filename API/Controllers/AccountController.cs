@@ -49,7 +49,7 @@ namespace API.Controllers
             {
                 FullName = user.FullName,
                 Email = user.Email,
-                Token = _tokenService.CreateToken(user)
+                Token = await _tokenService.CreateToken(user)
             };
         }
 
@@ -74,7 +74,7 @@ namespace API.Controllers
             {
                 FullName = user.FullName ?? string.Empty,
                 Email = user.Email ?? string.Empty,
-                Token = _tokenService.CreateToken(user)
+                Token = await _tokenService.CreateToken(user)
             };
         }
     }

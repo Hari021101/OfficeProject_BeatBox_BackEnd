@@ -24,7 +24,7 @@ namespace Infrastructure
                     b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
 
             // Register ASP.NET Core Identity
-            services.AddIdentityCore<AppUser>(opt =>
+            services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
                 opt.Password.RequireDigit = false;
                 opt.Password.RequireLowercase = false;
@@ -33,8 +33,8 @@ namespace Infrastructure
                 opt.Password.RequiredLength = 6;
                 opt.User.RequireUniqueEmail = true;
             })
-            .AddEntityFrameworkStores<AppDbContext>()
-            .AddSignInManager<SignInManager<AppUser>>();
+           .AddEntityFrameworkStores<AppDbContext>()
+           .AddDefaultTokenProviders();
 
             // Register Token Service
             services.AddScoped<ITokenService, TokenService>();
@@ -65,7 +65,14 @@ namespace Infrastructure
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
-
+            services.AddScoped<ICartService, CartService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IPaymentService, PaymentService>();
+            services.AddScoped<ICartRepository, CartRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IPaymentRepository, PaymentRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryService>();
             services.AddAutoMapper(cfg => cfg.AddMaps(typeof(ProductProfile).Assembly));
 
             return services;
