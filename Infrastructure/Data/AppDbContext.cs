@@ -4,38 +4,67 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
-    public class AppDbContext : IdentityDbContext<AppUser>
-    {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
-            : base(options)
-        {
-        }
+	public class AppDbContext : IdentityDbContext<AppUser>
+	{
+		public AppDbContext(DbContextOptions<AppDbContext> options)
+			: base(options)
+		{
+		}
 
-        // Existing
-        public DbSet<Category> Categories => Set<Category>();
-        public DbSet<Product> Products => Set<Product>();
+		// Existing
+		public DbSet<Category> Categories => Set<Category>();
+		public DbSet<Product> Products => Set<Product>();
 
-        // ADD THESE BACK
-        public DbSet<Cart> Carts => Set<Cart>();
-        public DbSet<CartItem> CartItems => Set<CartItem>();
+		// ADD THESE BACK
+		public DbSet<Cart> Carts => Set<Cart>();
+		public DbSet<CartItem> CartItems => Set<CartItem>();
 
-        public DbSet<Order> Orders => Set<Order>();
-        public DbSet<OrderItem> OrderItems => Set<OrderItem>();
+		public DbSet<Order> Orders => Set<Order>();
+		public DbSet<OrderItem> OrderItems => Set<OrderItem>();
 
-        public DbSet<Payment> Payments => Set<Payment>();
+		public DbSet<Payment> Payments => Set<Payment>();
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
+		protected override void OnModelCreating(ModelBuilder builder)
+		{
+			base.OnModelCreating(builder);
 
-            builder.Entity<Product>(entity =>
-            {
-                entity.Property(p => p.Price)
-                    .HasColumnType("decimal(18,2)");
+			builder.Entity<Product>(entity =>
+			{
+				entity.Property(p => p.Price)
+					.HasColumnType("decimal(18,2)");
 
-                entity.Property(p => p.DiscountPrice)
-                    .HasColumnType("decimal(18,2)");
-            });
-        }
-    }
+				entity.Property(p => p.DiscountPrice)
+					.HasColumnType("decimal(18,2)");
+			});
+
+			// Fix for new Decimal properties to avoid EF Core warnings/truncation
+			builder.Entity<Order>(entity =>
+			{
+				entity.Property(o => o.TotalAmount).HasColumnType("decimal(18,2)");
+				// Configure foreign key mapping to AppUser since there's no navigation property
+				entity.HasOne<AppUser>().WithMany().HasForeignKey(o => o.UserId).OnDelete(DeleteBehavior.Restrict);
+			});
+
+			builder.Entity<OrderItem>(entity =>
+			{
+				entity.Property(oi => oi.UnitPrice).HasColumnType("decimal(18,2)");
+			});
+
+			builder.Entity<Payment>(entity =>
+			{
+				entity.Property(p => p.Amount).HasColumnType("decimal(18,2)");
+			});
+
+			builder.Entity<Cart>(entity =>
+			{
+				// Configure foreign key mapping to AppUser since there's no navigation property
+				entity.HasOne<AppUser>().WithMany().HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Cascade);
+			});
+
+			builder.Entity<CartItem>(entity =>
+			{
+				entity.Property(ci => ci.UnitPrice).HasColumnType("decimal(18,2)");
+			});
+		}
+	}
 }

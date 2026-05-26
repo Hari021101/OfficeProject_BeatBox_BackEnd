@@ -23,25 +23,27 @@ public class OrderService : IOrderService
         var cart = await _cartRepository.GetCartByUserIdAsync(userId);
         if (cart == null || !cart.CartItems.Any()) throw new Exception("Cart is empty");
 
+        // Build a clean shipping address string, skipping empty parts
+        var addr = orderCreateDto.ShippingAddress;
+        var parts = new[]
+        {
+            addr?.FullName, addr?.AddressLine1, addr?.AddressLine2,
+            addr?.City, addr?.State, addr?.PostalCode, addr?.Country,
+            string.IsNullOrWhiteSpace(addr?.Phone) ? null : $"Ph: {addr.Phone}"
+        };
+        var shippingAddress = string.Join(", ", parts.Where(p => !string.IsNullOrWhiteSpace(p)));
+
         var order = new Order
         {
-            UserId = userId,
-            ShippingAddress =
-    $"{orderCreateDto.ShippingAddress.FullName}, " +
-    $"{orderCreateDto.ShippingAddress.AddressLine1}, " +
-    $"{orderCreateDto.ShippingAddress.AddressLine2}, " +
-    $"{orderCreateDto.ShippingAddress.City}, " +
-    $"{orderCreateDto.ShippingAddress.State}, " +
-    $"{orderCreateDto.ShippingAddress.PostalCode}, " +
-    $"{orderCreateDto.ShippingAddress.Country}, " +
-    $"Phone: {orderCreateDto.ShippingAddress.Phone}",
-            CreatedDate = DateTime.UtcNow,
-            Status = "Pending",
-            TotalAmount = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice),
-            OrderItems = cart.CartItems.Select(ci => new OrderItem
+            UserId          = userId,
+            ShippingAddress = shippingAddress,
+            CreatedDate     = DateTime.UtcNow,
+            Status          = "Pending",
+            TotalAmount     = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice),
+            OrderItems      = cart.CartItems.Select(ci => new OrderItem
             {
                 ProductId = ci.ProductId,
-                Quantity = ci.Quantity,
+                Quantity  = ci.Quantity,
                 UnitPrice = ci.UnitPrice
             }).ToList()
         };
@@ -54,6 +56,7 @@ public class OrderService : IOrderService
 
         return _mapper.Map<OrderDto>(order);
     }
+
 
     public async Task<IEnumerable<OrderDto>> GetUserOrdersAsync(string userId)
     {
