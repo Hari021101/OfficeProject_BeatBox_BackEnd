@@ -2,10 +2,11 @@ using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers;
 
-[Authorize]
+//[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class ProductController : ControllerBase
@@ -72,5 +73,20 @@ public class ProductController : ControllerBase
     {
         var products = await _productService.GetPagedProductsAsync(pageNumber, pageSize);
         return Ok(products);
+    }
+
+    [HttpPost("{productId}/reviews")]
+    public async Task<IActionResult> AddReview(
+    Guid productId,
+    AddReviewDto dto)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        await _productService.AddReviewAsync(productId, userId, dto);
+
+        return Ok(new
+        {
+            message = "Review added successfully"
+        });
     }
 }

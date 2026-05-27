@@ -31,4 +31,17 @@ public class ProductResponseDto
     public string Connectivity { get; set; } = string.Empty;
 
     public bool IsFeatured { get; set; }
+    public int SoldCount { get; set; }
+
+    public int DeliveryDays { get; set; }
+
+    public double AverageRating { get; set; }
+
+    public int ReviewCount { get; set; }
+
+    public List<ProductReviewDto> Reviews { get; set; } = new();
+
+    public List<ProductImageDto> Images { get; set; } = new();
+
+    public List<ProductFaqDto> Faqs { get; set; } = new();
 }

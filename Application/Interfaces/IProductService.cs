@@ -12,4 +12,5 @@ public interface IProductService
     Task<IEnumerable<ProductResponseDto>> SearchProductsAsync(string searchTerm);
     Task<IEnumerable<ProductResponseDto>> FilterProductsAsync(decimal? minPrice, decimal? maxPrice, string? brand, string? color);
     Task<IEnumerable<ProductResponseDto>> GetPagedProductsAsync(int pageNumber, int pageSize);
+    Task AddReviewAsync(Guid productId, string userId, AddReviewDto dto);
 }

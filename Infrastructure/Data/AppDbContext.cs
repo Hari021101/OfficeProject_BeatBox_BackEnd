@@ -11,13 +11,17 @@ namespace Infrastructure.Data
 		{
 		}
 
-		// Existing
-		public DbSet<Category> Categories => Set<Category>();
-		public DbSet<Product> Products => Set<Product>();
+        
+        public DbSet<Category> Categories => Set<Category>();
+        public DbSet<Product> Products => Set<Product>();
+        public DbSet<ProductReview> ProductReviews => Set<ProductReview>();
 
-		// ADD THESE BACK
-		public DbSet<Cart> Carts => Set<Cart>();
-		public DbSet<CartItem> CartItems => Set<CartItem>();
+        public DbSet<ProductImage> ProductImages => Set<ProductImage>();
+
+        public DbSet<ProductFaq> ProductFaqs => Set<ProductFaq>();
+
+        public DbSet<Cart> Carts => Set<Cart>();
+        public DbSet<CartItem> CartItems => Set<CartItem>();
 
 		public DbSet<Order> Orders => Set<Order>();
 		public DbSet<OrderItem> OrderItems => Set<OrderItem>();
@@ -35,17 +39,18 @@ namespace Infrastructure.Data
 				entity.Property(p => p.Price)
 					.HasColumnType("decimal(18,2)");
 
-				entity.Property(p => p.DiscountPrice)
-					.HasColumnType("decimal(18,2)");
-			});
+                entity.Property(p => p.DiscountPrice)
+                    .HasColumnType("decimal(18,2)");
+            });
+            builder.Entity<ProductReview>()
+                .HasOne(r => r.Product)
+                .WithMany(p => p.Reviews)
+                .HasForeignKey(r => r.ProductId);
 
-			// Fix for new Decimal properties to avoid EF Core warnings/truncation
-			builder.Entity<Order>(entity =>
-			{
-				entity.Property(o => o.TotalAmount).HasColumnType("decimal(18,2)");
-				// Configure foreign key mapping to AppUser since there's no navigation property
-				entity.HasOne<AppUser>().WithMany().HasForeignKey(o => o.UserId).OnDelete(DeleteBehavior.Restrict);
-			});
+            builder.Entity<ProductImage>()
+                .HasOne(i => i.Product)
+                .WithMany(p => p.Images)
+                .HasForeignKey(i => i.ProductId);
 
 			builder.Entity<OrderItem>(entity =>
 			{
