@@ -23,6 +23,8 @@ namespace Infrastructure.Data
 		public DbSet<OrderItem> OrderItems => Set<OrderItem>();
 
 		public DbSet<Payment> Payments => Set<Payment>();
+		public DbSet<UserAddress> UserAddresses => Set<UserAddress>();
+		public DbSet<WishlistItem> WishlistItems => Set<WishlistItem>();
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
@@ -64,6 +66,27 @@ namespace Infrastructure.Data
 			builder.Entity<CartItem>(entity =>
 			{
 				entity.Property(ci => ci.UnitPrice).HasColumnType("decimal(18,2)");
+			});
+
+			builder.Entity<UserAddress>(entity =>
+			{
+				entity.HasOne(ua => ua.User)
+					.WithMany()
+					.HasForeignKey(ua => ua.UserId)
+					.OnDelete(DeleteBehavior.Cascade);
+			});
+
+			builder.Entity<WishlistItem>(entity =>
+			{
+				entity.HasOne(wl => wl.User)
+					.WithMany()
+					.HasForeignKey(wl => wl.UserId)
+					.OnDelete(DeleteBehavior.Cascade);
+
+				entity.HasOne(wl => wl.Product)
+					.WithMany()
+					.HasForeignKey(wl => wl.ProductId)
+					.OnDelete(DeleteBehavior.Cascade);
 			});
 		}
 	}

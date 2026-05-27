@@ -73,6 +73,14 @@ namespace Infrastructure
             services.AddScoped<IPaymentRepository, PaymentRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ICategoryService, CategoryService>();
+            
+            // Phase 7
+            services.AddScoped<IAddressRepository, AddressRepository>();
+            services.AddScoped<IWishlistRepository, WishlistRepository>();
+            services.AddScoped<IProfileService, ProfileService>();
+            services.AddScoped<IAddressService, AddressService>();
+            services.AddScoped<IWishlistService, WishlistService>();
+
             services.AddAutoMapper(cfg => cfg.AddMaps(typeof(ProductProfile).Assembly));
 
             return services;
