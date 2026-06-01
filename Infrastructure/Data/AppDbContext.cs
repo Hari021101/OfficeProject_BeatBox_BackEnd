@@ -52,6 +52,11 @@ namespace Infrastructure.Data
                 .WithMany(p => p.Images)
                 .HasForeignKey(i => i.ProductId);
 
+            builder.Entity<ProductFaq>()
+                .HasOne(f => f.Product)
+                .WithMany(p => p.Faqs)
+                .HasForeignKey(f => f.ProductId);
+
 			builder.Entity<OrderItem>(entity =>
 			{
 				entity.Property(oi => oi.UnitPrice).HasColumnType("decimal(18,2)");
