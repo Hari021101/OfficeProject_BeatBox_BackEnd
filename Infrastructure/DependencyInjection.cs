@@ -31,7 +31,7 @@ namespace Infrastructure
                 opt.Password.RequireNonAlphanumeric = false;
                 opt.Password.RequireUppercase = false;
                 opt.Password.RequiredLength = 6;
-                opt.User.RequireUniqueEmail = true;
+                opt.User.RequireUniqueEmail = false;
             })
            .AddEntityFrameworkStores<AppDbContext>()
            .AddDefaultTokenProviders();
@@ -82,6 +82,9 @@ namespace Infrastructure
             services.AddScoped<IWishlistService, WishlistService>();
 
             services.AddAutoMapper(cfg => cfg.AddMaps(typeof(ProductProfile).Assembly));
+
+            // OTP Service (Email via MailKit, Phone via console)
+            services.AddScoped<IOtpService, OtpService>();
 
             return services;
         }

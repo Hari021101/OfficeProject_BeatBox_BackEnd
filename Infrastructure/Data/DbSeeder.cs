@@ -1,11 +1,12 @@
 using Domain.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data
 {
     public static class DbSeeder
     {
-        public static async Task SeedAsync(AppDbContext context)
+        public static async Task SeedAsync(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             // Seed Categories first if none exist
             if (!await context.Categories.AnyAsync())
@@ -99,6 +100,103 @@ namespace Infrastructure.Data
 
                 await context.Products.AddRangeAsync(products);
                 await context.SaveChangesAsync();
+            }
+
+            // Ensure new Categories exist
+            var smartWatchCat = await context.Categories.FirstOrDefaultAsync(c => c.Name == "Smart Watches");
+            if (smartWatchCat == null)
+            {
+                smartWatchCat = new Category { Id = Guid.NewGuid(), Name = "Smart Watches", Description = "Next-gen fitness and connectivity wearables." };
+                await context.Categories.AddAsync(smartWatchCat);
+            }
+
+            var wiredCat = await context.Categories.FirstOrDefaultAsync(c => c.Name == "Wired Headphones");
+            if (wiredCat == null)
+            {
+                wiredCat = new Category { Id = Guid.NewGuid(), Name = "Wired Headphones", Description = "Audiophile grade wired listening experience." };
+                await context.Categories.AddAsync(wiredCat);
+            }
+
+            await context.SaveChangesAsync();
+
+            // Check if we need to add the new products
+            if (!await context.Products.AnyAsync(p => p.Name == "CyberWatch X1"))
+            {
+                var newProducts = new List<Product>
+                {
+                    new Product
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = "CyberWatch X1",
+                        Description = "Premium futuristic smartwatch with a glowing neon interface, health tracking, and 7-day battery life.",
+                        Price = 3499,
+                        DiscountPrice = 8990,
+                        StockQuantity = 50,
+                        ImageUrl = "hero_smartwatch.png",
+                        CategoryId = smartWatchCat.Id,
+                        Brand = "BeatBox",
+                        Rating = 4.8,
+                        BatteryLife = "168 Hours",
+                        Color = "Obsidian",
+                        Connectivity = "Bluetooth 5.3",
+                        IsFeatured = true
+                    },
+                    new Product
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = "Studio Pro Wired",
+                        Description = "Audiophile-grade wired over-ear headphones with a braided cable and ultra-high fidelity drivers.",
+                        Price = 4999,
+                        DiscountPrice = 12999,
+                        StockQuantity = 30,
+                        ImageUrl = "hero_wired.png",
+                        CategoryId = wiredCat.Id,
+                        Brand = "BeatBox",
+                        Rating = 5.0,
+                        BatteryLife = "Infinite",
+                        Color = "Silver/Black",
+                        Connectivity = "Wired (3.5mm)",
+                        IsFeatured = true
+                    }
+                };
+
+                await context.Products.AddRangeAsync(newProducts);
+                await context.SaveChangesAsync();
+            }
+
+            // --- Admin Role & User Seeding ---
+            var adminRoleExists = await roleManager.RoleExistsAsync("Admin");
+            if (!adminRoleExists)
+            {
+                await roleManager.CreateAsync(new IdentityRole("Admin"));
+            }
+
+            var adminEmail = "vikram.admin@beatbox.com";
+            var existingAdmin = await userManager.FindByEmailAsync(adminEmail);
+
+            if (existingAdmin == null)
+            {
+                var newAdmin = new AppUser
+                {
+                    UserName = adminEmail,
+                    Email = adminEmail,
+                    FullName = "Vikram Singh (Admin)",
+                    IsEmailVerified = true,
+                    IsPhoneVerified = true
+                };
+
+                var createResult = await userManager.CreateAsync(newAdmin, "Admin@123");
+                if (createResult.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(newAdmin, "Admin");
+                }
+            }
+            else
+            {
+                if (!await userManager.IsInRoleAsync(existingAdmin, "Admin"))
+                {
+                    await userManager.AddToRoleAsync(existingAdmin, "Admin");
+                }
             }
         }
     }

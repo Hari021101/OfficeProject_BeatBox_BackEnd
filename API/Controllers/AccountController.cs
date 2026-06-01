@@ -12,26 +12,36 @@ namespace API.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly ITokenService _tokenService;
+        private readonly IOtpService _otpService;
 
-        public AccountController(UserManager<AppUser> userManager, ITokenService tokenService)
+        public AccountController(UserManager<AppUser> userManager, ITokenService tokenService, IOtpService otpService)
         {
             _userManager = userManager;
             _tokenService = tokenService;
+            _otpService = otpService;
         }
 
+        // POST /api/account/register
+        // Creates user (unverified) and sends email OTP — JWT issued only after OTP verification
         [HttpPost("register")]
-        public async Task<ActionResult<AuthResponseDto>> Register([FromBody] RegisterDto registerDto)
+        public async Task<ActionResult<RegisterResponseDto>> Register([FromBody] RegisterDto registerDto)
         {
-            if (await _userManager.FindByEmailAsync(registerDto.Email) != null)
-            {
+            var isEmail = registerDto.Identifier.Contains('@');
+
+            if (isEmail && await _userManager.FindByEmailAsync(registerDto.Identifier) != null)
                 return BadRequest("Email is already registered.");
-            }
+            
+            if (!isEmail && _userManager.Users.Any(u => u.PhoneNumber == registerDto.Identifier))
+                return BadRequest("Phone number is already registered.");
 
             var user = new AppUser
             {
                 FullName = registerDto.FullName,
-                Email = registerDto.Email,
-                UserName = registerDto.Email
+                UserName = registerDto.Identifier,
+                Email = isEmail ? registerDto.Identifier : null,
+                PhoneNumber = !isEmail ? registerDto.Identifier : null,
+                IsEmailVerified = false,
+                IsPhoneVerified = false
             };
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
@@ -39,42 +49,60 @@ namespace API.Controllers
             if (!result.Succeeded)
             {
                 foreach (var error in result.Errors)
-                {
                     ModelState.AddModelError(error.Code, error.Description);
-                }
                 return BadRequest(ModelState);
             }
 
-            return new AuthResponseDto
+            // Send corresponding OTP
+            if (isEmail)
             {
-                FullName = user.FullName,
-                Email = user.Email,
-                Token = await _tokenService.CreateToken(user)
-            };
+                await _otpService.SendEmailOtpAsync(user.Id, user.Email!);
+            }
+            else
+            {
+                await _otpService.SendPhoneOtpAsync(user.Id, user.PhoneNumber!);
+            }
+
+            return Ok(new RegisterResponseDto
+            {
+                UserId = user.Id,
+                Identifier = registerDto.Identifier,
+                IdentifierType = isEmail ? "email" : "phone",
+                Message = $"Account created. Please check your {(isEmail ? "email" : "phone")} for the verification code."
+            });
         }
 
+        // POST /api/account/login
+        // Accepts email address OR phone number as the identifier
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponseDto>> Login([FromBody] LoginDto loginDto)
         {
-            var user = await _userManager.FindByEmailAsync(loginDto.Email);
+            AppUser? user = null;
 
-            if (user == null)
+            if (loginDto.Identifier.Contains('@'))
             {
-                return Unauthorized("Invalid email or password.");
+                // Treat as email
+                user = await _userManager.FindByEmailAsync(loginDto.Identifier);
             }
+            else
+            {
+                // Treat as phone number — search all users
+                user = _userManager.Users.FirstOrDefault(u => u.PhoneNumber == loginDto.Identifier);
+            }
+
+            if (user == null) return Unauthorized("Invalid credentials.");
 
             var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
+            if (!result) return Unauthorized("Invalid credentials.");
 
-            if (!result)
-            {
-                return Unauthorized("Invalid email or password.");
-            }
+            var roles = await _userManager.GetRolesAsync(user);
 
             return new AuthResponseDto
             {
                 FullName = user.FullName ?? string.Empty,
                 Email = user.Email ?? string.Empty,
-                Token = await _tokenService.CreateToken(user)
+                Token = await _tokenService.CreateToken(user),
+                Roles = roles
             };
         }
     }

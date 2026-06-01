@@ -36,8 +36,11 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<AppDbContext>();
         await context.Database.MigrateAsync();
         
+        var userManager = services.GetRequiredService<Microsoft.AspNetCore.Identity.UserManager<Domain.Entities.AppUser>>();
+        var roleManager = services.GetRequiredService<Microsoft.AspNetCore.Identity.RoleManager<Microsoft.AspNetCore.Identity.IdentityRole>>();
+        
         // Seed high-fidelity e-commerce catalog data if empty
-        await DbSeeder.SeedAsync(context);
+        await DbSeeder.SeedAsync(context, userManager, roleManager);
     }
     catch (Exception ex)
     {

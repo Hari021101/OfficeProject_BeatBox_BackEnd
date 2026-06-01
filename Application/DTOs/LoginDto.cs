@@ -4,9 +4,9 @@ namespace Application.DTOs
 {
     public class LoginDto
     {
+        /// <summary>Email address OR phone number — either is accepted.</summary>
         [Required]
-        [EmailAddress]
-        public string Email { get; set; } = string.Empty;
+        public string Identifier { get; set; } = string.Empty;
 
         [Required]
         public string Password { get; set; } = string.Empty;

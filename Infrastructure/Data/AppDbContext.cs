@@ -29,6 +29,7 @@ namespace Infrastructure.Data
 		public DbSet<Payment> Payments => Set<Payment>();
 		public DbSet<UserAddress> UserAddresses => Set<UserAddress>();
 		public DbSet<WishlistItem> WishlistItems => Set<WishlistItem>();
+		public DbSet<OtpRecord> OtpRecords => Set<OtpRecord>();
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
