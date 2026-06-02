@@ -9,4 +9,7 @@ public interface IInventoryRepository
     Task AddAsync(Inventory inventory);
     Task UpdateAsync(Inventory inventory);
     Task AddHistoryAsync(InventoryHistory history);
+    Task<IEnumerable<Inventory>> GetLowStockAsync();
+    Task<IEnumerable<InventoryHistory>> GetInventoryLogsAsync();
 }
+

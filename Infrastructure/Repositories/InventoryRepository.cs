@@ -42,4 +42,18 @@ public class InventoryRepository : IInventoryRepository
         _context.Inventories.Update(inventory);
         await _context.SaveChangesAsync();
     }
+    public async Task<IEnumerable<Inventory>> GetLowStockAsync()
+    {
+        return await _context.Inventories
+            .Include(i => i.Product)
+            .Where(i => i.AvailableStock < i.LowStockThreshold)
+            .ToListAsync();
+    }
+
+    public async Task<IEnumerable<InventoryHistory>> GetInventoryLogsAsync()
+    {
+        return await _context.InventoryHistories
+            .OrderByDescending(x => x.Timestamp)
+            .ToListAsync();
+    }
 }

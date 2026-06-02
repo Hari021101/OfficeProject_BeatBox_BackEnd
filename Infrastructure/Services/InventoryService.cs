@@ -222,17 +222,13 @@ public class InventoryService : IInventoryService
 
     public async Task<IEnumerable<InventoryDto>> GetLowStockAsync()
     {
-        var list = await _context.Inventories
-            .Include(i => i.Product)
-            .Where(i => i.AvailableStock < i.LowStockThreshold)
-            .ToListAsync();
+        var list = await _repo.GetLowStockAsync();
 
-        return list.Select(i => _mapper.Map<InventoryDto>(i));
+        return list.Select(i =>
+            _mapper.Map<InventoryDto>(i));
     }
     public async Task<IEnumerable<InventoryHistory>> GetInventoryLogsAsync()
     {
-        return await _context.InventoryHistories
-            .OrderByDescending(x => x.Timestamp)
-            .ToListAsync();
+        return await _repo.GetInventoryLogsAsync();
     }
 }
