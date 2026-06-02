@@ -87,6 +87,8 @@ namespace Infrastructure
             services.AddScoped<IInventoryRepository, InventoryRepository>();
             services.AddScoped<IInventoryService, InventoryService>();
             services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<IAdminDashboardRepository, AdminDashboardRepository>();
+            services.AddScoped<IAdminDashboardService, AdminDashboardService>();
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IPaymentService, PaymentService>();
