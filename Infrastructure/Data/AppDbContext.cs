@@ -46,6 +46,12 @@ namespace Infrastructure.Data
                 entity.Property(p => p.DiscountPrice)
                     .HasColumnType("decimal(18,2)");
             });
+
+			builder.Entity<Order>(entity =>
+			{
+				entity.Property(o => o.TotalAmount)
+					.HasColumnType("decimal(18,2)");
+			});
             builder.Entity<ProductReview>()
                 .HasOne(r => r.Product)
                 .WithMany(p => p.Reviews)
