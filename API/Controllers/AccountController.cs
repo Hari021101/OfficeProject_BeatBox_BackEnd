@@ -4,6 +4,10 @@ using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+
 namespace API.Controllers
 {
     [ApiController]
@@ -104,6 +108,32 @@ namespace API.Controllers
                 Token = await _tokenService.CreateToken(user),
                 Roles = roles
             };
+        }
+
+        // GET /api/account/users
+        [HttpGet("users")]
+        [Authorize(Roles = "Admin")]
+        public async Task<ActionResult<IEnumerable<UserAdminDto>>> GetAllUsers()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            var userDtos = new List<UserAdminDto>();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                userDtos.Add(new UserAdminDto
+                {
+                    Id = user.Id,
+                    FullName = user.FullName,
+                    Email = user.Email ?? "",
+                    PhoneNumber = user.PhoneNumber ?? "",
+                    Roles = roles,
+                    IsActive = true, // Simplify status for now
+                    JoinDate = DateTime.UtcNow.AddMonths(-1) // Mock join date since we don't have it in AppUser
+                });
+            }
+
+            return Ok(userDtos);
         }
     }
 }
