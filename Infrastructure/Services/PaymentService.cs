@@ -10,12 +10,16 @@ public class PaymentService : IPaymentService
     private readonly IPaymentRepository _paymentRepository;
     private readonly IOrderRepository _orderRepository;
     private readonly IMapper _mapper;
+    private readonly IInventoryService _inventoryService;
+    private readonly INotificationService _notifier;
 
-    public PaymentService(IPaymentRepository paymentRepository, IOrderRepository orderRepository, IMapper mapper)
+    public PaymentService(IPaymentRepository paymentRepository, IOrderRepository orderRepository, IMapper mapper, Application.Interfaces.IInventoryService inventoryService, Application.Interfaces.INotificationService notifier)
     {
         _paymentRepository = paymentRepository;
         _orderRepository = orderRepository;
         _mapper = mapper;
+        _inventoryService = inventoryService;
+        _notifier = notifier;
     }
 
     public async Task<PaymentResponseDto> ProcessPaymentAsync(PaymentProcessDto paymentProcessDto)
@@ -42,6 +46,20 @@ public class PaymentService : IPaymentService
         order.Status = "Processing";
         await _orderRepository.SaveChangesAsync();
 
+        // Finalize inventory reservations for order items
+        foreach (var item in order.OrderItems)
+        {
+            await _inventoryService.FinalizeReservationAsync(item.ProductId, item.Quantity, "system");
+        }
+
+        // Notify order status update to customers via SignalR
+        await _notifier.NotifyOrderStatusAsync(order.OrderId, order.Status);
+        await _notifier.BroadcastLiveSalesAsync(new
+        {
+            OrderId = order.OrderId,
+            Amount = order.TotalAmount,
+            Timestamp = DateTime.UtcNow
+        });
         return new PaymentResponseDto
         {
             Status = payment.Status,

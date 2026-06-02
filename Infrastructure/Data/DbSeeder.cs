@@ -23,6 +23,41 @@ namespace Infrastructure.Data
                 await context.SaveChangesAsync();
             }
 
+            // Seed Inventory for existing products if missing
+            var productsList = await context.Products.ToListAsync();
+            foreach (var product in productsList)
+            {
+                var existingInv = await context.Inventories.FirstOrDefaultAsync(i => i.ProductId == product.Id);
+                if (existingInv == null)
+                {
+                    var inv = new Inventory
+                    {
+                        Id = Guid.NewGuid(),
+                        ProductId = product.Id,
+                        AvailableStock = Math.Max(0, product.StockQuantity),
+                        ReservedStock = 0,
+                        WarehouseLocation = "Main Warehouse",
+                        LowStockThreshold = 5,
+                        LastUpdated = DateTime.UtcNow
+                    };
+
+                    await context.Inventories.AddAsync(inv);
+                    await context.SaveChangesAsync();
+
+                    await context.InventoryHistories.AddAsync(new InventoryHistory
+                    {
+                        Id = Guid.NewGuid(),
+                        InventoryId = inv.Id,
+                        Change = inv.AvailableStock,
+                        Reason = "InitialSeed",
+                        Timestamp = DateTime.UtcNow,
+                        PerformedBy = "system"
+                    });
+
+                    await context.SaveChangesAsync();
+                }
+            }
+
             // Seed Products if none exist
             if (!await context.Products.AnyAsync())
             {

@@ -1,0 +1,20 @@
+{
+  "updateStock": {
+    "productId": "00000000-0000-0000-0000-000000000000",
+    "quantity": 50,
+    "reason": "Initial restock"
+  },
+  "reserveStock": {
+    "productId": "00000000-0000-0000-0000-000000000000",
+    "quantity": 2,
+    "userId": "user-123"
+  },
+  "orderNotification": {
+    "orderId": "11111111-1111-1111-1111-111111111111",
+    "status": "Shipped",
+    "tracking": {
+      "carrier": "FastShip",
+      "trackingNumber": "TRACK123456"
+    }
+  }
+}

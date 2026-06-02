@@ -10,12 +10,16 @@ public class OrderService : IOrderService
     private readonly IOrderRepository _orderRepository;
     private readonly ICartRepository _cartRepository;
     private readonly IMapper _mapper;
+    private readonly IInventoryService _inventoryService;
+    private readonly INotificationService _notifier;
 
-    public OrderService(IOrderRepository orderRepository, ICartRepository cartRepository, IMapper mapper)
+    public OrderService(IOrderRepository orderRepository, ICartRepository cartRepository, IMapper mapper, Application.Interfaces.IInventoryService inventoryService, Application.Interfaces.INotificationService notifier)
     {
         _orderRepository = orderRepository;
         _cartRepository = cartRepository;
         _mapper = mapper;
+        _inventoryService = inventoryService;
+        _notifier = notifier;
     }
 
     public async Task<OrderDto> CreateOrderAsync(string userId, OrderCreateDto orderCreateDto)
@@ -51,6 +55,15 @@ public class OrderService : IOrderService
         await _orderRepository.AddOrderAsync(order);
         await _orderRepository.SaveChangesAsync();
 
+        // Reserve stock for each item
+        foreach (var item in order.OrderItems)
+        {
+            await _inventoryService.ReserveStockAsync(new Application.DTOs.ReserveStockDto { ProductId = item.ProductId, Quantity = item.Quantity, UserId = userId });
+        }
+
+        // Notify admins about new order
+        await _notifier.NotifyNewOrderAsync(order.OrderId);
+
         await _cartRepository.ClearCartAsync(cart.CartId);
         await _cartRepository.SaveChangesAsync();
 
@@ -82,6 +95,10 @@ public class OrderService : IOrderService
     {
         await _orderRepository.UpdateOrderStatusAsync(orderId, orderStatusUpdateDto.Status);
         await _orderRepository.SaveChangesAsync();
+        await _notifier.NotifyOrderStatusAsync(
+     orderId,
+     orderStatusUpdateDto.Status);
+
     }
 
     public async Task CancelOrderAsync(string userId, int orderId)
@@ -94,5 +111,14 @@ public class OrderService : IOrderService
 
         order.Status = "Cancelled";
         await _orderRepository.SaveChangesAsync();
+        await _notifier.NotifyOrderStatusAsync(
+    order.OrderId,
+    "Cancelled");
+
+        // Restore reserved stock for cancelled order
+        foreach (var item in order.OrderItems)
+        {
+            await _inventoryService.ReleaseStockAsync(new Application.DTOs.ReserveStockDto { ProductId = item.ProductId, Quantity = item.Quantity, UserId = userId });
+        }
     }
 }

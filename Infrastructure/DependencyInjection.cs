@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Infrastructure.Repositories;
 using Application.Common.Mappings;
+using Infrastructure.SignalR;
 
 namespace Infrastructure
 {
@@ -59,12 +60,33 @@ namespace Infrastructure
                     ValidateLifetime = true,
                     ClockSkew = TimeSpan.Zero
                 };
+
+                options.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        var accessToken = context.Request.Query["access_token"].FirstOrDefault();
+                        var path = context.HttpContext.Request.Path;
+
+                        if (!string.IsNullOrEmpty(accessToken) &&
+                            (path.StartsWithSegments("/hubs/notifications") ||
+                             path.StartsWithSegments("/hubs/orders")))
+                        {
+                            context.Token = accessToken;
+                        }
+
+                        return Task.CompletedTask;
+                    }
+                };
             });
 
             services.AddAuthorization();
 
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IInventoryRepository, InventoryRepository>();
+            services.AddScoped<IInventoryService, InventoryService>();
+            services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IPaymentService, PaymentService>();
@@ -81,7 +103,10 @@ namespace Infrastructure
             services.AddScoped<IAddressService, AddressService>();
             services.AddScoped<IWishlistService, WishlistService>();
 
-            services.AddAutoMapper(cfg => cfg.AddMaps(typeof(ProductProfile).Assembly));
+            services.AddAutoMapper(cfg => cfg.AddMaps(typeof(ProductProfile).Assembly, typeof(InventoryProfile).Assembly));
+
+            // Register SignalR hubs
+            services.AddSignalR();
 
             // OTP Service (Email via MailKit, Phone via console)
             services.AddScoped<IOtpService, OtpService>();

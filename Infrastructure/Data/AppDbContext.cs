@@ -23,6 +23,9 @@ namespace Infrastructure.Data
         public DbSet<Cart> Carts => Set<Cart>();
         public DbSet<CartItem> CartItems => Set<CartItem>();
 
+		public DbSet<Inventory> Inventories => Set<Inventory>();
+		public DbSet<InventoryHistory> InventoryHistories => Set<InventoryHistory>();
+
 		public DbSet<Order> Orders => Set<Order>();
 		public DbSet<OrderItem> OrderItems => Set<OrderItem>();
 
@@ -98,6 +101,24 @@ namespace Infrastructure.Data
 					.WithMany()
 					.HasForeignKey(wl => wl.ProductId)
 					.OnDelete(DeleteBehavior.Cascade);
+			});
+
+			builder.Entity<Inventory>(entity =>
+			{
+				entity.HasOne(i => i.Product)
+					  .WithMany()
+					  .HasForeignKey(i => i.ProductId)
+					  .OnDelete(DeleteBehavior.Cascade);
+                entity.Property(i => i.RowVersion)
+      .IsRowVersion();
+            });
+
+			builder.Entity<InventoryHistory>(entity =>
+			{
+				entity.HasOne(h => h.Inventory)
+					  .WithMany(i => i.History)
+					  .HasForeignKey(h => h.InventoryId)
+					  .OnDelete(DeleteBehavior.Cascade);
 			});
 		}
 	}
