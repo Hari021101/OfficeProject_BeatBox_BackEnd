@@ -12,14 +12,16 @@ public class OrderService : IOrderService
     private readonly IMapper _mapper;
     private readonly IInventoryService _inventoryService;
     private readonly INotificationService _notifier;
+    private readonly IAdminDashboardService _dashboardService;
 
-    public OrderService(IOrderRepository orderRepository, ICartRepository cartRepository, IMapper mapper, Application.Interfaces.IInventoryService inventoryService, Application.Interfaces.INotificationService notifier)
+    public OrderService(IOrderRepository orderRepository, ICartRepository cartRepository, IMapper mapper, IInventoryService inventoryService, INotificationService notifier, IAdminDashboardService dashboardService)
     {
         _orderRepository = orderRepository;
         _cartRepository = cartRepository;
         _mapper = mapper;
         _inventoryService = inventoryService;
         _notifier = notifier;
+        _dashboardService = dashboardService;
     }
 
     public async Task<OrderDto> CreateOrderAsync(string userId, OrderCreateDto orderCreateDto)
@@ -63,6 +65,17 @@ public class OrderService : IOrderService
 
         // Notify admins about new order
         await _notifier.NotifyNewOrderAsync(order.OrderId);
+
+        // Broadcast updated dashboard summary (best-effort)
+        try
+        {
+            var summary = await _dashboardService.GetSummaryAsync();
+            await _notifier.NotifyDashboardUpdatedAsync(summary);
+        }
+        catch
+        {
+            // Best-effort: don't block order creation
+        }
 
         await _cartRepository.ClearCartAsync(cart.CartId);
         await _cartRepository.SaveChangesAsync();
@@ -111,14 +124,22 @@ public class OrderService : IOrderService
 
         order.Status = "Cancelled";
         await _orderRepository.SaveChangesAsync();
-        await _notifier.NotifyOrderStatusAsync(
-    order.OrderId,
-    "Cancelled");
+        await _notifier.NotifyOrderStatusAsync(order.OrderId, "Cancelled");
 
         // Restore reserved stock for cancelled order
         foreach (var item in order.OrderItems)
         {
-            await _inventoryService.ReleaseStockAsync(new Application.DTOs.ReserveStockDto { ProductId = item.ProductId, Quantity = item.Quantity, UserId = userId });
+            await _inventoryService.ReleaseStockAsync(new ReserveStockDto { ProductId = item.ProductId, Quantity = item.Quantity, UserId = userId });
+        }
+
+        // Broadcast updated dashboard summary (best-effort)
+        try
+        {
+            var summary = await _dashboardService.GetSummaryAsync();
+            await _notifier.NotifyDashboardUpdatedAsync(summary);
+        }
+        catch
+        {
         }
     }
 }

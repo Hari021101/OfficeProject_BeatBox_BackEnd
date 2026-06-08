@@ -1,3 +1,5 @@
+using Application.DTOs.Admin;
+
 namespace Application.Interfaces;
 
 public interface INotificationService
@@ -7,6 +9,8 @@ public interface INotificationService
     Task BroadcastLiveSalesAsync(object payload);
     Task NotifyOrderStatusAsync(int orderId, string status);
     Task NotifyFlashSaleAsync(object payload);
+
+    Task NotifyDashboardUpdatedAsync(DashboardSummaryDto summary);
 
     Task NotifyDeliveryTrackingAsync(
     int orderId,

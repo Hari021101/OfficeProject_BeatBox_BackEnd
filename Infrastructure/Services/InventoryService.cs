@@ -13,13 +13,15 @@ public class InventoryService : IInventoryService
     private readonly AppDbContext _context;
     private readonly IMapper _mapper;
     private readonly INotificationService _notifier;
+    private readonly IAdminDashboardService _dashboardService;
 
-    public InventoryService(IInventoryRepository repo, AppDbContext context, IMapper mapper, INotificationService notifier)
+    public InventoryService(IInventoryRepository repo, AppDbContext context, IMapper mapper, INotificationService notifier, IAdminDashboardService dashboardService)
     {
         _repo = repo;
         _context = context;
         _mapper = mapper;
         _notifier = notifier;
+        _dashboardService = dashboardService;
     }
 
     public async Task FinalizeReservationAsync(Guid productId, int quantity, string? performedBy = null)
@@ -129,6 +131,15 @@ public class InventoryService : IInventoryService
             {
                 // notify admins about low stock
                 await _notifier.NotifyAdminLowStockAsync(inv.ProductId, inv.AvailableStock);
+                // Best-effort dashboard broadcast
+                try
+                {
+                    var summary = await _dashboardService.GetSummaryAsync();
+                    await _notifier.NotifyDashboardUpdatedAsync(summary);
+                }
+                catch
+                {
+                }
             }
         }
         catch
@@ -173,6 +184,14 @@ public class InventoryService : IInventoryService
             if (inv.AvailableStock < inv.LowStockThreshold)
             {
                 await _notifier.NotifyAdminLowStockAsync(inv.ProductId, inv.AvailableStock);
+                try
+                {
+                    var summary = await _dashboardService.GetSummaryAsync();
+                    await _notifier.NotifyDashboardUpdatedAsync(summary);
+                }
+                catch
+                {
+                }
             }
         }
         catch
@@ -212,6 +231,14 @@ public class InventoryService : IInventoryService
             });
 
             await tx.CommitAsync();
+            try
+            {
+                var summary = await _dashboardService.GetSummaryAsync();
+                await _notifier.NotifyDashboardUpdatedAsync(summary);
+            }
+            catch
+            {
+            }
         }
         catch
         {
