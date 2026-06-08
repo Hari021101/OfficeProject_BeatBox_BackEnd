@@ -233,6 +233,38 @@ namespace Infrastructure.Data
                     await userManager.AddToRoleAsync(existingAdmin, "Admin");
                 }
             }
+
+            // --- Mock Orders for Analytics ---
+            if (!await context.Orders.AnyAsync())
+            {
+                var random = new Random();
+                var products = await context.Products.ToListAsync();
+                var statuses = new[] { "Pending", "Processing", "Shipped", "Delivered", "Cancelled" };
+                var mockOrders = new List<Order>();
+
+                for (int i = 0; i < 50; i++)
+                {
+                    // Spread dates over the last 60 days
+                    var randomDaysAgo = random.Next(0, 60);
+                    var createdDate = DateTime.UtcNow.AddDays(-randomDaysAgo);
+                    var status = statuses[random.Next(statuses.Length)];
+                    
+                    var order = new Order
+                    {
+                        // OrderId is likely an auto-incrementing int, let DB handle it.
+                        UserId = existingAdmin?.Id ?? "system", // Use admin as dummy user
+                        TotalAmount = random.Next(1000, 15000),
+                        Status = status,
+                        CreatedDate = createdDate,
+                        ShippingAddress = "123 Mock St, Mock City, 123456, India"
+                    };
+
+                    mockOrders.Add(order);
+                }
+
+                await context.Orders.AddRangeAsync(mockOrders);
+                await context.SaveChangesAsync();
+            }
         }
     }
 }
