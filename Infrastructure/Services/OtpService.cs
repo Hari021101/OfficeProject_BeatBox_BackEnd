@@ -15,12 +15,14 @@ public class OtpService : IOtpService
     private readonly AppDbContext _context;
     private readonly IConfiguration _config;
     private readonly ILogger<OtpService> _logger;
+    private readonly IEmailService _emailService;
 
-    public OtpService(AppDbContext context, IConfiguration config, ILogger<OtpService> logger)
+    public OtpService(AppDbContext context, IConfiguration config, ILogger<OtpService> logger, IEmailService emailService)
     {
         _context = context;
         _config = config;
         _logger = logger;
+        _emailService = emailService;
     }
 
     // ─── Generate a 6-digit OTP and store it ─────────────────────────────────
@@ -70,6 +72,14 @@ public class OtpService : IOtpService
         var senderEmail = _config["Email:SenderEmail"] ?? "";
         var senderName = _config["Email:SenderName"] ?? "BeatBox";
         var appPassword = _config["Email:AppPassword"] ?? "";
+        var htmlTemplate = $"""
+<div style="font-family:Arial,sans-serif">
+<h2>BeatBox Verification</h2>
+<p>Your OTP is:</p>
+<h1>{code}</h1>
+<p>Expires in 10 minutes.</p>
+</div>
+""";        
 
         var message = new MimeMessage();
         message.From.Add(new MailboxAddress(senderName, senderEmail));
@@ -90,11 +100,10 @@ public class OtpService : IOtpService
                 """
         };
 
-        using var client = new SmtpClient();
-        await client.ConnectAsync(smtpHost, smtpPort, SecureSocketOptions.StartTls);
-        await client.AuthenticateAsync(senderEmail, appPassword);
-        await client.SendAsync(message);
-        await client.DisconnectAsync(true);
+        await _emailService.SendEmailAsync(
+        email,
+        $"BeatBox — Your Verification Code: {code}",
+        htmlTemplate);
     }
 
     // ─── Phone OTP — console log (free), extend with SMS provider later ───────

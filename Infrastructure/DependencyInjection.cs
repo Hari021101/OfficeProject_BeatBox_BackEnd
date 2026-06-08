@@ -105,6 +105,12 @@ namespace Infrastructure
             services.AddScoped<IAddressService, AddressService>();
             services.AddScoped<IWishlistService, WishlistService>();
 
+            services.AddScoped<INotificationRepository, NotificationRepository>();
+
+            services.AddScoped<
+                INotificationManagerService,
+                NotificationManagerService>();
+
             services.AddAutoMapper(cfg => cfg.AddMaps(typeof(ProductProfile).Assembly, typeof(InventoryProfile).Assembly));
 
             // Register SignalR hubs
@@ -112,6 +118,7 @@ namespace Infrastructure
 
             // OTP Service (Email via MailKit, Phone via console)
             services.AddScoped<IOtpService, OtpService>();
+            services.AddScoped<IEmailService, EmailService>();
 
             return services;
         }

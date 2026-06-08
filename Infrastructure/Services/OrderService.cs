@@ -56,7 +56,7 @@ public class OrderService : IOrderService
 
         await _orderRepository.AddOrderAsync(order);
         await _orderRepository.SaveChangesAsync();
-
+            
         // Reserve stock for each item
         foreach (var item in order.OrderItems)
         {
