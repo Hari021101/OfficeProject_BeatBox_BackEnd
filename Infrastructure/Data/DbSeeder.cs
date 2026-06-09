@@ -564,6 +564,108 @@ namespace Infrastructure.Data
                 }
             }
 
+            // =============================================
+            // PHASE 1 MIGRATION: Audio Categories & Products
+            // =============================================
+
+            // Ensure all Audio subcategories exist
+            var audioCategories = new Dictionary<string, string>
+            {
+                { "Soundbars",             "Premium soundbars for home theatre." },
+                { "Party Speakers",        "High-wattage speakers for parties and events." },
+                { "Portable Speakers",     "Compact wireless speakers for on-the-go." },
+                { "TWS Earbuds",           "True Wireless Stereo earbuds." },
+                { "Neckbands",             "Wireless neckband earphones." },
+                { "Wireless Headphones",   "Over-ear and on-ear wireless headphones." },
+                { "Wired Earphones",       "High-fidelity wired in-ear monitors." },
+                { "USB Speakers",          "USB-powered desktop speakers." },
+                { "Conference Speakers",   "Speakerphones for meetings and calls." },
+                { "Wireless Microphones",  "Professional wireless mic systems." },
+            };
+
+            var audioCatEntities = new Dictionary<string, Category>();
+            foreach (var kv in audioCategories)
+            {
+                var cat = await context.Categories.FirstOrDefaultAsync(c => c.Name == kv.Key);
+                if (cat == null)
+                {
+                    cat = new Category { Id = Guid.NewGuid(), Name = kv.Key, Description = kv.Value };
+                    await context.Categories.AddAsync(cat);
+                    await context.SaveChangesAsync();
+                }
+                audioCatEntities[kv.Key] = cat;
+            }
+
+            // Helper: add product if not already present
+            async Task AddProductIfMissing(string name, string description, decimal price, decimal discountPrice,
+                int stock, string imageUrl, Guid categoryId, string brand, double rating,
+                string batteryLife, string color, string connectivity)
+            {
+                if (!await context.Products.AnyAsync(p => p.Name == name))
+                {
+                    var p = new Product
+                    {
+                        Id = Guid.NewGuid(), Name = name, Description = description,
+                        Price = price, DiscountPrice = discountPrice, StockQuantity = stock,
+                        ImageUrl = imageUrl, CategoryId = categoryId, Brand = brand,
+                        Rating = rating, BatteryLife = batteryLife, Color = color,
+                        Connectivity = connectivity, IsFeatured = true,
+                        SoldCount = new Random().Next(50, 500), DeliveryDays = 3
+                    };
+                    await context.Products.AddAsync(p);
+                    await context.SaveChangesAsync();
+                }
+            }
+
+            // Soundbars
+            await AddProductIfMissing("BeatBox Soundbar 2.1", "2.1 channel soundbar with wireless subwoofer.", 4999, 2999, 80, "soundbar.png", audioCatEntities["Soundbars"].Id, "BeatBox", 4.7, "N/A", "Black", "HDMI ARC / Optical");
+            await AddProductIfMissing("BeatBox Soundbar Pro 5.1", "Immersive 5.1 surround soundbar, Dolby Audio.", 8999, 6999, 50, "soundbar.png", audioCatEntities["Soundbars"].Id, "BeatBox", 4.8, "N/A", "Black", "HDMI ARC");
+            await AddProductIfMissing("BeatBox Gaming Soundbar X", "Gaming soundbar with Virtual 7.1 and low latency.", 4999, 3499, 60, "soundbar.png", audioCatEntities["Soundbars"].Id, "BeatBox", 4.7, "N/A", "Black", "Bluetooth / Optical");
+
+            // Party Speakers
+            await AddProductIfMissing("Party Boom 1500", "1500W peak party speaker with disco lights and mic input.", 12999, 9999, 30, "party_speaker.png", audioCatEntities["Party Speakers"].Id, "BeatBox", 4.8, "8 Hours", "Black", "Bluetooth 5.0");
+            await AddProductIfMissing("Party Blast Tower", "Tower party speaker with karaoke mic and FM radio.", 14999, 11999, 20, "party_speaker.png", audioCatEntities["Party Speakers"].Id, "BeatBox", 4.9, "N/A", "Black", "Bluetooth / AUX");
+            await AddProductIfMissing("Party Lite Wireless", "Portable party speaker, IPX5, 12-hour battery.", 7999, 5999, 60, "party_speaker.png", audioCatEntities["Party Speakers"].Id, "BeatBox", 4.6, "12 Hours", "Black", "Bluetooth 5.0");
+
+            // Portable Speakers
+            await AddProductIfMissing("Portable Rugged X3", "IP67 waterproof rugged Bluetooth speaker, 24-hour battery.", 2499, 1799, 120, "hero_speaker.png", audioCatEntities["Portable Speakers"].Id, "BeatBox", 4.8, "24 Hours", "Green", "Bluetooth 5.0");
+            await AddProductIfMissing("Portable Bass Booster", "360° passive bass radiator, TWS pairable.", 1999, 1499, 150, "hero_speaker.png", audioCatEntities["Portable Speakers"].Id, "BeatBox", 4.7, "16 Hours", "Black", "Bluetooth 5.0");
+            await AddProductIfMissing("Pocket Mini Speaker", "Ultra-compact pocket speaker, USB-C charging.", 999, 699, 200, "hero_speaker.png", audioCatEntities["Portable Speakers"].Id, "BeatBox", 4.5, "8 Hours", "Blue", "Bluetooth 5.0");
+
+            // TWS Earbuds
+            await AddProductIfMissing("TWS ANC Elite", "Hybrid ANC TWS earbuds, 40-hour total playback.", 3499, 2499, 100, "smart_earbuds.png", audioCatEntities["TWS Earbuds"].Id, "BeatBox", 4.9, "40 Hours", "White", "Bluetooth 5.3");
+            await AddProductIfMissing("TWS Sport Pro", "IPX5 sport TWS with ear hooks, 36-hour battery.", 1999, 1499, 130, "smart_earbuds.png", audioCatEntities["TWS Earbuds"].Id, "BeatBox", 4.7, "36 Hours", "Black", "Bluetooth 5.0");
+            await AddProductIfMissing("TWS Lite Everyday", "Best-value TWS, 24-hour battery, touch controls.", 799, 599, 250, "smart_earbuds.png", audioCatEntities["TWS Earbuds"].Id, "BeatBox", 4.5, "24 Hours", "Black", "Bluetooth 5.0");
+
+            // Neckbands
+            await AddProductIfMissing("Neckband Pro ANC", "Active noise cancellation neckband, 30-hour playback.", 1499, 999, 140, "wireless_neckband.png", audioCatEntities["Neckbands"].Id, "BeatBox", 4.8, "30 Hours", "Black", "Bluetooth 5.0");
+            await AddProductIfMissing("Neckband Sport Flex", "Memory-flex band, IPX4 rated, 28-hour battery.", 1299, 799, 160, "wireless_neckband.png", audioCatEntities["Neckbands"].Id, "BeatBox", 4.7, "28 Hours", "Blue", "Bluetooth 5.0");
+
+            // Wireless Headphones
+            await AddProductIfMissing("ANC Headphones Pro", "45dB ANC, premium leather cushions, 50-hour playback.", 4999, 2999, 70, "hero_headphones.png", audioCatEntities["Wireless Headphones"].Id, "BeatBox", 4.9, "50 Hours", "Black", "Bluetooth 5.2");
+            await AddProductIfMissing("Wireless Headphones Lite", "Lightweight foldable, 40-hour playback, best value.", 1999, 1499, 120, "hero_headphones.png", audioCatEntities["Wireless Headphones"].Id, "BeatBox", 4.6, "40 Hours", "White", "Bluetooth 5.0");
+            await AddProductIfMissing("Studio Wireless Headphones X", "Studio-grade flat EQ, 50mm drivers, for creators.", 6999, 4999, 40, "hero_headphones.png", audioCatEntities["Wireless Headphones"].Id, "BeatBox", 4.9, "30 Hours", "Silver", "Bluetooth 5.2");
+
+            // Wired Earphones
+            await AddProductIfMissing("Wired Pro IEM", "Balanced armature driver, braided cable, audiophile grade.", 799, 499, 180, "wired_earphones.png", audioCatEntities["Wired Earphones"].Id, "BeatBox", 4.8, "N/A", "Silver", "Wired 3.5mm");
+            await AddProductIfMissing("Wired Bass Boost", "12mm deep-bass driver, in-line mic.", 499, 299, 250, "wired_earphones.png", audioCatEntities["Wired Earphones"].Id, "BeatBox", 4.6, "N/A", "Black", "Wired 3.5mm");
+            await AddProductIfMissing("Type-C Wired Earphones", "USB-C with built-in DAC, Hi-Res audio certified.", 899, 599, 130, "wired_earphones.png", audioCatEntities["Wired Earphones"].Id, "BeatBox", 4.7, "N/A", "Black", "Wired USB-C");
+
+            // USB Speakers
+            await AddProductIfMissing("USB RGB Gaming Speakers", "10W RMS, RGB lighting, headphone jack.", 1299, 899, 100, "usb_speakers.png", audioCatEntities["USB Speakers"].Id, "BeatBox", 4.7, "N/A", "Black", "USB");
+            await AddProductIfMissing("USB Mini Desktop Speakers", "5W bus-powered, no adapter needed, volume knob.", 699, 449, 150, "usb_speakers.png", audioCatEntities["USB Speakers"].Id, "BeatBox", 4.5, "N/A", "Black", "USB");
+            await AddProductIfMissing("USB Desktop Soundbar", "15W slim under-monitor soundbar, optical input.", 1499, 999, 80, "usb_speakers.png", audioCatEntities["USB Speakers"].Id, "BeatBox", 4.6, "N/A", "Black", "USB / Optical");
+
+            // Conference Speakers
+            await AddProductIfMissing("Conference Speaker 360", "6-mic array, 360° pickup, echo cancellation.", 4999, 3499, 40, "conference_speakers.png", audioCatEntities["Conference Speakers"].Id, "BeatBox", 4.8, "N/A", "Black", "USB / Bluetooth");
+            await AddProductIfMissing("Portable Conference Speaker", "300g travel speakerphone, 10-hour battery.", 2999, 1999, 60, "conference_speakers.png", audioCatEntities["Conference Speakers"].Id, "BeatBox", 4.6, "10 Hours", "Grey", "USB-C / Bluetooth");
+            await AddProductIfMissing("Conference Elite Hub", "AI noise cancellation, 8-mic array.", 7999, 5999, 25, "conference_speakers.png", audioCatEntities["Conference Speakers"].Id, "BeatBox", 4.9, "N/A", "Black", "USB");
+
+            // Wireless Microphones
+            await AddProductIfMissing("Wireless Lavalier Clip Mic", "Clip-on vlogging mic, 20ms latency, noise shield.", 3499, 2499, 60, "wireless_microphones.png", audioCatEntities["Wireless Microphones"].Id, "BeatBox", 4.7, "8 Hours", "Black", "2.4GHz");
+            await AddProductIfMissing("Wireless Handheld Mic", "Stage-ready, 80m range, anti-drop design.", 5999, 3999, 45, "wireless_microphones.png", audioCatEntities["Wireless Microphones"].Id, "BeatBox", 4.8, "10 Hours", "Black", "UHF Wireless");
+            await AddProductIfMissing("Wireless Dual Mic System", "Dual channel, 100m range, mixer output.", 8999, 6499, 25, "wireless_microphones.png", audioCatEntities["Wireless Microphones"].Id, "BeatBox", 4.9, "8 Hours/Mic", "Black", "UHF Dual Channel");
+
         }
     }
 }
