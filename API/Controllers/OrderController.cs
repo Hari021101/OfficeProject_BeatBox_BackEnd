@@ -57,4 +57,16 @@ public class OrderController : ControllerBase
         await _orderService.CancelOrderAsync(userId, id);
         return Ok(new { Message = "Order cancelled successfully." });
     }
+
+    [HttpGet("{id}/invoice")]
+    public async Task<IActionResult> DownloadInvoice(int id)
+    {
+        var pdf = await _orderService.GenerateInvoicePdfAsync(id);
+
+        return File(
+            pdf,
+            "application/pdf",
+            $"Invoice-{id}.pdf"
+        );
+    }
 }

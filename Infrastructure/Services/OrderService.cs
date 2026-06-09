@@ -2,6 +2,8 @@ using Application.DTOs;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
 
 namespace Infrastructure.Services;
 
@@ -141,5 +143,249 @@ public class OrderService : IOrderService
         catch
         {
         }
+    }
+
+    public async Task<byte[]> GenerateInvoicePdfAsync(int orderId)
+    {
+        var order = await _orderRepository.GetOrderByIdAsync(orderId);
+
+        if (order == null)
+            throw new Exception("Order not found");
+
+        decimal subtotal = order.OrderItems.Sum(x =>
+            x.UnitPrice * x.Quantity);
+
+        decimal gst = subtotal * 0.18m;
+
+        decimal shipping = subtotal >= 999 ? 0 : 79;
+
+        decimal grandTotal = subtotal + gst + shipping;
+
+        var document = Document.Create(container =>
+        {
+            container.Page(page =>
+            {
+                page.Size(PageSizes.A4);
+
+                page.Margin(30);
+
+                page.DefaultTextStyle(x =>
+                    x.FontSize(11));
+
+                // HEADER
+                page.Header().Row(row =>
+                {
+                    row.RelativeItem().Column(col =>
+                    {
+                        col.Item().Text("BEATBOX")
+                            .FontSize(28)
+                            .Bold()
+                            .FontColor("#00F3FF");
+
+                        col.Item().Text("Premium Audio Experience")
+                            .FontSize(10);
+
+                        col.Item().Text("support@beatbox.com");
+                        col.Item().Text("www.beatbox.com");
+                    });
+
+                    row.RelativeItem().AlignRight().Column(col =>
+                    {
+                        col.Item().Text("INVOICE")
+                            .FontSize(24)
+                            .Bold();
+
+                        col.Item().Text(
+                            $"Invoice No: BB-{DateTime.Now.Year}-{order.OrderId:D6}");
+
+                        col.Item().Text(
+                            $"Date: {order.CreatedDate:dd MMM yyyy}");
+
+                        col.Item().Text(
+                            $"Status: {order.Status}");
+                    });
+                });
+
+                // CONTENT
+                page.Content().PaddingVertical(20).Column(col =>
+                {
+                    // BILL TO
+                    col.Item()
+                        .Border(1)
+                        .Padding(10)
+                        .Column(address =>
+                        {
+                            address.Item()
+                                .Text("BILL TO")
+                                .Bold()
+                                .FontSize(14);
+
+                            address.Item().Text(order.ShippingAddress);
+                        });
+
+                    col.Item().PaddingVertical(15);
+
+                    // PRODUCTS TABLE
+                    col.Item().Table(table =>
+                    {
+                        table.ColumnsDefinition(columns =>
+                        {
+                            columns.RelativeColumn(4);
+                            columns.RelativeColumn(1);
+                            columns.RelativeColumn(2);
+                            columns.RelativeColumn(2);
+                        });
+
+                        table.Header(header =>
+                        {
+                            header.Cell()
+                                .Background("#00F3FF")
+                                .Padding(5)
+                                .Text("Product")
+                                .Bold();
+
+                            header.Cell()
+                                .Background("#00F3FF")
+                                .Padding(5)
+                                .Text("Qty")
+                                .Bold();
+
+                            header.Cell()
+                                .Background("#00F3FF")
+                                .Padding(5)
+                                .Text("Price")
+                                .Bold();
+
+                            header.Cell()
+                                .Background("#00F3FF")
+                                .Padding(5)
+                                .Text("Total")
+                                .Bold();
+                        });
+
+                        foreach (var item in order.OrderItems)
+                        {
+                            table.Cell()
+                                .BorderBottom(1)
+                                .Padding(5)
+                                .Text(item.Product?.Name ?? "Product");
+
+                            table.Cell()
+                                .BorderBottom(1)
+                                .Padding(5)
+                                .Text(item.Quantity.ToString());
+
+                            table.Cell()
+                                .BorderBottom(1)
+                                .Padding(5)
+                                .Text($"₹{item.UnitPrice:N2}");
+
+                            table.Cell()
+                                .BorderBottom(1)
+                                .Padding(5)
+                                .Text($"₹{(item.Quantity * item.UnitPrice):N2}");
+                        }
+                    });
+
+                    col.Item().PaddingVertical(20);
+
+                    // TOTALS BOX
+                    col.Item()
+                        .AlignRight()
+                        .Width(250)
+                        .Border(1)
+                        .Padding(10)
+                        .Column(total =>
+                        {
+                            total.Item().Row(row =>
+                            {
+                                row.RelativeItem().Text("Subtotal");
+                                row.ConstantItem(80)
+                                    .AlignRight()
+                                    .Text($"₹{subtotal:N2}");
+                            });
+
+                            total.Item().Row(row =>
+                            {
+                                row.RelativeItem().Text("GST (18%)");
+                                row.ConstantItem(80)
+                                    .AlignRight()
+                                    .Text($"₹{gst:N2}");
+                            });
+
+                            total.Item().Row(row =>
+                            {
+                                row.RelativeItem().Text("Shipping");
+                                row.ConstantItem(80)
+                                    .AlignRight()
+                                    .Text(shipping == 0
+                                        ? "FREE"
+                                        : $"₹{shipping:N2}");
+                            });
+
+                            total.Item()
+                                .PaddingTop(5)
+                                .LineHorizontal(1);
+
+                            total.Item()
+                                .PaddingTop(5);
+
+                            total.Item().Row(row =>
+                            {
+                                row.RelativeItem()
+                                    .Text("Grand Total")
+                                    .Bold();
+
+                                row.ConstantItem(80)
+                                    .AlignRight()
+                                    .Text($"₹{grandTotal:N2}")
+                                    .Bold();
+                            });
+                        });
+
+                    col.Item().PaddingVertical(20);
+
+                    // PAYMENT INFO
+                    col.Item()
+                        .Border(1)
+                        .Padding(10)
+                        .Column(payment =>
+                        {
+                            payment.Item()
+                                .Text("PAYMENT INFORMATION")
+                                .Bold()
+                                .FontSize(14);
+
+                            payment.Item()
+                                .Text("Payment Status: Paid");
+
+                            payment.Item()
+                                .Text($"Order Status: {order.Status}");
+                        });
+                });
+
+                // FOOTER
+                page.Footer()
+                    .AlignCenter()
+                    .Column(col =>
+                    {
+                        col.Item().LineHorizontal(1);
+
+                        col.Item().PaddingTop(10);
+
+                        col.Item()
+                            .Text("Thank you for shopping with BeatBox!")
+                            .Bold();
+
+                        col.Item()
+                            .Text("This is a computer-generated invoice.");
+
+                        col.Item()
+                            .Text("support@beatbox.com | www.beatbox.com");
+                    });
+            });
+        });
+
+        return document.GeneratePdf();
     }
 }

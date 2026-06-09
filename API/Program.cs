@@ -2,12 +2,14 @@ using Infrastructure;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
 
+QuestPDF.Settings.License = LicenseType.Community;
 // Register Clean Architecture Infrastructure Services (DbContext, Identity, JWT, etc.)
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
