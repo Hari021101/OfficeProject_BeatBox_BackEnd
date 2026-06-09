@@ -79,8 +79,31 @@ public class AddressService : IAddressService
 
     public async Task DeleteAddressAsync(int id, string userId)
     {
+        var address = await _addressRepository.GetAddressByIdAsync(id, userId);
+
+        if (address == null)
+            throw new Exception("Address not found");
+
+        bool wasDefault = address.IsDefault;
+
         await _addressRepository.DeleteAddressAsync(id, userId);
         await _addressRepository.SaveChangesAsync();
+
+        if (wasDefault)
+        {
+            var remainingAddresses =
+                await _addressRepository.GetAddressesByUserIdAsync(userId);
+
+            var firstAddress = remainingAddresses.FirstOrDefault();
+
+            if (firstAddress != null)
+            {
+                firstAddress.IsDefault = true;
+
+                await _addressRepository.UpdateAddressAsync(firstAddress);
+                await _addressRepository.SaveChangesAsync();
+            }
+        }
     }
 
     public async Task SetDefaultAddressAsync(int id, string userId)
