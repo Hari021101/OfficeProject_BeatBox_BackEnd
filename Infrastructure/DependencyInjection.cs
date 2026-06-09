@@ -13,6 +13,7 @@ using Infrastructure.Repositories;
 using Application.Common.Mappings;
 using Infrastructure.SignalR;
 
+
 namespace Infrastructure
 {
     public static class DependencyInjection
@@ -104,6 +105,8 @@ namespace Infrastructure
             services.AddScoped<IProfileService, ProfileService>();
             services.AddScoped<IAddressService, AddressService>();
             services.AddScoped<IWishlistService, WishlistService>();
+            services.AddScoped<ICouponRepository, CouponRepository>();
+            services.AddScoped<ICouponService, CouponService>();
 
             services.AddScoped<INotificationRepository, NotificationRepository>();
 

@@ -446,7 +446,44 @@ namespace Infrastructure.Data
                 await context.SaveChangesAsync();
             }
 
-           
+            if (!await context.Coupons.AnyAsync())
+            {
+                await context.Coupons.AddRangeAsync(
+
+                    new Coupon
+                    {
+                        Code = "WELCOME10",
+                        DiscountPercentage = 10,
+                        MinimumOrderAmount = 1000,
+                        ExpiryDate = DateTime.UtcNow.AddYears(1),
+                        IsActive = true,
+                        UsageLimit = 1000
+                    },
+
+                    new Coupon
+                    {
+                        Code = "BEATBOX500",
+                        DiscountAmount = 500,
+                        MinimumOrderAmount = 3000,
+                        ExpiryDate = DateTime.UtcNow.AddYears(1),
+                        IsActive = true,
+                        UsageLimit = 500
+                    },
+
+                    new Coupon
+                    {
+                        Code = "SUMMER20",
+                        DiscountPercentage = 20,
+                        MinimumOrderAmount = 5000,
+                        ExpiryDate = DateTime.UtcNow.AddMonths(3),
+                        IsActive = true,
+                        UsageLimit = 100
+                    }
+                );
+
+                await context.SaveChangesAsync();
+            }
+
             // --- Admin Role & User Seeding ---
             var adminRoleExists = await roleManager.RoleExistsAsync("Admin");
             if (!adminRoleExists)

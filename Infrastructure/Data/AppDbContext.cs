@@ -34,6 +34,8 @@ namespace Infrastructure.Data
 		public DbSet<WishlistItem> WishlistItems => Set<WishlistItem>();
 		public DbSet<OtpRecord> OtpRecords => Set<OtpRecord>();
         public DbSet<Notification> Notifications => Set<Notification>();
+        public DbSet<Coupon> Coupons => Set<Coupon>();
+
 
 
         protected override void OnModelCreating(ModelBuilder builder)
