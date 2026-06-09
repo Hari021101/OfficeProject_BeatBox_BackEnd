@@ -7,5 +7,6 @@ namespace Domain.Entities
         public string? FullName { get; set; }
         public bool IsEmailVerified { get; set; }
         public bool IsPhoneVerified { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     }
 }

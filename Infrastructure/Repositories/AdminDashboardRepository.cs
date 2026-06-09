@@ -18,7 +18,10 @@ public class AdminDashboardRepository : IAdminDashboardRepository
     public async Task<DashboardSummaryDto> GetSummaryAsync()
     {
         // Use aggregation queries with AsNoTracking
-        var totalRevenue = await _context.Payments.AsNoTracking().SumAsync(p => (decimal?)p.Amount) ?? 0m;
+        var totalRevenue = await _context.Orders
+    .AsNoTracking()
+    .Where(o => o.Status != "Cancelled")
+    .SumAsync(o => (decimal?)o.TotalAmount) ?? 0m;
         var totalOrders = await _context.Orders.AsNoTracking().CountAsync();
         var totalCustomers = await _context.Users.AsNoTracking().CountAsync();
         var totalProducts = await _context.Products.AsNoTracking().CountAsync();

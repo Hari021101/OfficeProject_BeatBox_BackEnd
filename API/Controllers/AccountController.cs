@@ -1,6 +1,7 @@
 using Application.DTOs;
 using Application.Interfaces;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -104,6 +105,34 @@ namespace API.Controllers
                 Token = await _tokenService.CreateToken(user),
                 Roles = roles
             };
+        }
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("users")]
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = _userManager.Users.ToList();
+
+            var result = new List<object>();
+
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+
+                result.Add(new
+                {
+                    id = user.Id,
+                    fullName = user.FullName,
+                    email = user.Email,
+                    phoneNumber = user.PhoneNumber,
+                    roles = roles,
+                    isActive = true,
+                    joinDate = user.CreatedDate // or CreatedAt if exists
+                });
+            }
+
+            return Ok(result);
         }
     }
 }
