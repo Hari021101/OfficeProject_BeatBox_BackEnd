@@ -41,4 +41,6 @@ public class Product
     public ICollection<ProductImage> Images { get; set; } = new List<ProductImage>();
 
     public ICollection<ProductFaq> Faqs { get; set; } = new List<ProductFaq>();
+    public ICollection<ProductVariant> Variants { get; set; }
+    = new List<ProductVariant>();
 }
