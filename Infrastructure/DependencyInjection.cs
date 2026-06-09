@@ -87,6 +87,8 @@ namespace Infrastructure
             services.AddScoped<IInventoryRepository, InventoryRepository>();
             services.AddScoped<IInventoryService, InventoryService>();
             services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<IAdminDashboardRepository, AdminDashboardRepository>();
+            services.AddScoped<IAdminDashboardService, AdminDashboardService>();
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IPaymentService, PaymentService>();
@@ -103,6 +105,12 @@ namespace Infrastructure
             services.AddScoped<IAddressService, AddressService>();
             services.AddScoped<IWishlistService, WishlistService>();
 
+            services.AddScoped<INotificationRepository, NotificationRepository>();
+
+            services.AddScoped<
+                INotificationManagerService,
+                NotificationManagerService>();
+
             services.AddAutoMapper(cfg => cfg.AddMaps(typeof(ProductProfile).Assembly, typeof(InventoryProfile).Assembly));
 
             // Register SignalR hubs
@@ -110,6 +118,7 @@ namespace Infrastructure
 
             // OTP Service (Email via MailKit, Phone via console)
             services.AddScoped<IOtpService, OtpService>();
+            services.AddScoped<IEmailService, EmailService>();
 
             return services;
         }

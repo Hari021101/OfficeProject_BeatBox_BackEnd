@@ -1,3 +1,4 @@
+using Application.DTOs.Admin;
 using Application.Interfaces;
 using Microsoft.AspNetCore.SignalR;
 
@@ -58,5 +59,15 @@ public class NotificationService : INotificationService
                     Location = location
                 });
     }
+
+    public async Task NotifyDashboardUpdatedAsync(
+    DashboardSummaryDto summary)
+    {
+        await _notificationHub
+            .Clients
+            .Group("Admins")
+            .SendAsync("DashboardUpdated", summary);
+    }
+
 
 }

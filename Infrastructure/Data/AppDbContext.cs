@@ -33,8 +33,10 @@ namespace Infrastructure.Data
 		public DbSet<UserAddress> UserAddresses => Set<UserAddress>();
 		public DbSet<WishlistItem> WishlistItems => Set<WishlistItem>();
 		public DbSet<OtpRecord> OtpRecords => Set<OtpRecord>();
+        public DbSet<Notification> Notifications => Set<Notification>();
 
-		protected override void OnModelCreating(ModelBuilder builder)
+
+        protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);
 
@@ -46,12 +48,6 @@ namespace Infrastructure.Data
                 entity.Property(p => p.DiscountPrice)
                     .HasColumnType("decimal(18,2)");
             });
-
-			builder.Entity<Order>(entity =>
-			{
-				entity.Property(o => o.TotalAmount)
-					.HasColumnType("decimal(18,2)");
-			});
             builder.Entity<ProductReview>()
                 .HasOne(r => r.Product)
                 .WithMany(p => p.Reviews)
@@ -126,6 +122,16 @@ namespace Infrastructure.Data
 					  .HasForeignKey(h => h.InventoryId)
 					  .OnDelete(DeleteBehavior.Cascade);
 			});
-		}
+
+            builder.Entity<Notification>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+
+                entity.HasOne(x => x.User)
+                      .WithMany()
+                      .HasForeignKey(x => x.UserId)
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
+        }
 	}
 }

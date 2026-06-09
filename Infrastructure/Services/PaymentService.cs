@@ -12,14 +12,24 @@ public class PaymentService : IPaymentService
     private readonly IMapper _mapper;
     private readonly IInventoryService _inventoryService;
     private readonly INotificationService _notifier;
+    private readonly IAdminDashboardService _dashboardService;
 
-    public PaymentService(IPaymentRepository paymentRepository, IOrderRepository orderRepository, IMapper mapper, Application.Interfaces.IInventoryService inventoryService, Application.Interfaces.INotificationService notifier)
+    public PaymentService(IPaymentRepository paymentRepository, IOrderRepository orderRepository, IMapper mapper, IInventoryService inventoryService, INotificationService notifier)
     {
         _paymentRepository = paymentRepository;
         _orderRepository = orderRepository;
         _mapper = mapper;
         _inventoryService = inventoryService;
         _notifier = notifier;
+    }
+    public PaymentService(IPaymentRepository paymentRepository, IOrderRepository orderRepository, IMapper mapper, IInventoryService inventoryService, INotificationService notifier, IAdminDashboardService dashboardService)
+    {
+        _paymentRepository = paymentRepository;
+        _orderRepository = orderRepository;
+        _mapper = mapper;
+        _inventoryService = inventoryService;
+        _notifier = notifier;
+        _dashboardService = dashboardService;
     }
 
     public async Task<PaymentResponseDto> ProcessPaymentAsync(PaymentProcessDto paymentProcessDto)
@@ -60,6 +70,16 @@ public class PaymentService : IPaymentService
             Amount = order.TotalAmount,
             Timestamp = DateTime.UtcNow
         });
+
+        // Broadcast updated dashboard summary (best-effort)
+        try
+        {
+            var summary = await _dashboardService.GetSummaryAsync();
+            await _notifier.NotifyDashboardUpdatedAsync(summary);
+        }
+        catch
+        {
+        }
         return new PaymentResponseDto
         {
             Status = payment.Status,
