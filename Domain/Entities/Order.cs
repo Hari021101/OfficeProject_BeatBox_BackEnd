@@ -10,5 +10,7 @@ namespace Domain.Entities
         public DateTime CreatedDate { get; set; }
 
         public ICollection<OrderItem> OrderItems { get; set; }
+        public ICollection<Payment> Payments { get; set; } = new List<Payment>();
+
     }
 }

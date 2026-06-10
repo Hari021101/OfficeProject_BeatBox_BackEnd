@@ -13,6 +13,10 @@ public class InvoiceDto
     public decimal TotalAmount { get; set; }
 
     public List<InvoiceItemDto> Items { get; set; } = new();
+
+    public string PaymentMethod { get; set; }
+    public string TransactionId { get; set; }
+    public DateTime? PaidDate { get; set; }
 }
 
 public class InvoiceItemDto

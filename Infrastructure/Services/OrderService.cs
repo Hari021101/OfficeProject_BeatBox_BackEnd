@@ -41,17 +41,32 @@ public class OrderService : IOrderService
         };
         var shippingAddress = string.Join(", ", parts.Where(p => !string.IsNullOrWhiteSpace(p)));
 
+        var subtotal = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice);
+
+        var gst = subtotal * 0.18m;
+
+        var shipping = subtotal >= 999 ? 0 : 79;
+
+        var discount = orderCreateDto.DiscountAmount;
+
+        var grandTotal =
+            subtotal +
+            gst +
+            shipping -
+            discount;
+
         var order = new Order
         {
-            UserId          = userId,
+            UserId = userId,
             ShippingAddress = shippingAddress,
-            CreatedDate     = DateTime.UtcNow,
-            Status          = "Pending",
-            TotalAmount     = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice),
-            OrderItems      = cart.CartItems.Select(ci => new OrderItem
+            CreatedDate = DateTime.UtcNow,
+            Status = "Pending",
+            TotalAmount = grandTotal,
+
+            OrderItems = cart.CartItems.Select(ci => new OrderItem
             {
                 ProductId = ci.ProductId,
-                Quantity  = ci.Quantity,
+                Quantity = ci.Quantity,
                 UnitPrice = ci.UnitPrice
             }).ToList()
         };

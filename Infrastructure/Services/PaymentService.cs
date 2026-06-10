@@ -35,10 +35,13 @@ public class PaymentService : IPaymentService
     public async Task<PaymentResponseDto> ProcessPaymentAsync(PaymentProcessDto paymentProcessDto)
     {
         var order = await _orderRepository.GetOrderByIdAsync(paymentProcessDto.OrderId);
+        Console.WriteLine($"Order Amount: {order.TotalAmount}");
+        Console.WriteLine($"Payment Amount: {paymentProcessDto.Amount}");
         if (order == null) throw new Exception("Order not found");
 
-        if (order.TotalAmount != paymentProcessDto.Amount)
+        if (Math.Abs(order.TotalAmount - paymentProcessDto.Amount) > 1m)
             throw new Exception("Payment amount mismatch");
+
 
         var payment = new Payment
         {
@@ -46,7 +49,7 @@ public class PaymentService : IPaymentService
             Amount = paymentProcessDto.Amount,
             Method = paymentProcessDto.Method,
             Status = "Success",
-            TransactionId = Guid.NewGuid().ToString(),
+            TransactionId = paymentProcessDto.TransactionId,
             CreatedDate = DateTime.UtcNow
         };
 

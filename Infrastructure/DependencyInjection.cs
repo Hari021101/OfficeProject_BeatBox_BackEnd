@@ -107,6 +107,7 @@ namespace Infrastructure
             services.AddScoped<IWishlistService, WishlistService>();
             services.AddScoped<ICouponRepository, CouponRepository>();
             services.AddScoped<ICouponService, CouponService>();
+            services.AddScoped<IRazorpayService, RazorpayService>();
 
             services.AddScoped<INotificationRepository, NotificationRepository>();
 

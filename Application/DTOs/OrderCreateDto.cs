@@ -6,7 +6,9 @@ public class OrderCreateDto
 
     public string PaymentMethod { get; set; }
 
-    public PaymentDetailsDto PaymentDetails { get; set; }
+    public PaymentDetailsDto? PaymentDetails { get; set; }
+    public string? PromoCode { get; set; }
+    public decimal DiscountAmount { get; set; }
 }
 
 public class ShippingAddressDto
@@ -23,8 +25,9 @@ public class ShippingAddressDto
 
 public class PaymentDetailsDto
 {
-    public string CardNumber { get; set; }
-    public string Expiry { get; set; }
-    public string Cvv { get; set; }
-    public string TransactionReference { get; set; }
+    public string? RazorpayOrderId { get; set; }
+    public string? RazorpayPaymentId { get; set; }
+    public string? RazorpaySignature { get; set; }
+    public string? TransactionReference { get; set; }
+
 }

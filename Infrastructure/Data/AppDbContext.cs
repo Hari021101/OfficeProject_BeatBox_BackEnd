@@ -70,12 +70,18 @@ namespace Infrastructure.Data
 				entity.Property(oi => oi.UnitPrice).HasColumnType("decimal(18,2)");
 			});
 
-			builder.Entity<Payment>(entity =>
-			{
-				entity.Property(p => p.Amount).HasColumnType("decimal(18,2)");
-			});
+            builder.Entity<Payment>(entity =>
+            {
+                entity.Property(p => p.Amount)
+                      .HasColumnType("decimal(18,2)");
 
-			builder.Entity<Cart>(entity =>
+                entity.HasOne(p => p.Order)
+                      .WithMany(o => o.Payments)
+                      .HasForeignKey(p => p.OrderId)
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            builder.Entity<Cart>(entity =>
 			{
 				// Configure foreign key mapping to AppUser since there's no navigation property
 				entity.HasOne<AppUser>().WithMany().HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Cascade);

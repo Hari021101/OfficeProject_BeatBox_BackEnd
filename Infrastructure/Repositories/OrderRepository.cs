@@ -18,7 +18,8 @@ public class OrderRepository : IOrderRepository
     {
         return await _context.Orders
             .Include(o => o.OrderItems)
-                .ThenInclude(oi => oi.Product)   // ← needed for ProductName mapping
+                .ThenInclude(oi => oi.Product)
+                 .Include(o => o.Payments)// ← needed for ProductName mapping
             .FirstOrDefaultAsync(o => o.OrderId == orderId);
     }
 
@@ -27,7 +28,8 @@ public class OrderRepository : IOrderRepository
         return await _context.Orders
             .Where(o => o.UserId == userId)
             .Include(o => o.OrderItems)
-                .ThenInclude(oi => oi.Product)   // ← needed for ProductName mapping
+                .ThenInclude(oi => oi.Product)
+                 .Include(o => o.Payments)// ← needed for ProductName mapping
             .OrderByDescending(o => o.CreatedDate)
             .ToListAsync();
     }
@@ -37,6 +39,7 @@ public class OrderRepository : IOrderRepository
         return await _context.Orders
             .Include(o => o.OrderItems)
                 .ThenInclude(oi => oi.Product)
+                 .Include(o => o.Payments)
             .OrderByDescending(o => o.CreatedDate)
             .ToListAsync();
     }
