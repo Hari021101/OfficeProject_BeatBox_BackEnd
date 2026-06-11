@@ -12,5 +12,9 @@ namespace Domain.Entities
         public ICollection<OrderItem> OrderItems { get; set; }
         public ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
+        public string? PromoCode { get; set; }
+
+        public decimal DiscountAmount { get; set; }
+
     }
 }

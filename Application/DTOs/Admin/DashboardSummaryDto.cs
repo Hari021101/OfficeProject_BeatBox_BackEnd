@@ -13,5 +13,9 @@ public class DashboardSummaryDto
     public int ShippedOrders { get; set; }
     public int DeliveredOrders { get; set; }
     public int CancelledOrders { get; set; }
-    public int LowStockProducts { get; set; }
+    public int LowStockProducts { get; set; }   
+    public decimal RevenueGrowthPercentage { get; set; }
+    public decimal OrdersGrowthPercentage { get; set; }
+    public decimal CustomerGrowthPercentage { get; set; }
+    public decimal ConversionRate { get; set; }
 }
