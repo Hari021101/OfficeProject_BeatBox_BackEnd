@@ -8,6 +8,7 @@ namespace Infrastructure.Data
     {
         public static async Task SeedAsync(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
+            await MockProductsSeeder.SeedAsync(context);
             // Seed Categories first if none exist
             if (!await context.Categories.AnyAsync())
             {
@@ -665,6 +666,45 @@ namespace Infrastructure.Data
             await AddProductIfMissing("Wireless Lavalier Clip Mic", "Clip-on vlogging mic, 20ms latency, noise shield.", 3499, 2499, 60, "wireless_microphones.png", audioCatEntities["Wireless Microphones"].Id, "BeatBox", 4.7, "8 Hours", "Black", "2.4GHz");
             await AddProductIfMissing("Wireless Handheld Mic", "Stage-ready, 80m range, anti-drop design.", 5999, 3999, 45, "wireless_microphones.png", audioCatEntities["Wireless Microphones"].Id, "BeatBox", 4.8, "10 Hours", "Black", "UHF Wireless");
             await AddProductIfMissing("Wireless Dual Mic System", "Dual channel, 100m range, mixer output.", 8999, 6499, 25, "wireless_microphones.png", audioCatEntities["Wireless Microphones"].Id, "BeatBox", 4.9, "8 Hours/Mic", "Black", "UHF Dual Channel");
+
+            // =============================================
+            // PHASE 2 MIGRATION: Computer, Car & Smart Gadgets
+            // =============================================
+
+            var phase2Categories = new Dictionary<string, string>
+            {
+                { "Computer Accessories", "Keyboards, mice, and desk setups." },
+                { "Car Accessories",      "Chargers, inflators, and car care." },
+                { "Smart Gadgets",        "Trackers, fans, and everyday tech." }
+            };
+
+            var phase2CatEntities = new Dictionary<string, Category>();
+            foreach (var kv in phase2Categories)
+            {
+                var cat = await context.Categories.FirstOrDefaultAsync(c => c.Name == kv.Key);
+                if (cat == null)
+                {
+                    cat = new Category { Id = Guid.NewGuid(), Name = kv.Key, Description = kv.Value };
+                    await context.Categories.AddAsync(cat);
+                    await context.SaveChangesAsync();
+                }
+                phase2CatEntities[kv.Key] = cat;
+            }
+
+            // Computer Accessories
+            await AddProductIfMissing("Pro Wireless Keyboard", "Low-profile mechanical wireless keyboard.", 4999, 3499, 100, "gaming_keyboard.png", phase2CatEntities["Computer Accessories"].Id, "BeatBox", 4.8, "200 Hours", "Black", "Wireless");
+            await AddProductIfMissing("Ergo Master Mouse", "Ergonomic wireless mouse with multi-device support.", 2999, 1999, 120, "gaming_mouse.png", phase2CatEntities["Computer Accessories"].Id, "BeatBox", 4.7, "100 Hours", "Grey", "Wireless");
+            await AddProductIfMissing("Alloy Laptop Stand", "Premium aluminum adjustable laptop stand.", 1999, 1299, 150, "laptop_stand.png", phase2CatEntities["Computer Accessories"].Id, "BeatBox", 4.9, "N/A", "Silver", "N/A");
+
+            // Car Accessories
+            await AddProductIfMissing("Dual Port Car Charger", "65W fast charging dual port car charger.", 1299, 799, 200, "car_charger.png", phase2CatEntities["Car Accessories"].Id, "BeatBox", 4.6, "N/A", "Black", "N/A");
+            await AddProductIfMissing("Smart Tyre Inflator", "Portable cordless tyre inflator with digital display.", 3499, 2499, 80, "tyre_inflator.png", phase2CatEntities["Car Accessories"].Id, "BeatBox", 4.8, "N/A", "Black", "N/A");
+            await AddProductIfMissing("Handheld Car Vacuum", "High-power cordless vacuum cleaner for cars.", 2999, 1999, 90, "vacuum_cleaner.png", phase2CatEntities["Car Accessories"].Id, "BeatBox", 4.7, "N/A", "Black", "N/A");
+
+            // Smart Gadgets
+            await AddProductIfMissing("Smart Location Tracker", "Bluetooth item finder with anti-lost alarm.", 999, 699, 250, "smart_tracker.png", phase2CatEntities["Smart Gadgets"].Id, "BeatBox", 4.5, "1 Year", "White", "Bluetooth");
+            await AddProductIfMissing("Portable Neck Fan", "Bladeless neck fan with 3 speed modes.", 1499, 999, 150, "portable_fan.png", phase2CatEntities["Smart Gadgets"].Id, "BeatBox", 4.6, "12 Hours", "White", "N/A");
+            await AddProductIfMissing("Pro Grooming Trimmer", "Cordless beard and hair trimmer with precision dial.", 1999, 1299, 110, "trimmer.png", phase2CatEntities["Smart Gadgets"].Id, "BeatBox", 4.7, "90 Mins", "Black", "N/A");
 
         }
     }
