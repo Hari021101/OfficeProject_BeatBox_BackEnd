@@ -44,13 +44,28 @@ public class ProductController : ControllerBase
     public async Task<IActionResult> UpdateProduct(Guid id, [FromBody] ProductUpdateDto productUpdateDto)
     {
         await _productService.UpdateProductAsync(id, productUpdateDto);
-        return NoContent();
+        var updatedProduct = await _productService.GetProductByIdAsync(id);
+        return Ok(updatedProduct);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteProduct(Guid id)
     {
         await _productService.DeleteProductAsync(id);
+        return NoContent();
+    }
+
+    [HttpPost("bulk-delete")]
+    public async Task<IActionResult> BulkDeleteProducts([FromBody] IEnumerable<Guid> productIds)
+    {
+        await _productService.BulkDeleteAsync(productIds);
+        return NoContent();
+    }
+
+    [HttpPost("bulk-feature")]
+    public async Task<IActionResult> BulkUpdateFeatured([FromBody] BulkFeatureDto dto)
+    {
+        await _productService.BulkUpdateFeaturedAsync(dto.ProductIds, dto.IsFeatured);
         return NoContent();
     }
 

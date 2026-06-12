@@ -37,7 +37,8 @@ public class ProductProfile : Profile
         CreateMap<ProductCreateDto, Product>();
 
         // Update DTO -> Product
-        CreateMap<ProductUpdateDto, Product>();
+        CreateMap<ProductUpdateDto, Product>()
+            .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
         // Product -> Update DTO
         CreateMap<Product, ProductUpdateDto>();

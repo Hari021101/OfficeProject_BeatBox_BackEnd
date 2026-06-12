@@ -91,4 +91,25 @@ public class ProductService : IProductService
 
         await _productRepository.UpdateAsync(product);
     }
+
+    public async Task BulkDeleteAsync(IEnumerable<Guid> productIds)
+    {
+        foreach (var id in productIds)
+        {
+            await _productRepository.DeleteAsync(id);
+        }
+    }
+
+    public async Task BulkUpdateFeaturedAsync(IEnumerable<Guid> productIds, bool isFeatured)
+    {
+        foreach (var id in productIds)
+        {
+            var product = await _productRepository.GetByIdAsync(id);
+            if (product != null)
+            {
+                product.IsFeatured = isFeatured;
+                await _productRepository.UpdateAsync(product);
+            }
+        }
+    }
 }
