@@ -109,6 +109,9 @@ namespace Infrastructure
             services.AddScoped<ICouponService, CouponService>();
             services.AddScoped<IRazorpayService, RazorpayService>();
 
+            services.AddScoped<IAuditLogService, AuditLogService>();
+            services.AddScoped<IReturnService, ReturnService>();
+
             services.AddScoped<INotificationRepository, NotificationRepository>();
 
             services.AddScoped<

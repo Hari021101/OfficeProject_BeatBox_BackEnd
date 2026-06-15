@@ -9,7 +9,8 @@ public interface IOrderService
     Task<OrderDto> GetOrderByIdAsync(string userId, int orderId);
     Task<IEnumerable<OrderDto>> GetAllOrdersAsync();
     Task UpdateOrderStatusAsync(int orderId, OrderStatusUpdateDto orderStatusUpdateDto);
+    Task UpdateBulkOrderStatusAsync(BulkOrderStatusUpdateDto dto);
+    Task DeleteBulkOrdersAsync(List<int> orderIds);
     Task CancelOrderAsync(string userId, int orderId);
     Task<byte[]> GenerateInvoicePdfAsync(int orderId);
-
 }

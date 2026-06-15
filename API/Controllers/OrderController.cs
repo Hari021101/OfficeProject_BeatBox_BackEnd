@@ -50,6 +50,22 @@ public class OrderController : ControllerBase
         return Ok(new { Message = "Order status updated successfully." });
     }
 
+    [Authorize(Roles = "Admin")]
+    [HttpPost("bulk-status")]
+    public async Task<IActionResult> BulkUpdateOrderStatus([FromBody] BulkOrderStatusUpdateDto dto)
+    {
+        await _orderService.UpdateBulkOrderStatusAsync(dto);
+        return Ok(new { Message = "Bulk order status updated successfully." });
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPost("bulk-delete")]
+    public async Task<IActionResult> BulkDeleteOrders([FromBody] List<int> orderIds)
+    {
+        await _orderService.DeleteBulkOrdersAsync(orderIds);
+        return Ok(new { Message = "Bulk orders deleted (cancelled) successfully." });
+    }
+
     [HttpPut("cancel/{id}")]
     public async Task<IActionResult> CancelOrder(int id)
     {

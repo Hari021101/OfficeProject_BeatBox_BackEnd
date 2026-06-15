@@ -35,8 +35,8 @@ namespace Infrastructure.Data
 		public DbSet<OtpRecord> OtpRecords => Set<OtpRecord>();
         public DbSet<Notification> Notifications => Set<Notification>();
         public DbSet<Coupon> Coupons => Set<Coupon>();
-
-
+        public DbSet<ReturnRequest> ReturnRequests => Set<ReturnRequest>();
+        public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
 
         protected override void OnModelCreating(ModelBuilder builder)
 		{
