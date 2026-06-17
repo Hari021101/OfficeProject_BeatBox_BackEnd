@@ -492,7 +492,7 @@ namespace Infrastructure.Data
                 await roleManager.CreateAsync(new IdentityRole("Admin"));
             }
 
-            var adminEmail = "vikram.admin@beatbox.com";
+            var adminEmail = "BeatBox@admin.com";
             var existingAdmin = await userManager.FindByEmailAsync(adminEmail);
 
             if (existingAdmin == null)
@@ -501,7 +501,7 @@ namespace Infrastructure.Data
                 {
                     UserName = adminEmail,
                     Email = adminEmail,
-                    FullName = "Vikram Singh (Admin)",
+                    FullName = "BeatBox Admin",
                     IsEmailVerified = true,
                     IsPhoneVerified = true
                 };
@@ -522,7 +522,7 @@ namespace Infrastructure.Data
 
             if (!await context.ProductReviews.AnyAsync())
             {
-                var admin = await userManager.FindByEmailAsync("vikram.admin@beatbox.com");
+                var admin = await userManager.FindByEmailAsync("BeatBox@admin.com");
 
                 if (admin != null)
                 {

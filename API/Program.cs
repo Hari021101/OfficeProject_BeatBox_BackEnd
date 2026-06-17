@@ -3,8 +3,36 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using QuestPDF.Infrastructure;
+using Serilog;
+using Serilog.Events;
+using Serilog.Sinks.MSSqlServer;
+using API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog Logging
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+    ?? "Server=(localdb)\\mssqllocaldb;Database=BeatBoxDb;Trusted_Connection=True;";
+
+var sinkOptions = new MSSqlServerSinkOptions
+{
+    TableName = "SerilogLogs",
+    AutoCreateSqlTable = true
+};
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+    .MinimumLevel.Override("System", LogEventLevel.Warning)
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .WriteTo.File("Logs/beatbox-log-.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.MSSqlServer(
+        connectionString: connectionString,
+        sinkOptions: sinkOptions)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -59,6 +87,10 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+app.UseMiddleware<ExceptionHandlingMiddleware>();
+app.UseMiddleware<RequestLoggingMiddleware>();
+app.UseStaticFiles();
+
 // Automatically apply pending EF migrations on startup
 using (var scope = app.Services.CreateScope())
 {
@@ -66,7 +98,15 @@ using (var scope = app.Services.CreateScope())
     try
     {
         var context = services.GetRequiredService<AppDbContext>();
-        await context.Database.MigrateAsync();
+        try
+        {
+            await context.Database.MigrateAsync();
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogWarning(ex, "An warning or error occurred while applying database migrations. Proceeding to seeding.");
+        }
         
         var userManager = services.GetRequiredService<Microsoft.AspNetCore.Identity.UserManager<Domain.Entities.AppUser>>();
         var roleManager = services.GetRequiredService<Microsoft.AspNetCore.Identity.RoleManager<Microsoft.AspNetCore.Identity.IdentityRole>>();
@@ -77,7 +117,7 @@ using (var scope = app.Services.CreateScope())
     catch (Exception ex)
     {
         var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred while migrating and seeding the database.");
+        logger.LogError(ex, "An error occurred while seeding the database.");
     }
 }
 

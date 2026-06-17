@@ -113,6 +113,7 @@ namespace Infrastructure
             services.AddScoped<IReturnService, ReturnService>();
 
             services.AddScoped<INotificationRepository, NotificationRepository>();
+            services.AddScoped<IFileUploadService, FileUploadService>();
 
             services.AddScoped<
                 INotificationManagerService,
