@@ -23,7 +23,8 @@ namespace Infrastructure
             // Register DbContext
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-                    b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
+                    b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)
+                          .UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
             // Register ASP.NET Core Identity
             services.AddIdentity<AppUser, IdentityRole>(opt =>

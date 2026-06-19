@@ -24,6 +24,7 @@ public class ProductRepository : IProductRepository
     .Include(p => p.Faqs)
     .Include(p => p.Variants)
     .ThenInclude(v => v.Images)
+    .AsSplitQuery()
     .AsNoTracking()
     .ToListAsync();
     }
@@ -38,6 +39,7 @@ public class ProductRepository : IProductRepository
     .Include(p => p.Faqs)
    .Include(p => p.Variants)
     .ThenInclude(v => v.Images)
+    .AsSplitQuery()
     .FirstOrDefaultAsync(p => p.Id == id);
     }
 
