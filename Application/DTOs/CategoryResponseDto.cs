@@ -1,4 +1,4 @@
-﻿namespace Application.DTOs;
+namespace Application.DTOs;
 
 public class CategoryResponseDto
 {
@@ -9,4 +9,8 @@ public class CategoryResponseDto
     public string Description { get; set; } = string.Empty;
 
     public Guid? ParentId { get; set; }
+
+    public string? ImageUrl { get; set; }
+
+    public int ProductCount { get; set; }
 }

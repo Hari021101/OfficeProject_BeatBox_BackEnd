@@ -45,22 +45,53 @@ public class CartService : ICartService
         }
 
         // Fetch product from database
-        var product = await _productRepository.GetByIdAsync(cartAddDto.ProductId);
+        var product =
+         await _productRepository.GetByIdAsync(
+         cartAddDto.ProductId);
 
         if (product == null)
             throw new Exception("Product not found");
 
-        decimal productPrice = product.Price;
+        // If client didn't provide a variant id, pick the first available variant.
+        ProductVariant? variant = null;
+        if (cartAddDto.VariantId == Guid.Empty)
+        {
+            variant = product.Variants.FirstOrDefault();
+        }
+        else
+        {
+            variant = product.Variants.FirstOrDefault(v => v.Id == cartAddDto.VariantId);
+        }
+
+        if (variant == null)
+            throw new Exception($"Variant not found for product {product.Id}. Provide a valid VariantId.");
 
         // Create cart item
-        var cartItem = new CartItem
-        {
-            CartId = cart.CartId,
-            ProductId = cartAddDto.ProductId,
-            Quantity = cartAddDto.Quantity,
-            UnitPrice = product.Price
+var cartItem = new CartItem
+{
+    CartId = cart.CartId,
 
-        };
+    ProductId = cartAddDto.ProductId,
+
+    VariantId = variant.Id,
+
+    ProductVariantId = variant.Id,
+
+    Quantity = cartAddDto.Quantity,
+
+    UnitPrice =
+        variant.DiscountPrice.HasValue &&
+        variant.DiscountPrice.Value > 0
+            ? variant.DiscountPrice.Value
+            : variant.Price,
+
+    Color = variant.Color,
+
+    ColorCode = variant.ColorCode,
+
+    ProductImageUrl = variant.Images
+        .FirstOrDefault(i => i.IsPrimary)?.ImageUrl
+};
 
         await _cartRepository.AddCartItemAsync(cartItem);
 

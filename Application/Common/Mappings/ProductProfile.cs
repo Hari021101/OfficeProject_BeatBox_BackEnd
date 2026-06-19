@@ -43,11 +43,15 @@ public class ProductProfile : Profile
         // Product -> Update DTO
         CreateMap<Product, ProductUpdateDto>();
 
+        CreateMap<ProductVariant, ProductVariantDto>()
+            .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images));
+
         CreateMap<ProductReview, ProductReviewDto>()
-    .ForMember(dest => dest.UserName,
-        opt => opt.MapFrom(src => src.User.FullName));
+         .ForMember(dest => dest.UserName,
+          opt => opt.MapFrom(src => src.User.FullName));
 
         CreateMap<ProductImage, ProductImageDto>();
+        CreateMap<ProductVariantImage, ProductVariantImageDto>();
 
         CreateMap<ProductFaq, ProductFaqDto>();
     }

@@ -10,5 +10,10 @@ namespace Domain.Entities
 
         public Order Order { get; set; }
         public Product Product { get; set; }
+        public string? Color { get; set; }
+
+        public string? ColorCode { get; set; }
+        public Guid? ProductVariantId { get; set; }
+        public string? ProductImageUrl { get; set; }
     }
 }

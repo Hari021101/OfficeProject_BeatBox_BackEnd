@@ -1,0 +1,350 @@
+2026-06-19 15:57:27.456 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-19 15:58:24.129 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 307 in 33ms
+2026-06-19 15:58:24.129 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 307 in 32ms
+2026-06-19 15:58:24.129 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 307 in 33ms
+2026-06-19 15:58:24.129 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 307 in 33ms
+2026-06-19 15:58:24.129 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 307 in 33ms
+2026-06-19 15:58:24.129 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 307 in 33ms
+2026-06-19 15:58:24.230 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 307 in 1ms
+2026-06-19 15:58:24.230 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 307 in 1ms
+2026-06-19 16:01:06.440 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 307 in 0ms
+2026-06-19 16:02:50.330 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-19 16:03:22.407 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-19 16:03:22.438 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 77ms
+2026-06-19 16:03:28.874 +05:30 [INF] API REQUEST: POST /api/account/register from IP ::1 responded 200 in 6384ms
+2026-06-19 16:03:51.197 +05:30 [INF] API REQUEST: OPTIONS /api/otp/verify-email from IP ::1 responded 204 in 1ms
+2026-06-19 16:03:51.796 +05:30 [INF] API REQUEST: POST /api/otp/verify-email from IP ::1 responded 200 in 584ms
+2026-06-19 16:03:51.894 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-19 16:03:52.356 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-19 16:03:52.537 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-06-19 16:03:52.653 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 744ms
+2026-06-19 16:03:52.876 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-19 16:03:52.876 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-19 16:03:52.879 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 16:03:52.881 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 16:03:52.881 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 16:03:52.882 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 16:03:52.923 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 22ms
+2026-06-19 16:03:52.924 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 31ms
+2026-06-19 16:03:52.999 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-06-19 16:04:08.027 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 15114ms
+2026-06-19 16:04:08.695 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker15.jpg from IP ::1 responded 304 in 3ms
+2026-06-19 16:04:08.695 +05:30 [INF] API REQUEST: GET /images/products/tws/tws13.jpg from IP ::1 responded 304 in 6ms
+2026-06-19 16:04:08.695 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank14.jpg from IP ::1 responded 304 in 16ms
+2026-06-19 16:04:08.884 +05:30 [INF] API REQUEST: GET /images/products/default/default10.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:04:08.885 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:04:08.885 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:04:09.086 +05:30 [INF] API REQUEST: GET /images/products/projectors/projector7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:04:09.087 +05:30 [INF] API REQUEST: GET /images/products/default/default13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:04:09.089 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder13.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:04:14.809 +05:30 [INF] API REQUEST: GET /images/products/default/default1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:04:19.682 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 12796ms
+2026-06-19 16:04:26.673 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 13718ms
+2026-06-19 16:04:26.673 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 13733ms
+2026-06-19 16:04:26.795 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:04:30.572 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:30.574 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:30.575 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:30.575 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:30.624 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 38ms
+2026-06-19 16:04:30.649 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 58ms
+2026-06-19 16:04:30.819 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 5ms
+2026-06-19 16:04:30.820 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 4ms
+2026-06-19 16:04:42.827 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:42.829 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:42.891 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-06-19 16:04:43.045 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 210ms
+2026-06-19 16:04:43.062 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 9ms
+2026-06-19 16:04:46.132 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 53030ms
+2026-06-19 16:04:48.605 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:48.605 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:48.607 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:48.608 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:48.613 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-19 16:04:48.617 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-19 16:04:48.649 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 22ms
+2026-06-19 16:04:48.812 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-06-19 16:04:51.923 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 3117ms
+2026-06-19 16:04:53.490 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:53.490 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:53.497 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 5ms
+2026-06-19 16:04:53.500 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-19 16:04:53.504 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-19 16:04:53.694 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-06-19 16:04:56.405 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 2701ms
+2026-06-19 16:04:57.829 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:57.830 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:57.831 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:57.832 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:04:57.850 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-19 16:04:57.857 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-19 16:04:57.897 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 21ms
+2026-06-19 16:04:58.048 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-06-19 16:05:17.487 +05:30 [INF] API REQUEST: GET /images/products/wireless-charger/wireless-charger3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.487 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.487 +05:30 [INF] API REQUEST: GET /images/products/ear-cleaners/ear-cleaner14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.494 +05:30 [INF] API REQUEST: GET /images/products/portable-fans/portable-fan10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.526 +05:30 [INF] API REQUEST: GET /images/products/default/default7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.559 +05:30 [INF] API REQUEST: GET /images/products/projectors/projector1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.713 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder6.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:05:17.713 +05:30 [INF] API REQUEST: GET /images/products/wireless-charger/wireless-charger4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.713 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.715 +05:30 [INF] API REQUEST: GET /images/products/ear-cleaners/ear-cleaner8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.716 +05:30 [INF] API REQUEST: GET /images/products/tyre-inflators/tyre-inflator9.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.749 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.929 +05:30 [INF] API REQUEST: GET /images/products/humidifiers/humidifier11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.931 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.932 +05:30 [INF] API REQUEST: GET /images/products/hair-dryer/hair-dryer11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.932 +05:30 [INF] API REQUEST: GET /images/products/default/default12.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.932 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:17.933 +05:30 [INF] API REQUEST: GET /images/products/wireless-charger/wireless-charger1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.111 +05:30 [INF] API REQUEST: GET /images/products/tws/tws6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.115 +05:30 [INF] API REQUEST: GET /images/products/car-charger/car-charger2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.116 +05:30 [INF] API REQUEST: GET /images/products/wireless-microphones/wireless-microphone1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.116 +05:30 [INF] API REQUEST: GET /images/products/cables/cable1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.116 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.116 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.286 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.288 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker12.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.292 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.292 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.293 +05:30 [INF] API REQUEST: GET /images/products/default/default5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.296 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.539 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard9.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:05:18.539 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar6.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:05:18.539 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.540 +05:30 [INF] API REQUEST: GET /images/products/massagers/massager4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.540 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/wired-earphone11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.540 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.765 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag12.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.765 +05:30 [INF] API REQUEST: GET /images/products/cables/cable5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.765 +05:30 [INF] API REQUEST: GET /images/products/massagers/massager14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.766 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband8.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:05:18.767 +05:30 [INF] API REQUEST: GET /images/products/default/default14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.767 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband9.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.967 +05:30 [INF] API REQUEST: GET /images/products/chargers/charger8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.969 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker2.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:05:18.969 +05:30 [INF] API REQUEST: GET /images/products/cables/cable9.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.969 +05:30 [INF] API REQUEST: GET /images/products/chargers/charger1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.970 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:18.970 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.207 +05:30 [INF] API REQUEST: GET /images/products/wireless-charger/wireless-charger15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.208 +05:30 [INF] API REQUEST: GET /images/products/default/default4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.208 +05:30 [INF] API REQUEST: GET /images/products/portable-fans/portable-fan3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.209 +05:30 [INF] API REQUEST: GET /images/products/default/default6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.209 +05:30 [INF] API REQUEST: GET /images/products/cables/cable15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.210 +05:30 [INF] API REQUEST: GET /images/products/ear-cleaners/ear-cleaner7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.456 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard7.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:05:19.457 +05:30 [INF] API REQUEST: GET /images/products/default/default11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.458 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.459 +05:30 [INF] API REQUEST: GET /images/products/default/default15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.459 +05:30 [INF] API REQUEST: GET /images/products/default/default2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.461 +05:30 [INF] API REQUEST: GET /images/products/hair-dryer/hair-dryer13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.685 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.687 +05:30 [INF] API REQUEST: GET /images/products/portable-speakers/portable-speaker3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.688 +05:30 [INF] API REQUEST: GET /images/products/ear-cleaners/ear-cleaner3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.688 +05:30 [INF] API REQUEST: GET /images/products/tws/tws4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.689 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.689 +05:30 [INF] API REQUEST: GET /images/products/hair-dryer/hair-dryer14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.920 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.920 +05:30 [INF] API REQUEST: GET /images/products/default/default8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.921 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.922 +05:30 [INF] API REQUEST: GET /images/products/chargers/charger5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.923 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:19.923 +05:30 [INF] API REQUEST: GET /images/products/wireless-charger/wireless-charger13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.159 +05:30 [INF] API REQUEST: GET /images/products/default/default3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.159 +05:30 [INF] API REQUEST: GET /images/products/cables/cable13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.160 +05:30 [INF] API REQUEST: GET /images/products/car-bluetooth/car-bluetooth2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.160 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/wired-earphone9.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.160 +05:30 [INF] API REQUEST: GET /images/products/tws/tws2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.161 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker9.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.396 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.397 +05:30 [INF] API REQUEST: GET /images/products/cables/cable11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.397 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.398 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.398 +05:30 [INF] API REQUEST: GET /images/products/default/default9.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.398 +05:30 [INF] API REQUEST: GET /images/products/gaming-keyboards/gaming-keyboard5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.627 +05:30 [INF] API REQUEST: GET /images/products/stylus/stylus8.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:05:20.629 +05:30 [INF] API REQUEST: GET /images/products/humidifiers/humidifier15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.629 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.629 +05:30 [INF] API REQUEST: GET /images/products/ear-cleaners/ear-cleaner10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.629 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.631 +05:30 [INF] API REQUEST: GET /images/products/cables/cable8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.863 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.863 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.865 +05:30 [INF] API REQUEST: GET /images/products/car-bluetooth/car-bluetooth1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.865 +05:30 [INF] API REQUEST: GET /images/products/car-bluetooth/car-bluetooth8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.866 +05:30 [INF] API REQUEST: GET /images/products/wireless-microphones/wireless-microphone10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:20.866 +05:30 [INF] API REQUEST: GET /images/products/wireless-charger/wireless-charger7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.084 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag9.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.086 +05:30 [INF] API REQUEST: GET /images/products/projectors/projector6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.087 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.087 +05:30 [INF] API REQUEST: GET /images/products/cables/cable7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.088 +05:30 [INF] API REQUEST: GET /images/products/tyre-inflators/tyre-inflator1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.089 +05:30 [INF] API REQUEST: GET /images/products/chargers/charger4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.313 +05:30 [INF] API REQUEST: GET /images/products/chargers/charger11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.313 +05:30 [INF] API REQUEST: GET /images/products/tyre-inflators/tyre-inflator11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.315 +05:30 [INF] API REQUEST: GET /images/products/wireless-microphones/wireless-microphone2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.316 +05:30 [INF] API REQUEST: GET /images/products/projectors/projector13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.316 +05:30 [INF] API REQUEST: GET /images/products/tyre-inflators/tyre-inflator10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.316 +05:30 [INF] API REQUEST: GET /images/products/ear-cleaners/ear-cleaner2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.549 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.551 +05:30 [INF] API REQUEST: GET /images/products/rechargeable-battery/rechargeable-battery5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.552 +05:30 [INF] API REQUEST: GET /images/products/car-charger/car-charger11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.552 +05:30 [INF] API REQUEST: GET /images/products/car-bluetooth/car-bluetooth10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.553 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.553 +05:30 [INF] API REQUEST: GET /images/products/rechargeable-battery/rechargeable-battery11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.788 +05:30 [INF] API REQUEST: GET /images/products/selfie-stick/selfie-stick13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.788 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.789 +05:30 [INF] API REQUEST: GET /images/products/rechargeable-battery/rechargeable-battery8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.790 +05:30 [INF] API REQUEST: GET /images/products/cables/cable6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.790 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:21.791 +05:30 [INF] API REQUEST: GET /images/products/conference-speakers/conference-speaker12.jpg from IP ::1 responded 304 in 1ms
+2026-06-19 16:05:22.023 +05:30 [INF] API REQUEST: GET /images/products/flashlight/flashlight7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.025 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse9.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.026 +05:30 [INF] API REQUEST: GET /images/products/portable-fans/portable-fan5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.027 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.027 +05:30 [INF] API REQUEST: GET /images/products/electric-kettle/electric-kettle3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.027 +05:30 [INF] API REQUEST: GET /images/products/gaming-keyboards/gaming-keyboard9.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.243 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.244 +05:30 [INF] API REQUEST: GET /images/products/flashlight/flashlight4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.246 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.246 +05:30 [INF] API REQUEST: GET /images/products/wireless-microphones/wireless-microphone7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.246 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.247 +05:30 [INF] API REQUEST: GET /images/products/stylus/stylus15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.465 +05:30 [INF] API REQUEST: GET /images/products/portable-fans/portable-fan14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.466 +05:30 [INF] API REQUEST: GET /images/products/portable-speakers/portable-speaker8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.466 +05:30 [INF] API REQUEST: GET /images/products/conference-speakers/conference-speaker13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.466 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.467 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.467 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.697 +05:30 [INF] API REQUEST: GET /images/products/conference-speakers/conference-speaker10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.698 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar12.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.698 +05:30 [INF] API REQUEST: GET /images/products/portable-speakers/portable-speaker4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.699 +05:30 [INF] API REQUEST: GET /images/products/car-charger/car-charger5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.699 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.699 +05:30 [INF] API REQUEST: GET /images/products/gaming-keyboards/gaming-keyboard6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.913 +05:30 [INF] API REQUEST: GET /images/products/hair-dryer/hair-dryer7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.913 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.913 +05:30 [INF] API REQUEST: GET /images/products/chargers/charger10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.913 +05:30 [INF] API REQUEST: GET /images/products/stylus/stylus11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.914 +05:30 [INF] API REQUEST: GET /images/products/portable-speakers/portable-speaker11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:22.914 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder12.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.110 +05:30 [INF] API REQUEST: GET /images/products/flashlight/flashlight2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.111 +05:30 [INF] API REQUEST: GET /images/products/ear-cleaners/ear-cleaner1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.113 +05:30 [INF] API REQUEST: GET /images/products/ear-cleaners/ear-cleaner6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.113 +05:30 [INF] API REQUEST: GET /images/products/electric-kettle/electric-kettle11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.113 +05:30 [INF] API REQUEST: GET /images/products/projectors/projector4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.132 +05:30 [INF] API REQUEST: GET /images/products/portable-fans/portable-fan6.jpg from IP ::1 responded 200 in 20ms
+2026-06-19 16:05:23.354 +05:30 [INF] API REQUEST: GET /images/products/rechargeable-battery/rechargeable-battery14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.356 +05:30 [INF] API REQUEST: GET /images/products/rechargeable-battery/rechargeable-battery3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.356 +05:30 [INF] API REQUEST: GET /images/products/selfie-stick/selfie-stick4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.356 +05:30 [INF] API REQUEST: GET /images/products/selfie-stick/selfie-stick12.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.357 +05:30 [INF] API REQUEST: GET /images/products/wireless-charger/wireless-charger5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.450 +05:30 [INF] API REQUEST: GET /images/products/cables/cable3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.579 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.579 +05:30 [INF] API REQUEST: GET /images/products/stylus/stylus10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.580 +05:30 [INF] API REQUEST: GET /images/products/stylus/stylus6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.580 +05:30 [INF] API REQUEST: GET /images/products/conference-speakers/conference-speaker3.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.580 +05:30 [INF] API REQUEST: GET /images/products/hair-dryer/hair-dryer6.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.626 +05:30 [INF] API REQUEST: GET /images/products/massagers/massager2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.810 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.811 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/wired-earphone1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.811 +05:30 [INF] API REQUEST: GET /images/products/flashlight/flashlight10.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.811 +05:30 [INF] API REQUEST: GET /images/products/flashlight/flashlight5.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.814 +05:30 [INF] API REQUEST: GET /images/products/gaming-keyboards/gaming-keyboard8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:23.815 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.047 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/wired-earphone13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.048 +05:30 [INF] API REQUEST: GET /images/products/wireless-charger/wireless-charger11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.048 +05:30 [INF] API REQUEST: GET /images/products/electric-kettle/electric-kettle7.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.049 +05:30 [INF] API REQUEST: GET /images/products/stylus/stylus2.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.049 +05:30 [INF] API REQUEST: GET /images/products/gaming-keyboards/gaming-keyboard11.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.050 +05:30 [INF] API REQUEST: GET /images/products/stylus/stylus4.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.281 +05:30 [INF] API REQUEST: GET /images/products/tws/tws1.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.282 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar13.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.282 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.282 +05:30 [INF] API REQUEST: GET /images/products/mobile-holder/mobile-holder14.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.282 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse8.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.283 +05:30 [INF] API REQUEST: GET /images/products/stylus/stylus12.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:05:24.482 +05:30 [INF] API REQUEST: GET /images/products/electric-kettle/electric-kettle12.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:06:27.411 +05:30 [INF] API REQUEST: OPTIONS /api/product/4719a795-f7e7-4b63-8816-9bfaa0934096 from IP ::1 responded 204 in 0ms
+2026-06-19 16:06:27.411 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:06:27.412 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:06:27.414 +05:30 [INF] API REQUEST: OPTIONS /api/product/4719a795-f7e7-4b63-8816-9bfaa0934096 from IP ::1 responded 204 in 0ms
+2026-06-19 16:06:27.461 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-06-19 16:06:27.496 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-06-19 16:06:27.657 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-06-19 16:06:28.157 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/4719a795-f7e7-4b63-8816-9bfaa0934096 from IP ::1. Response: 200 in 700ms
+2026-06-19 16:06:28.298 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/4719a795-f7e7-4b63-8816-9bfaa0934096 from IP ::1. Response: 200 in 129ms
+2026-06-19 16:06:28.483 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone12.jpg from IP ::1 responded 200 in 2ms
+2026-06-19 16:06:28.483 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone7.jpg from IP ::1 responded 200 in 2ms
+2026-06-19 16:06:35.542 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone1.jpg from IP ::1 responded 200 in 1ms
+2026-06-19 16:06:35.542 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone13.jpg from IP ::1 responded 200 in 0ms
+2026-06-19 16:06:35.542 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone10.jpg from IP ::1 responded 200 in 1ms
+2026-06-19 16:06:41.978 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone2.jpg from IP ::1 responded 200 in 1ms
+2026-06-19 16:06:42.019 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone8.jpg from IP ::1 responded 200 in 2ms
+2026-06-19 16:06:43.155 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone9.jpg from IP ::1 responded 200 in 1ms
+2026-06-19 16:06:43.155 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone14.jpg from IP ::1 responded 200 in 1ms
+2026-06-19 16:06:43.980 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone3.jpg from IP ::1 responded 200 in 1ms
+2026-06-19 16:06:43.980 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone5.jpg from IP ::1 responded 200 in 2ms
+2026-06-19 16:06:59.940 +05:30 [INF] API REQUEST: OPTIONS /api/product/87 from IP ::1 responded 204 in 0ms
+2026-06-19 16:06:59.941 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:06:59.956 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-06-19 16:07:00.083 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/87 from IP ::1. Response: 400 in 136ms
+2026-06-19 16:07:05.127 +05:30 [INF] API REQUEST: OPTIONS /api/product/4719a795-f7e7-4b63-8816-9bfaa0934096 from IP ::1 responded 204 in 0ms
+2026-06-19 16:07:05.127 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:07:05.174 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 6ms
+2026-06-19 16:07:05.231 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/4719a795-f7e7-4b63-8816-9bfaa0934096 from IP ::1. Response: 200 in 69ms
+2026-06-19 16:07:25.907 +05:30 [INF] API REQUEST: OPTIONS /api/wishlist/88 from IP ::1 responded 204 in 0ms
+2026-06-19 16:07:25.928 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed POST /api/wishlist/88 from IP ::1. Response: 400 in 11ms
+2026-06-19 16:07:29.976 +05:30 [INF] API REQUEST: OPTIONS /api/product/87 from IP ::1 responded 204 in 0ms
+2026-06-19 16:07:29.976 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:07:29.983 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/87 from IP ::1. Response: 400 in 1ms
+2026-06-19 16:07:29.994 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 2ms
+2026-06-19 16:07:34.191 +05:30 [INF] API REQUEST: OPTIONS /api/product/4719a795-f7e7-4b63-8816-9bfaa0934096 from IP ::1 responded 204 in 0ms
+2026-06-19 16:07:34.197 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-06-19 16:07:34.258 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/4719a795-f7e7-4b63-8816-9bfaa0934096 from IP ::1. Response: 200 in 55ms
+2026-06-19 16:17:30.680 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 752615ms
+2026-06-19 16:18:34.878 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-19 16:21:02.996 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-19 16:21:03.028 +05:30 [INF] API REQUEST: OPTIONS /api/product/4778965f-0e01-4555-9865-0e40ea24e7bf from IP ::1 responded 204 in 79ms
+2026-06-19 16:21:03.028 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 78ms
+2026-06-19 16:21:04.159 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-19 16:21:04.442 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-06-19 16:21:04.476 +05:30 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-06-19 16:21:04.718 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 1594ms
+2026-06-19 16:21:05.239 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/4778965f-0e01-4555-9865-0e40ea24e7bf from IP ::1. Response: 200 in 2115ms
+2026-06-19 16:21:05.329 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank7.jpg from IP ::1 responded 304 in 12ms
+2026-06-19 16:21:05.330 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank5.jpg from IP ::1 responded 304 in 12ms
+2026-06-19 16:22:57.667 +05:30 [INF] API REQUEST: OPTIONS /api/product/8 from IP ::1 responded 204 in 0ms
+2026-06-19 16:22:57.669 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:22:57.669 +05:30 [INF] API REQUEST: OPTIONS /api/product/8 from IP ::1 responded 204 in 0ms
+2026-06-19 16:22:57.669 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:22:57.773 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/8 from IP ::1. Response: 400 in 91ms
+2026-06-19 16:22:57.788 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/8 from IP ::1. Response: 400 in 12ms
+2026-06-19 16:22:57.888 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 197ms
+2026-06-19 16:22:57.950 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 59ms
+2026-06-19 16:23:12.738 +05:30 [INF] API REQUEST: OPTIONS /api/product/fa5c9594-e6d7-45c0-93fe-000787839d5f from IP ::1 responded 204 in 0ms
+2026-06-19 16:23:12.739 +05:30 [INF] API REQUEST: OPTIONS /api/product/fa5c9594-e6d7-45c0-93fe-000787839d5f from IP ::1 responded 204 in 0ms
+2026-06-19 16:23:12.739 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:23:12.739 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-19 16:23:12.834 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 56ms
+2026-06-19 16:23:12.844 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 6ms
+2026-06-19 16:23:12.910 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/fa5c9594-e6d7-45c0-93fe-000787839d5f from IP ::1. Response: 200 in 154ms
+2026-06-19 16:23:13.014 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/fa5c9594-e6d7-45c0-93fe-000787839d5f from IP ::1. Response: 200 in 100ms
+2026-06-19 16:23:13.067 +05:30 [INF] API REQUEST: GET /images/products/tws/tws9.jpg from IP ::1 responded 200 in 23ms
+2026-06-19 16:23:13.073 +05:30 [INF] API REQUEST: GET /images/products/tws/tws11.jpg from IP ::1 responded 200 in 28ms
+2026-06-19 16:23:24.734 +05:30 [INF] API REQUEST: GET /images/products/tws/tws15.jpg from IP ::1 responded 304 in 0ms
+2026-06-19 16:23:24.737 +05:30 [INF] API REQUEST: GET /images/products/tws/tws14.jpg from IP ::1 responded 200 in 3ms
+2026-06-19 16:23:24.741 +05:30 [INF] API REQUEST: GET /images/products/tws/tws10.jpg from IP ::1 responded 200 in 4ms
+2026-06-19 16:23:25.467 +05:30 [INF] API REQUEST: GET /images/products/tws/tws7.jpg from IP ::1 responded 200 in 4ms
+2026-06-19 16:23:25.471 +05:30 [INF] API REQUEST: GET /images/products/tws/tws5.jpg from IP ::1 responded 200 in 7ms
+2026-06-19 16:59:18.721 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-19 16:59:40.320 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-19 16:59:55.231 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-19 17:04:23.320 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-19 17:04:23.329 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 24ms
+2026-06-19 17:04:23.329 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 24ms
+2026-06-19 17:04:23.644 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-19 17:04:23.814 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 471ms
+2026-06-19 17:04:23.899 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 82ms

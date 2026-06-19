@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+using Application.DTOs;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
@@ -20,9 +20,7 @@ public class CategoryService : ICategoryService
 
     public async Task<IEnumerable<CategoryResponseDto>> GetAllAsync()
     {
-        var categories = await _repository.GetAllAsync();
-
-        return _mapper.Map<IEnumerable<CategoryResponseDto>>(categories);
+        return await _repository.GetProjectedAllAsync();
     }
 
     public async Task<CategoryResponseDto?> GetByIdAsync(Guid id)

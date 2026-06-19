@@ -22,6 +22,9 @@ public class ProductRepository : IProductRepository
         .ThenInclude(r => r.User)
     .Include(p => p.Images)
     .Include(p => p.Faqs)
+    .Include(p => p.Variants)
+    .ThenInclude(v => v.Images)
+    .AsNoTracking()
     .ToListAsync();
     }
 
@@ -33,6 +36,8 @@ public class ProductRepository : IProductRepository
         .ThenInclude(r => r.User)
     .Include(p => p.Images)
     .Include(p => p.Faqs)
+   .Include(p => p.Variants)
+    .ThenInclude(v => v.Images)
     .FirstOrDefaultAsync(p => p.Id == id);
     }
 
@@ -63,6 +68,8 @@ public class ProductRepository : IProductRepository
         return await _context.Products
             .Where(p => p.Name.Contains(searchTerm) || p.Description.Contains(searchTerm))
             .Include(p => p.Category)
+            .Include(p => p.Variants)
+    .ThenInclude(v => v.Images)
             .ToListAsync();
     }
 
@@ -71,24 +78,37 @@ public class ProductRepository : IProductRepository
         var query = _context.Products.AsQueryable();
 
         if (minPrice.HasValue)
-            query = query.Where(p => p.Price >= minPrice.Value);
+        {
+            query = query.Where(p =>
+                p.Variants.Any(v => v.Price >= minPrice.Value));
+        }
 
         if (maxPrice.HasValue)
-            query = query.Where(p => p.Price <= maxPrice.Value);
+        {
+            query = query.Where(p =>
+                p.Variants.Any(v => v.Price <= maxPrice.Value));
+        }
+
+        if (!string.IsNullOrEmpty(color))
+        {
+            query = query.Where(p =>
+                p.Variants.Any(v => v.Color == color));
+        }
 
         if (!string.IsNullOrEmpty(brand))
             query = query.Where(p => p.Brand == brand);
 
-        if (!string.IsNullOrEmpty(color))
-            query = query.Where(p => p.Color == color);
-
-        return await query.Include(p => p.Category).ToListAsync();
+        return await query.Include(p => p.Category)
+.Include(p => p.Variants)
+    .ThenInclude(v => v.Images).ToListAsync();
     }
 
     public async Task<IEnumerable<Product>> GetPagedAsync(int pageNumber, int pageSize)
     {
         return await _context.Products
-            .Include(p => p.Category)
+           .Include(p => p.Category)
+.Include(p => p.Variants)
+    .ThenInclude(v => v.Images)
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();

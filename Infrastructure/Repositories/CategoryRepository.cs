@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+using Application.DTOs;
+using Application.Interfaces;
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,21 @@ public class CategoryRepository : ICategoryRepository
     public async Task<IEnumerable<Category>> GetAllAsync()
     {
         return await _context.Categories.ToListAsync();
+    }
+
+    public async Task<IEnumerable<CategoryResponseDto>> GetProjectedAllAsync()
+    {
+        return await _context.Categories
+            .Select(c => new CategoryResponseDto
+            {
+                Id = c.Id,
+                Name = c.Name,
+                Description = c.Description,
+                ParentId = c.ParentId,
+                ImageUrl = c.ImageUrl,
+                ProductCount = c.Products.Count()
+            })
+            .ToListAsync();
     }
 
     public async Task<Category?> GetByIdAsync(Guid id)

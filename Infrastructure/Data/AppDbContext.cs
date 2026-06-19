@@ -1,6 +1,7 @@
 using Domain.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace Infrastructure.Data
 {
@@ -14,6 +15,9 @@ namespace Infrastructure.Data
         
         public DbSet<Category> Categories => Set<Category>();
         public DbSet<Product> Products => Set<Product>();
+        public DbSet<ProductVariant> ProductVariants => Set<ProductVariant>();
+        public DbSet<ProductVariantImage> ProductVariantImages => Set<ProductVariantImage>();
+
         public DbSet<ProductReview> ProductReviews => Set<ProductReview>();
 
         public DbSet<ProductImage> ProductImages => Set<ProductImage>();
@@ -41,14 +45,13 @@ namespace Infrastructure.Data
         protected override void OnModelCreating(ModelBuilder builder)
 		{
 			base.OnModelCreating(builder);
+            builder.Entity<ProductVariant>(entity =>
+            {
+                entity.Property(v => v.Price)
+                      .HasColumnType("decimal(18,2)");
 
-			builder.Entity<Product>(entity =>
-			{
-				entity.Property(p => p.Price)
-					.HasColumnType("decimal(18,2)");
-
-                entity.Property(p => p.DiscountPrice)
-                    .HasColumnType("decimal(18,2)");
+                entity.Property(v => v.DiscountPrice)
+                      .HasColumnType("decimal(18,2)");
             });
             builder.Entity<ProductReview>()
                 .HasOne(r => r.Product)
@@ -65,7 +68,21 @@ namespace Infrastructure.Data
                 .WithMany(p => p.Faqs)
                 .HasForeignKey(f => f.ProductId);
 
-			builder.Entity<OrderItem>(entity =>
+            builder.Entity<ProductVariant>()
+    .HasOne(v => v.Product)
+    .WithMany(p => p.Variants)
+    .HasForeignKey(v => v.ProductId)
+    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<ProductVariantImage>(entity =>
+            {
+                entity.HasOne(pvi => pvi.Variant)
+                      .WithMany(v => v.Images)
+                      .HasForeignKey(pvi => pvi.VariantId)
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            builder.Entity<OrderItem>(entity =>
 			{
 				entity.Property(oi => oi.UnitPrice).HasColumnType("decimal(18,2)");
 			});
@@ -87,12 +104,17 @@ namespace Infrastructure.Data
 				entity.HasOne<AppUser>().WithMany().HasForeignKey(c => c.UserId).OnDelete(DeleteBehavior.Cascade);
 			});
 
-			builder.Entity<CartItem>(entity =>
+            builder.Entity<CartItem>(entity =>
 			{
 				entity.Property(ci => ci.UnitPrice).HasColumnType("decimal(18,2)");
 			});
+            builder.Entity<CartItem>()
+           .HasOne(ci => ci.Variant)
+          .WithMany()
+          .HasForeignKey(ci => ci.VariantId)
+          .OnDelete(DeleteBehavior.Restrict);
 
-			builder.Entity<UserAddress>(entity =>
+            builder.Entity<UserAddress>(entity =>
 			{
 				entity.HasOne(ua => ua.User)
 					.WithMany()
@@ -140,6 +162,29 @@ namespace Infrastructure.Data
                       .HasForeignKey(x => x.UserId)
                       .OnDelete(DeleteBehavior.Cascade);
             });
+
+            builder.Entity<Order>(entity =>
+            {
+                entity.Property(x => x.TotalAmount)
+                      .HasColumnType("decimal(18,2)");
+
+                entity.Property(x => x.DiscountAmount)
+                      .HasColumnType("decimal(18,2)");
+            });
+
+            builder.Entity<Coupon>(entity =>
+            {
+                entity.Property(x => x.DiscountAmount)
+                      .HasColumnType("decimal(18,2)");
+
+                entity.Property(x => x.DiscountPercentage)
+                      .HasColumnType("decimal(18,2)");
+
+                entity.Property(x => x.MinimumOrderAmount)
+                      .HasColumnType("decimal(18,2)");
+            });
+
         }
+
 	}
 }

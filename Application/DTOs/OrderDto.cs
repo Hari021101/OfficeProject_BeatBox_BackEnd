@@ -12,5 +12,12 @@ public class OrderDto
     public decimal TotalAmount { get; set; }
     public string PaymentMethod { get; set; }
     public string PaymentStatus { get; set; }
+    public string? Color { get; set; }
+
+    public string? ColorCode { get; set; }
+
+    public Guid? ProductVariantId { get; set; }
+
+    public string? ProductImageUrl { get; set; }
 
 }

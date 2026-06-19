@@ -45,7 +45,11 @@ public class OrderService : IOrderService
 		{
 			ProductId = ci.ProductId,
 			Quantity = ci.Quantity,
-			UnitPrice = ci.UnitPrice
+			UnitPrice = ci.UnitPrice,
+			Color = ci.Color,
+			ColorCode = ci.ColorCode,
+			ProductVariantId = ci.VariantId,
+			ProductImageUrl = ci.ProductImageUrl
 		}).ToList();
 
 		decimal subtotal = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice);

@@ -1,10 +1,13 @@
-﻿using Domain.Entities;
+using Application.DTOs;
+using Domain.Entities;
 
 namespace Application.Interfaces;
 
 public interface ICategoryRepository
 {
     Task<IEnumerable<Category>> GetAllAsync();
+
+    Task<IEnumerable<CategoryResponseDto>> GetProjectedAllAsync();
 
     Task<Category?> GetByIdAsync(Guid id);
 

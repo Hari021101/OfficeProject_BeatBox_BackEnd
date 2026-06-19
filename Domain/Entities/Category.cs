@@ -10,6 +10,8 @@ public class Category
 
     public Guid? ParentId { get; set; }
 
+    public string? ImageUrl { get; set; }
+
     public Category? ParentCategory { get; set; }
 
     public ICollection<Category>? SubCategories { get; set; }

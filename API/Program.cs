@@ -110,7 +110,10 @@ using (var scope = app.Services.CreateScope())
         
         var userManager = services.GetRequiredService<Microsoft.AspNetCore.Identity.UserManager<Domain.Entities.AppUser>>();
         var roleManager = services.GetRequiredService<Microsoft.AspNetCore.Identity.RoleManager<Microsoft.AspNetCore.Identity.IdentityRole>>();
-        
+        // Initialize content root path for local image seeding and validation
+        DbSeeder.SetContentRootPath(app.Environment.ContentRootPath);
+        DbSeeder.InitializeImagePools();
+
         // Seed high-fidelity e-commerce catalog data if empty
         await DbSeeder.SeedAsync(context, userManager, roleManager);
     }
@@ -129,6 +132,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Enable serving static files from wwwroot
+app.UseStaticFiles();
 
 // Apply CORS Policy
 app.UseCors("CorsPolicy");

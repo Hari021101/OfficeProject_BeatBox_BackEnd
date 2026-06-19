@@ -27,11 +27,23 @@ public class OrderProfile : Profile
                         ? src.Payments.OrderByDescending(p => p.CreatedDate).First().Status
                         : "Pending"));
 
-        CreateMap<OrderItem, OrderItemDto>()
-            .ForMember(dest => dest.ProductName,
-                opt => opt.MapFrom(src =>
-                    src.Product != null
-                        ? src.Product.Name
-                        : "Unknown Product"));
+       CreateMap<OrderItem, OrderItemDto>()
+    .ForMember(dest => dest.ProductName,
+        opt => opt.MapFrom(src =>
+            src.Product != null
+                ? src.Product.Name
+                : "Unknown Product"))
+
+    .ForMember(dest => dest.Color,
+        opt => opt.MapFrom(src => src.Color))
+
+    .ForMember(dest => dest.ColorCode,
+        opt => opt.MapFrom(src => src.ColorCode))
+
+    .ForMember(dest => dest.ProductVariantId,
+        opt => opt.MapFrom(src => src.ProductVariantId))
+
+    .ForMember(dest => dest.ProductImageUrl,
+        opt => opt.MapFrom(src => src.ProductImageUrl));
     }
 }

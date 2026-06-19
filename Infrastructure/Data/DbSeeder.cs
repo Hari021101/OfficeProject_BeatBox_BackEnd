@@ -1,711 +1,890 @@
 using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using System.Linq;
 
-namespace Infrastructure.Data
+namespace Infrastructure.Data;
+
+public static class DbSeeder
 {
-    public static class DbSeeder
+    // Base path for product images in wwwroot
+    private const string ImageBasePath = "/images/products";
+
+    // Placeholder image path for missing images
+    private const string PlaceholderImagePath = "/images/products/placeholder.jpg";
+
+    // Centralized category -> image lists (local file paths).
+    // Images are loaded from wwwroot/images/products/{category}/ folders.
+    private static Dictionary<string, string[]> CategoryImages = new(StringComparer.OrdinalIgnoreCase);
+
+    // Root content path for accessing wwwroot (will be injected via configuration or constructor if needed)
+    private static string _contentRootPath = "";
+
+    public static readonly string[] FrontendCategories = new[]
     {
-        public static async Task SeedAsync(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+        "Audio",
+        "Soundbars",
+        "Party Speakers",
+        "Portable Speakers",
+        "TWS",
+        "Neckbands",
+        "Wireless Headphones",
+        "Wired Earphones",
+        "USB Speakers",
+        "Conference Speakers",
+        "Wireless Microphones",
+        "Mobile Accessories",
+        "Power Bank",
+        "Cables",
+        "Wireless Charger",
+        "Chargers",
+        "Mobile Holder",
+        "Gadget Cleaners",
+        "Phone Wallet",
+        "Cable Organiser",
+        "Computer Accessories",
+        "Keyboard And Mouse",
+        "Wireless Keyboard",
+        "Wired Keyboard",
+        "Gaming Keyboard",
+        "Wireless Mouse",
+        "Wired Mouse",
+        "Laptop Stand",
+        "Laptop Table",
+        "Extension Board",
+        "Projectors",
+        "USB Hub",
+        "LCD Writing Pads",
+        "Laptop Bags",
+        "Computer Cables",
+        "Wireless Presenter",
+        "Car Accessories",
+        "Car Charger",
+        "Car Bluetooth",
+        "Tyre Inflator",
+        "Car Mobile Holder",
+        "Bike Mobile Holder",
+        "Vacuum Cleaner",
+        "Car Wireless Charger",
+        "Pressure Washer",
+        "Smart Gadgets",
+        "Ear Cleaners",
+        "Portable Fans",
+        "Selfie Stick",
+        "Flashlight",
+        "Stylus",
+        "Location Tracker",
+        "Electric Kettle",
+        "Hair Dryer",
+        "Tool Kit",
+        "Humidifiers",
+        "Air Blower",
+        "Timers",
+        "Massagers",
+        "Smart Sealers",
+        "Rechargeable Battery"
+    };
+
+    private static readonly Dictionary<string, string> CategoryToFolderMap = new(StringComparer.OrdinalIgnoreCase)
+    {
+        // Explicit/custom mappings
+        { "Keyboard And Mouse", "keyboards" },
+        { "Gaming Keyboard", "gaming-keyboards" },
+        { "Wired Keyboard", "keyboards" },
+        { "Wireless Keyboard", "keyboards" },
+        { "Wired Mouse", "mice" },
+        { "Wireless Mouse", "mice" },
+        { "Tyre Inflator", "tyre-inflators" },
+        { "Laptop Stand", "laptop-bags" },
+        { "Laptop Table", "laptop-bags" },
+        { "Car Mobile Holder", "mobile-holder" },
+        { "Bike Mobile Holder", "mobile-holder" },
+        { "Car Wireless Charger", "wireless-charger" },
+        { "Computer Cables", "cables" },
+        { "USB Hub", "cables" },
+        { "Gadget Cleaners", "ear-cleaners" },
+        { "Audio", "soundbars" },
+        { "Cable Organiser", "cables" },
+        { "Phone Wallet", "mobile-holder" },
+        { "Extension Board", "chargers" },
+        { "Wireless Presenter", "stylus" },
+
+        // Direct/Derived mappings (mapped explicitly to guarantee resolution)
+        { "Soundbars", "soundbars" },
+        { "Party Speakers", "party-speakers" },
+        { "Portable Speakers", "portable-speakers" },
+        { "TWS", "tws" },
+        { "Neckbands", "neckbands" },
+        { "Wireless Headphones", "wireless-headphones" },
+        { "Wired Earphones", "wired-earphones" },
+        { "USB Speakers", "usb-speakers" },
+        { "Conference Speakers", "conference-speakers" },
+        { "Wireless Microphones", "wireless-microphones" },
+        { "Power Bank", "power-bank" },
+        { "Cables", "cables" },
+        { "Wireless Charger", "wireless-charger" },
+        { "Chargers", "chargers" },
+        { "Mobile Holder", "mobile-holder" },
+        { "Keyboards", "keyboards" },
+        { "Mice", "mice" },
+        { "Gaming Keyboards", "gaming-keyboards" },
+        { "Laptop Bags", "laptop-bags" },
+        { "Projectors", "projectors" },
+        { "Car Charger", "car-charger" },
+        { "Car Bluetooth", "car-bluetooth" },
+        { "Tyre Inflators", "tyre-inflators" },
+        { "Ear Cleaners", "ear-cleaners" },
+        { "Portable Fans", "portable-fans" },
+        { "Selfie Stick", "selfie-stick" },
+        { "Flashlight", "flashlight" },
+        { "Stylus", "stylus" },
+        { "Electric Kettle", "electric-kettle" },
+        { "Hair Dryer", "hair-dryer" },
+        { "Humidifiers", "humidifiers" },
+        { "Massagers", "massagers" },
+        { "Rechargeable Battery", "rechargeable-battery" }
+    };
+
+    /// <summary>
+    /// Sets the content root path for image file validation.
+    /// Call this early in the application startup.
+    /// </summary>
+    public static void SetContentRootPath(string contentRootPath)
+    {
+        _contentRootPath = contentRootPath;
+    }
+
+    private static string? ResolveFolderForCategory(string categoryName)
+    {
+        // 1. Direct explicit mapping
+        if (CategoryToFolderMap.TryGetValue(categoryName, out var folder))
         {
-            await MockProductsSeeder.SeedAsync(context);
-            // Seed Categories first if none exist
-            if (!await context.Categories.AnyAsync())
+            return folder;
+        }
+
+        // 2. Derive folder name: convert spaces to dashes, lowercase
+        var derived = categoryName.Replace(" ", "-").ToLowerInvariant();
+        var folderPath = Path.Combine(_contentRootPath, "wwwroot", "images", "products", derived);
+        if (Directory.Exists(folderPath))
+        {
+            return derived;
+        }
+
+        // 3. No mapping available -> returns null (caller will handle fallback to default)
+        return null;
+    }
+
+    /// <summary>
+    /// Initializes the image pools by loading category images from the filesystem.
+    /// Call this after SetContentRootPath().
+    /// </summary>
+    public static void InitializeImagePools()
+    {
+        if (string.IsNullOrWhiteSpace(_contentRootPath))
+        {
+            throw new InvalidOperationException("Content root path is not set.");
+        }
+
+        Console.WriteLine("\nInitializing Image Pools...");
+        Console.WriteLine(string.Format("{0,-25} | {1,-25} | {2,-11}", "Category", "Folder", "Image Count"));
+        Console.WriteLine(new string('-', 67));
+
+        var map = new Dictionary<string, string[]>(StringComparer.OrdinalIgnoreCase);
+        var categoriesUsingDefault = new List<string>();
+
+        // Load the default image pool once
+        var defaultImages = LoadCategoryImages("default");
+        map["default"] = defaultImages;
+
+        foreach (var categoryName in FrontendCategories)
+        {
+            var folder = ResolveFolderForCategory(categoryName);
+            string[] images;
+            string displayFolder;
+
+            if (folder != null)
             {
-                var categories = new List<Category>
-                {
-                    new Category { Id = Guid.Parse("11111111-1111-1111-1111-111111111111"), Name = "Wireless Earbuds", Description = "Premium TWS earbuds with ultra-low latency." },
-                    new Category { Id = Guid.Parse("22222222-2222-2222-2222-222222222222"), Name = "Over-Ear Headphones", Description = "Active Noise Cancellation over-ear headphones." },
-                    new Category { Id = Guid.Parse("33333333-3333-3333-3333-333333333333"), Name = "Bluetooth Speakers", Description = "High-fidelity rugged Bluetooth speakers." },
-                    new Category { Id = Guid.Parse("44444444-4444-4444-4444-444444444444"), Name = "Gaming Headsets", Description = "Surround sound immersive gaming headsets." }
-                };
-
-                await context.Categories.AddRangeAsync(categories);
-                await context.SaveChangesAsync();
-            }
-
-            // Seed Inventory for existing products if missing
-            var productsList = await context.Products.ToListAsync();
-            foreach (var product in productsList)
-            {
-                var existingInv = await context.Inventories.FirstOrDefaultAsync(i => i.ProductId == product.Id);
-                if (existingInv == null)
-                {
-                    var inv = new Inventory
-                    {
-                        Id = Guid.NewGuid(),
-                        ProductId = product.Id,
-                        AvailableStock = Math.Max(0, product.StockQuantity),
-                        ReservedStock = 0,
-                        WarehouseLocation = "Main Warehouse",
-                        LowStockThreshold = 5,
-                        LastUpdated = DateTime.UtcNow
-                    };
-
-                    await context.Inventories.AddAsync(inv);
-                    await context.SaveChangesAsync();
-
-                    await context.InventoryHistories.AddAsync(new InventoryHistory
-                    {
-                        Id = Guid.NewGuid(),
-                        InventoryId = inv.Id,
-                        Change = inv.AvailableStock,
-                        Reason = "InitialSeed",
-                        Timestamp = DateTime.UtcNow,
-                        PerformedBy = "system"
-                    });
-
-                    await context.SaveChangesAsync();
-                }
-            }
-
-            // Seed Products if none exist
-            if (!await context.Products.AnyAsync())
-            {
-                var products = new List<Product>
-                {
-                    new Product
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "Rockerz Pro ANC 550",
-                        Description = "Ultimate over-ear Active Noise Cancellation headphones with dual-mic ENx technology and premium spatial acoustics.",
-                        Price = 7999,
-                        DiscountPrice = 1990,
-                        StockQuantity = 150,
-                        ImageUrl = "hero_headphones.png",
-                        CategoryId = Guid.Parse("22222222-2222-2222-2222-222222222222"),
-                        Brand = "BeatBox",
-                        Rating = 4.9,
-                        BatteryLife = "60 Hours",
-                        Color = "Purple",
-                        Connectivity = "Wireless",
-                        IsFeatured = true
-                    },
-                    new Product
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "Airdopes Cyber 141",
-                        Description = "Ultimate low-latency wireless gaming earbuds featuring BEAST mode with 40ms low audio latency.",
-                        Price = 4299,
-                        DiscountPrice = 1490,
-                        StockQuantity = 240,
-                        ImageUrl = "hero_earbuds.png",
-                        CategoryId = Guid.Parse("11111111-1111-1111-1111-111111111111"),
-                        Brand = "BeatBox",
-                        Rating = 4.8,
-                        BatteryLife = "42 Hours",
-                        Color = "Cyan",
-                        Connectivity = "Wireless",
-                        IsFeatured = true
-                    },
-                    new Product
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "Stone Beat Beast 1200",
-                        Description = "High-fidelity rugged Bluetooth speaker throwing 14W signature room-filling bass sound.",
-                        Price = 6499,
-                        DiscountPrice = 2990,
-                        StockQuantity = 80,
-                        ImageUrl = "hero_speaker.png",
-                        CategoryId = Guid.Parse("33333333-3333-3333-3333-333333333333"),
-                        Brand = "BeatBox",
-                        Rating = 4.7,
-                        BatteryLife = "12 Hours",
-                        Color = "Carbon",
-                        Connectivity = "Wireless",
-                        IsFeatured = true
-                    },
-                    new Product
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "Immortal Gaming Pro",
-                        Description = "Virtual 7.1 surround sound immersive gaming headset featuring breathing LED lights and high-sensitivity mic.",
-                        Price = 4599,
-                        DiscountPrice = 1999,
-                        StockQuantity = 110,
-                        ImageUrl = "hero_headphones.png",
-                        CategoryId = Guid.Parse("44444444-4444-4444-4444-444444444444"),
-                        Brand = "BeatBox",
-                        Rating = 4.9,
-                        BatteryLife = "30 Hours",
-                        Color = "Neon",
-                        Connectivity = "Wireless",
-                        IsFeatured = true
-                    }
-                };
-
-                await context.Products.AddRangeAsync(products);
-                await context.SaveChangesAsync();
-            }
-            if (!await context.Products.AnyAsync(p => p.Name == "BeatBox Thunder ANC 900"))
-            {
-                await context.Products.AddRangeAsync(
-                    new Product
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "BeatBox Thunder ANC 900",
-                        Description = "Flagship noise-cancelling headphones.",
-                        Price = 9999,
-                        DiscountPrice = 7499,
-                        StockQuantity = 60,
-                        ImageUrl = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
-                        CategoryId = Guid.Parse("22222222-2222-2222-2222-222222222222"),
-                        Brand = "BeatBox",
-                        Rating = 4.8,
-                        BatteryLife = "70 Hours",
-                        Color = "Silver",
-                        Connectivity = "Wireless",
-                        IsFeatured = true,
-                        SoldCount = 250,
-                        DeliveryDays = 3
-                    },
-
-                    new Product
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "BeatBox Party Blast 500",
-                        Description = "Portable party speaker with RGB lights.",
-                        Price = 7999,
-                        DiscountPrice = 5999,
-                        StockQuantity = 80,
-                        ImageUrl = "https://images.unsplash.com/photo-1589003077984-894e133dabab",
-                        CategoryId = Guid.Parse("33333333-3333-3333-3333-333333333333"),
-                        Brand = "BeatBox",
-                        Rating = 4.7,
-                        BatteryLife = "18 Hours",
-                        Color = "Black",
-                        Connectivity = "Bluetooth",
-                        IsFeatured = true,
-                        SoldCount = 190,
-                        DeliveryDays = 2
-                    },
-
-                    new Product
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "BeatBox Titan RGB Pro",
-                        Description = "Professional gaming headset with RGB effects.",
-                        Price = 4999,
-                        DiscountPrice = 3499,
-                        StockQuantity = 3,
-                        ImageUrl = "https://images.unsplash.com/photo-1599669454699-248893623440",
-                        CategoryId = Guid.Parse("44444444-4444-4444-4444-444444444444"),
-                        Brand = "BeatBox",
-                        Rating = 4.9,
-                        BatteryLife = "40 Hours",
-                        Color = "Red",
-                        Connectivity = "Wireless",
-                        IsFeatured = true,
-                        SoldCount = 430,
-                        DeliveryDays = 1
-                    }
-                );
-
-                await context.SaveChangesAsync();
-            }
-            // Seed Product Images, FAQs and Reviews
-            if (!await context.ProductImages.AnyAsync())
-            {
-                var products = await context.Products.ToListAsync();
-
-                foreach (var product in products)
-                {
-                    switch (product.Name)
-                    {
-                        case "Rockerz Pro ANC 550":
-
-                            await context.ProductImages.AddRangeAsync(
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
-                                    ColorName = "Black",
-                                    ColorCode = "#111111",
-                                    IsPrimary = true
-                                },
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1484704849700-f032a568e944",
-                                    ColorName = "Purple",
-                                    ColorCode = "#7C3AED",
-                                    IsPrimary = false
-                                },
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1546435770-a3e426bf472b",
-                                    ColorName = "Silver",
-                                    ColorCode = "#D1D5DB",
-                                    IsPrimary = false
-                                }
-
-                            );
-
-                            break;
-
-                        case "Airdopes Cyber 141":
-
-                            await context.ProductImages.AddRangeAsync(
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1590658268037-6bf12165a8df",
-                                    ColorName = "Black",
-                                    ColorCode = "#111111",
-                                    IsPrimary = true
-                                },
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46",
-                                    ColorName = "White",
-                                    ColorCode = "#FFFFFF",
-                                    IsPrimary = false
-                                },
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb",
-                                    ColorName = "Cyan",
-                                    ColorCode = "#06B6D4",
-                                    IsPrimary = false
-                                }
-
-                            );
-
-                            break;
-
-                        case "Stone Beat Beast 1200":
-
-                            await context.ProductImages.AddRangeAsync(
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1589003077984-894e133dabab",
-                                    ColorName = "Black",
-                                    ColorCode = "#111111",
-                                    IsPrimary = true
-                                },
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1",
-                                    ColorName = "Blue",
-                                    ColorCode = "#2563EB",
-                                    IsPrimary = false
-                                }
-
-                            );
-
-                            break;
-
-                        case "Immortal Gaming Pro":
-
-                            await context.ProductImages.AddRangeAsync(
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1599669454699-248893623440",
-                                    ColorName = "Black",
-                                    ColorCode = "#111111",
-                                    IsPrimary = true
-                                },
-
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = "https://images.unsplash.com/photo-1546435770-a3e426bf472b",
-                                    ColorName = "Red",
-                                    ColorCode = "#DC2626",
-                                    IsPrimary = false
-                                }
-
-                            );
-
-                            break;
-
-                        default:
-
-                            await context.ProductImages.AddAsync(
-                                new ProductImage
-                                {
-                                    ProductId = product.Id,
-                                    ImageUrl = product.ImageUrl,
-                                    ColorName = product.Color,
-                                    ColorCode = "#111111",
-                                    IsPrimary = true
-                                });
-
-                            break;
-                    }
-                }
-
-                await context.SaveChangesAsync();
-            }
-            if (!await context.ProductFaqs.AnyAsync())
-            {
-                var products = await context.Products.ToListAsync();
-
-                foreach (var product in products)
-                {
-                    await context.ProductFaqs.AddRangeAsync(
-                        new ProductFaq
-                        {
-                            ProductId = product.Id,
-                            Question = "What is the warranty period?",
-                            Answer = "All BeatBox products come with 1 year warranty."
-                        },
-                        new ProductFaq
-                        {
-                            ProductId = product.Id,
-                            Question = "Does it support fast charging?",
-                            Answer = "Yes, fast charging is supported."
-                        },
-                        new ProductFaq
-                        {
-                            ProductId = product.Id,
-                            Question = "Can I return this product?",
-                            Answer = "Yes, within 7 days of delivery."
-                        }
-                    );
-                }
-
-                await context.SaveChangesAsync();
-            }
-
-            
-
-            // Ensure new Categories exist
-            var smartWatchCat = await context.Categories.FirstOrDefaultAsync(c => c.Name == "Smart Watches");
-            if (smartWatchCat == null)
-            {
-                smartWatchCat = new Category { Id = Guid.NewGuid(), Name = "Smart Watches", Description = "Next-gen fitness and connectivity wearables." };
-                await context.Categories.AddAsync(smartWatchCat);
-            }
-
-            var wiredCat = await context.Categories.FirstOrDefaultAsync(c => c.Name == "Wired Headphones");
-            if (wiredCat == null)
-            {
-                wiredCat = new Category { Id = Guid.NewGuid(), Name = "Wired Headphones", Description = "Audiophile grade wired listening experience." };
-                await context.Categories.AddAsync(wiredCat);
-            }
-
-            await context.SaveChangesAsync();
-
-            // Check if we need to add the new products
-            if (!await context.Products.AnyAsync(p => p.Name == "CyberWatch X1"))
-            {
-                var newProducts = new List<Product>
-                {
-                    new Product
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "CyberWatch X1",
-                        Description = "Premium futuristic smartwatch with a glowing neon interface, health tracking, and 7-day battery life.",
-                        Price = 8499,
-                        DiscountPrice = 3990,
-                        StockQuantity = 50,
-                        ImageUrl = "hero_smartwatch.png",
-                        CategoryId = smartWatchCat.Id,
-                        Brand = "BeatBox",
-                        Rating = 4.8,
-                        BatteryLife = "168 Hours",
-                        Color = "Obsidian",
-                        Connectivity = "Bluetooth 5.3",
-                        IsFeatured = true
-                    },
-                    new Product
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = "Studio Pro Wired",
-                        Description = "Audiophile-grade wired over-ear headphones with a braided cable and ultra-high fidelity drivers.",
-                        Price = 14999,
-                        DiscountPrice = 2999,
-                        StockQuantity = 30,
-                        ImageUrl = "hero_wired.png",
-                        CategoryId = wiredCat.Id,
-                        Brand = "BeatBox",
-                        Rating = 5.0,
-                        BatteryLife = "Infinite",
-                        Color = "Silver/Black",
-                        Connectivity = "Wired (3.5mm)",
-                        IsFeatured = true
-                    }
-                };
-
-                await context.Products.AddRangeAsync(newProducts);
-                await context.SaveChangesAsync();
-            }
-
-            if (!await context.Coupons.AnyAsync())
-            {
-                await context.Coupons.AddRangeAsync(
-
-                    new Coupon
-                    {
-                        Code = "WELCOME10",
-                        DiscountPercentage = 10,
-                        MinimumOrderAmount = 1000,
-                        ExpiryDate = DateTime.UtcNow.AddYears(1),
-                        IsActive = true,
-                        UsageLimit = 1000
-                    },
-
-                    new Coupon
-                    {
-                        Code = "BEATBOX500",
-                        DiscountAmount = 500,
-                        MinimumOrderAmount = 3000,
-                        ExpiryDate = DateTime.UtcNow.AddYears(1),
-                        IsActive = true,
-                        UsageLimit = 500
-                    },
-
-                    new Coupon
-                    {
-                        Code = "SUMMER20",
-                        DiscountPercentage = 20,
-                        MinimumOrderAmount = 5000,
-                        ExpiryDate = DateTime.UtcNow.AddMonths(3),
-                        IsActive = true,
-                        UsageLimit = 100
-                    }
-                );
-
-                await context.SaveChangesAsync();
-            }
-
-            // --- Admin Role & User Seeding ---
-            var adminRoleExists = await roleManager.RoleExistsAsync("Admin");
-            if (!adminRoleExists)
-            {
-                await roleManager.CreateAsync(new IdentityRole("Admin"));
-            }
-
-            var adminEmail = "BeatBox@admin.com";
-            var existingAdmin = await userManager.FindByEmailAsync(adminEmail);
-
-            if (existingAdmin == null)
-            {
-                var newAdmin = new AppUser
-                {
-                    UserName = adminEmail,
-                    Email = adminEmail,
-                    FullName = "BeatBox Admin",
-                    IsEmailVerified = true,
-                    IsPhoneVerified = true
-                };
-
-                var createResult = await userManager.CreateAsync(newAdmin, "Admin@123");
-                if (createResult.Succeeded)
-                {
-                    await userManager.AddToRoleAsync(newAdmin, "Admin");
-                }
+                displayFolder = folder;
+                images = LoadCategoryImages(folder);
             }
             else
             {
-                if (!await userManager.IsInRoleAsync(existingAdmin, "Admin"))
-                {
-                    await userManager.AddToRoleAsync(existingAdmin, "Admin");
-                }
+                displayFolder = "default";
+                images = defaultImages;
+                categoriesUsingDefault.Add(categoryName);
             }
 
-            if (!await context.ProductReviews.AnyAsync())
+            map[categoryName] = images;
+
+            // Log: Category | Folder | Image Count
+            Console.WriteLine(string.Format("{0,-25} | {1,-25} | {2,-11}", categoryName, displayFolder, images.Length));
+        }
+
+        CategoryImages = map;
+
+        // Print all categories still using default after initialization
+        if (categoriesUsingDefault.Any())
+        {
+            Console.WriteLine("\nCategories falling back to 'default':");
+            foreach (var cat in categoriesUsingDefault)
             {
-                var admin = await userManager.FindByEmailAsync("BeatBox@admin.com");
+                Console.WriteLine($"- {cat}");
+            }
+            Console.WriteLine();
+        }
+    }
 
-                if (admin != null)
+    /// <summary>
+    /// Loads all image filenames from a category folder in wwwroot/images/products/.
+    /// Returns relative paths suitable for HTML img src attributes.
+    /// </summary>
+    private static string[] LoadCategoryImages(string categoryFolder)
+    {
+        if (string.IsNullOrWhiteSpace(_contentRootPath))
+        {
+            throw new InvalidOperationException("Content root path is not set.");
+        }
+
+        var folderPath = Path.Combine(_contentRootPath, "wwwroot", "images", "products", categoryFolder);
+
+        // If folder doesn't exist, throw an exception
+        if (!Directory.Exists(folderPath))
+        {
+            throw new DirectoryNotFoundException($"Category image folder not found: {folderPath}");
+        }
+
+        // Get all image files (jpg, jpeg, png, webp, gif)
+        var imageExtensions = new[] { ".jpg", ".jpeg", ".png", ".webp", ".gif" };
+        var imageFiles = Directory.GetFiles(folderPath)
+            .Where(f => imageExtensions.Contains(Path.GetExtension(f).ToLowerInvariant()))
+            .OrderBy(f => f)
+            .ToList();
+
+        // If no images found, throw an exception
+        if (!imageFiles.Any())
+        {
+            throw new FileNotFoundException($"No images found in category folder: {folderPath}");
+        }
+
+        // Convert file paths to relative web paths (/images/products/category/filename)
+        var imagePaths = imageFiles
+            .Select(f =>
+            {
+                var fileName = Path.GetFileName(f);
+                return $"{ImageBasePath}/{categoryFolder}/{fileName}";
+            })
+            .ToArray();
+
+        // Ensure we have at least 3 images by circular padding using the existing images
+        if (imagePaths.Length < 3)
+        {
+            var paddedList = imagePaths.ToList();
+            while (paddedList.Count < 3)
+            {
+                paddedList.Add(imagePaths[paddedList.Count % imagePaths.Length]);
+            }
+            return paddedList.ToArray();
+        }
+
+        return imagePaths;
+    }
+
+    // Build N ProductVariantImage objects for a category using the CategoryImages pool.
+    // Tracks globally used URLs to prevent any image reuse across variants of the same product.
+    private static List<ProductVariantImage> BuildVariantImagesForCategory(
+        string categoryName, 
+        int count, 
+        Random rnd, 
+        HashSet<string> globallyUsedUrls = null)
+    {
+        globallyUsedUrls ??= new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        var pool = CategoryImages.TryGetValue(categoryName, out var catPool) 
+            ? catPool 
+            : (CategoryImages.TryGetValue("default", out var d) ? d : CategoryImages.Values.First());
+
+        var list = new List<ProductVariantImage>();
+        var attemptsPerImage = 0;
+        var maxAttemptsPerImage = pool.Length * 2;
+
+        for (int i = 0; i < count; i++)
+        {
+            string selectedUrl = null;
+            attemptsPerImage = 0;
+
+            // Find an image URL not yet used in this global context
+            while (attemptsPerImage < maxAttemptsPerImage)
+            {
+                var idx = rnd.Next(0, pool.Length);
+                var candidateUrl = pool[idx];
+
+                if (!globallyUsedUrls.Contains(candidateUrl))
                 {
-                    var products = await context.Products.ToListAsync();
+                    selectedUrl = candidateUrl;
+                    globallyUsedUrls.Add(candidateUrl);
+                    break;
+                }
 
-                    foreach (var product in products)
+                attemptsPerImage++;
+            }
+
+            // Fallback if pool is exhausted: cycle through remaining unused images
+            if (selectedUrl == null)
+            {
+                foreach (var url in pool)
+                {
+                    if (!globallyUsedUrls.Contains(url))
                     {
-                        await context.ProductReviews.AddRangeAsync(
-                            new ProductReview
-                            {
-                                ProductId = product.Id,
-                                UserId = admin.Id,
-                                Rating = 5,
-                                Comment = "Amazing sound quality and premium build.",
-                                CreatedDate = DateTime.UtcNow.AddDays(-10),
-                                IsVerifiedPurchase = true
-                            },
-                            new ProductReview
-                            {
-                                ProductId = product.Id,
-                                UserId = admin.Id,
-                                Rating = 4,
-                                Comment = "Battery backup is excellent.",
-                                CreatedDate = DateTime.UtcNow.AddDays(-5),
-                                IsVerifiedPurchase = true
-                            },
-                            new ProductReview
-                            {
-                                ProductId = product.Id,
-                                UserId = admin.Id,
-                                Rating = 5,
-                                Comment = "Worth every rupee.",
-                                CreatedDate = DateTime.UtcNow.AddDays(-2),
-                                IsVerifiedPurchase = true
-                            }
-                        );
+                        selectedUrl = url;
+                        globallyUsedUrls.Add(url);
+                        break;
                     }
-
-                    await context.SaveChangesAsync();
                 }
             }
 
-            // =============================================
-            // PHASE 1 MIGRATION: Audio Categories & Products
-            // =============================================
-
-            // Ensure all Audio subcategories exist
-            var audioCategories = new Dictionary<string, string>
+            // Last resort: if entire pool is used, wrap around (should be rare)
+            if (selectedUrl == null && pool.Length > 0)
             {
-                { "Soundbars",             "Premium soundbars for home theatre." },
-                { "Party Speakers",        "High-wattage speakers for parties and events." },
-                { "Portable Speakers",     "Compact wireless speakers for on-the-go." },
-                { "TWS Earbuds",           "True Wireless Stereo earbuds." },
-                { "Neckbands",             "Wireless neckband earphones." },
-                { "Wireless Headphones",   "Over-ear and on-ear wireless headphones." },
-                { "Wired Earphones",       "High-fidelity wired in-ear monitors." },
-                { "USB Speakers",          "USB-powered desktop speakers." },
-                { "Conference Speakers",   "Speakerphones for meetings and calls." },
-                { "Wireless Microphones",  "Professional wireless mic systems." },
+                selectedUrl = pool[i % pool.Length];
+                globallyUsedUrls.Add(selectedUrl);
+            }
+
+            // Validate image exists or use placeholder
+            selectedUrl = ValidateAndGetImagePath(selectedUrl);
+
+            list.Add(new ProductVariantImage
+            {
+                Id = Guid.NewGuid(),
+                ImageUrl = selectedUrl,
+                IsPrimary = i == 0,
+                DisplayOrder = i + 1
+            });
+        }
+
+        return list;
+    }
+
+    /// <summary>
+    /// Validates that an image file exists at the given path.
+    /// Throws an exception if it doesn't exist.
+    /// </summary>
+    private static string ValidateAndGetImagePath(string imagePath)
+    {
+        // If no content root path is set, trust the path as-is (development/testing scenario)
+        if (string.IsNullOrWhiteSpace(_contentRootPath))
+        {
+            return imagePath;
+        }
+
+        // Construct full file path from the relative web path
+        // imagePath: /images/products/category/filename.jpg
+        // fullPath: {contentRoot}/wwwroot/images/products/category/filename.jpg
+        var relativePath = imagePath.TrimStart('/');
+        var fullPath = Path.Combine(_contentRootPath, "wwwroot", relativePath);
+
+        // Check if file exists
+        if (File.Exists(fullPath))
+        {
+            return imagePath;
+        }
+
+        // File doesn't exist, throw exception
+        throw new FileNotFoundException($"Seed image file not found on disk: {fullPath}");
+    }
+
+    // Seed entry point
+    public static async Task SeedAsync(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+    {
+        if (context == null) throw new ArgumentNullException(nameof(context));
+        if (userManager == null) throw new ArgumentNullException(nameof(userManager));
+        if (roleManager == null) throw new ArgumentNullException(nameof(roleManager));
+
+        // Keep deterministic random data
+        var rnd = new Random(12345);
+
+        await SeedCategories(context);
+
+        // Ensure admin user exists for reviews
+        var admin = await EnsureAdminAsync(userManager, roleManager);
+
+        await SeedProductsAsync(context, admin?.Id, rnd);
+
+        // Final save
+        await context.SaveChangesAsync();
+    }
+
+    // Ensure all frontend categories exist
+    private static async Task SeedCategories(AppDbContext context)
+    {
+        foreach (var name in FrontendCategories)
+        {
+            var exists = await context.Categories.AnyAsync(c => c.Name == name);
+            if (!exists)
+            {
+                context.Categories.Add(new Category
+                {
+                    Id = Guid.NewGuid(),
+                    Name = name,
+                    Description = name
+                });
+            }
+        }
+
+        await context.SaveChangesAsync();
+    }
+
+    private static async Task<AppUser?> EnsureAdminAsync(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+    {
+        var adminEmail = "vikram.admin@beatbox.com";
+        if (!await roleManager.RoleExistsAsync("Admin"))
+            await roleManager.CreateAsync(new IdentityRole("Admin"));
+
+        var admin = await userManager.FindByEmailAsync(adminEmail);
+        if (admin == null)
+        {
+            admin = new AppUser
+            {
+                UserName = adminEmail,
+                Email = adminEmail,
+                FullName = "Vikram Singh (Admin)",
+                IsEmailVerified = true,
+                IsPhoneVerified = true
             };
 
-            var audioCatEntities = new Dictionary<string, Category>();
-            foreach (var kv in audioCategories)
+            var result = await userManager.CreateAsync(admin, "Admin@123");
+            if (result.Succeeded)
             {
-                var cat = await context.Categories.FirstOrDefaultAsync(c => c.Name == kv.Key);
-                if (cat == null)
-                {
-                    cat = new Category { Id = Guid.NewGuid(), Name = kv.Key, Description = kv.Value };
-                    await context.Categories.AddAsync(cat);
-                    await context.SaveChangesAsync();
-                }
-                audioCatEntities[kv.Key] = cat;
+                await userManager.AddToRoleAsync(admin, "Admin");
             }
-
-            // Helper: add product if not already present
-            async Task AddProductIfMissing(string name, string description, decimal price, decimal discountPrice,
-                int stock, string imageUrl, Guid categoryId, string brand, double rating,
-                string batteryLife, string color, string connectivity)
+            else
             {
-                if (!await context.Products.AnyAsync(p => p.Name == name))
+                // If user creation failed, return null to avoid FK violations when adding reviews
+                return null;
+            }
+        }
+        else
+        {
+            if (!await userManager.IsInRoleAsync(admin, "Admin"))
+                await userManager.AddToRoleAsync(admin, "Admin");
+        }
+
+        return admin;
+    }
+
+    // Seed products for every category ensuring at least 5 products per category and 250+ total
+    private static async Task SeedProductsAsync(AppDbContext context, string? adminUserId, Random rnd)
+    {
+        var categories = await context.Categories.ToListAsync();
+
+        // Product name parts and brands
+        var brands = new[] { "BeatBox", "SoundCore", "PulseTech", "NeoAudio", "Waveform", "AudioMax", "ClearTone", "BassLine", "ProSound", "EchoLabs" };
+        var adjectives = new[] { "Pro", "Max", "Lite", "Mini", "Ultra", "Plus", "Go", "Prime", "Elite", "Neo" };
+        var nouns = new[] { "Speaker", "Headset", "Earbuds", "Charger", "Stand", "Tracker", "Cleaner", "Hub", "Kettle", "Blower" };
+
+        var targetPerCategory = 5; // minimum
+
+        var globalProducts = new List<Product>();
+
+        foreach (var cat in categories)
+        {
+            // ensure at least targetPerCategory products in each category
+            var existingCount = await context.Products.CountAsync(p => p.CategoryId == cat.Id);
+            var toCreate = Math.Max(0, targetPerCategory - existingCount);
+
+            for (int i = 0; i < toCreate; i++)
+            {
+                var brand = brands[rnd.Next(brands.Length)];
+                var name = CreateProductName(cat.Name, adjectives, nouns, rnd);
+                var product = CreateProduct(name, cat.Id, brand, rnd);
+
+                // Variants (3-5)
+                var variantCount = rnd.Next(3, 6);
+                product.Variants = CreateVariants(variantCount, rnd, cat.Name);
+
+                // Reviews
+                product.Reviews = CreateReviews(adminUserId, rnd);
+
+                // FAQs
+                product.Faqs = CreateFaqs();
+
+                // --- VALIDATIONS (strict) ---
+                // Validate variants and their images
+                foreach (var variant in product.Variants)
                 {
-                    var p = new Product
+                    if (variant.Price <= 0)
+                        throw new Exception($"Invalid Price for variant of {product.Name}");
+                    if (variant.DiscountPrice <= 0)
+                        throw new Exception($"Invalid DiscountPrice for variant of {product.Name}");
+                    if (variant.DiscountPrice >= variant.Price)
+                        throw new Exception($"DiscountPrice must be lower than Price for variant of {product.Name}");
+                    // Ensure variant images exist and are valid
+                    if (variant.Images == null || variant.Images.Count < 3)
+                        throw new Exception($"Variant for {product.Name} must have at least 3 images.");
+                    if (!variant.Images.Any(img => img.IsPrimary))
+                        throw new Exception($"Variant for {product.Name} must have an IsPrimary image.");
+                    var orders = variant.Images.Select(img => img.DisplayOrder).ToList();
+                    if (orders.Min() != 1)
+                        throw new Exception($"Variant images for {product.Name} must have DisplayOrder starting at 1.");
+                    if (orders.Distinct().Count() != orders.Count)
+                        throw new Exception($"Variant images for {product.Name} contain duplicate DisplayOrder values.");
+                }
+                // No product-level color images are seeded from variants anymore
+
+                globalProducts.Add(product);
+            }
+        }
+
+            if (globalProducts.Any())
+            {
+                // Add products with populated variant images so EF can persist ProductVariantImages
+                await context.Products.AddRangeAsync(globalProducts);
+                await context.SaveChangesAsync();
+
+                // After saving products, ensure variant images were persisted (they should be via FK)
+                // Create inventories and inventory histories
+                var savedProducts = await context.Products.Include(p => p.Variants).ThenInclude(v => v.Images).ToListAsync();
+                foreach (var p in savedProducts)
+                {
+                    await CreateOrSyncInventory(context, p);
+                }
+
+                await context.SaveChangesAsync();
+
+                // --- Ensure existing products/variants in DB have variant images ---
+                // Load all products with variants and variant images
+                var allProducts = await context.Products
+                    .Include(p => p.Variants)
+                        .ThenInclude(v => v.Images)
+                    .ToListAsync();
+
+                foreach (var prod in allProducts)
+                {
+                    var catName = (await context.Categories.Where(c => c.Id == prod.CategoryId).Select(c => c.Name).FirstOrDefaultAsync()) ?? "default";
+                    foreach (var variant in prod.Variants)
                     {
-                        Id = Guid.NewGuid(), Name = name, Description = description,
-                        Price = price, DiscountPrice = discountPrice, StockQuantity = stock,
-                        ImageUrl = imageUrl, CategoryId = categoryId, Brand = brand,
-                        Rating = rating, BatteryLife = batteryLife, Color = color,
-                        Connectivity = connectivity, IsFeatured = true,
-                        SoldCount = new Random().Next(50, 500), DeliveryDays = 3
-                    };
-                    await context.Products.AddAsync(p);
-                    await context.SaveChangesAsync();
+                        var currentCount = variant.Images?.Count ?? 0;
+                        if (currentCount >= 3) continue; // already populated
+
+                        var need = 3 - currentCount;
+                        if (need <= 0) need = 3; // safe fallback
+
+                        var imgs = BuildVariantImagesForCategory(catName, need, rnd);
+                        variant.Images ??= new List<ProductVariantImage>();
+                        int nextOrder = (variant.Images.Any() ? variant.Images.Max(x => x.DisplayOrder) : 0) + 1;
+                        foreach (var vi in imgs)
+                        {
+                            vi.DisplayOrder = nextOrder++;
+                            vi.VariantId = variant.Id;
+                            variant.Images.Add(vi);
+                        }
+                    }
                 }
+
+                // Persist newly added variant images
+                await context.SaveChangesAsync();
+            }
+    }
+
+    private static string CreateProductName(string categoryName, string[] adjectives, string[] nouns, Random rnd)
+    {
+        // Build readable product names based on category context
+        var adj = adjectives[rnd.Next(adjectives.Length)];
+        var noun = nouns[rnd.Next(nouns.Length)];
+        var suffix = rnd.Next(100, 999);
+
+        // Use category keyword if meaningful
+        var catToken = categoryName.Split(' ').First();
+        var name = new StringBuilder();
+        name.Append(catToken);
+        name.Append(' ');
+        name.Append(adj);
+        name.Append(' ');
+        name.Append(noun);
+        name.Append(' ');
+        name.Append(suffix);
+
+        return name.ToString();
+    }
+
+    private static Product CreateProduct(string name, Guid categoryId, string brand, Random rnd)
+    {
+        return new Product
+        {
+            Id = Guid.NewGuid(),
+            Name = name,
+            Description = $"{name} by {brand} — reliable, high-quality product designed for everyday use.",
+            CategoryId = categoryId,
+            Brand = brand,
+            Rating = Math.Round(3.5 + rnd.NextDouble() * 1.5, 1),
+            BatteryLife = GenerateBatteryLife(rnd),
+            Connectivity = GenerateConnectivity(rnd),
+            IsFeatured = rnd.NextDouble() > 0.8,
+            SoldCount = rnd.Next(10, 1000),
+            DeliveryDays = rnd.Next(1, 7),
+            Variants = new List<ProductVariant>(),
+            Images = new List<ProductImage>(),
+            Faqs = new List<ProductFaq>(),
+            Reviews = new List<ProductReview>()
+        };
+    }
+
+    private static string GenerateBatteryLife(Random rnd)
+    {
+        var options = new[] { "N/A", "6 Hours", "8 Hours", "10 Hours", "12 Hours", "24 Hours", "3 Days", "7 Days", "10 Days", "14 Days" };
+        return options[rnd.Next(options.Length)];
+    }
+
+    private static string GenerateConnectivity(Random rnd)
+    {
+        var options = new[] { "Bluetooth 5.3", "Bluetooth 5.2", "Bluetooth 5.0", "USB", "USB-C", "Wireless", "3.5mm", "WiFi" };
+        return options[rnd.Next(options.Length)];
+    }
+
+    private static List<ProductVariant> CreateVariants(int count, Random rnd, string categoryName)
+    {
+        var colors = new[]
+        {
+            ("Black","#111111"), ("White","#FFFFFF"), ("Blue","#2563EB"), ("Red","#DC2626"), ("Green","#10B981"),
+            ("Grey","#6B7280"), ("Gold","#D4AF37"), ("Silver","#C0C0C0"), ("Purple","#7C3AED"), ("Orange","#EA580C")
+        };
+
+        // Price bands based on category roughness
+        var basePrice = GetBasePriceForCategory(categoryName);
+
+        var variants = new List<ProductVariant>();
+        // Global tracker to ensure NO image URL is reused across ANY variant of this product
+        var globallyUsedUrls = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+        for (int i = 0; i < count; i++)
+        {
+            var c = colors[i % colors.Length];
+            // Price logic: ensure an integer price between sensible ranges
+            var price = basePrice + (i * 500) + (decimal)(rnd.Next(0, 1000));
+            if (price < 1) price = Math.Abs(price) + 499m;
+
+            // Discount percent 5..40 inclusive
+            var discountPercent = rnd.Next(5, 41);
+            var discountPrice = Math.Round(price * (100m - discountPercent) / 100m, 2);
+
+            // Enforce mandatory rules
+            if (discountPrice <= 0m)
+            {
+                discountPercent = 5;
+                discountPrice = Math.Round(price * 0.95m, 2);
             }
 
-            // Soundbars
-            await AddProductIfMissing("BeatBox Soundbar 2.1", "2.1 channel soundbar with wireless subwoofer.", 4999, 2999, 80, "soundbar.png", audioCatEntities["Soundbars"].Id, "BeatBox", 4.7, "N/A", "Black", "HDMI ARC / Optical");
-            await AddProductIfMissing("BeatBox Soundbar Pro 5.1", "Immersive 5.1 surround soundbar, Dolby Audio.", 8999, 6999, 50, "soundbar.png", audioCatEntities["Soundbars"].Id, "BeatBox", 4.8, "N/A", "Black", "HDMI ARC");
-            await AddProductIfMissing("BeatBox Gaming Soundbar X", "Gaming soundbar with Virtual 7.1 and low latency.", 4999, 3499, 60, "soundbar.png", audioCatEntities["Soundbars"].Id, "BeatBox", 4.7, "N/A", "Black", "Bluetooth / Optical");
-
-            // Party Speakers
-            await AddProductIfMissing("Party Boom 1500", "1500W peak party speaker with disco lights and mic input.", 12999, 9999, 30, "party_speaker.png", audioCatEntities["Party Speakers"].Id, "BeatBox", 4.8, "8 Hours", "Black", "Bluetooth 5.0");
-            await AddProductIfMissing("Party Blast Tower", "Tower party speaker with karaoke mic and FM radio.", 14999, 11999, 20, "party_speaker.png", audioCatEntities["Party Speakers"].Id, "BeatBox", 4.9, "N/A", "Black", "Bluetooth / AUX");
-            await AddProductIfMissing("Party Lite Wireless", "Portable party speaker, IPX5, 12-hour battery.", 7999, 5999, 60, "party_speaker.png", audioCatEntities["Party Speakers"].Id, "BeatBox", 4.6, "12 Hours", "Black", "Bluetooth 5.0");
-
-            // Portable Speakers
-            await AddProductIfMissing("Portable Rugged X3", "IP67 waterproof rugged Bluetooth speaker, 24-hour battery.", 2499, 1799, 120, "hero_speaker.png", audioCatEntities["Portable Speakers"].Id, "BeatBox", 4.8, "24 Hours", "Green", "Bluetooth 5.0");
-            await AddProductIfMissing("Portable Bass Booster", "360° passive bass radiator, TWS pairable.", 1999, 1499, 150, "hero_speaker.png", audioCatEntities["Portable Speakers"].Id, "BeatBox", 4.7, "16 Hours", "Black", "Bluetooth 5.0");
-            await AddProductIfMissing("Pocket Mini Speaker", "Ultra-compact pocket speaker, USB-C charging.", 999, 699, 200, "hero_speaker.png", audioCatEntities["Portable Speakers"].Id, "BeatBox", 4.5, "8 Hours", "Blue", "Bluetooth 5.0");
-
-            // TWS Earbuds
-            await AddProductIfMissing("TWS ANC Elite", "Hybrid ANC TWS earbuds, 40-hour total playback.", 3499, 2499, 100, "smart_earbuds.png", audioCatEntities["TWS Earbuds"].Id, "BeatBox", 4.9, "40 Hours", "White", "Bluetooth 5.3");
-            await AddProductIfMissing("TWS Sport Pro", "IPX5 sport TWS with ear hooks, 36-hour battery.", 1999, 1499, 130, "smart_earbuds.png", audioCatEntities["TWS Earbuds"].Id, "BeatBox", 4.7, "36 Hours", "Black", "Bluetooth 5.0");
-            await AddProductIfMissing("TWS Lite Everyday", "Best-value TWS, 24-hour battery, touch controls.", 799, 599, 250, "smart_earbuds.png", audioCatEntities["TWS Earbuds"].Id, "BeatBox", 4.5, "24 Hours", "Black", "Bluetooth 5.0");
-
-            // Neckbands
-            await AddProductIfMissing("Neckband Pro ANC", "Active noise cancellation neckband, 30-hour playback.", 1499, 999, 140, "wireless_neckband.png", audioCatEntities["Neckbands"].Id, "BeatBox", 4.8, "30 Hours", "Black", "Bluetooth 5.0");
-            await AddProductIfMissing("Neckband Sport Flex", "Memory-flex band, IPX4 rated, 28-hour battery.", 1299, 799, 160, "wireless_neckband.png", audioCatEntities["Neckbands"].Id, "BeatBox", 4.7, "28 Hours", "Blue", "Bluetooth 5.0");
-
-            // Wireless Headphones
-            await AddProductIfMissing("ANC Headphones Pro", "45dB ANC, premium leather cushions, 50-hour playback.", 4999, 2999, 70, "hero_headphones.png", audioCatEntities["Wireless Headphones"].Id, "BeatBox", 4.9, "50 Hours", "Black", "Bluetooth 5.2");
-            await AddProductIfMissing("Wireless Headphones Lite", "Lightweight foldable, 40-hour playback, best value.", 1999, 1499, 120, "hero_headphones.png", audioCatEntities["Wireless Headphones"].Id, "BeatBox", 4.6, "40 Hours", "White", "Bluetooth 5.0");
-            await AddProductIfMissing("Studio Wireless Headphones X", "Studio-grade flat EQ, 50mm drivers, for creators.", 6999, 4999, 40, "hero_headphones.png", audioCatEntities["Wireless Headphones"].Id, "BeatBox", 4.9, "30 Hours", "Silver", "Bluetooth 5.2");
-
-            // Wired Earphones
-            await AddProductIfMissing("Wired Pro IEM", "Balanced armature driver, braided cable, audiophile grade.", 799, 499, 180, "wired_earphones.png", audioCatEntities["Wired Earphones"].Id, "BeatBox", 4.8, "N/A", "Silver", "Wired 3.5mm");
-            await AddProductIfMissing("Wired Bass Boost", "12mm deep-bass driver, in-line mic.", 499, 299, 250, "wired_earphones.png", audioCatEntities["Wired Earphones"].Id, "BeatBox", 4.6, "N/A", "Black", "Wired 3.5mm");
-            await AddProductIfMissing("Type-C Wired Earphones", "USB-C with built-in DAC, Hi-Res audio certified.", 899, 599, 130, "wired_earphones.png", audioCatEntities["Wired Earphones"].Id, "BeatBox", 4.7, "N/A", "Black", "Wired USB-C");
-
-            // USB Speakers
-            await AddProductIfMissing("USB RGB Gaming Speakers", "10W RMS, RGB lighting, headphone jack.", 1299, 899, 100, "usb_speakers.png", audioCatEntities["USB Speakers"].Id, "BeatBox", 4.7, "N/A", "Black", "USB");
-            await AddProductIfMissing("USB Mini Desktop Speakers", "5W bus-powered, no adapter needed, volume knob.", 699, 449, 150, "usb_speakers.png", audioCatEntities["USB Speakers"].Id, "BeatBox", 4.5, "N/A", "Black", "USB");
-            await AddProductIfMissing("USB Desktop Soundbar", "15W slim under-monitor soundbar, optical input.", 1499, 999, 80, "usb_speakers.png", audioCatEntities["USB Speakers"].Id, "BeatBox", 4.6, "N/A", "Black", "USB / Optical");
-
-            // Conference Speakers
-            await AddProductIfMissing("Conference Speaker 360", "6-mic array, 360° pickup, echo cancellation.", 4999, 3499, 40, "conference_speakers.png", audioCatEntities["Conference Speakers"].Id, "BeatBox", 4.8, "N/A", "Black", "USB / Bluetooth");
-            await AddProductIfMissing("Portable Conference Speaker", "300g travel speakerphone, 10-hour battery.", 2999, 1999, 60, "conference_speakers.png", audioCatEntities["Conference Speakers"].Id, "BeatBox", 4.6, "10 Hours", "Grey", "USB-C / Bluetooth");
-            await AddProductIfMissing("Conference Elite Hub", "AI noise cancellation, 8-mic array.", 7999, 5999, 25, "conference_speakers.png", audioCatEntities["Conference Speakers"].Id, "BeatBox", 4.9, "N/A", "Black", "USB");
-
-            // Wireless Microphones
-            await AddProductIfMissing("Wireless Lavalier Clip Mic", "Clip-on vlogging mic, 20ms latency, noise shield.", 3499, 2499, 60, "wireless_microphones.png", audioCatEntities["Wireless Microphones"].Id, "BeatBox", 4.7, "8 Hours", "Black", "2.4GHz");
-            await AddProductIfMissing("Wireless Handheld Mic", "Stage-ready, 80m range, anti-drop design.", 5999, 3999, 45, "wireless_microphones.png", audioCatEntities["Wireless Microphones"].Id, "BeatBox", 4.8, "10 Hours", "Black", "UHF Wireless");
-            await AddProductIfMissing("Wireless Dual Mic System", "Dual channel, 100m range, mixer output.", 8999, 6499, 25, "wireless_microphones.png", audioCatEntities["Wireless Microphones"].Id, "BeatBox", 4.9, "8 Hours/Mic", "Black", "UHF Dual Channel");
-
-            // =============================================
-            // PHASE 2 MIGRATION: Computer, Car & Smart Gadgets
-            // =============================================
-
-            var phase2Categories = new Dictionary<string, string>
+            if (discountPrice >= price)
             {
-                { "Computer Accessories", "Keyboards, mice, and desk setups." },
-                { "Car Accessories",      "Chargers, inflators, and car care." },
-                { "Smart Gadgets",        "Trackers, fans, and everyday tech." }
-            };
+                // ensure always strictly less than price
+                discountPrice = price - 1m;
+            }
 
-            var phase2CatEntities = new Dictionary<string, Category>();
-            foreach (var kv in phase2Categories)
+            // Final clamps
+            discountPrice = Math.Max(discountPrice, 1m);
+            if (discountPrice >= price) discountPrice = price - 1m;
+            var stock = rnd.Next(10, 200);
+
+            // pick unique images for this variant from the category pool (3-5 images)
+            // Pass globallyUsedUrls to ensure no reuse across variants
+            var imagesCount = rnd.Next(3, 6); // 3..5 images per variant
+            var imagesForVariant = BuildVariantImagesForCategory(categoryName, imagesCount, rnd, globallyUsedUrls);
+
+            variants.Add(new ProductVariant
             {
-                var cat = await context.Categories.FirstOrDefaultAsync(c => c.Name == kv.Key);
-                if (cat == null)
+                Id = Guid.NewGuid(),
+                Color = c.Item1,
+                ColorCode = c.Item2,
+                Price = Math.Round(price, 0),
+                DiscountPrice = discountPrice,
+                StockQuantity = stock,
+                Images = imagesForVariant
+            });
+        }
+
+        return variants;
+    }
+
+    private static decimal GetBasePriceForCategory(string category)
+    {
+        // crude price banding based on category keywords
+        var low = new[] { "Accessory", "Cable", "Holder", "Cleaner", "Organiser", "Stylus", "Phone Wallet" };
+        var mid = new[] { "TWS", "Neckbands", "Portable", "USB", "Mobile", "Computer", "Wireless" };
+        var high = new[] { "Projectors", "Pressure", "Smart", "Kettle", "Blower", "Massagers" };
+
+        var name = category.ToLowerInvariant();
+        if (high.Any(h => name.Contains(h.ToLowerInvariant()))) return 8999m;
+        if (name.Contains("watch")) return 5999m;
+        if (name.Contains("speaker") || name.Contains("headphone") || name.Contains("earbuds") || name.Contains("tws")) return 3999m;
+        if (mid.Any(m => name.Contains(m.ToLowerInvariant()))) return 2999m;
+        return 1999m;
+    }
+
+    private static string GetPlaceholderImageUrl(string categoryName, int variantIndex)
+    {
+        // Use unsplash random images with a query derived from category
+        var query = Uri.EscapeDataString(categoryName.Split(' ').First());
+        return $"https://source.unsplash.com/collection/190727/800x600?{query}&v={variantIndex}";
+    }
+
+    private static List<ProductReview> CreateReviews(string? adminUserId, Random rnd)
+    {
+        var texts = new[]
+        {
+            "Excellent quality.",
+            "Battery life is amazing.",
+            "Worth the price.",
+            "Fast delivery.",
+            "Premium build quality.",
+            "Comfortable and light.",
+            "Soundstage is impressive.",
+            "Good value for money.",
+            "Setup was easy and intuitive.",
+            "Noise cancellation works well."
+        };
+
+        var reviews = new List<ProductReview>();
+        for (int i = 0; i < 3; i++)
+        {
+            var text = texts[rnd.Next(texts.Length)];
+            reviews.Add(new ProductReview
+            {
+                ProductId = Guid.Empty, // filled by EF when attached to product
+                UserId = adminUserId ?? string.Empty,
+                Rating = rnd.Next(3, 6),
+                Comment = text,
+                CreatedDate = DateTime.UtcNow.AddDays(-rnd.Next(1, 30)),
+                IsVerifiedPurchase = true
+            });
+        }
+
+        return reviews;
+    }
+
+    private static List<ProductFaq> CreateFaqs()
+    {
+        return new List<ProductFaq>
+        {
+            new ProductFaq { Question = "What is the warranty period?", Answer = "All BeatBox products come with a 1 year warranty." },
+            new ProductFaq { Question = "How long does it take to charge?", Answer = "Charging time depends on the variant; typically 1-3 hours." },
+            new ProductFaq { Question = "Can I return this product?", Answer = "Yes, returns are accepted within 7 days if in original condition." }
+        };
+    }
+
+    private static List<ProductImage> CreateImagesFromVariants(IEnumerable<ProductVariant> variants, string categoryName, string productName)
+    {
+        var images = new List<ProductImage>();
+        var variantList = variants.ToList();
+        if (!variantList.Any()) return images;
+
+        // Need between 4 and 5 images, prefer 5
+        var desired = Math.Max(4, Math.Min(5, Math.Max(4, variantList.Count)));
+
+        // Use category image pool if available
+        var usedUrls = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        var pool = CategoryImages.TryGetValue(categoryName, out var catPool) ? catPool : CategoryImages.TryGetValue("default", out var d) ? d : CategoryImages.Values.First();
+        var firstFlag = true;
+
+        // Add one image per variant first (ensure each variant has its own image)
+        foreach (var v in variantList)
+        {
+            if (v.Images != null && v.Images.Any())
+            {
+                foreach (var vi in v.Images.OrderBy(img => img.DisplayOrder))
                 {
-                    cat = new Category { Id = Guid.NewGuid(), Name = kv.Key, Description = kv.Value };
-                    await context.Categories.AddAsync(cat);
-                    await context.SaveChangesAsync();
+                    if (usedUrls.Contains(vi.ImageUrl)) continue;
+                    images.Add(new ProductImage
+                    {
+                        ProductId = Guid.Empty,
+                        ImageUrl = vi.ImageUrl,
+                        ColorName = v.Color,
+                        ColorCode = v.ColorCode,
+                        IsPrimary = firstFlag
+                    });
+                    usedUrls.Add(vi.ImageUrl);
+                    firstFlag = false;
+                    if (images.Count >= desired) break;
                 }
-                phase2CatEntities[kv.Key] = cat;
             }
+            if (images.Count >= desired) break;
+        }
 
-            // Computer Accessories
-            await AddProductIfMissing("Pro Wireless Keyboard", "Low-profile mechanical wireless keyboard.", 4999, 3499, 100, "gaming_keyboard.png", phase2CatEntities["Computer Accessories"].Id, "BeatBox", 4.8, "200 Hours", "Black", "Wireless");
-            await AddProductIfMissing("Ergo Master Mouse", "Ergonomic wireless mouse with multi-device support.", 2999, 1999, 120, "gaming_mouse.png", phase2CatEntities["Computer Accessories"].Id, "BeatBox", 4.7, "100 Hours", "Grey", "Wireless");
-            await AddProductIfMissing("Alloy Laptop Stand", "Premium aluminum adjustable laptop stand.", 1999, 1299, 150, "laptop_stand.png", phase2CatEntities["Computer Accessories"].Id, "BeatBox", 4.9, "N/A", "Silver", "N/A");
+        // If we still need more images, pull unique images from the category pool
+        var poolIdx = 0;
+        while (images.Count < desired && poolIdx < pool.Length)
+        {
+            var url = pool[poolIdx++];
+            if (string.IsNullOrWhiteSpace(url)) continue;
+            if (usedUrls.Contains(url)) continue;
+            images.Add(new ProductImage
+            {
+                ProductId = Guid.Empty,
+                ImageUrl = url,
+                ColorName = string.Empty,
+                ColorCode = string.Empty,
+                IsPrimary = false
+            });
+            usedUrls.Add(url);
+        }
 
-            // Car Accessories
-            await AddProductIfMissing("Dual Port Car Charger", "65W fast charging dual port car charger.", 1299, 799, 200, "car_charger.png", phase2CatEntities["Car Accessories"].Id, "BeatBox", 4.6, "N/A", "Black", "N/A");
-            await AddProductIfMissing("Smart Tyre Inflator", "Portable cordless tyre inflator with digital display.", 3499, 2499, 80, "tyre_inflator.png", phase2CatEntities["Car Accessories"].Id, "BeatBox", 4.8, "N/A", "Black", "N/A");
-            await AddProductIfMissing("Handheld Car Vacuum", "High-power cordless vacuum cleaner for cars.", 2999, 1999, 90, "vacuum_cleaner.png", phase2CatEntities["Car Accessories"].Id, "BeatBox", 4.7, "N/A", "Black", "N/A");
+        // Ensure one primary is set
+        if (!images.Any(i => i.IsPrimary)) images[0].IsPrimary = true;
 
-            // Smart Gadgets
-            await AddProductIfMissing("Smart Location Tracker", "Bluetooth item finder with anti-lost alarm.", 999, 699, 250, "smart_tracker.png", phase2CatEntities["Smart Gadgets"].Id, "BeatBox", 4.5, "1 Year", "White", "Bluetooth");
-            await AddProductIfMissing("Portable Neck Fan", "Bladeless neck fan with 3 speed modes.", 1499, 999, 150, "portable_fan.png", phase2CatEntities["Smart Gadgets"].Id, "BeatBox", 4.6, "12 Hours", "White", "N/A");
-            await AddProductIfMissing("Pro Grooming Trimmer", "Cordless beard and hair trimmer with precision dial.", 1999, 1299, 110, "trimmer.png", phase2CatEntities["Smart Gadgets"].Id, "BeatBox", 4.7, "90 Mins", "Black", "N/A");
+        // Validation: all images must have non-empty, valid urls
+        foreach (var img in images)
+        {
+            if (string.IsNullOrWhiteSpace(img.ImageUrl))
+                throw new Exception($"Missing image for {productName}");
+        }
 
+        return images;
+    }
+
+    private static async Task CreateOrSyncInventory(AppDbContext context, Product product)
+    {
+        var total = product.Variants?.Sum(v => v.StockQuantity) ?? 0;
+        var inv = await context.Inventories.FirstOrDefaultAsync(i => i.ProductId == product.Id);
+        if (inv == null)
+        {
+            inv = new Inventory
+            {
+                Id = Guid.NewGuid(),
+                ProductId = product.Id,
+                AvailableStock = total,
+                ReservedStock = 0,
+                WarehouseLocation = "Main Warehouse",
+                LowStockThreshold = 5,
+                LastUpdated = DateTime.UtcNow
+            };
+            context.Inventories.Add(inv);
+
+            context.InventoryHistories.Add(new InventoryHistory
+            {
+                Id = Guid.NewGuid(),
+                InventoryId = inv.Id,
+                Change = inv.AvailableStock,
+                Reason = "InitialSeed",
+                Timestamp = DateTime.UtcNow,
+                PerformedBy = "system"
+            });
+        }
+        else
+        {
+            if (inv.AvailableStock != total)
+            {
+                var diff = total - inv.AvailableStock;
+                inv.AvailableStock = total;
+                inv.LastUpdated = DateTime.UtcNow;
+                context.InventoryHistories.Add(new InventoryHistory
+                {
+                    Id = Guid.NewGuid(),
+                    InventoryId = inv.Id,
+                    Change = diff,
+                    Reason = "SyncSeed",
+                    Timestamp = DateTime.UtcNow,
+                    PerformedBy = "system"
+                });
+            }
         }
     }
 }

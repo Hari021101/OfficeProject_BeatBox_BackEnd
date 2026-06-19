@@ -14,13 +14,19 @@ public class WishlistRepository : IWishlistRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<WishlistItem>> GetWishlistByUserIdAsync(string userId)
-    {
-        return await _context.WishlistItems
-            .Include(w => w.Product)
-            .Where(w => w.UserId == userId)
-            .ToListAsync();
-    }
+  public async Task<IEnumerable<WishlistItem>> GetWishlistByUserIdAsync(string userId)
+{
+    return await _context.WishlistItems
+        .Include(w => w.Product)
+            .ThenInclude(p => p.Variants)
+                .ThenInclude(v => v.Images)
+
+        .Include(w => w.Product)
+            .ThenInclude(p => p.Images)
+
+        .Where(w => w.UserId == userId)
+        .ToListAsync();
+}
 
     public async Task<WishlistItem?> GetWishlistItemAsync(string userId, Guid productId)
     {

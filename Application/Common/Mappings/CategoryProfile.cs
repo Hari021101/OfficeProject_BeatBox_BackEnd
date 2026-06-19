@@ -1,4 +1,4 @@
-﻿using Application.DTOs;
+using Application.DTOs;
 using AutoMapper;
 using Domain.Entities;
 
@@ -8,7 +8,8 @@ public class CategoryProfile : Profile
 {
     public CategoryProfile()
     {
-        CreateMap<Category, CategoryResponseDto>();
+        CreateMap<Category, CategoryResponseDto>()
+            .ForMember(dest => dest.ProductCount, opt => opt.MapFrom(src => src.Products != null ? src.Products.Count : 0));
 
         CreateMap<CategoryCreateDto, Category>();
 

@@ -39,14 +39,19 @@ public class PaymentService : IPaymentService
         Console.WriteLine($"Payment Amount: {paymentProcessDto.Amount}");
         if (order == null) throw new Exception("Order not found");
 
-        if (Math.Abs(order.TotalAmount - paymentProcessDto.Amount) > 1m)
-            throw new Exception("Payment amount mismatch");
+        var paymentAmountInRupees =
+    paymentProcessDto.Amount / 100m;
+
+if (Math.Abs(order.TotalAmount - paymentAmountInRupees) > 1m)
+{
+    throw new Exception("Payment amount mismatch");
+}
 
 
         var payment = new Payment
         {
             OrderId = paymentProcessDto.OrderId,
-            Amount = paymentProcessDto.Amount,
+            Amount = paymentAmountInRupees,
             Method = paymentProcessDto.Method,
             Status = "Success",
             TransactionId = paymentProcessDto.TransactionId,

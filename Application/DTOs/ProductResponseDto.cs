@@ -8,13 +8,8 @@ public class ProductResponseDto
 
     public string Description { get; set; } = string.Empty;
 
-    public decimal Price { get; set; }
-
-    public decimal? DiscountPrice { get; set; }
-
-    public int StockQuantity { get; set; }
-
-    public string ImageUrl { get; set; } = string.Empty;
+    public List<ProductVariantDto> Variants { get; set; }
+     = new();
 
     public Guid CategoryId { get; set; }
 
@@ -25,8 +20,6 @@ public class ProductResponseDto
     public double? Rating { get; set; }
 
     public string BatteryLife { get; set; } = string.Empty;
-
-    public string Color { get; set; } = string.Empty;
 
     public string Connectivity { get; set; } = string.Empty;
 
@@ -57,7 +50,8 @@ public class ProductResponseDto
 
             // Default Specs for all products
             specs["Brand"] = string.IsNullOrEmpty(Brand) ? "BeatBox" : Brand;
-            if (!string.IsNullOrEmpty(Color)) specs["Color"] = Color;
+            var colors = string.Join(", ", Variants.Select(v => v.Color).Where(c => !string.IsNullOrEmpty(c)).Distinct());
+            if (!string.IsNullOrEmpty(colors)) specs["Color"] = colors;
             if (!string.IsNullOrEmpty(Connectivity)) specs["Connectivity"] = Connectivity;
             if (!string.IsNullOrEmpty(BatteryLife)) specs["Battery Life"] = BatteryLife;
 
