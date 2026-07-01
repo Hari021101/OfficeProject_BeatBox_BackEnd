@@ -10,11 +10,13 @@ public class ProfileService : IProfileService
 {
     private readonly UserManager<AppUser> _userManager;
     private readonly IMapper _mapper;
+    private readonly IBusinessEventPublisher _eventPublisher;
 
-    public ProfileService(UserManager<AppUser> userManager, IMapper mapper)
+    public ProfileService(UserManager<AppUser> userManager, IMapper mapper, IBusinessEventPublisher eventPublisher)
     {
         _userManager = userManager;
         _mapper = mapper;
+        _eventPublisher = eventPublisher;
     }
 
     public async Task<UserProfileDto> GetProfileAsync(string userId)
@@ -38,6 +40,18 @@ public class ProfileService : IProfileService
         {
             throw new Exception("Failed to update profile: " + string.Join(", ", result.Errors.Select(e => e.Description)));
         }
+
+        await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+        {
+            ActionType = "UPDATED",
+            EntityType = "User",
+            EntityId = user.Id,
+            Title = user.Email ?? user.UserName ?? "User",
+            Description = "User profile details updated",
+            Icon = "User",
+            ColorClass = "text-info",
+            BgClass = "bg-info"
+        });
     }
 
     public async Task ChangePasswordAsync(string userId, ChangePasswordDto dto)
@@ -50,5 +64,17 @@ public class ProfileService : IProfileService
         {
             throw new Exception("Failed to change password: " + string.Join(", ", result.Errors.Select(e => e.Description)));
         }
+
+        await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+        {
+            ActionType = "UPDATED",
+            EntityType = "User",
+            EntityId = user.Id,
+            Title = user.Email ?? user.UserName ?? "User",
+            Description = "User password changed successfully",
+            Icon = "Key",
+            ColorClass = "text-warning",
+            BgClass = "bg-warning"
+        });
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Application.DTOs;
+namespace Application.DTOs;
 
 public class ProductVariantCreateDto
 {
@@ -11,6 +11,12 @@ public class ProductVariantCreateDto
     public decimal? DiscountPrice { get; set; }
 
     public int StockQuantity { get; set; }
+
+    public string Sku { get; set; } = string.Empty;
+
+    public string? Capacity { get; set; }
+
+    public bool IsActive { get; set; } = true;
 
     public string ImageUrl { get; set; } = string.Empty;
 }

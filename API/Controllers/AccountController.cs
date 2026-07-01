@@ -14,12 +14,18 @@ namespace API.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly ITokenService _tokenService;
         private readonly IOtpService _otpService;
+        private readonly IBusinessEventPublisher _eventPublisher;
 
-        public AccountController(UserManager<AppUser> userManager, ITokenService tokenService, IOtpService otpService)
+        public AccountController(
+            UserManager<AppUser> userManager, 
+            ITokenService tokenService, 
+            IOtpService otpService,
+            IBusinessEventPublisher eventPublisher)
         {
             _userManager = userManager;
             _tokenService = tokenService;
             _otpService = otpService;
+            _eventPublisher = eventPublisher;
         }
 
         // POST /api/account/register
@@ -64,6 +70,19 @@ namespace API.Controllers
                 await _otpService.SendPhoneOtpAsync(user.Id, user.PhoneNumber!);
             }
 
+            // Log event via IBusinessEventPublisher
+            await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+            {
+                ActionType = "REGISTERED",
+                EntityType = "User",
+                EntityId = user.Id,
+                Title = user.Email ?? user.PhoneNumber ?? "User",
+                Description = $"User account registered (Identifier: {registerDto.Identifier})",
+                Icon = "UserPlus",
+                ColorClass = "text-success",
+                BgClass = "bg-success"
+            });
+
             return Ok(new RegisterResponseDto
             {
                 UserId = user.Id,
@@ -97,6 +116,20 @@ namespace API.Controllers
             if (!result) return Unauthorized("Invalid credentials.");
 
             var roles = await _userManager.GetRolesAsync(user);
+            var isAdmin = roles.Contains("Admin");
+
+            // Log event via IBusinessEventPublisher
+            await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+            {
+                ActionType = isAdmin ? "ADMIN_LOGIN" : "LOGIN",
+                EntityType = "User",
+                EntityId = user.Id,
+                Title = user.Email ?? user.UserName ?? "User",
+                Description = isAdmin ? $"Administrator logged in: {user.FullName}" : $"User logged in: {user.FullName}",
+                Icon = isAdmin ? "Shield" : "LogIn",
+                ColorClass = isAdmin ? "text-danger" : "text-info",
+                BgClass = isAdmin ? "bg-danger" : "bg-info"
+            });
 
             return new AuthResponseDto
             {
@@ -119,6 +152,7 @@ namespace API.Controllers
             foreach (var user in users)
             {
                 var roles = await _userManager.GetRolesAsync(user);
+                var isLocked = await _userManager.IsLockedOutAsync(user);
 
                 result.Add(new
                 {
@@ -127,12 +161,86 @@ namespace API.Controllers
                     email = user.Email,
                     phoneNumber = user.PhoneNumber,
                     roles = roles,
-                    isActive = true,
-                    joinDate = user.CreatedDate // or CreatedAt if exists
+                    isActive = !isLocked,
+                    joinDate = user.CreatedDate
                 });
             }
 
             return Ok(result);
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut("users/{userId}/role")]
+        public async Task<IActionResult> UpdateUserRole(string userId, [FromBody] UpdateRoleDto dto)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return NotFound("User not found.");
+
+            var currentRoles = await _userManager.GetRolesAsync(user);
+            var removeResult = await _userManager.RemoveFromRolesAsync(user, currentRoles);
+            if (!removeResult.Succeeded) return BadRequest("Failed to remove current roles.");
+
+            var addResult = await _userManager.AddToRoleAsync(user, dto.Role);
+            if (!addResult.Succeeded) return BadRequest("Failed to assign new role.");
+
+            // Log event via IBusinessEventPublisher
+            await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+            {
+                ActionType = "UPDATED",
+                EntityType = "User",
+                EntityId = user.Id,
+                Title = user.Email ?? user.UserName ?? "User",
+                Description = $"Role changed to {dto.Role} by Administrator",
+                Icon = "ShieldAlert",
+                ColorClass = "text-warning",
+                BgClass = "bg-warning"
+            });
+
+            return Ok(new { message = "Role updated successfully." });
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPut("users/{userId}/lock")]
+        public async Task<IActionResult> LockUser(string userId, [FromBody] LockUserDto dto)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return NotFound("User not found.");
+
+            if (dto.LockUser)
+            {
+                // Lock account for 100 years
+                await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.UtcNow.AddYears(100));
+            }
+            else
+            {
+                // Unlock account
+                await _userManager.SetLockoutEndDateAsync(user, null);
+            }
+
+            // Log event via IBusinessEventPublisher
+            await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+            {
+                ActionType = dto.LockUser ? "LOCKED" : "UNLOCKED",
+                EntityType = "User",
+                EntityId = user.Id,
+                Title = user.Email ?? user.UserName ?? "User",
+                Description = dto.LockUser ? "User account locked by Administrator" : "User account unlocked by Administrator",
+                Icon = "ShieldAlert",
+                ColorClass = dto.LockUser ? "text-danger" : "text-success",
+                BgClass = dto.LockUser ? "bg-danger" : "bg-success"
+            });
+
+            return Ok(new { message = dto.LockUser ? "User account locked." : "User account unlocked." });
+        }
+    }
+
+    public class UpdateRoleDto
+    {
+        public string Role { get; set; } = string.Empty;
+    }
+
+    public class LockUserDto
+    {
+        public bool LockUser { get; set; }
     }
 }

@@ -21,4 +21,6 @@ public class AuditLog
     public string Icon { get; set; } = "Edit"; // lucide-react icon name hint
     public string ColorClass { get; set; } = "text-info";
     public string BgClass { get; set; } = "bg-info";
+    
+    public string IPAddress { get; set; } = string.Empty;
 }

@@ -13,4 +13,6 @@ public class CategoryResponseDto
     public string? ImageUrl { get; set; }
 
     public int ProductCount { get; set; }
+
+    public string Slug => Name?.ToLower().Replace(" ", "-").Replace("&", "and").Replace("---", "-").Replace("--", "-") ?? string.Empty;
 }

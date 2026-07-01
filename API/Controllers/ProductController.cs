@@ -8,7 +8,8 @@ namespace API.Controllers;
 
 //[Authorize]
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/products")]
+[Route("api/product")]
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;
@@ -103,5 +104,19 @@ public class ProductController : ControllerBase
         {
             message = "Review added successfully"
         });
+    }
+
+    [HttpPost("{id}/variants")]
+    public async Task<IActionResult> AddVariant(Guid id, [FromBody] ProductVariantCreateDto variantCreateDto)
+    {
+        try
+        {
+            var createdVariant = await _productService.AddVariantAsync(id, variantCreateDto);
+            return Ok(createdVariant);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
     }
 }

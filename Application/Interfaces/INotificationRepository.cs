@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+using Domain.Entities;
 
 namespace Application.Interfaces;
 
@@ -11,4 +11,10 @@ public interface INotificationRepository
     Task AddAsync(Notification notification);
 
     Task UpdateAsync(Notification notification);
+
+    Task DeleteAsync(Notification notification);
+
+    Task<IEnumerable<Notification>> GetUnreadUserNotificationsAsync(string userId);
+
+    Task MarkAllAsReadAsync(string userId);
 }

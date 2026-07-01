@@ -25,4 +25,6 @@ public class ProductUpdateDto
     public string? Connectivity { get; set; }
 
     public bool? IsFeatured { get; set; }
+
+    public List<ProductFaqDto>? Faqs { get; set; }
 }

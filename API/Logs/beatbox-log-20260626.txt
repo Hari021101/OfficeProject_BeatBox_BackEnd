@@ -1,0 +1,285 @@
+2026-06-26 18:33:50.033 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-26 18:46:40.089 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-26 18:46:40.467 +05:30 [ERR] An error occurred while seeding the database.
+System.IO.DirectoryNotFoundException: Category image folder not found: C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\wwwroot\images\products\default
+   at Infrastructure.Data.DbSeeder.LoadCategoryImages(String categoryFolder) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 254
+   at Infrastructure.Data.DbSeeder.InitializeImagePools() in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 197
+   at Program.<Main>$(String[] args) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 115
+2026-06-26 18:47:00.726 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-26 18:47:00.755 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 64ms
+2026-06-26 18:47:00.755 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 64ms
+2026-06-26 18:47:00.831 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 3ms
+2026-06-26 18:47:00.832 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:00.832 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:00.833 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:00.832 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:00.846 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:00.852 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:00.869 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:01.056 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 201ms
+2026-06-26 18:47:01.056 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 209ms
+2026-06-26 18:47:01.687 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-26 18:47:02.300 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 401 in 1476ms
+2026-06-26 18:47:02.302 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 1424ms
+2026-06-26 18:47:02.389 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 1508ms
+2026-06-26 18:47:02.410 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 401 in 109ms
+2026-06-26 18:47:02.410 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 16ms
+2026-06-26 18:47:02.412 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 111ms
+2026-06-26 18:47:02.424 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 9ms
+2026-06-26 18:47:02.431 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 5ms
+2026-06-26 18:47:02.538 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 1473ms
+2026-06-26 18:47:10.956 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:11.084 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 122ms
+2026-06-26 18:47:21.646 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:21.693 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 37ms
+2026-06-26 18:47:40.734 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 18:47:40.749 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 9ms
+2026-06-26 18:47:56.784 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:05.772 +05:30 [INF] API REQUEST: POST /api/account/register from IP ::1 responded 200 in 8982ms
+2026-06-26 18:48:28.018 +05:30 [INF] API REQUEST: OPTIONS /api/otp/verify-email from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:28.270 +05:30 [INF] API REQUEST: POST /api/otp/verify-email from IP ::1 responded 200 in 239ms
+2026-06-26 18:48:28.288 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:28.360 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 63ms
+2026-06-26 18:48:28.368 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:28.368 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:28.369 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:28.369 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:28.377 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 3ms
+2026-06-26 18:48:28.399 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 11ms
+2026-06-26 18:48:28.406 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 3ms
+2026-06-26 18:48:28.409 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 6ms
+2026-06-26 18:48:35.206 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:35.207 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:35.209 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:35.209 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:35.209 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:35.209 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:35.211 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 6798ms
+2026-06-26 18:48:35.215 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 18:48:35.282 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-26 18:48:35.295 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 62ms
+2026-06-26 18:48:35.311 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 14ms
+2026-06-26 18:48:35.326 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 105ms
+2026-06-26 18:48:35.351 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 23ms
+2026-06-26 18:48:38.064 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 2774ms
+2026-06-26 18:48:38.064 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:38.065 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:38.076 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-26 18:48:38.089 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 18:48:42.959 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:42.959 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:48:42.975 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 7ms
+2026-06-26 18:48:42.983 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 5ms
+2026-06-26 18:49:05.843 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:05.844 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:05.852 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 4ms
+2026-06-26 18:49:05.858 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 4ms
+2026-06-26 18:49:28.886 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 50786ms
+2026-06-26 18:49:33.124 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:33.124 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:33.135 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 5ms
+2026-06-26 18:49:33.330 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 3ms
+2026-06-26 18:49:33.990 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:33.990 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:33.992 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:33.993 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:33.993 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:33.994 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:33.999 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-26 18:49:34.004 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:34.004 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 18:49:34.006 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 18:49:34.015 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 3ms
+2026-06-26 18:49:34.020 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 3ms
+2026-06-26 18:49:34.202 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 2ms
+2026-06-26 18:49:34.202 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 1ms
+2026-06-26 18:49:34.379 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 3ms
+2026-06-26 18:49:34.586 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 19ms
+2026-06-26 18:49:59.524 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 25329ms
+2026-06-26 19:19:04.883 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-26 19:19:06.182 +05:30 [ERR] An error occurred while seeding the database.
+System.IO.DirectoryNotFoundException: Category image folder not found: C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\wwwroot\images\products\default
+   at Infrastructure.Data.DbSeeder.LoadCategoryImages(String categoryFolder) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 254
+   at Infrastructure.Data.DbSeeder.InitializeImagePools() in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 197
+   at Program.<Main>$(String[] args) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 115
+2026-06-26 19:19:21.112 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-26 19:19:21.129 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 83ms
+2026-06-26 19:19:21.129 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 83ms
+2026-06-26 19:19:21.775 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:21.779 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:21.779 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:21.779 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-26 19:19:21.783 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:21.787 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:21.815 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 3ms
+2026-06-26 19:19:21.798 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:21.832 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:21.869 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 39ms
+2026-06-26 19:19:21.876 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 75ms
+2026-06-26 19:19:22.729 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 871ms
+2026-06-26 19:19:22.737 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 1558ms
+2026-06-26 19:19:22.807 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 956ms
+2026-06-26 19:19:22.854 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 89ms
+2026-06-26 19:19:22.854 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 41ms
+2026-06-26 19:19:22.858 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 125ms
+2026-06-26 19:19:23.032 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 30ms
+2026-06-26 19:19:23.216 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 21ms
+2026-06-26 19:19:34.707 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:34.707 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:34.710 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:34.710 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:34.710 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:34.710 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:34.715 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-26 19:19:34.716 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:19:34.720 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 12726ms
+2026-06-26 19:19:34.794 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 69ms
+2026-06-26 19:19:34.916 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 5ms
+2026-06-26 19:19:35.003 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 282ms
+2026-06-26 19:19:35.032 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 12ms
+2026-06-26 19:19:37.719 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:37.719 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:37.813 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 86ms
+2026-06-26 19:19:37.928 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 9ms
+2026-06-26 19:19:40.110 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 5195ms
+2026-06-26 19:19:41.982 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:41.985 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:42.030 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 43ms
+2026-06-26 19:19:42.068 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:19:42.071 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:19:42.183 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-06-26 19:19:45.670 +05:30 [INF] API REQUEST: OPTIONS /api/wishlist from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:45.676 +05:30 [INF] API REQUEST: OPTIONS /api/wishlist from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:45.802 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/wishlist from IP ::1. Response: 200 in 109ms
+2026-06-26 19:19:45.881 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/wishlist from IP ::1. Response: 200 in 12ms
+2026-06-26 19:19:48.216 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:48.220 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:19:48.221 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 5960ms
+2026-06-26 19:19:48.229 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:19:48.285 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:20:09.785 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:09.785 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:09.803 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 9ms
+2026-06-26 19:20:09.982 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 3ms
+2026-06-26 19:20:42.030 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 53546ms
+2026-06-26 19:20:46.895 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:46.921 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:47.104 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 119ms
+2026-06-26 19:20:47.556 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 8ms
+2026-06-26 19:20:47.943 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:47.947 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:47.947 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:47.948 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:47.968 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:48.017 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:48.032 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:48.032 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:20:48.060 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-26 19:20:48.061 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:20:48.125 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 18ms
+2026-06-26 19:20:48.145 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 19ms
+2026-06-26 19:20:48.311 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 16ms
+2026-06-26 19:20:48.323 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 26ms
+2026-06-26 19:20:48.506 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 17ms
+2026-06-26 19:20:48.697 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 14ms
+2026-06-26 19:22:50.246 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 23ms
+2026-06-26 19:22:50.278 +05:30 [INF] API REQUEST: GET /favicon.ico from IP ::1 responded 404 in 9ms
+2026-06-26 19:24:21.036 +05:30 [INF] USER ACTIVITY: User 508ca526-5dab-4769-90c9-c2da4c775c9b (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 212802ms
+2026-06-26 19:24:32.851 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 19:24:33.468 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 499ms
+2026-06-26 19:25:30.862 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-26 19:25:31.719 +05:30 [ERR] An error occurred while seeding the database.
+System.IO.DirectoryNotFoundException: Category image folder not found: C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\wwwroot\images\products\default
+   at Infrastructure.Data.DbSeeder.LoadCategoryImages(String categoryFolder) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 254
+   at Infrastructure.Data.DbSeeder.InitializeImagePools() in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 197
+   at Program.<Main>$(String[] args) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 115
+2026-06-26 19:25:59.385 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-26 19:25:59.439 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 132ms
+2026-06-26 19:26:01.473 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 1922ms
+2026-06-26 19:26:17.209 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 7ms
+2026-06-26 19:26:17.486 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 262ms
+2026-06-26 19:27:22.309 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 19:27:22.404 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 59ms
+2026-06-26 19:27:48.403 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-26 19:27:48.918 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 1210ms
+2026-06-26 19:27:48.946 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 25ms
+2026-06-26 19:27:49.257 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 1552ms
+2026-06-26 19:27:49.279 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 17ms
+2026-06-26 19:27:49.304 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 22ms
+2026-06-26 19:27:49.309 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 27ms
+2026-06-26 19:27:58.708 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 19:27:58.741 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 7ms
+2026-06-26 19:28:02.644 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 7ms
+2026-06-26 19:28:09.644 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 15ms
+2026-06-26 19:28:09.654 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 6ms
+2026-06-26 19:28:25.825 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 19:28:25.884 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 4ms
+2026-06-26 19:28:43.344 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 19:28:43.401 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 31ms
+2026-06-26 19:30:08.508 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 19:30:08.574 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 28ms
+2026-06-26 19:35:01.773 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 0ms
+2026-06-26 19:35:10.539 +05:30 [INF] API REQUEST: POST /api/account/register from IP ::1 responded 200 in 8711ms
+2026-06-26 19:35:20.716 +05:30 [INF] API REQUEST: OPTIONS /api/otp/verify-email from IP ::1 responded 204 in 0ms
+2026-06-26 19:35:20.915 +05:30 [INF] API REQUEST: POST /api/otp/verify-email from IP ::1 responded 400 in 189ms
+2026-06-26 19:37:50.580 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-06-26 19:37:52.373 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 1593ms
+2026-06-26 19:37:52.482 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-26 19:37:52.814 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 204 in 315ms
+2026-06-26 19:37:52.860 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:37:52.862 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:37:52.863 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:37:52.864 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:37:52.912 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 34ms
+2026-06-26 19:37:52.912 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 24ms
+2026-06-26 19:37:52.927 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 22ms
+2026-06-26 19:37:53.085 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 6ms
+2026-06-26 19:38:02.796 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:02.800 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:02.800 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:02.803 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:02.803 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:02.811 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:02.828 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 9759ms
+2026-06-26 19:38:02.836 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-26 19:38:02.862 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-26 19:38:02.894 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/profile from IP ::1. Response: 200 in 48ms
+2026-06-26 19:38:02.924 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/address from IP ::1. Response: 200 in 65ms
+2026-06-26 19:38:03.050 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/profile from IP ::1. Response: 200 in 24ms
+2026-06-26 19:38:03.053 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/address from IP ::1. Response: 200 in 11ms
+2026-06-26 19:38:08.102 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:08.105 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:08.227 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 115ms
+2026-06-26 19:38:08.314 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 8ms
+2026-06-26 19:38:10.552 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:10.553 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:10.554 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:10.556 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:38:10.558 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 7470ms
+2026-06-26 19:38:10.568 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:38:10.575 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:38:10.589 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 6ms
+2026-06-26 19:38:10.772 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 3ms
+2026-06-26 19:45:25.976 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:45:25.983 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:45:25.988 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-26 19:45:25.989 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-26 19:45:25.990 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-26 19:45:25.990 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-26 19:45:25.998 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:45:26.005 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:45:26.038 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 435271ms
+2026-06-26 19:45:26.263 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/profile from IP ::1. Response: 200 in 232ms
+2026-06-26 19:45:26.274 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/profile from IP ::1. Response: 200 in 5ms
+2026-06-26 19:45:26.277 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/address from IP ::1. Response: 200 in 245ms
+2026-06-26 19:45:26.288 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/address from IP ::1. Response: 200 in 4ms
+2026-06-26 19:45:29.406 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 1ms
+2026-06-26 19:45:29.406 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-26 19:45:29.406 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:45:29.408 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-26 19:45:29.409 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 3212ms
+2026-06-26 19:45:29.428 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-26 19:45:29.456 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-26 19:45:29.492 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 17ms
+2026-06-26 19:45:29.708 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 45ms
+2026-06-26 19:47:04.156 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 94524ms

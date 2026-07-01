@@ -2,6 +2,7 @@ using Application.DTOs;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
@@ -19,8 +20,23 @@ public class OrderService : IOrderService
 	private readonly IEmailService _emailService;
 	private readonly UserManager<AppUser> _userManager;
 	private readonly IPaymentRepository _paymentRepository;
+	private readonly IBusinessEventPublisher _eventPublisher;
+	private readonly AppDbContext _context;
+	private readonly ITransactionActionQueue _actionQueue;
 
-	public OrderService(IOrderRepository orderRepository, ICartRepository cartRepository, IMapper mapper, IInventoryService inventoryService, INotificationService notifier, IAdminDashboardService dashboardService, IEmailService emailService, UserManager<AppUser> userManager, IPaymentRepository paymentRepository)
+	public OrderService(
+		IOrderRepository orderRepository, 
+		ICartRepository cartRepository, 
+		IMapper mapper, 
+		IInventoryService inventoryService, 
+		INotificationService notifier, 
+		IAdminDashboardService dashboardService, 
+		IEmailService emailService, 
+		UserManager<AppUser> userManager, 
+		IPaymentRepository paymentRepository,
+		IBusinessEventPublisher eventPublisher,
+		AppDbContext context,
+		ITransactionActionQueue actionQueue)
 	{
 		_orderRepository = orderRepository;
 		_cartRepository = cartRepository;
@@ -31,96 +47,127 @@ public class OrderService : IOrderService
 		_emailService = emailService;
 		_userManager = userManager;
 		_paymentRepository = paymentRepository;
+		_eventPublisher = eventPublisher;
+		_context = context;
+		_actionQueue = actionQueue;
 	}
 
 	public async Task<OrderDto> CreateOrderAsync(string userId, OrderCreateDto orderCreateDto)
 	{
-		var cart = await _cartRepository.GetCartByUserIdAsync(userId);
-		if (cart == null || !cart.CartItems.Any())
-		{
-			throw new Exception("Cart is empty. Please add items to your cart before checking out.");
-		}
-
-		var orderItems = cart.CartItems.Select(ci => new OrderItem
-		{
-			ProductId = ci.ProductId,
-			Quantity = ci.Quantity,
-			UnitPrice = ci.UnitPrice,
-			Color = ci.Color,
-			ColorCode = ci.ColorCode,
-			ProductVariantId = ci.VariantId,
-			ProductImageUrl = ci.ProductImageUrl
-		}).ToList();
-
-		decimal subtotal = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice);
-
-		var addr = orderCreateDto.ShippingAddress;
-		var parts = new[]
-		{
-			addr?.FullName, addr?.AddressLine1, addr?.AddressLine2,
-			addr?.City, addr?.State, addr?.PostalCode, addr?.Country,
-			string.IsNullOrWhiteSpace(addr?.Phone) ? null : $"Ph: {addr.Phone}"
-		};
-		var shippingAddress = string.Join(", ", parts.Where(p => !string.IsNullOrWhiteSpace(p)));
-
-		var gst = subtotal * 0.18m;
-		var shipping = subtotal >= 999 ? 0 : 79;
-		var discount = orderCreateDto.DiscountAmount;
-		var grandTotal = subtotal + gst + shipping - discount;
-
-		var order = new Order
-		{
-			UserId = userId,
-			ShippingAddress = shippingAddress,
-			CreatedDate = DateTime.UtcNow,
-			Status = "Pending",
-			PromoCode = orderCreateDto.PromoCode,
-			DiscountAmount = orderCreateDto.DiscountAmount,
-			TotalAmount = grandTotal,
-			OrderItems = orderItems
-		};
-
-		await _orderRepository.AddOrderAsync(order);
-		await _orderRepository.SaveChangesAsync();
-
-		// Reserve stock for each item
-		foreach (var item in order.OrderItems)
-		{
-			await _inventoryService.ReserveStockAsync(new Application.DTOs.ReserveStockDto { ProductId = item.ProductId, Quantity = item.Quantity, UserId = userId });
-		}
-
-		// Notify admins about new order
-		await _notifier.NotifyNewOrderAsync(order.OrderId);
-
-		// Send Email Confirmation to User
-		var user = await _userManager.FindByIdAsync(userId);
-		if (user != null && !string.IsNullOrEmpty(user.Email))
-		{
-			await _emailService.SendEmailAsync(
-				user.Email,
-				$"Order Confirmed - #{order.OrderId}",
-				EmailTemplates.GetOrderConfirmationEmail(user.FullName, order.OrderId, order.CreatedDate.ToString("dd MMM yyyy hh:mm tt"), order.TotalAmount.ToString("N2"), order.ShippingAddress)
-			);
-		}
-
-		// Broadcast updated dashboard summary (best-effort)
+		using var tx = await _context.Database.BeginTransactionAsync();
 		try
 		{
-			var summary = await _dashboardService.GetSummaryAsync();
-			await _notifier.NotifyDashboardUpdatedAsync(summary);
+			var cart = await _cartRepository.GetCartByUserIdAsync(userId);
+			if (cart == null || !cart.CartItems.Any())
+			{
+				throw new Exception("Cart is empty. Please add items to your cart before checking out.");
+			}
+
+			var orderItems = cart.CartItems.Select(ci => new OrderItem
+			{
+				ProductId = ci.ProductId,
+				Quantity = ci.Quantity,
+				UnitPrice = ci.UnitPrice,
+				Color = ci.Color,
+				ColorCode = ci.ColorCode,
+				ProductVariantId = ci.VariantId,
+				ProductImageUrl = ci.ProductImageUrl
+			}).ToList();
+
+			decimal subtotal = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice);
+
+			var addr = orderCreateDto.ShippingAddress;
+			var parts = new[]
+			{
+				addr?.FullName, addr?.AddressLine1, addr?.AddressLine2,
+				addr?.City, addr?.State, addr?.PostalCode, addr?.Country,
+				string.IsNullOrWhiteSpace(addr?.Phone) ? null : $"Ph: {addr.Phone}"
+			};
+			var shippingAddress = string.Join(", ", parts.Where(p => !string.IsNullOrWhiteSpace(p)));
+
+			var gst = subtotal * 0.18m;
+			var shipping = subtotal >= 999 ? 0 : 79;
+			var discount = orderCreateDto.DiscountAmount;
+			var grandTotal = subtotal + gst + shipping - discount;
+
+			var order = new Order
+			{
+				UserId = userId,
+				ShippingAddress = shippingAddress,
+				CreatedDate = DateTime.UtcNow,
+				Status = "Pending",
+				PromoCode = orderCreateDto.PromoCode,
+				DiscountAmount = orderCreateDto.DiscountAmount,
+				TotalAmount = grandTotal,
+				OrderItems = orderItems
+			};
+
+			await _orderRepository.AddOrderAsync(order);
+			await _orderRepository.SaveChangesAsync();
+
+			// Reserve stock for each item
+			foreach (var item in order.OrderItems)
+			{
+				await _inventoryService.ReserveStockAsync(new Application.DTOs.ReserveStockDto { ProductId = item.ProductId, Quantity = item.Quantity, UserId = userId });
+			}
+
+			// Notify admins about new order
+			await _notifier.NotifyNewOrderAsync(order.OrderId);
+
+			var user = await _userManager.FindByIdAsync(userId);
+			if (user != null && !string.IsNullOrEmpty(user.Email))
+			{
+				await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+				{
+					ActionType = "CREATED",
+					EntityType = "Order",
+					EntityId = order.OrderId.ToString(),
+					Title = $"New Order #{order.OrderId}",
+					Description = $"Order #{order.OrderId} placed by {user.FullName} for total ₹{order.TotalAmount:N2}",
+					Icon = "ShoppingBag",
+					ColorClass = "text-success",
+					BgClass = "bg-success",
+
+					UserId = userId,
+					NotificationTitle = $"Order Placed Successfully",
+					NotificationMessage = $"Your order #{order.OrderId} of ₹{order.TotalAmount:N2} has been placed.",
+					NotificationType = "Order",
+					OrderId = order.OrderId,
+					NavigationUrl = $"/orders/{order.OrderId}",
+
+					SendEmailTo = user.Email,
+					EmailSubject = $"Order Confirmed - #{order.OrderId}",
+					EmailBody = EmailTemplates.GetOrderConfirmationEmail(user.FullName, order.OrderId, order.CreatedDate.ToString("dd MMM yyyy hh:mm tt"), order.TotalAmount.ToString("N2"), order.ShippingAddress)
+				});
+			}
+
+			// Broadcast updated dashboard summary (best-effort)
+			try
+			{
+				var summary = await _dashboardService.GetSummaryAsync();
+				await _notifier.NotifyDashboardUpdatedAsync(summary);
+			}
+			catch
+			{
+				// Best-effort: don't block order creation
+			}
+
+			if (cart != null)
+			{
+				await _cartRepository.ClearCartAsync(cart.CartId);
+				await _cartRepository.SaveChangesAsync();
+			}
+
+			await tx.CommitAsync();
+			await _actionQueue.RunAllAsync();
+
+			return _mapper.Map<OrderDto>(order);
 		}
 		catch
 		{
-			// Best-effort: don't block order creation
+			await tx.RollbackAsync();
+			throw;
 		}
-
-		if (cart != null)
-		{
-			await _cartRepository.ClearCartAsync(cart.CartId);
-			await _cartRepository.SaveChangesAsync();
-		}
-
-		return _mapper.Map<OrderDto>(order);
 	}
 
 	public async Task<IEnumerable<OrderDto>> GetUserOrdersAsync(string userId)
@@ -141,95 +188,178 @@ public class OrderService : IOrderService
 		if (order == null || order.UserId != userId) throw new Exception("Order not found");
 
 		return _mapper.Map<OrderDto>(order);
-	}
-
-	public async Task UpdateOrderStatusAsync(int orderId, OrderStatusUpdateDto orderStatusUpdateDto)
+	}	public async Task UpdateOrderStatusAsync(int orderId, OrderStatusUpdateDto orderStatusUpdateDto)
 	{
-		var order = await _orderRepository.GetOrderByIdAsync(orderId);
-		if (order != null)
-		{
-			await _orderRepository.UpdateOrderStatusAsync(orderId, orderStatusUpdateDto.Status);
-			await _orderRepository.SaveChangesAsync();
-			await _notifier.NotifyOrderStatusAsync(orderId, orderStatusUpdateDto.Status);
-
-			var user = await _userManager.FindByIdAsync(order.UserId);
-			if (user != null && !string.IsNullOrEmpty(user.Email))
-			{
-				string customerName = user.UserName; // Assuming UserName is the customer's name
-				await _emailService.SendEmailAsync(
-					user.Email,
-					$"Order #{order.OrderId} Update",
-					EmailTemplates.GetOrderStatusEmail(customerName, order.OrderId, orderStatusUpdateDto.Status)
-				);
-			}
-		}
-	}
-    public async Task UpdateBulkOrderStatusAsync(BulkOrderStatusUpdateDto dto)
-    {
-        foreach (var orderId in dto.OrderIds)
-        {
-            var order = await _orderRepository.GetOrderByIdAsync(orderId);
-            if (order != null)
-            {
-                await _orderRepository.UpdateOrderStatusAsync(orderId, dto.Status);
-                await _notifier.NotifyOrderStatusAsync(orderId, dto.Status);
-            }
-        }
-        await _orderRepository.SaveChangesAsync();
-    }
-
-    public async Task DeleteBulkOrdersAsync(List<int> orderIds)
-    {
-        // For deleting orders, we might need a repository method, or we can just fetch and delete
-        foreach (var orderId in orderIds)
-        {
-            var order = await _orderRepository.GetOrderByIdAsync(orderId);
-            if (order != null)
-            {
-                // Soft or hard delete depending on repository, assuming hard delete here or custom method
-                // We'll skip actual deletion if no repo method exists and just cancel them
-                order.Status = "Cancelled"; 
-            }
-        }
-        await _orderRepository.SaveChangesAsync();
-    }
-	public async Task CancelOrderAsync(string userId, int orderId)
-	{
-		var order = await _orderRepository.GetOrderByIdAsync(orderId);
-		if (order == null || order.UserId != userId) throw new Exception("Order not found");
-
-		if (order.Status != "Pending" && order.Status != "Processing")
-			throw new Exception("Order cannot be cancelled");
-
-		order.Status = "Cancelled";
-		await _orderRepository.SaveChangesAsync();
-		await _notifier.NotifyOrderStatusAsync(order.OrderId, "Cancelled");
-
-		var user = await _userManager.FindByIdAsync(userId);
-		if (user != null && !string.IsNullOrEmpty(user.Email))
-		{
-			string customerName = user.UserName;
-			await _emailService.SendEmailAsync(
-				user.Email,
-				$"Order #{order.OrderId} Cancelled",
-				EmailTemplates.GetOrderStatusEmail(customerName, order.OrderId, order.Status)
-			);
-		}
-
-		// Restore reserved stock for cancelled order
-		foreach (var item in order.OrderItems)
-		{
-			await _inventoryService.ReleaseStockAsync(new ReserveStockDto { ProductId = item.ProductId, Quantity = item.Quantity, UserId = userId });
-		}
-
-		// Broadcast updated dashboard summary (best-effort)
+		using var tx = await _context.Database.BeginTransactionAsync();
 		try
 		{
-			var summary = await _dashboardService.GetSummaryAsync();
-			await _notifier.NotifyDashboardUpdatedAsync(summary);
+			var order = await _orderRepository.GetOrderByIdAsync(orderId);
+			if (order != null)
+			{
+				await _orderRepository.UpdateOrderStatusAsync(orderId, orderStatusUpdateDto.Status);
+				await _orderRepository.SaveChangesAsync();
+				await _notifier.NotifyOrderStatusAsync(orderId, orderStatusUpdateDto.Status);
+
+				var user = await _userManager.FindByIdAsync(order.UserId);
+				if (user != null && !string.IsNullOrEmpty(user.Email))
+				{
+					string customerName = user.FullName ?? user.UserName ?? "Customer";
+					await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+					{
+						ActionType = "UPDATED",
+						EntityType = "Order",
+						EntityId = order.OrderId.ToString(),
+						Title = $"Order #{order.OrderId} {orderStatusUpdateDto.Status}",
+						Description = $"Order #{order.OrderId} status changed to '{orderStatusUpdateDto.Status}' by Administrator",
+						Icon = "Truck",
+						ColorClass = "text-info",
+						BgClass = "bg-info",
+
+						UserId = order.UserId,
+						NotificationTitle = $"Order Status Updated",
+						NotificationMessage = $"Your order #{order.OrderId} status is now '{orderStatusUpdateDto.Status}'.",
+						NotificationType = "Order",
+						OrderId = order.OrderId,
+						NavigationUrl = $"/orders/{order.OrderId}",
+
+						SendEmailTo = user.Email,
+						EmailSubject = $"Order #{order.OrderId} Update",
+						EmailBody = EmailTemplates.GetOrderStatusEmail(customerName, order.OrderId, orderStatusUpdateDto.Status)
+					});
+				}
+			}
+			await tx.CommitAsync();
+			await _actionQueue.RunAllAsync();
 		}
 		catch
 		{
+			await tx.RollbackAsync();
+			throw;
+		}
+	}
+
+	public async Task UpdateBulkOrderStatusAsync(BulkOrderStatusUpdateDto dto)
+	{
+		using var tx = await _context.Database.BeginTransactionAsync();
+		try
+		{
+			foreach (var orderId in dto.OrderIds)
+			{
+				var order = await _orderRepository.GetOrderByIdAsync(orderId);
+				if (order != null)
+				{
+					await _orderRepository.UpdateOrderStatusAsync(orderId, dto.Status);
+					await _notifier.NotifyOrderStatusAsync(orderId, dto.Status);
+
+					var user = await _userManager.FindByIdAsync(order.UserId);
+					if (user != null && !string.IsNullOrEmpty(user.Email))
+					{
+						string customerName = user.FullName ?? user.UserName ?? "Customer";
+						await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+						{
+							ActionType = "UPDATED",
+							EntityType = "Order",
+							EntityId = order.OrderId.ToString(),
+							Title = $"Order #{order.OrderId} {dto.Status}",
+							Description = $"Order #{order.OrderId} status changed to '{dto.Status}' (Bulk Action) by Administrator",
+							Icon = "Truck",
+							ColorClass = "text-info",
+							BgClass = "bg-info",
+
+							UserId = order.UserId,
+							NotificationTitle = $"Order Status Updated",
+							NotificationMessage = $"Your order #{order.OrderId} status is now '{dto.Status}'.",
+							NotificationType = "Order",
+							OrderId = order.OrderId,
+							NavigationUrl = $"/orders/{order.OrderId}",
+
+							SendEmailTo = user.Email,
+							EmailSubject = $"Order #{order.OrderId} Update",
+							EmailBody = EmailTemplates.GetOrderStatusEmail(customerName, order.OrderId, dto.Status)
+						});
+					}
+				}
+			}
+			await _orderRepository.SaveChangesAsync();
+			await tx.CommitAsync();
+			await _actionQueue.RunAllAsync();
+		}
+		catch
+		{
+			await tx.RollbackAsync();
+			throw;
+		}
+	}
+
+	public async Task DeleteBulkOrdersAsync(List<int> orderIds)
+	{
+		foreach (var orderId in orderIds)
+		{
+			var order = await _orderRepository.GetOrderByIdAsync(orderId);
+			if (order != null)
+			{
+				order.Status = "Cancelled"; 
+			}
+		}
+		await _orderRepository.SaveChangesAsync();
+	}
+
+	public async Task CancelOrderAsync(string userId, int orderId)
+	{
+		using var tx = await _context.Database.BeginTransactionAsync();
+		try
+		{
+			var order = await _orderRepository.GetOrderByIdAsync(orderId);
+			if (order == null || order.UserId != userId) throw new Exception("Order not found");
+
+			if (order.Status != "Pending" && order.Status != "Processing")
+				throw new Exception("Order cannot be cancelled");
+
+			order.Status = "Cancelled";
+			await _orderRepository.SaveChangesAsync();
+			await _notifier.NotifyOrderStatusAsync(order.OrderId, "Cancelled");
+
+			var user = await _userManager.FindByIdAsync(userId);
+			if (user != null && !string.IsNullOrEmpty(user.Email))
+			{
+				string customerName = user.FullName ?? user.UserName ?? "Customer";
+				await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+				{
+					ActionType = "CANCELLED",
+					EntityType = "Order",
+					EntityId = order.OrderId.ToString(),
+					Title = $"Order #{order.OrderId} Cancelled",
+					Description = $"Order #{order.OrderId} cancelled by User",
+					Icon = "XCircle",
+					ColorClass = "text-danger",
+					BgClass = "bg-danger",
+
+					UserId = userId,
+					NotificationTitle = $"Order Cancelled",
+					NotificationMessage = $"Your order #{order.OrderId} has been successfully cancelled.",
+					NotificationType = "Order",
+					OrderId = order.OrderId,
+					NavigationUrl = $"/orders/{order.OrderId}",
+
+					SendEmailTo = user.Email,
+					EmailSubject = $"Order #{order.OrderId} Cancelled",
+					EmailBody = EmailTemplates.GetOrderStatusEmail(customerName, order.OrderId, order.Status)
+				});
+			}
+
+			// Restore reserved stock for cancelled order
+			foreach (var item in order.OrderItems)
+			{
+				await _inventoryService.ReleaseStockAsync(new ReserveStockDto { ProductId = item.ProductId, Quantity = item.Quantity, UserId = userId });
+			}
+
+			await tx.CommitAsync();
+			await _actionQueue.RunAllAsync();
+		}
+		catch
+		{
+			await tx.RollbackAsync();
+			throw;
 		}
 	}
 

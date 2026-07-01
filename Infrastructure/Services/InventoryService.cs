@@ -14,19 +14,28 @@ public class InventoryService : IInventoryService
     private readonly IMapper _mapper;
     private readonly INotificationService _notifier;
     private readonly IAdminDashboardService _dashboardService;
+    private readonly IBusinessEventPublisher _eventPublisher;
 
-    public InventoryService(IInventoryRepository repo, AppDbContext context, IMapper mapper, INotificationService notifier, IAdminDashboardService dashboardService)
+    public InventoryService(
+        IInventoryRepository repo, 
+        AppDbContext context, 
+        IMapper mapper, 
+        INotificationService notifier, 
+        IAdminDashboardService dashboardService,
+        IBusinessEventPublisher eventPublisher)
     {
         _repo = repo;
         _context = context;
         _mapper = mapper;
         _notifier = notifier;
         _dashboardService = dashboardService;
+        _eventPublisher = eventPublisher;
     }
 
     public async Task FinalizeReservationAsync(Guid productId, int quantity, string? performedBy = null)
     {
-        using var tx = await _context.Database.BeginTransactionAsync();
+        var hasActiveTransaction = _context.Database.CurrentTransaction != null;
+        using var tx = hasActiveTransaction ? null : await _context.Database.BeginTransactionAsync();
         try
         {
             var inv = await _repo.GetByProductIdAsync(productId);
@@ -49,11 +58,11 @@ public class InventoryService : IInventoryService
                 PerformedBy = performedBy ?? "system"
             });
 
-            await tx.CommitAsync();
+            if (tx != null) await tx.CommitAsync();
         }
         catch
         {
-            await tx.RollbackAsync();
+            if (tx != null) await tx.RollbackAsync();
             throw;
         }
     }
@@ -74,7 +83,8 @@ public class InventoryService : IInventoryService
     public async Task UpdateStockAsync(UpdateStockDto dto, string performedBy)
     {
         // Use transaction for safe updates
-        using var tx = await _context.Database.BeginTransactionAsync();
+        var hasActiveTransaction = _context.Database.CurrentTransaction != null;
+        using var tx = hasActiveTransaction ? null : await _context.Database.BeginTransactionAsync();
         try
         {
             var inv = await _repo.GetByProductIdAsync(dto.ProductId);
@@ -92,7 +102,7 @@ public class InventoryService : IInventoryService
                 };
 
                 await _repo.AddAsync(inv);
-                await tx.CommitAsync();
+                if (tx != null) await tx.CommitAsync();
                 await _repo.AddHistoryAsync(new InventoryHistory
                 {
                     Id = Guid.NewGuid(),
@@ -102,6 +112,21 @@ public class InventoryService : IInventoryService
                     Timestamp = DateTime.UtcNow,
                     PerformedBy = performedBy
                 });
+
+                var createdProd = await _context.Products.FindAsync(dto.ProductId);
+                await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+                {
+                    ActionType = "STOCK_INCREASED",
+                    EntityType = "Inventory",
+                    EntityId = dto.ProductId.ToString(),
+                    Title = createdProd?.Name ?? "Product",
+                    Description = $"Inventory initialized with {dto.Quantity} units. Reason: {dto.Reason}",
+                    Icon = "PlusCircle",
+                    ColorClass = "text-success",
+                    BgClass = "bg-success",
+                    ProductId = dto.ProductId
+                });
+
                 return;
             }
 
@@ -125,7 +150,53 @@ public class InventoryService : IInventoryService
                 PerformedBy = performedBy
             });
 
-            await tx.CommitAsync();
+            if (tx != null) await tx.CommitAsync();
+
+            var prod = await _context.Products.FindAsync(dto.ProductId);
+            var prodName = prod?.Name ?? "Product";
+            await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+            {
+                ActionType = dto.Quantity > 0 ? "STOCK_INCREASED" : "STOCK_REDUCED",
+                EntityType = "Inventory",
+                EntityId = dto.ProductId.ToString(),
+                Title = prodName,
+                Description = $"Stock {(dto.Quantity > 0 ? "increased" : "reduced")} by {Math.Abs(dto.Quantity)} units. Reason: {dto.Reason}. New Stock: {inv.AvailableStock}",
+                Icon = dto.Quantity > 0 ? "PlusCircle" : "MinusCircle",
+                ColorClass = dto.Quantity > 0 ? "text-success" : "text-warning",
+                BgClass = dto.Quantity > 0 ? "bg-success" : "bg-warning",
+                ProductId = dto.ProductId
+            });
+
+            if (inv.AvailableStock == 0)
+            {
+                await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+                {
+                    ActionType = "ALERT",
+                    EntityType = "Inventory",
+                    EntityId = dto.ProductId.ToString(),
+                    Title = prodName,
+                    Description = $"Product '{prodName}' is now Out of Stock!",
+                    Icon = "ShieldAlert",
+                    ColorClass = "text-danger",
+                    BgClass = "bg-danger",
+                    ProductId = dto.ProductId
+                });
+            }
+            else if (inv.AvailableStock < inv.LowStockThreshold)
+            {
+                await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+                {
+                    ActionType = "ALERT",
+                    EntityType = "Inventory",
+                    EntityId = dto.ProductId.ToString(),
+                    Title = prodName,
+                    Description = $"Product '{prodName}' has Low Stock! Only {inv.AvailableStock} left.",
+                    Icon = "ShieldAlert",
+                    ColorClass = "text-warning",
+                    BgClass = "bg-warning",
+                    ProductId = dto.ProductId
+                });
+            }
 
             if (inv.AvailableStock < inv.LowStockThreshold)
             {
@@ -144,7 +215,7 @@ public class InventoryService : IInventoryService
         }
         catch
         {
-            await tx.RollbackAsync();
+            if (tx != null) await tx.RollbackAsync();
             throw;
         }
     }
@@ -152,7 +223,8 @@ public class InventoryService : IInventoryService
     public async Task ReserveStockAsync(ReserveStockDto dto)
     {
         // Reserve stock during checkout
-        using var tx = await _context.Database.BeginTransactionAsync();
+        var hasActiveTransaction = _context.Database.CurrentTransaction != null;
+        using var tx = hasActiveTransaction ? null : await _context.Database.BeginTransactionAsync();
         try
         {
             var inv = await _repo.GetByProductIdAsync(dto.ProductId);
@@ -179,7 +251,7 @@ public class InventoryService : IInventoryService
                 PerformedBy = dto.UserId ?? "system"
             });
 
-            await tx.CommitAsync();
+            if (tx != null) await tx.CommitAsync();
 
             if (inv.AvailableStock < inv.LowStockThreshold)
             {
@@ -196,7 +268,7 @@ public class InventoryService : IInventoryService
         }
         catch
         {
-            await tx.RollbackAsync();
+            if (tx != null) await tx.RollbackAsync();
             throw;
         }
     }
@@ -204,7 +276,8 @@ public class InventoryService : IInventoryService
     public async Task ReleaseStockAsync(ReserveStockDto dto)
     {
         // Release reserved stock on cancellation
-        using var tx = await _context.Database.BeginTransactionAsync();
+        var hasActiveTransaction = _context.Database.CurrentTransaction != null;
+        using var tx = hasActiveTransaction ? null : await _context.Database.BeginTransactionAsync();
         try
         {
             var inv = await _repo.GetByProductIdAsync(dto.ProductId);
@@ -230,7 +303,7 @@ public class InventoryService : IInventoryService
                 PerformedBy = dto.UserId ?? "system"
             });
 
-            await tx.CommitAsync();
+            if (tx != null) await tx.CommitAsync();
             try
             {
                 var summary = await _dashboardService.GetSummaryAsync();

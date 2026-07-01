@@ -1,0 +1,44 @@
+2026-07-01 15:50:42.357 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-07-01 15:50:48.785 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-07-01 15:50:48.825 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 51ms
+2026-07-01 15:50:48.825 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 42ms
+2026-07-01 15:50:48.825 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 94ms
+2026-07-01 15:50:48.825 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 94ms
+2026-07-01 15:50:48.825 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 45ms
+2026-07-01 15:50:48.825 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 42ms
+2026-07-01 15:50:48.870 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 5ms
+2026-07-01 15:50:48.888 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-01 15:50:48.899 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-01 15:50:48.870 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-01 15:50:48.916 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-01 15:50:49.009 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-01 15:50:49.152 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-01 15:50:49.399 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-01 15:50:49.625 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 755ms
+2026-07-01 15:50:49.625 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 708ms
+2026-07-01 15:50:51.053 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 873ms
+2026-07-01 15:50:51.056 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-01 15:50:51.295 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 245ms
+2026-07-01 15:50:51.550 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 1360ms
+2026-07-01 15:50:51.575 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 21ms
+2026-07-01 15:50:51.635 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 56ms
+2026-07-01 15:50:51.647 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 69ms
+2026-07-01 15:50:52.029 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 2123ms
+2026-07-01 15:50:52.068 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 35ms
+2026-07-01 15:50:52.384 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 2825ms
+2026-07-01 15:50:52.477 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 94ms
+2026-07-01 15:50:52.596 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse1.jpg from IP ::1 responded 304 in 13ms
+2026-07-01 15:50:52.596 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_sideAngle.jpg from IP ::1 responded 304 in 12ms
+2026-07-01 15:50:52.596 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone1_brown_frontAngle.jpg from IP ::1 responded 304 in 12ms
+2026-07-01 15:50:52.596 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone13.jpg from IP ::1 responded 304 in 13ms
+2026-07-01 15:50:52.610 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_sideAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-01 15:50:52.615 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 140ms
+2026-07-01 15:50:52.648 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker1.jpg from IP ::1 responded 304 in 0ms
+2026-07-01 15:50:52.657 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_closedAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-01 15:50:52.729 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_grey_frontangle.jpg from IP ::1 responded 304 in 0ms
+2026-07-01 15:50:52.778 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone3_orange_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-01 15:50:52.781 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 170ms
+2026-07-01 15:50:52.798 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar1.jpg from IP ::1 responded 304 in 0ms
+2026-07-01 15:50:52.809 +05:30 [INF] API REQUEST: GET /images/products/default/default13.jpg from IP ::1 responded 304 in 0ms
+2026-07-01 15:51:11.396 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone2_red_frontAngle.jpg from IP ::1 responded 304 in 1ms
+2026-07-01 15:51:13.298 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 23665ms

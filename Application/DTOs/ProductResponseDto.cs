@@ -15,6 +15,8 @@ public class ProductResponseDto
 
     public string CategoryName { get; set; } = string.Empty;
 
+    public string CategorySlug => CategoryName?.ToLower().Replace(" ", "-").Replace("&", "and").Replace("---", "-").Replace("--", "-") ?? string.Empty;
+
     public string Brand { get; set; } = string.Empty;
 
     public double? Rating { get; set; }

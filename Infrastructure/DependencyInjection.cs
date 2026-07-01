@@ -111,6 +111,8 @@ namespace Infrastructure
             services.AddScoped<IRazorpayService, RazorpayService>();
 
             services.AddScoped<IAuditLogService, AuditLogService>();
+            services.AddScoped<IBusinessEventPublisher, BusinessEventPublisher>();
+            services.AddScoped<ITransactionActionQueue, TransactionActionQueue>();
             services.AddScoped<IReturnService, ReturnService>();
 
             services.AddScoped<INotificationRepository, NotificationRepository>();
@@ -121,6 +123,9 @@ namespace Infrastructure
                 NotificationManagerService>();
 
             services.AddAutoMapper(cfg => cfg.AddMaps(typeof(ProductProfile).Assembly, typeof(InventoryProfile).Assembly));
+
+            // Register HttpContextAccessor
+            services.AddHttpContextAccessor();
 
             // Register SignalR hubs
             services.AddSignalR();

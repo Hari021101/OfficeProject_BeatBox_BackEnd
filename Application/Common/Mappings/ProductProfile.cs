@@ -46,6 +46,10 @@ public class ProductProfile : Profile
         CreateMap<ProductVariant, ProductVariantDto>()
             .ForMember(dest => dest.Images, opt => opt.MapFrom(src => src.Images));
 
+        CreateMap<ProductVariantCreateDto, ProductVariant>();
+        CreateMap<ProductVariantUpdateDto, ProductVariant>()
+            .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
         CreateMap<ProductReview, ProductReviewDto>()
          .ForMember(dest => dest.UserName,
           opt => opt.MapFrom(src => src.User.FullName));
@@ -53,6 +57,7 @@ public class ProductProfile : Profile
         CreateMap<ProductImage, ProductImageDto>();
         CreateMap<ProductVariantImage, ProductVariantImageDto>();
 
+        CreateMap<ProductFaq, ProductFaqDto>().ReverseMap();
         CreateMap<ProductFaq, ProductFaqDto>();
     }
 }

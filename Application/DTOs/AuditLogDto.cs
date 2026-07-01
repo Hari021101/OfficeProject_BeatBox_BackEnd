@@ -15,4 +15,5 @@ public class AuditLogDto
     public string Icon { get; set; } = string.Empty;
     public string ColorClass { get; set; } = string.Empty;
     public string BgClass { get; set; } = string.Empty;
+    public string IPAddress { get; set; } = string.Empty;
 }

@@ -17,4 +17,6 @@ public class ProductCreateDto
     public string Connectivity { get; set; } = string.Empty;
 
     public bool IsFeatured { get; set; }
+
+    public List<ProductFaqDto> Faqs { get; set; } = new();
 }

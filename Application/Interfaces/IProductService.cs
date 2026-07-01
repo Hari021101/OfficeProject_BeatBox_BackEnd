@@ -16,4 +16,12 @@ public interface IProductService
     
     Task BulkDeleteAsync(IEnumerable<Guid> productIds);
     Task BulkUpdateFeaturedAsync(IEnumerable<Guid> productIds, bool isFeatured);
+
+    Task<ProductVariantDto> AddVariantAsync(Guid productId, ProductVariantCreateDto dto);
+    Task<ProductVariantDto> UpdateVariantAsync(Guid variantId, ProductVariantUpdateDto dto);
+    Task DeleteVariantAsync(Guid variantId);
+    Task<List<ProductVariantImageDto>> UploadVariantImagesAsync(Guid variantId, List<(Stream Stream, string FileName, string ContentType, long Length)> files);
+    Task DeleteImageAsync(Guid imageId);
+    Task ReorderImagesAsync(List<ImageOrderDto> imageOrders);
+    Task SetPrimaryImageAsync(Guid imageId);
 }

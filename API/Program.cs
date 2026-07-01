@@ -115,7 +115,8 @@ using (var scope = app.Services.CreateScope())
         DbSeeder.InitializeImagePools();
 
         // Seed high-fidelity e-commerce catalog data if empty
-        await DbSeeder.SeedAsync(context, userManager, roleManager);
+        var forceSeed = app.Configuration.GetValue<bool>("Seed:Force", false);
+        await DbSeeder.SeedAsync(context, userManager, roleManager, forceSeed);
     }
     catch (Exception ex)
     {

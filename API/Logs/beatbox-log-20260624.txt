@@ -1,0 +1,713 @@
+2026-06-24 16:10:25.507 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-24 16:10:26.355 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-24 16:10:26.682 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 1233ms
+2026-06-24 16:10:27.316 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 624ms
+2026-06-24 16:10:28.508 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 3062ms
+2026-06-24 16:10:28.850 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_200_db17d7d7-4894-4214-9f87-7685e1a18be9_grey_1.jpg from IP ::1 responded 304 in 23ms
+2026-06-24 16:10:28.850 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_4480cf9d-e7dc-4906-b05f-0dedc7dc520d_red_1.jpg from IP ::1 responded 304 in 22ms
+2026-06-24 16:10:28.850 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_1f7a64d0-0f7a-444b-b5ab-2ba40cd9a60e_red_1.png from IP ::1 responded 304 in 26ms
+2026-06-24 16:10:28.859 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_4894a0a8-5335-4487-a136-1b50e2695d54_grey_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:10:28.860 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_ultra_c87ab3d0-b927-4790-89b8-10455d5fa8b7_blue_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:10:28.861 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_fastcharge_pro_5f4f7564-840c-4783-830f-1fc832be711f_red_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:10:29.802 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 1401ms
+2026-06-24 16:10:31.455 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 1833ms
+2026-06-24 16:10:32.232 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 859ms
+2026-06-24 16:10:34.891 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_f574d65c-4a4b-4da3-a799-7f789d3c88b2_white_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:10:40.879 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_8988f2c6-79ba-4bcb-9613-174a4c952a83_black_1.jpg from IP ::1 responded 304 in 1ms
+2026-06-24 16:11:03.544 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_2c404b34-da45-4168-a91a-a14f1d2c4fbf_white_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:11:23.421 +05:30 [INF] API REQUEST: GET /api/product/db32d384-347e-4a80-89b4-022d8b1597b2 from IP ::1 responded 200 in 787ms
+2026-06-24 16:11:23.459 +05:30 [INF] API REQUEST: GET /api/product/db32d384-347e-4a80-89b4-022d8b1597b2 from IP ::1 responded 200 in 23ms
+2026-06-24 16:11:24.202 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_4480cf9d-e7dc-4906-b05f-0dedc7dc520d_red_2.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:11:24.214 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_4480cf9d-e7dc-4906-b05f-0dedc7dc520d_red_3.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:11:42.022 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_fastcharge_pro_23935f05-9e85-45ec-a99e-3544e3c631b0_blue_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:11:42.032 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_fastcharge_pro_df1eef56-88f2-4313-bb99-17cb1d768765_blue_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:11:42.184 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_10000_e9c812ca-7264-466e-98b1-430167bcba7d_blue_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:11:58.293 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_9e9a9f26-749d-4805-beed-b8dfa409aed8_grey_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:11:58.308 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_9e9a9f26-749d-4805-beed-b8dfa409aed8_grey_2.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:11:58.364 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_9e9a9f26-749d-4805-beed-b8dfa409aed8_grey_3.jpg from IP ::1 responded 304 in 2ms
+2026-06-24 16:12:13.866 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_2a558a0c-35f9-4b76-9ab4-ca87a67a9c5f_blue_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:12:13.868 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_2a558a0c-35f9-4b76-9ab4-ca87a67a9c5f_blue_3.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:12:13.870 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_2a558a0c-35f9-4b76-9ab4-ca87a67a9c5f_blue_2.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:13:49.194 +05:30 [INF] API REQUEST: GET /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1 responded 200 in 55ms
+2026-06-24 16:13:49.279 +05:30 [INF] API REQUEST: GET /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1 responded 200 in 75ms
+2026-06-24 16:13:49.506 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_4894a0a8-5335-4487-a136-1b50e2695d54_grey_2.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:13:49.518 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_4894a0a8-5335-4487-a136-1b50e2695d54_grey_3.jpg from IP ::1 responded 304 in 10ms
+2026-06-24 16:14:11.100 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_monitor_pro_188c5c18-ca2a-4f45-8762-15638852760d_blue_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:14:11.100 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_monitor_pro_7046a77b-d198-4332-9a64-16f2f7143923_red_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:14:11.105 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_monitor_pro_8c52d054-bdaf-4083-af6c-392cc5775271_grey_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:14:11.116 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_studio_wired_094a0e25-deb3-4d92-a031-3deddbf0b004_red_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:14:40.719 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_1cd3d572-9481-4fc3-8522-268885437ae2_black_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:14:40.726 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_1cd3d572-9481-4fc3-8522-268885437ae2_black_2.jpg from IP ::1 responded 304 in 5ms
+2026-06-24 16:14:40.734 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_1cd3d572-9481-4fc3-8522-268885437ae2_black_3.jpg from IP ::1 responded 304 in 1ms
+2026-06-24 16:15:05.500 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_f196d7e7-9005-4d26-a85c-973df97ed72b_red_1.jpg from IP ::1 responded 304 in 1ms
+2026-06-24 16:15:05.502 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_f196d7e7-9005-4d26-a85c-973df97ed72b_red_2.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:15:05.503 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_f196d7e7-9005-4d26-a85c-973df97ed72b_red_3.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:16:41.770 +05:30 [INF] API REQUEST: GET /api/product/802b5686-3449-4f37-bb59-1122e4fb7db8 from IP ::1 responded 200 in 76ms
+2026-06-24 16:16:41.821 +05:30 [INF] API REQUEST: GET /api/product/802b5686-3449-4f37-bb59-1122e4fb7db8 from IP ::1 responded 200 in 30ms
+2026-06-24 16:16:42.149 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_1f7a64d0-0f7a-444b-b5ab-2ba40cd9a60e_red_3.png from IP ::1 responded 200 in 65ms
+2026-06-24 16:16:42.160 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_1f7a64d0-0f7a-444b-b5ab-2ba40cd9a60e_red_2.png from IP ::1 responded 200 in 77ms
+2026-06-24 16:17:04.844 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_2c769986-ade6-41c8-83d9-308650dcda8e_blue_1.png from IP ::1 responded 304 in 0ms
+2026-06-24 16:17:04.948 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/beatbox_fit_max_87f6012d-4e41-4d39-958d-6aa34800aeb3_grey_1.png from IP ::1 responded 200 in 141ms
+2026-06-24 16:17:04.958 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/beatbox_fit_max_5bfee8fc-7f91-4965-93e0-8335b7bc9f99_grey_1.png from IP ::1 responded 200 in 126ms
+2026-06-24 16:17:04.961 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/beatbox_fit_max_74d69330-0c12-4ea5-ae59-62bdc060fc44_black_1.png from IP ::1 responded 200 in 116ms
+2026-06-24 16:17:27.941 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_5a9da6bb-b423-45c0-ad17-509bd682b031_blue_1.png from IP ::1 responded 200 in 114ms
+2026-06-24 16:17:27.942 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_5a9da6bb-b423-45c0-ad17-509bd682b031_blue_3.png from IP ::1 responded 200 in 84ms
+2026-06-24 16:17:27.944 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_5a9da6bb-b423-45c0-ad17-509bd682b031_blue_2.png from IP ::1 responded 200 in 91ms
+2026-06-24 16:19:00.042 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_fa4f2e08-c1c0-498b-bbe7-912cc84be352_blue_1.jpg from IP ::1 responded 200 in 66ms
+2026-06-24 16:19:00.101 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_1b59477d-8850-4ea6-ab3a-416a790581a3_white_1.png from IP ::1 responded 200 in 125ms
+2026-06-24 16:19:32.921 +05:30 [INF] API REQUEST: GET /api/product/90c74587-d56e-493c-886a-11448972e394 from IP ::1 responded 200 in 20ms
+2026-06-24 16:19:32.970 +05:30 [INF] API REQUEST: GET /api/product/90c74587-d56e-493c-886a-11448972e394 from IP ::1 responded 200 in 42ms
+2026-06-24 16:19:33.364 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_ultra_c87ab3d0-b927-4790-89b8-10455d5fa8b7_blue_2.jpg from IP ::1 responded 200 in 59ms
+2026-06-24 16:19:33.362 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_ultra_c87ab3d0-b927-4790-89b8-10455d5fa8b7_blue_3.jpg from IP ::1 responded 200 in 49ms
+2026-06-24 16:20:14.489 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_blast_tower_ed9dd4d5-8555-48bc-91c1-2363f5f05c6e_black_1.jpg from IP ::1 responded 200 in 59ms
+2026-06-24 16:20:14.492 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_blast_tower_4be099d9-02ca-4b7c-b146-74d19d6566bd_grey_1.jpg from IP ::1 responded 200 in 75ms
+2026-06-24 16:20:14.493 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_ultra_7a6463b7-43b9-462d-8afb-9890bd8468d7_blue_1.jpg from IP ::1 responded 200 in 62ms
+2026-06-24 16:20:14.520 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_blast_tower_42507361-c1bf-4250-913a-5c4372ba3a5a_black_1.jpg from IP ::1 responded 200 in 98ms
+2026-06-24 16:20:43.025 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_ultra_a260d24a-987b-4b00-8711-3209ea0cec65_white_2.jpg from IP ::1 responded 200 in 31ms
+2026-06-24 16:20:43.031 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_ultra_a260d24a-987b-4b00-8711-3209ea0cec65_white_1.jpg from IP ::1 responded 200 in 35ms
+2026-06-24 16:20:43.041 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_ultra_a260d24a-987b-4b00-8711-3209ea0cec65_white_3.jpg from IP ::1 responded 200 in 41ms
+2026-06-24 16:26:28.612 +05:30 [INF] API REQUEST: GET /api/product/3e2aa7cc-fbdb-492f-81da-1413ebc0d816 from IP ::1 responded 200 in 485ms
+2026-06-24 16:26:28.688 +05:30 [INF] API REQUEST: GET /api/product/3e2aa7cc-fbdb-492f-81da-1413ebc0d816 from IP ::1 responded 200 in 59ms
+2026-06-24 16:26:41.759 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_fastcharge_pro_5f4f7564-840c-4783-830f-1fc832be711f_red_2.jpg from IP ::1 responded 200 in 65ms
+2026-06-24 16:26:41.771 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_fastcharge_pro_5f4f7564-840c-4783-830f-1fc832be711f_red_3.jpg from IP ::1 responded 200 in 47ms
+2026-06-24 16:30:09.356 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_fastcharge_pro_d3241445-85fb-46fb-a7ec-67e25c47ad21_blue_2.jpg from IP ::1 responded 200 in 94ms
+2026-06-24 16:30:09.421 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_fastcharge_pro_d3241445-85fb-46fb-a7ec-67e25c47ad21_blue_1.jpg from IP ::1 responded 200 in 158ms
+2026-06-24 16:30:09.575 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_fastcharge_pro_d3241445-85fb-46fb-a7ec-67e25c47ad21_blue_3.jpg from IP ::1 responded 200 in 202ms
+2026-06-24 16:33:00.187 +05:30 [INF] API REQUEST: GET /api/product/fcfb0d5e-7392-494b-9050-15eb467068b0 from IP ::1 responded 200 in 226ms
+2026-06-24 16:33:00.899 +05:30 [INF] API REQUEST: GET /api/product/fcfb0d5e-7392-494b-9050-15eb467068b0 from IP ::1 responded 200 in 536ms
+2026-06-24 16:33:01.757 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_2c404b34-da45-4168-a91a-a14f1d2c4fbf_white_2.jpg from IP ::1 responded 200 in 269ms
+2026-06-24 16:33:01.895 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_2c404b34-da45-4168-a91a-a14f1d2c4fbf_white_3.jpg from IP ::1 responded 200 in 383ms
+2026-06-24 16:33:57.916 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_0c570704-704c-4d9f-abe6-ceff6deb4c04_black_1.jpg from IP ::1 responded 200 in 38ms
+2026-06-24 16:33:58.129 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_0c570704-704c-4d9f-abe6-ceff6deb4c04_black_2.jpg from IP ::1 responded 200 in 75ms
+2026-06-24 16:33:58.131 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_0c570704-704c-4d9f-abe6-ceff6deb4c04_black_3.jpg from IP ::1 responded 200 in 52ms
+2026-06-24 16:34:31.733 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_76ab24af-7e9b-4970-8378-dbf966c7d513_grey_1.jpg from IP ::1 responded 200 in 63ms
+2026-06-24 16:34:31.803 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_76ab24af-7e9b-4970-8378-dbf966c7d513_grey_2.jpg from IP ::1 responded 200 in 35ms
+2026-06-24 16:34:33.033 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_76ab24af-7e9b-4970-8378-dbf966c7d513_grey_3.jpg from IP ::1 responded 200 in 41ms
+2026-06-24 16:39:13.177 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_76062f13-3359-4082-91dc-2b7c97d40857_blue_1.jpg from IP ::1 responded 200 in 59ms
+2026-06-24 16:39:13.517 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_neo_91da9333-d008-4c0a-9949-1f17f105c1c4_blue_1.jpg from IP ::1 responded 200 in 32ms
+2026-06-24 16:39:43.705 +05:30 [INF] API REQUEST: GET /api/product/530d3bba-ca9d-4783-8b89-15fa24088825 from IP ::1 responded 200 in 364ms
+2026-06-24 16:39:43.752 +05:30 [INF] API REQUEST: GET /api/product/530d3bba-ca9d-4783-8b89-15fa24088825 from IP ::1 responded 200 in 33ms
+2026-06-24 16:39:52.119 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_1b59477d-8850-4ea6-ab3a-416a790581a3_white_2.png from IP ::1 responded 200 in 66ms
+2026-06-24 16:39:52.302 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_1b59477d-8850-4ea6-ab3a-416a790581a3_white_3.png from IP ::1 responded 200 in 64ms
+2026-06-24 16:40:18.615 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_30d27435-02e6-477f-bfd0-c1764eaceea4_blue_1.png from IP ::1 responded 200 in 101ms
+2026-06-24 16:40:18.667 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_30d27435-02e6-477f-bfd0-c1764eaceea4_blue_2.png from IP ::1 responded 200 in 39ms
+2026-06-24 16:40:18.702 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_30d27435-02e6-477f-bfd0-c1764eaceea4_blue_3.png from IP ::1 responded 200 in 64ms
+2026-06-24 16:44:02.903 +05:30 [INF] API REQUEST: GET /api/product/9646b988-0435-4404-805e-1c5be2227e8a from IP ::1 responded 200 in 76ms
+2026-06-24 16:44:02.984 +05:30 [INF] API REQUEST: GET /api/product/9646b988-0435-4404-805e-1c5be2227e8a from IP ::1 responded 200 in 19ms
+2026-06-24 16:44:09.309 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_f574d65c-4a4b-4da3-a799-7f789d3c88b2_white_2.jpg from IP ::1 responded 200 in 58ms
+2026-06-24 16:44:09.329 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_f574d65c-4a4b-4da3-a799-7f789d3c88b2_white_3.jpg from IP ::1 responded 200 in 40ms
+2026-06-24 16:44:49.819 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_38ceaefc-dc1e-490f-a907-8eaefc823e57_blue_1.jpg from IP ::1 responded 200 in 25ms
+2026-06-24 16:44:49.822 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_38ceaefc-dc1e-490f-a907-8eaefc823e57_blue_2.jpg from IP ::1 responded 200 in 20ms
+2026-06-24 16:44:49.872 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_38ceaefc-dc1e-490f-a907-8eaefc823e57_blue_3.jpg from IP ::1 responded 200 in 28ms
+2026-06-24 16:45:12.426 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_56ec8f45-4db7-451f-a586-cac79c841349_black_2.jpg from IP ::1 responded 200 in 30ms
+2026-06-24 16:45:12.427 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_56ec8f45-4db7-451f-a586-cac79c841349_black_1.jpg from IP ::1 responded 200 in 30ms
+2026-06-24 16:45:12.428 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_56ec8f45-4db7-451f-a586-cac79c841349_black_3.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 16:45:33.021 +05:30 [INF] API REQUEST: GET /api/product/311582ff-cdc9-46b5-b6dc-1df9dfd55f32 from IP ::1 responded 200 in 23ms
+2026-06-24 16:45:33.677 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_fa4f2e08-c1c0-498b-bbe7-912cc84be352_blue_2.jpg from IP ::1 responded 200 in 16ms
+2026-06-24 16:45:33.681 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_fa4f2e08-c1c0-498b-bbe7-912cc84be352_blue_3.jpg from IP ::1 responded 200 in 18ms
+2026-06-24 16:46:04.633 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_ad98b438-afdb-4a27-aa99-e0d78d3f75d1_white_1.jpg from IP ::1 responded 200 in 19ms
+2026-06-24 16:46:04.643 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_ad98b438-afdb-4a27-aa99-e0d78d3f75d1_white_2.jpg from IP ::1 responded 200 in 26ms
+2026-06-24 16:46:04.725 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_ad98b438-afdb-4a27-aa99-e0d78d3f75d1_white_3.jpg from IP ::1 responded 200 in 18ms
+2026-06-24 16:50:31.630 +05:30 [INF] API REQUEST: GET /api/product/1 from IP ::1 responded 400 in 68ms
+2026-06-24 16:50:31.638 +05:30 [INF] API REQUEST: GET /api/product/1 from IP ::1 responded 400 in 6ms
+2026-06-24 16:52:36.247 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 96ms
+2026-06-24 16:52:36.490 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 4ms
+2026-06-24 16:52:59.803 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_3bdb7f7a-a235-4560-b41b-45e6d68c56af_black_1.png from IP ::1 responded 304 in 0ms
+2026-06-24 16:53:05.819 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_100_38cd0c96-17b8-482d-833b-08149d7cc4ec_grey_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 16:54:25.757 +05:30 [INF] API REQUEST: GET /api/product/802b5686-3449-4f37-bb59-1122e4fb7db8 from IP ::1 responded 200 in 16ms
+2026-06-24 16:54:25.788 +05:30 [INF] API REQUEST: GET /api/product/802b5686-3449-4f37-bb59-1122e4fb7db8 from IP ::1 responded 200 in 29ms
+2026-06-24 16:55:38.844 +05:30 [INF] API REQUEST: GET /api/product/41091c79-e8f5-4d3f-8db4-26b83cf3c636 from IP ::1 responded 200 in 15ms
+2026-06-24 16:55:39.615 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_8988f2c6-79ba-4bcb-9613-174a4c952a83_black_2.jpg from IP ::1 responded 200 in 23ms
+2026-06-24 16:55:39.618 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_8988f2c6-79ba-4bcb-9613-174a4c952a83_black_3.jpg from IP ::1 responded 200 in 23ms
+2026-06-24 16:56:09.381 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_4a20d87c-611d-4919-b704-34a3771d0ca5_blue_2.jpg from IP ::1 responded 200 in 17ms
+2026-06-24 16:56:09.387 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_4a20d87c-611d-4919-b704-34a3771d0ca5_blue_1.jpg from IP ::1 responded 200 in 21ms
+2026-06-24 16:56:09.388 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_4a20d87c-611d-4919-b704-34a3771d0ca5_blue_3.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 16:56:46.922 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_ada9bc18-68f6-4dbb-a7e9-d675155e4905_white_1.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 16:56:46.930 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_ada9bc18-68f6-4dbb-a7e9-d675155e4905_white_2.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 16:56:47.015 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_ada9bc18-68f6-4dbb-a7e9-d675155e4905_white_3.jpg from IP ::1 responded 200 in 19ms
+2026-06-24 16:58:17.901 +05:30 [INF] API REQUEST: GET /api/product/8f1e1a4f-9f2f-4f2f-b5dc-2b02dddfe7a4 from IP ::1 responded 200 in 15ms
+2026-06-24 16:58:18.523 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_3bdb7f7a-a235-4560-b41b-45e6d68c56af_black_2.png from IP ::1 responded 200 in 41ms
+2026-06-24 16:58:18.524 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_3bdb7f7a-a235-4560-b41b-45e6d68c56af_black_3.png from IP ::1 responded 200 in 36ms
+2026-06-24 16:58:49.989 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_c5234035-159a-4286-b239-b4ffa05a323d_red_2.png from IP ::1 responded 200 in 24ms
+2026-06-24 16:58:49.990 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_c5234035-159a-4286-b239-b4ffa05a323d_red_1.png from IP ::1 responded 200 in 38ms
+2026-06-24 16:58:50.004 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_c5234035-159a-4286-b239-b4ffa05a323d_red_3.png from IP ::1 responded 200 in 31ms
+2026-06-24 16:59:21.984 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_e41f643c-9ddf-494b-8fbe-fdf4b2bd703b_grey_1.png from IP ::1 responded 200 in 28ms
+2026-06-24 16:59:21.986 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_e41f643c-9ddf-494b-8fbe-fdf4b2bd703b_grey_2.png from IP ::1 responded 200 in 29ms
+2026-06-24 16:59:21.988 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_e41f643c-9ddf-494b-8fbe-fdf4b2bd703b_grey_3.png from IP ::1 responded 200 in 27ms
+2026-06-24 17:05:57.814 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_a9f39c9a-a567-4e42-9328-7e96bb9c1585_red_1.jpg from IP ::1 responded 200 in 5ms
+2026-06-24 17:05:57.815 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_10000_2ea0dd9a-4d06-47a8-a2df-22cfa09cfbbd_grey_1.jpg from IP ::1 responded 200 in 14ms
+2026-06-24 17:05:57.817 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_20000_ba4af09a-044d-4dca-9b00-92b1d4497236_red_1.jpg from IP ::1 responded 200 in 6ms
+2026-06-24 17:05:57.819 +05:30 [INF] API REQUEST: GET /images/products/power-banks/beatbox_powercore_10000_20ff2554-fd26-4e3f-95cf-280147801641_red_1.jpg from IP ::1 responded 200 in 10ms
+2026-06-24 17:10:07.985 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_6f0631d5-10bc-4dc1-a632-5b04e41c9afb_black_1.png from IP ::1 responded 200 in 64ms
+2026-06-24 17:10:07.986 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_78ce1533-2a85-4d6c-8884-3dc6542b9f83_blue_1.png from IP ::1 responded 200 in 65ms
+2026-06-24 17:10:42.365 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_0babcc59-82cb-4bc5-8087-916e1f033d76_grey_1.png from IP ::1 responded 200 in 54ms
+2026-06-24 17:10:42.367 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_54f13cb9-e454-4c2b-a1b7-bb205a3a94de_blue_1.png from IP ::1 responded 200 in 44ms
+2026-06-24 17:10:42.403 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_0d086929-3aba-453d-8351-514217d8ba52_white_1.png from IP ::1 responded 200 in 25ms
+2026-06-24 17:13:34.718 +05:30 [INF] API REQUEST: GET /api/product/802b5686-3449-4f37-bb59-1122e4fb7db8 from IP ::1 responded 200 in 70ms
+2026-06-24 17:13:34.733 +05:30 [INF] API REQUEST: GET /api/product/802b5686-3449-4f37-bb59-1122e4fb7db8 from IP ::1 responded 200 in 12ms
+2026-06-24 18:45:45.733 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 1461ms
+2026-06-24 18:45:45.825 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 92ms
+2026-06-24 18:45:45.835 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_1f7a64d0-0f7a-444b-b5ab-2ba40cd9a60e_red_1.png from IP ::1 responded 304 in 0ms
+2026-06-24 18:45:45.883 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 59ms
+2026-06-24 18:45:45.951 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 69ms
+2026-06-24 18:50:50.844 +05:30 [INF] API REQUEST: GET /api/products from IP ::1 responded 404 in 3ms
+2026-06-24 18:51:22.528 +05:30 [INF] API REQUEST: GET /api/products from IP ::1 responded 404 in 0ms
+2026-06-24 18:51:33.370 +05:30 [INF] API REQUEST: GET /api/products from IP ::1 responded 404 in 0ms
+2026-06-24 18:51:46.888 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 369ms
+2026-06-24 18:52:31.826 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 16ms
+2026-06-24 18:52:31.837 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 7ms
+2026-06-24 18:52:31.968 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 160ms
+2026-06-24 18:52:32.054 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 88ms
+2026-06-24 18:52:32.131 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 78ms
+2026-06-24 18:52:32.198 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 67ms
+2026-06-24 18:52:32.715 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_3bdb7f7a-a235-4560-b41b-45e6d68c56af_black_1.png from IP ::1 responded 304 in 0ms
+2026-06-24 18:52:32.852 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_soundscape_pro_33ec8114-4beb-4af5-a018-120a24e994a8_red_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 18:52:32.855 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_soundscape_pro_224561a3-0cfa-4390-8b1b-3fd9c18b609c_grey_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 18:52:32.894 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_soundscape_pro_049e930c-1d12-4cc4-9920-4a8168b6312a_red_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 18:52:50.789 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_2c769986-ade6-41c8-83d9-308650dcda8e_blue_1.png from IP ::1 responded 304 in 0ms
+2026-06-24 18:56:13.981 +05:30 [INF] API REQUEST: GET /api/product/db32d384-347e-4a80-89b4-022d8b1597b2 from IP ::1 responded 200 in 49ms
+2026-06-24 18:56:14.001 +05:30 [INF] API REQUEST: GET /api/product/db32d384-347e-4a80-89b4-022d8b1597b2 from IP ::1 responded 200 in 14ms
+2026-06-24 18:58:36.067 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_65w_b4a3b578-6e38-4e28-8599-0e805b82e8a3_grey_1.jpg from IP ::1 responded 200 in 34ms
+2026-06-24 18:58:36.067 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_20w_1d27b45f-12f2-4321-a1e2-026cce44c275_blue_1.jpg from IP ::1 responded 200 in 34ms
+2026-06-24 18:58:36.068 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_65w_43e8977f-dfa7-4c8c-b98a-525591f45699_grey_1.jpg from IP ::1 responded 200 in 32ms
+2026-06-24 18:58:36.068 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_33w_8905a442-01bc-4775-b99a-24e18b43dda4_blue_1.jpg from IP ::1 responded 200 in 30ms
+2026-06-24 18:58:36.084 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_20w_cdf3a385-9988-4d26-957d-287e4325400c_grey_1.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 18:58:36.098 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_33w_8f68787f-92d1-4716-b8d1-9e6ce286abfb_grey_1.jpg from IP ::1 responded 200 in 34ms
+2026-06-24 18:58:37.757 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_65w_d3ef9e12-8dc2-43e5-b90a-1969b2f49c76_grey_1.jpg from IP ::1 responded 200 in 30ms
+2026-06-24 18:58:37.757 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_20w_a3011e6b-9286-4263-90d3-0e88e98be0ab_grey_1.jpg from IP ::1 responded 200 in 31ms
+2026-06-24 18:58:37.762 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_33w_aee158f6-d6d9-4f59-abb9-d17622946516_grey_1.jpg from IP ::1 responded 200 in 35ms
+2026-06-24 19:02:48.647 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_soundbar_2_1_041fd546-76b9-44a5-adc1-9bb678470df2_white_1.jpg from IP ::1 responded 200 in 29ms
+2026-06-24 19:02:48.656 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_soundbar_elite_s9_519f3570-f332-4411-a48e-07f56858c829_red_1.jpg from IP ::1 responded 200 in 39ms
+2026-06-24 19:02:48.658 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_soundbar_2_1_efeade66-752b-4cee-9979-05e4f5cba4a9_blue_1.jpg from IP ::1 responded 200 in 85ms
+2026-06-24 19:02:48.658 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_soundbar_2_1_e6b75a00-7780-411d-8002-592e4b754349_white_1.jpg from IP ::1 responded 200 in 82ms
+2026-06-24 19:02:48.658 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_soundbar_elite_s9_bd43a472-6aa6-463c-b87f-72ec9cb3a3ea_red_1.jpg from IP ::1 responded 200 in 33ms
+2026-06-24 19:02:48.659 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_b278cecd-34a0-4836-b364-27df986bd271_white_1.jpg from IP ::1 responded 200 in 87ms
+2026-06-24 19:02:48.688 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_soundbar_elite_s9_898673d2-f077-4721-891c-27c21b99fca9_grey_1.jpg from IP ::1 responded 200 in 31ms
+2026-06-24 19:02:48.692 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_234a32d2-31b0-4700-a829-7f4d4547eb16_white_1.jpg from IP ::1 responded 200 in 30ms
+2026-06-24 19:02:52.573 +05:30 [INF] API REQUEST: GET /api/product/2ca73b18-db00-49c6-9429-2ec2ec5d7aa4 from IP ::1 responded 200 in 23ms
+2026-06-24 19:02:52.588 +05:30 [INF] API REQUEST: GET /api/product/2ca73b18-db00-49c6-9429-2ec2ec5d7aa4 from IP ::1 responded 200 in 13ms
+2026-06-24 19:02:52.812 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_b278cecd-34a0-4836-b364-27df986bd271_white_2.jpg from IP ::1 responded 200 in 21ms
+2026-06-24 19:02:52.812 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_b278cecd-34a0-4836-b364-27df986bd271_white_3.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 19:02:55.082 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_d2be986b-008e-45ae-a121-5929e98ab9f5_black_1.jpg from IP ::1 responded 200 in 66ms
+2026-06-24 19:02:55.083 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_d2be986b-008e-45ae-a121-5929e98ab9f5_black_2.jpg from IP ::1 responded 200 in 66ms
+2026-06-24 19:02:55.084 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_d2be986b-008e-45ae-a121-5929e98ab9f5_black_3.jpg from IP ::1 responded 200 in 66ms
+2026-06-24 19:02:56.184 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_0df193b1-f699-48f6-ab94-9f3062632484_grey_2.jpg from IP ::1 responded 200 in 44ms
+2026-06-24 19:02:56.184 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_0df193b1-f699-48f6-ab94-9f3062632484_grey_1.jpg from IP ::1 responded 200 in 45ms
+2026-06-24 19:02:56.189 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_cinema_pro_0df193b1-f699-48f6-ab94-9f3062632484_grey_3.jpg from IP ::1 responded 200 in 48ms
+2026-06-24 19:03:05.838 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_active_neckband_lite_60082f45-ae70-4a9d-9dd8-2389475268c5_white_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:03:05.838 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_rockerz_255_91b5848e-2689-4961-b97f-6da6901953ea_white_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:03:05.839 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_rockerz_255_4e83508e-f316-468a-a15b-2d7c00d6a879_white_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:03:05.839 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_fit_neckband_pro_feb49cf1-1136-4198-b4d9-0ba09565bd5f_grey_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:03:05.840 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_active_neckband_lite_679b6b4a-e444-458b-a490-16611aa9fa0c_black_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:03:05.840 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_active_neckband_lite_660e50b3-c5eb-4c60-85b5-10f44cf71f78_white_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:03:07.190 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_rockerz_255_f592ab5f-2d48-4c5c-bd94-491e6a002cba_black_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:03:07.190 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_fit_neckband_pro_a85ff761-ed71-4fce-8409-3d7a9427cc2d_black_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:03:07.190 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_fit_neckband_pro_1e3aefa2-3ce4-47a2-86e8-4ac08c301ddb_grey_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:03:10.514 +05:30 [INF] API REQUEST: GET /api/product/adfe0f95-99c9-4bb5-83ed-30adfed5595e from IP ::1 responded 200 in 10ms
+2026-06-24 19:03:10.531 +05:30 [INF] API REQUEST: GET /api/product/adfe0f95-99c9-4bb5-83ed-30adfed5595e from IP ::1 responded 200 in 13ms
+2026-06-24 19:03:10.770 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_rockerz_255_91b5848e-2689-4961-b97f-6da6901953ea_white_3.jpg from IP ::1 responded 200 in 25ms
+2026-06-24 19:03:10.771 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_rockerz_255_91b5848e-2689-4961-b97f-6da6901953ea_white_2.jpg from IP ::1 responded 200 in 25ms
+2026-06-24 19:03:17.883 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_rockerz_255_86c7de03-146d-4fb2-9edb-7658a7b7b851_black_3.jpg from IP ::1 responded 200 in 28ms
+2026-06-24 19:03:17.893 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_rockerz_255_86c7de03-146d-4fb2-9edb-7658a7b7b851_black_2.jpg from IP ::1 responded 200 in 36ms
+2026-06-24 19:03:17.893 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_rockerz_255_86c7de03-146d-4fb2-9edb-7658a7b7b851_black_1.jpg from IP ::1 responded 200 in 37ms
+2026-06-24 19:03:32.012 +05:30 [INF] API REQUEST: GET /api/product/90c74587-d56e-493c-886a-11448972e394 from IP ::1 responded 200 in 11ms
+2026-06-24 19:03:32.033 +05:30 [INF] API REQUEST: GET /api/product/90c74587-d56e-493c-886a-11448972e394 from IP ::1 responded 200 in 17ms
+2026-06-24 19:03:32.173 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_ultra_335ad45f-75c0-4b31-bb13-b5c61d57e624_white_1.jpg from IP ::1 responded 200 in 30ms
+2026-06-24 19:03:32.180 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_pro_04817c62-0af4-4ccc-94f4-069db6aa595b_blue_1.jpg from IP ::1 responded 200 in 31ms
+2026-06-24 19:03:32.182 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_pro_0c57a219-df3d-47b4-ab43-7e58e44945db_white_1.jpg from IP ::1 responded 200 in 37ms
+2026-06-24 19:03:32.187 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_partybox_pro_b0da1d8d-2602-4f50-a9ad-5bf223b75821_blue_1.jpg from IP ::1 responded 200 in 34ms
+2026-06-24 19:06:38.440 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 5ms
+2026-06-24 19:06:38.462 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 4ms
+2026-06-24 19:06:41.801 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_soundscape_mini_59537eac-94ad-40e8-ab4b-00cc5d49dc88_black_1.jpg from IP ::1 responded 200 in 11ms
+2026-06-24 19:06:41.807 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_soundscape_mini_52845b46-7e1d-449d-a83c-169e3d3e2f82_black_1.jpg from IP ::1 responded 200 in 13ms
+2026-06-24 19:13:26.827 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_sonic_buds_pro_02bc6739-a291-4c3b-a4da-9b667a054e9a_grey_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:13:26.828 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_sonic_buds_pro_07313846-3224-4bb8-b3da-79e8a4876ba8_red_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:13:26.829 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_max_c9d1396a-88d7-4f5d-8a74-46cf834ec430_white_1.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:13:26.830 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_max_d8725804-85f4-48b0-932c-0b52a78c2292_black_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:13:26.830 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_max_953f12d0-7788-42ad-b8bd-23a92ad4eb42_black_1.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:13:26.832 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_sonic_buds_pro_0f890586-5ebe-4211-b2aa-15d982766045_red_1.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:13:26.841 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_neo_c2be2d8a-f285-4f2d-b76c-5c2ba1f8840b_blue_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:13:40.267 +05:30 [INF] API REQUEST: GET /api/product/f7fd11f9-a24c-4410-b732-20e152e6826c from IP ::1 responded 200 in 11ms
+2026-06-24 19:13:40.277 +05:30 [INF] API REQUEST: GET /api/product/f7fd11f9-a24c-4410-b732-20e152e6826c from IP ::1 responded 200 in 8ms
+2026-06-24 19:13:40.387 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_neo_09e28562-a578-47af-9b47-07274bec19ff_blue_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:13:40.441 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_neo_91da9333-d008-4c0a-9949-1f17f105c1c4_blue_3.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:13:40.443 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_neo_91da9333-d008-4c0a-9949-1f17f105c1c4_blue_2.jpg from IP ::1 responded 200 in 4ms
+2026-06-24 19:13:42.269 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_neo_09a72379-fceb-4fcf-a1f7-987a1ce46b72_white_2.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:13:42.270 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_neo_09a72379-fceb-4fcf-a1f7-987a1ce46b72_white_3.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:13:42.270 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_airpods_neo_09a72379-fceb-4fcf-a1f7-987a1ce46b72_white_1.jpg from IP ::1 responded 200 in 3ms
+2026-06-24 19:13:52.599 +05:30 [INF] API REQUEST: GET /api/product/14ae7e0f-dfcc-48e2-96d8-754e62619357 from IP ::1 responded 200 in 6ms
+2026-06-24 19:13:52.675 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_sonic_buds_pro_07313846-3224-4bb8-b3da-79e8a4876ba8_red_2.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:13:52.675 +05:30 [INF] API REQUEST: GET /images/products/tws/beatbox_sonic_buds_pro_07313846-3224-4bb8-b3da-79e8a4876ba8_red_3.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:14:00.422 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 7ms
+2026-06-24 19:14:00.433 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 8ms
+2026-06-24 19:17:43.270 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 3ms
+2026-06-24 19:17:43.438 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 161ms
+2026-06-24 19:18:01.348 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 0ms
+2026-06-24 19:18:08.136 +05:30 [INF] API REQUEST: POST /api/account/register from IP ::1 responded 200 in 6786ms
+2026-06-24 19:19:25.631 +05:30 [INF] API REQUEST: OPTIONS /api/otp/verify-email from IP ::1 responded 204 in 0ms
+2026-06-24 19:19:26.283 +05:30 [INF] API REQUEST: POST /api/otp/verify-email from IP ::1 responded 200 in 649ms
+2026-06-24 19:19:26.325 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:19:26.743 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:19:26.745 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:19:26.748 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:19:26.758 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:19:26.773 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 440ms
+2026-06-24 19:19:26.776 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 28ms
+2026-06-24 19:19:26.779 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 12ms
+2026-06-24 19:19:26.779 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 30ms
+2026-06-24 19:19:26.790 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 11ms
+2026-06-24 19:19:40.005 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag4.jpg from IP ::1 responded 404 in 5ms
+2026-06-24 19:20:12.107 +05:30 [INF] API REQUEST: OPTIONS /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:12.108 +05:30 [INF] API REQUEST: OPTIONS /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:12.108 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:12.112 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:12.159 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1. Response: 200 in 48ms
+2026-06-24 19:20:12.180 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1. Response: 200 in 18ms
+2026-06-24 19:20:12.191 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 79ms
+2026-06-24 19:20:12.199 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 5ms
+2026-06-24 19:20:12.281 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_studio_wired_0db1e425-c419-45b3-8b11-5f1fb3b6a73c_red_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:20:12.283 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_studio_wired_5d99f18e-ee6d-4e96-916d-64c772d03d00_grey_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:20:12.284 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_e7f1af4d-97fa-4345-b7b3-0c5b42a743d0_red_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:20:12.285 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/beatbox_vocalist_lite_011864c9-91a9-4704-947d-115fef54c58e_black_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:20:18.979 +05:30 [INF] API REQUEST: OPTIONS /api/cart/add from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:19.274 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /api/cart/add from IP ::1. Response: 200 in 291ms
+2026-06-24 19:20:19.281 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:19.378 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 200 in 91ms
+2026-06-24 19:20:19.813 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag4.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:20:24.620 +05:30 [INF] API REQUEST: OPTIONS /api/cart/remove/1782122742318 from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:24.655 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed DELETE /api/cart/remove/1782122742318 from IP ::1. Response: 400 in 27ms
+2026-06-24 19:20:24.664 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:24.689 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 200 in 18ms
+2026-06-24 19:20:27.360 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:27.361 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:27.361 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:27.361 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:27.365 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:20:27.366 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:20:27.382 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 60500ms
+2026-06-24 19:20:27.426 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 58ms
+2026-06-24 19:20:27.435 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 7ms
+2026-06-24 19:20:45.407 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 17995ms
+2026-06-24 19:20:45.407 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:45.408 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:45.411 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:20:45.411 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:20:52.387 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_lightning_ccedb30f-6854-4fff-99ea-1c0aa7a64b89_white_1.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:20:53.477 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_cd307355-095c-447c-af0c-e23258761822_blue_1.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:20:57.083 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:57.084 +05:30 [INF] API REQUEST: OPTIONS /api/product/311582ff-cdc9-46b5-b6dc-1df9dfd55f32 from IP ::1 responded 204 in 3ms
+2026-06-24 19:20:57.084 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:57.084 +05:30 [INF] API REQUEST: OPTIONS /api/product/311582ff-cdc9-46b5-b6dc-1df9dfd55f32 from IP ::1 responded 204 in 0ms
+2026-06-24 19:20:57.102 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/311582ff-cdc9-46b5-b6dc-1df9dfd55f32 from IP ::1. Response: 404 in 14ms
+2026-06-24 19:20:57.108 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 20ms
+2026-06-24 19:20:57.108 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/311582ff-cdc9-46b5-b6dc-1df9dfd55f32 from IP ::1. Response: 404 in 3ms
+2026-06-24 19:20:57.112 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 2ms
+2026-06-24 19:21:01.486 +05:30 [INF] API REQUEST: OPTIONS /api/product/f7fd11f9-a24c-4410-b732-20e152e6826c from IP ::1 responded 204 in 0ms
+2026-06-24 19:21:01.487 +05:30 [INF] API REQUEST: OPTIONS /api/product/f7fd11f9-a24c-4410-b732-20e152e6826c from IP ::1 responded 204 in 0ms
+2026-06-24 19:21:01.493 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/f7fd11f9-a24c-4410-b732-20e152e6826c from IP ::1. Response: 404 in 3ms
+2026-06-24 19:21:01.493 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-06-24 19:21:01.497 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/f7fd11f9-a24c-4410-b732-20e152e6826c from IP ::1. Response: 404 in 2ms
+2026-06-24 19:21:01.497 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 1ms
+2026-06-24 19:23:28.199 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:23:28.200 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:23:28.231 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 28ms
+2026-06-24 19:23:28.237 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 3ms
+2026-06-24 19:27:17.432 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 391975ms
+2026-06-24 19:27:22.070 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.070 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.118 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 200 in 45ms
+2026-06-24 19:27:22.136 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 200 in 15ms
+2026-06-24 19:27:22.416 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.416 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.421 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.421 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:27:22.421 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.423 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:27:22.424 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.424 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.424 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.424 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:22.482 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 55ms
+2026-06-24 19:27:22.487 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 3ms
+2026-06-24 19:27:22.532 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 107ms
+2026-06-24 19:27:22.577 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 44ms
+2026-06-24 19:27:22.624 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 46ms
+2026-06-24 19:27:22.672 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_200_4cb1358a-fa41-4032-bfa7-4f236aaed345_grey_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:27:22.673 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 49ms
+2026-06-24 19:27:22.708 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_black_front.jpg from IP ::1 responded 200 in 35ms
+2026-06-24 19:27:22.711 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/new_silver_front.jpg from IP ::1 responded 200 in 33ms
+2026-06-24 19:27:22.712 +05:30 [INF] API REQUEST: GET /images/products/power-banks/new_powerbank_hero.jpg from IP ::1 responded 200 in 39ms
+2026-06-24 19:27:22.714 +05:30 [INF] API REQUEST: GET /images/products/tws/new_grey_flat.jpg from IP ::1 responded 200 in 32ms
+2026-06-24 19:27:24.946 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_soundscape_mini_1cfe4f33-10d3-47bb-9258-82a4ecd347b2_grey_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:27:26.228 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_home_theatre_5_1_d7de4821-9ac7-43ee-b99d-0a08bb29294e_grey_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:27:26.230 +05:30 [INF] API REQUEST: GET /images/products/power-banks/new_powerbank_grey.jpg from IP ::1 responded 200 in 3ms
+2026-06-24 19:27:34.688 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_0babcc59-82cb-4bc5-8087-916e1f033d76_grey_1.png from IP ::1 responded 304 in 0ms
+2026-06-24 19:27:43.485 +05:30 [INF] API REQUEST: OPTIONS /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:43.485 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:43.486 +05:30 [INF] API REQUEST: OPTIONS /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:43.487 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:27:43.492 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-06-24 19:27:43.495 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 1ms
+2026-06-24 19:27:43.515 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1. Response: 200 in 27ms
+2026-06-24 19:27:43.523 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1. Response: 200 in 6ms
+2026-06-24 19:27:43.604 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_red_hero.jpg from IP ::1 responded 200 in 31ms
+2026-06-24 19:27:43.605 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/new_black_hero.jpg from IP ::1 responded 200 in 30ms
+2026-06-24 19:27:43.609 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_wired_grey.jpg from IP ::1 responded 200 in 35ms
+2026-06-24 19:27:43.651 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_grey_flat.jpg from IP ::1 responded 200 in 16ms
+2026-06-24 19:27:48.477 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_wired_black.jpg from IP ::1 responded 200 in 24ms
+2026-06-24 19:27:51.490 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_wired_red.jpg from IP ::1 responded 200 in 17ms
+2026-06-24 19:28:00.599 +05:30 [INF] API REQUEST: OPTIONS /api/product/08444835-7fd1-4292-b4a8-ab1dbc1f1fa6 from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:00.599 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:00.620 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 14ms
+2026-06-24 19:28:00.700 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/08444835-7fd1-4292-b4a8-ab1dbc1f1fa6 from IP ::1. Response: 200 in 95ms
+2026-06-24 19:28:00.863 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/new_grey_hero.jpg from IP ::1 responded 200 in 32ms
+2026-06-24 19:28:10.499 +05:30 [INF] API REQUEST: OPTIONS /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:10.499 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:10.502 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 1ms
+2026-06-24 19:28:10.507 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/4edb7f41-818f-4564-a8a2-0e7b5751771f from IP ::1. Response: 200 in 6ms
+2026-06-24 19:28:14.443 +05:30 [INF] API REQUEST: OPTIONS /api/product/14ae7e0f-dfcc-48e2-96d8-754e62619357 from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:14.447 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 2ms
+2026-06-24 19:28:14.451 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/14ae7e0f-dfcc-48e2-96d8-754e62619357 from IP ::1. Response: 200 in 6ms
+2026-06-24 19:28:14.543 +05:30 [INF] API REQUEST: GET /images/products/tws/new_white_front.jpg from IP ::1 responded 200 in 18ms
+2026-06-24 19:28:14.543 +05:30 [INF] API REQUEST: GET /images/products/tws/new_blue_hero.jpg from IP ::1 responded 200 in 18ms
+2026-06-24 19:28:14.566 +05:30 [INF] API REQUEST: GET /images/products/tws/new_red_hero.jpg from IP ::1 responded 200 in 18ms
+2026-06-24 19:28:14.567 +05:30 [INF] API REQUEST: GET /images/products/tws/new_red_side.jpg from IP ::1 responded 200 in 19ms
+2026-06-24 19:28:21.049 +05:30 [INF] API REQUEST: GET /images/products/tws/new_grey_case.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 19:28:21.049 +05:30 [INF] API REQUEST: GET /images/products/tws/new_black_detail.jpg from IP ::1 responded 200 in 23ms
+2026-06-24 19:28:24.476 +05:30 [INF] API REQUEST: GET /images/products/tws/new_black_hero.jpg from IP ::1 responded 200 in 17ms
+2026-06-24 19:28:24.476 +05:30 [INF] API REQUEST: GET /images/products/tws/new_black_case_open.jpg from IP ::1 responded 200 in 17ms
+2026-06-24 19:28:29.960 +05:30 [INF] API REQUEST: OPTIONS /api/product/81bf7933-476e-4f31-a323-e2b40daefbb7 from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:29.960 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:29.963 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 2ms
+2026-06-24 19:28:29.968 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/81bf7933-476e-4f31-a323-e2b40daefbb7 from IP ::1. Response: 200 in 6ms
+2026-06-24 19:28:30.093 +05:30 [INF] API REQUEST: GET /images/products/tws/new_blue_angled.jpg from IP ::1 responded 200 in 13ms
+2026-06-24 19:28:32.907 +05:30 [INF] API REQUEST: GET /images/products/tws/new_white_side.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 19:28:32.908 +05:30 [INF] API REQUEST: GET /images/products/tws/new_white_open.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 19:28:39.987 +05:30 [INF] API REQUEST: OPTIONS /api/product/7377f5e4-1e41-482b-bd85-297e1470ebad from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:39.987 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:39.991 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 2ms
+2026-06-24 19:28:39.997 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/7377f5e4-1e41-482b-bd85-297e1470ebad from IP ::1. Response: 200 in 8ms
+2026-06-24 19:28:40.115 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_2c769986-ade6-41c8-83d9-308650dcda8e_blue_2.png from IP ::1 responded 200 in 6ms
+2026-06-24 19:28:40.115 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_2c769986-ade6-41c8-83d9-308650dcda8e_blue_3.png from IP ::1 responded 200 in 6ms
+2026-06-24 19:28:42.377 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_72bded91-9cd5-498c-9995-de97d805a8c7_red_2.png from IP ::1 responded 200 in 4ms
+2026-06-24 19:28:42.377 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_72bded91-9cd5-498c-9995-de97d805a8c7_red_1.png from IP ::1 responded 200 in 4ms
+2026-06-24 19:28:42.377 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_72bded91-9cd5-498c-9995-de97d805a8c7_red_3.png from IP ::1 responded 200 in 4ms
+2026-06-24 19:28:46.421 +05:30 [INF] API REQUEST: OPTIONS /api/product/0be53a9c-c949-4c4d-b662-d94e98458e1a from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:46.421 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:46.424 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 2ms
+2026-06-24 19:28:46.429 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/0be53a9c-c949-4c4d-b662-d94e98458e1a from IP ::1. Response: 200 in 6ms
+2026-06-24 19:28:46.522 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_0d086929-3aba-453d-8351-514217d8ba52_white_3.png from IP ::1 responded 200 in 3ms
+2026-06-24 19:28:46.523 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_0d086929-3aba-453d-8351-514217d8ba52_white_2.png from IP ::1 responded 200 in 4ms
+2026-06-24 19:28:49.988 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_c19d54e9-844b-4088-8f95-645d9c931784_blue_3.png from IP ::1 responded 200 in 6ms
+2026-06-24 19:28:49.990 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_c19d54e9-844b-4088-8f95-645d9c931784_blue_2.png from IP ::1 responded 200 in 7ms
+2026-06-24 19:28:49.991 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_flex_band_c19d54e9-844b-4088-8f95-645d9c931784_blue_1.png from IP ::1 responded 200 in 10ms
+2026-06-24 19:28:54.520 +05:30 [INF] API REQUEST: OPTIONS /api/product/2e5278a1-a885-4e48-9998-27de7b4b7812 from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:54.520 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:28:54.523 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 1ms
+2026-06-24 19:28:54.527 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/2e5278a1-a885-4e48-9998-27de7b4b7812 from IP ::1. Response: 200 in 6ms
+2026-06-24 19:28:54.698 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/new_red_hero.jpg from IP ::1 responded 200 in 19ms
+2026-06-24 19:29:03.047 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:29:03.047 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:29:03.054 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 4ms
+2026-06-24 19:29:03.063 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 6ms
+2026-06-24 19:29:10.632 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_grey_flat.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:29:16.217 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:29:16.217 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:29:16.217 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-06-24 19:29:16.217 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-24 19:29:16.217 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 113780ms
+2026-06-24 19:29:16.219 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:29:16.220 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:29:16.228 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 7ms
+2026-06-24 19:29:16.231 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 2ms
+2026-06-24 19:29:16.240 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 19ms
+2026-06-24 19:29:16.244 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 3ms
+2026-06-24 19:29:21.790 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 5561ms
+2026-06-24 19:29:21.790 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:29:21.793 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-24 19:29:21.793 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:29:21.795 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:35:37.883 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:35:37.883 +05:30 [INF] API REQUEST: OPTIONS /api/product/1 from IP ::1 responded 204 in 0ms
+2026-06-24 19:35:37.883 +05:30 [INF] API REQUEST: OPTIONS /api/product/1 from IP ::1 responded 204 in 0ms
+2026-06-24 19:35:37.883 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:35:37.888 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/1 from IP ::1. Response: 400 in 1ms
+2026-06-24 19:35:37.890 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/1 from IP ::1. Response: 400 in 0ms
+2026-06-24 19:35:37.898 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 11ms
+2026-06-24 19:35:37.901 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 1ms
+2026-06-24 19:35:39.466 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_black_front.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:35:40.837 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_red_hero.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:35:42.525 +05:30 [INF] API REQUEST: OPTIONS /api/product/19a812bf-15ab-43f7-ba6f-27163c7b7435 from IP ::1 responded 204 in 0ms
+2026-06-24 19:35:42.526 +05:30 [INF] API REQUEST: OPTIONS /api/product/19a812bf-15ab-43f7-ba6f-27163c7b7435 from IP ::1 responded 204 in 0ms
+2026-06-24 19:35:42.530 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-06-24 19:35:42.541 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 10ms
+2026-06-24 19:35:42.567 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/19a812bf-15ab-43f7-ba6f-27163c7b7435 from IP ::1. Response: 200 in 40ms
+2026-06-24 19:35:42.578 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/product/19a812bf-15ab-43f7-ba6f-27163c7b7435 from IP ::1. Response: 200 in 8ms
+2026-06-24 19:35:42.634 +05:30 [INF] API REQUEST: GET /images/products/tws/new_blue_hero.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:35:42.635 +05:30 [INF] API REQUEST: GET /images/products/tws/new_grey_flat.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:35:42.681 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_type_c_c828050f-b1f4-4ce9-837e-7dd606168aa8_white_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:35:42.735 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_cd307355-095c-447c-af0c-e23258761822_blue_2.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:35:42.735 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_cd307355-095c-447c-af0c-e23258761822_blue_3.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:35:45.240 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_253a2de5-0aa5-40cc-8800-f9469afbb3f9_white_2.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:35:45.241 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_253a2de5-0aa5-40cc-8800-f9469afbb3f9_white_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:35:45.243 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_253a2de5-0aa5-40cc-8800-f9469afbb3f9_white_3.jpg from IP ::1 responded 200 in 3ms
+2026-06-24 19:35:50.505 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:35:50.506 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:35:50.522 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 13ms
+2026-06-24 19:35:50.533 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 7ms
+2026-06-24 19:36:02.841 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_grey_flat.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:36:05.986 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 404165ms
+2026-06-24 19:36:05.988 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:05.988 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:05.989 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:05.989 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:05.991 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:36:05.992 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:36:05.998 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 6ms
+2026-06-24 19:36:06.002 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 1ms
+2026-06-24 19:36:14.561 +05:30 [INF] USER ACTIVITY: User f8317af5-d1d5-42f0-8021-0403f64e2f48 (thran6275@gmail.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 8501ms
+2026-06-24 19:36:25.666 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:25.669 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:25.682 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 204 in 12ms
+2026-06-24 19:36:25.693 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 204 in 9ms
+2026-06-24 19:36:26.010 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:26.010 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:26.015 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:26.015 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:36:26.015 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:36:26.017 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:26.017 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:26.017 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:26.035 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 15ms
+2026-06-24 19:36:26.041 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 2ms
+2026-06-24 19:36:26.124 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 106ms
+2026-06-24 19:36:26.161 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 34ms
+2026-06-24 19:36:26.206 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 45ms
+2026-06-24 19:36:26.230 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_150_f574d65c-4a4b-4da3-a799-7f789d3c88b2_white_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:36:26.231 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_lightning_ccedb30f-6854-4fff-99ea-1c0aa7a64b89_white_1.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:36:26.233 +05:30 [INF] API REQUEST: GET /images/products/wired-earphones/beatbox_bassheads_200_4cb1358a-fa41-4032-bfa7-4f236aaed345_grey_1.jpg from IP ::1 responded 200 in 3ms
+2026-06-24 19:36:26.237 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_3_in_1_cd307355-095c-447c-af0c-e23258761822_blue_1.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:36:26.237 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_black_front.jpg from IP ::1 responded 200 in 6ms
+2026-06-24 19:36:26.239 +05:30 [INF] API REQUEST: GET /images/products/power-banks/new_powerbank_hero.jpg from IP ::1 responded 200 in 8ms
+2026-06-24 19:36:26.260 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/new_silver_front.jpg from IP ::1 responded 200 in 22ms
+2026-06-24 19:36:26.276 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 69ms
+2026-06-24 19:36:31.977 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 5860ms
+2026-06-24 19:36:31.979 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:31.981 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:31.986 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 9ms
+2026-06-24 19:36:32.140 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 157ms
+2026-06-24 19:36:32.145 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:32.183 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 40ms
+2026-06-24 19:36:32.211 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 63ms
+2026-06-24 19:36:32.215 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:32.216 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 3ms
+2026-06-24 19:36:32.249 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 31ms
+2026-06-24 19:36:32.253 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 1ms
+2026-06-24 19:36:32.257 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:32.258 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:32.402 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 142ms
+2026-06-24 19:36:32.409 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:32.414 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 8ms
+2026-06-24 19:36:32.450 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 38ms
+2026-06-24 19:36:32.456 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 2ms
+2026-06-24 19:36:36.252 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:36.253 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:36.293 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 39ms
+2026-06-24 19:36:36.320 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_track_pro_2c769986-ade6-41c8-83d9-308650dcda8e_blue_1.png from IP ::1 responded 304 in 0ms
+2026-06-24 19:36:36.321 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_soundbar_2_1_efeade66-752b-4cee-9979-05e4f5cba4a9_blue_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:36:36.334 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/new_red_hero.jpg from IP ::1 responded 200 in 14ms
+2026-06-24 19:36:36.350 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 56ms
+2026-06-24 19:36:52.581 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/beatbox_boom_mini_1b0e16f2-90b1-455f-be36-4df17cf413f1_black_2.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:36:52.581 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/beatbox_boom_mini_1b0e16f2-90b1-455f-be36-4df17cf413f1_black_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:36:52.584 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/beatbox_boom_mini_1b0e16f2-90b1-455f-be36-4df17cf413f1_black_3.jpg from IP ::1 responded 200 in 3ms
+2026-06-24 19:36:52.588 +05:30 [INF] API REQUEST: GET /images/products/charging-cables/beatbox_connect_type_c_c828050f-b1f4-4ce9-837e-7dd606168aa8_white_1.jpg from IP ::1 responded 200 in 3ms
+2026-06-24 19:36:52.588 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_20w_1d27b45f-12f2-4321-a1e2-026cce44c275_blue_1.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:36:52.589 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_65w_b4a3b578-6e38-4e28-8599-0e805b82e8a3_grey_1.jpg from IP ::1 responded 200 in 3ms
+2026-06-24 19:36:58.945 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:58.946 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:36:58.995 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 47ms
+2026-06-24 19:36:59.041 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 44ms
+2026-06-24 19:37:14.196 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:37:14.197 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:37:14.322 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 123ms
+2026-06-24 19:37:14.374 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 51ms
+2026-06-24 19:37:19.223 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-06-24 19:37:19.224 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-06-24 19:37:19.283 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 56ms
+2026-06-24 19:37:19.290 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 4ms
+2026-06-24 19:43:59.976 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:43:59.980 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:43:59.980 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:43:59.980 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:43:59.989 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:43:59.989 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:44:00.062 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 70ms
+2026-06-24 19:44:00.073 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 7ms
+2026-06-24 19:44:00.661 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 654ms
+2026-06-24 19:44:02.368 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:02.371 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:02.406 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 204 in 26ms
+2026-06-24 19:44:02.414 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 204 in 4ms
+2026-06-24 19:44:02.688 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:02.689 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:02.692 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-06-24 19:44:02.692 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:44:02.692 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:02.695 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:02.695 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:02.698 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 2ms
+2026-06-24 19:44:02.703 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 2ms
+2026-06-24 19:44:02.828 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 131ms
+2026-06-24 19:44:02.877 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 47ms
+2026-06-24 19:44:02.921 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 43ms
+2026-06-24 19:44:02.949 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_black_front_1.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:44:02.949 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:44:02.959 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 200 in 10ms
+2026-06-24 19:44:02.982 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 60ms
+2026-06-24 19:44:05.181 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_soundscape_pro_224561a3-0cfa-4390-8b1b-3fd9c18b609c_grey_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:44:05.183 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_soundscape_mini_1cfe4f33-10d3-47bb-9258-82a4ecd347b2_grey_1.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:44:05.190 +05:30 [INF] API REQUEST: GET /images/products/fast-chargers/beatbox_speedcharge_33w_8f68787f-92d1-4716-b8d1-9e6ce286abfb_grey_1.jpg from IP ::1 responded 200 in 9ms
+2026-06-24 19:44:05.614 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_blue_front_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:05.615 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/beatbox_home_theatre_5_1_d7de4821-9ac7-43ee-b99d-0a08bb29294e_grey_1.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:44:14.981 +05:30 [INF] API REQUEST: GET /images/products/fitness-wearables/beatbox_fitness_band_neo_0babcc59-82cb-4bc5-8087-916e1f033d76_grey_1.png from IP ::1 responded 200 in 14ms
+2026-06-24 19:44:16.506 +05:30 [INF] API REQUEST: OPTIONS /api/product/095b859e-57e0-4977-9471-de39ae5e4015 from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:16.506 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:16.507 +05:30 [INF] API REQUEST: OPTIONS /api/product/095b859e-57e0-4977-9471-de39ae5e4015 from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:16.512 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-06-24 19:44:16.518 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-06-24 19:44:16.561 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product/095b859e-57e0-4977-9471-de39ae5e4015 from IP ::1. Response: 200 in 53ms
+2026-06-24 19:44:16.572 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product/095b859e-57e0-4977-9471-de39ae5e4015 from IP ::1. Response: 200 in 9ms
+2026-06-24 19:44:16.665 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_red_front_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:16.665 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_red_angled_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:17.526 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_black_front_1.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:44:17.528 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_grey_angled_1.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:44:18.761 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_grey_front_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:18.761 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_blue_angled_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:21.063 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_black_angled_1.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:44:24.265 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_black_front_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:44:24.313 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:44:24.325 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:44:24.381 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:24.381 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:24.390 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 7ms
+2026-06-24 19:44:24.395 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 2ms
+2026-06-24 19:44:34.541 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_red_front_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:34.542 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_grey_angled_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:44:35.404 +05:30 [INF] API REQUEST: GET /images/products/soundbars/beatbox_soundbar_elite_s9_519f3570-f332-4411-a48e-07f56858c829_red_1.jpg from IP ::1 responded 200 in 7ms
+2026-06-24 19:44:37.875 +05:30 [INF] API REQUEST: OPTIONS /api/product/5b313a32-d6f8-4437-bfc7-2b1a4a0ea242 from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:37.876 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:37.883 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-06-24 19:44:37.889 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-06-24 19:44:37.893 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product/5b313a32-d6f8-4437-bfc7-2b1a4a0ea242 from IP ::1. Response: 200 in 15ms
+2026-06-24 19:44:37.903 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product/5b313a32-d6f8-4437-bfc7-2b1a4a0ea242 from IP ::1. Response: 200 in 7ms
+2026-06-24 19:44:37.972 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_red_angled_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:37.973 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_front_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:38.675 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_black_front_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:44:38.675 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_grey_angled_1.jpg from IP ::1 responded 200 in 0ms
+2026-06-24 19:44:41.484 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_grey_front_1.jpg from IP ::1 responded 200 in 2ms
+2026-06-24 19:44:43.218 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_blue_angled_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:43.218 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_blue_front_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:43.218 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_side_1.jpg from IP ::1 responded 200 in 1ms
+2026-06-24 19:44:45.408 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 304 in 0ms
+2026-06-24 19:44:45.489 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:45.489 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:44:45.494 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 2ms
+2026-06-24 19:44:45.501 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 4ms
+2026-06-24 19:45:03.831 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_vision_pro_9ded2828-a73a-417c-8bc7-1ae3d387bd6e_blue_1.jpg from IP ::1 responded 200 in 6ms
+2026-06-24 19:45:09.686 +05:30 [INF] API REQUEST: GET /images/products/projectors/beatbox_cinema_max_f58a6ac7-818f-442c-b24a-63f8a44ddc76_white_1.jpg from IP ::1 responded 200 in 9ms
+2026-06-24 19:45:15.694 +05:30 [INF] API REQUEST: GET /images/products/neckbands/beatbox_active_neckband_lite_660e50b3-c5eb-4c60-85b5-10f44cf71f78_white_1.jpg from IP ::1 responded 200 in 4ms
+2026-06-24 19:46:59.530 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 176817ms
+2026-06-24 19:47:00.315 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.317 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.332 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 204 in 14ms
+2026-06-24 19:47:00.335 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 204 in 2ms
+2026-06-24 19:47:00.645 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.645 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.650 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.650 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.650 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.651 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:47:00.651 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.651 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-06-24 19:47:00.651 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.651 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-24 19:47:00.721 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 38ms
+2026-06-24 19:47:00.743 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 14ms
+2026-06-24 19:47:01.023 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 341ms
+2026-06-24 19:47:01.118 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 96ms
+2026-06-24 19:47:01.146 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_black_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:01.146 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:01.147 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:01.147 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_red_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:01.255 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 139ms
+2026-06-24 19:47:01.299 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 43ms
+2026-06-24 19:47:02.770 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_black_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:03.373 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:03.373 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_blue_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:06.165 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:21.168 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:26.170 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:26.170 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:31.699 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:46.686 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:51.685 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:51.685 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:47:56.695 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:48:11.699 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:48:16.686 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:48:16.686 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:48:21.698 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:49:48.863 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:50:48.695 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:50:48.696 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:50:54.515 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:51:06.168 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:51:11.153 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:51:11.158 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 6ms
+2026-06-24 19:51:16.160 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:51:31.166 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:51:36.150 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:51:36.151 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:51:41.153 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:51:56.158 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:01.146 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:01.146 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:06.156 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:21.153 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:26.709 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:26.710 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:31.713 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 1ms
+2026-06-24 19:52:46.748 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:51.679 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:51.680 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:52:56.717 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:53:11.709 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:53:16.683 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:53:16.683 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:53:48.758 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:56:48.718 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:14.386 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:14.387 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_grey_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:19.053 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:19.054 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_side_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:19.055 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:30.487 +05:30 [INF] API REQUEST: OPTIONS /api/product/09cb8b73-b171-4df8-8b29-daedaef239c7 from IP ::1 responded 204 in 0ms
+2026-06-24 19:57:30.489 +05:30 [INF] API REQUEST: OPTIONS /api/product/09cb8b73-b171-4df8-8b29-daedaef239c7 from IP ::1 responded 204 in 0ms
+2026-06-24 19:57:30.489 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:57:30.490 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-06-24 19:57:30.525 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 30ms
+2026-06-24 19:57:30.533 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 5ms
+2026-06-24 19:57:30.565 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product/09cb8b73-b171-4df8-8b29-daedaef239c7 from IP ::1. Response: 200 in 75ms
+2026-06-24 19:57:30.580 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /api/product/09cb8b73-b171-4df8-8b29-daedaef239c7 from IP ::1. Response: 200 in 11ms
+2026-06-24 19:57:30.616 +05:30 [INF] API REQUEST: GET /images/products/power-banks/powerbank_black_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:30.616 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wired_red_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:30.664 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:30.664 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:30.703 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_side_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:35.404 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:35.405 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:35.405 +05:30 [INF] API REQUEST: GET /images/products/smartwatches/watch_black_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:42.371 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_front_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:42.371 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_angled_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 19:57:42.371 +05:30 [INF] API REQUEST: GET /images/products/bluetooth-speakers/speaker_black_side_1.jpg from IP ::1 responded 404 in 0ms
+2026-06-24 21:11:17.385 +05:30 [INF] USER ACTIVITY: User 4ad210ed-ddad-4a5d-800a-89cdf6427083 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 5056694ms

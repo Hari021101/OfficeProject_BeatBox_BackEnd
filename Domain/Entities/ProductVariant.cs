@@ -1,4 +1,4 @@
-﻿namespace Domain.Entities;
+namespace Domain.Entities;
 
 public class ProductVariant
 {
@@ -15,6 +15,12 @@ public class ProductVariant
     public decimal? DiscountPrice { get; set; }
 
     public int StockQuantity { get; set; }
+
+    public string Sku { get; set; } = string.Empty;
+
+    public string? Capacity { get; set; }
+
+    public bool IsActive { get; set; } = true;
 
     // Each variant can have multiple images (front, side, lifestyle, etc.)
     public ICollection<ProductVariantImage> Images { get; set; } = new List<ProductVariantImage>();
