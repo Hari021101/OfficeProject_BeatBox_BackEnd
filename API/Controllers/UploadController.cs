@@ -6,6 +6,7 @@ namespace API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Microsoft.AspNetCore.Authorization.Authorize(Roles = "Admin")]
 public class UploadController : ControllerBase
 {
     private readonly IFileUploadService _fileUploadService;

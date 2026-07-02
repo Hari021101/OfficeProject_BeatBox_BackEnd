@@ -6,7 +6,7 @@ public class ReturnRequest
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     
-    public Guid OrderId { get; set; }
+    public int OrderId { get; set; }
     public Order Order { get; set; } = null!;
     
     public string UserId { get; set; } = string.Empty;

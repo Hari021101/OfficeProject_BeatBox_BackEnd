@@ -1,0 +1,408 @@
+2026-07-02 12:27:36.476 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-07-02 12:27:37.305 +05:30 [ERR] An error occurred while seeding the database.
+System.IO.DirectoryNotFoundException: Category image folder not found: C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\wwwroot\images\products\portable-speakers
+   at Infrastructure.Data.DbSeeder.LoadCategoryImages(String categoryFolder) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 254
+   at Infrastructure.Data.DbSeeder.InitializeImagePools() in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 209
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 142
+2026-07-02 12:28:45.992 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 127ms
+2026-07-02 12:28:45.992 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 127ms
+2026-07-02 12:28:45.991 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 127ms
+2026-07-02 12:28:45.992 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 127ms
+2026-07-02 12:28:45.992 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 127ms
+2026-07-02 12:28:45.992 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 127ms
+2026-07-02 12:28:46.084 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 3ms
+2026-07-02 12:28:46.085 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 4ms
+2026-07-02 12:28:46.466 +05:30 [INF] API REQUEST: GET /api/cart from IP ::1 responded 401 in 381ms
+2026-07-02 12:28:46.466 +05:30 [INF] API REQUEST: POST /hubs/notifications/negotiate from IP ::1 responded 401 in 383ms
+2026-07-02 12:28:46.466 +05:30 [INF] API REQUEST: POST /hubs/notifications/negotiate from IP ::1 responded 401 in 383ms
+2026-07-02 12:28:46.490 +05:30 [INF] API REQUEST: GET /api/cart from IP ::1 responded 401 in 10ms
+2026-07-02 12:28:47.586 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-02 12:28:51.956 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-02 12:28:52.784 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 818ms
+2026-07-02 12:29:01.761 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-02 12:29:01.823 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 52ms
+2026-07-02 12:31:22.379 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 156294ms
+2026-07-02 12:31:36.111 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 152196ms
+2026-07-02 12:40:17.994 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 29ms
+2026-07-02 12:40:18.231 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 219ms
+2026-07-02 12:40:22.042 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 26ms
+2026-07-02 12:40:25.704 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-02 12:40:25.736 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 12ms
+2026-07-02 12:41:49.998 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-02 12:41:50.023 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 7ms
+2026-07-02 12:42:05.358 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-02 12:42:05.392 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 12ms
+2026-07-02 12:47:07.087 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:07.530 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 391ms
+2026-07-02 12:47:07.577 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:07.807 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 32ms
+2026-07-02 12:47:07.811 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 217ms
+2026-07-02 12:47:07.870 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:07.807 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 32ms
+2026-07-02 12:47:07.869 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 31ms
+2026-07-02 12:47:07.907 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 32ms
+2026-07-02 12:47:07.949 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:08.055 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 104ms
+2026-07-02 12:47:08.057 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 2ms
+2026-07-02 12:47:27.492 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-07-02 12:47:29.046 +05:30 [ERR] An error occurred while seeding the database.
+System.IO.DirectoryNotFoundException: Category image folder not found: C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\wwwroot\images\products\portable-speakers
+   at Infrastructure.Data.DbSeeder.LoadCategoryImages(String categoryFolder) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 254
+   at Infrastructure.Data.DbSeeder.InitializeImagePools() in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 209
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 142
+2026-07-02 12:47:35.587 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 29ms
+2026-07-02 12:47:35.810 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 185ms
+2026-07-02 12:47:37.651 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 1824ms
+2026-07-02 12:47:37.964 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:37.964 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:38.269 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:38.271 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:38.288 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:38.269 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:38.333 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:38.272 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 12:47:38.336 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 3ms
+2026-07-02 12:47:38.416 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-02 12:47:38.560 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-02 12:47:39.482 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 1501ms
+2026-07-02 12:47:39.608 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 114ms
+2026-07-02 12:50:08.368 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 129942ms
+2026-07-02 12:50:08.368 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 129957ms
+2026-07-02 12:50:08.368 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 149971ms
+2026-07-02 12:50:08.858 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 130417ms
+2026-07-02 13:00:08.891 +05:30 [WRN] An warning or error occurred while applying database migrations. Proceeding to seeding.
+System.InvalidOperationException: An error was generated for warning 'Microsoft.EntityFrameworkCore.Migrations.PendingModelChangesWarning': The model for context 'AppDbContext' has pending changes. Add a new migration before updating the database. This exception can be suppressed or logged by passing event ID 'RelationalEventId.PendingModelChangesWarning' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+   at Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log[TLoggerCategory](IDiagnosticsLogger`1 logger, TParam arg)
+   at Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions.PendingModelChangesWarning(IDiagnosticsLogger`1 diagnostics, Type contextType)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 130
+2026-07-02 13:00:20.492 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 63ms
+2026-07-02 13:00:20.873 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 317ms
+2026-07-02 13:00:51.407 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar1.jpg from IP ::1 responded 200 in 235ms
+2026-07-02 13:00:51.413 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar13.jpg from IP ::1 responded 200 in 241ms
+2026-07-02 13:00:51.413 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar10.jpg from IP ::1 responded 200 in 241ms
+2026-07-02 13:00:51.413 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar12.jpg from IP ::1 responded 200 in 241ms
+2026-07-02 13:01:02.765 +05:30 [INF] API REQUEST: OPTIONS /api/product/0e17c1bc-c305-42d6-aa30-6356ac86406f from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:02.771 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:02.771 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:02.773 +05:30 [INF] API REQUEST: OPTIONS /api/product/0e17c1bc-c305-42d6-aa30-6356ac86406f from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:03.586 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-02 13:01:03.854 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 1066ms
+2026-07-02 13:01:04.018 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 174ms
+2026-07-02 13:01:04.364 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product/0e17c1bc-c305-42d6-aa30-6356ac86406f from IP ::1. Response: 200 in 1584ms
+2026-07-02 13:01:04.525 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar2.jpg from IP ::1 responded 200 in 2ms
+2026-07-02 13:01:04.534 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar7.jpg from IP ::1 responded 404 in 11ms
+2026-07-02 13:01:04.534 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar4.jpg from IP ::1 responded 404 in 11ms
+2026-07-02 13:01:04.534 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar9.jpg from IP ::1 responded 404 in 11ms
+2026-07-02 13:01:09.009 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar3.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:01:09.010 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar5.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:01:10.450 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar6.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:01:10.451 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar15.jpg from IP ::1 responded 200 in 2ms
+2026-07-02 13:01:11.382 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar8.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:01:11.383 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar14.jpg from IP ::1 responded 200 in 1ms
+2026-07-02 13:01:11.384 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar11.jpg from IP ::1 responded 200 in 2ms
+2026-07-02 13:01:13.876 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 52984ms
+2026-07-02 13:01:14.249 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.249 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.407 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 147ms
+2026-07-02 13:01:14.434 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 10ms
+2026-07-02 13:01:14.565 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.565 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.566 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.567 +05:30 [INF] API REQUEST: OPTIONS /api/product/0e17c1bc-c305-42d6-aa30-6356ac86406f from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.569 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.569 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.576 +05:30 [INF] API REQUEST: OPTIONS /api/product/0e17c1bc-c305-42d6-aa30-6356ac86406f from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.577 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-02 13:01:14.586 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 13:01:14.588 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-02 13:01:14.656 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 43ms
+2026-07-02 13:01:14.662 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 5ms
+2026-07-02 13:01:14.720 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar7.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:14.720 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar4.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:14.723 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar9.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:20.132 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar3.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:01:20.132 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar5.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:01:22.709 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar6.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:23.441 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar8.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:01:25.038 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar7.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:25.038 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar4.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:25.038 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar9.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:25.668 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar3.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:25.668 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar5.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:26.143 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar6.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:26.922 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar8.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:01:28.028 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar7.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:01:28.028 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar9.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:01:28.028 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar4.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:26.569 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 111900ms
+2026-07-02 13:03:26.572 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 131972ms
+2026-07-02 13:03:44.543 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 149785ms
+2026-07-02 13:03:45.533 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:45.536 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:45.578 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 26ms
+2026-07-02 13:03:45.632 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 26ms
+2026-07-02 13:03:46.051 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:46.052 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:46.173 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 63ms
+2026-07-02 13:03:46.109 +05:30 [INF] API REQUEST: OPTIONS /api/product/0e17c1bc-c305-42d6-aa30-6356ac86406f from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:46.089 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:46.240 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:46.088 +05:30 [INF] API REQUEST: OPTIONS /api/product/0e17c1bc-c305-42d6-aa30-6356ac86406f from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:46.074 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 1ms
+2026-07-02 13:03:46.088 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:46.345 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 97ms
+2026-07-02 13:03:46.415 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product/0e17c1bc-c305-42d6-aa30-6356ac86406f from IP ::1. Response: 200 in 4ms
+2026-07-02 13:03:46.471 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 26ms
+2026-07-02 13:03:46.571 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 39ms
+2026-07-02 13:03:46.885 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 462ms
+2026-07-02 13:03:47.029 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar7.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:47.029 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar4.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:03:47.033 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar9.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:49.745 +05:30 [INF] API REQUEST: GET /images/products/conference-speakers/conference-speaker8.jpg from IP ::1 responded 404 in 2ms
+2026-07-02 13:03:49.777 +05:30 [INF] API REQUEST: GET /images/products/wireless-microphones/wireless-microphone4.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:49.808 +05:30 [INF] API REQUEST: GET /images/products/default/default3.jpg from IP ::1 responded 404 in 4ms
+2026-07-02 13:03:49.816 +05:30 [INF] API REQUEST: GET /images/products/default/default12.jpg from IP ::1 responded 200 in 13ms
+2026-07-02 13:03:49.837 +05:30 [INF] API REQUEST: GET /images/products/default/default8.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:49.867 +05:30 [INF] API REQUEST: GET /images/products/conference-speakers/conference-speaker8.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:49.954 +05:30 [INF] API REQUEST: GET /images/products/default/default8.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:03:49.954 +05:30 [INF] API REQUEST: GET /images/products/conference-speakers/conference-speaker8.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:49.954 +05:30 [INF] API REQUEST: GET /images/products/default/default3.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:03:49.954 +05:30 [INF] API REQUEST: GET /images/products/wireless-microphones/wireless-microphone4.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:50.267 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:50.268 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-02 13:03:50.436 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/category from IP ::1. Response: 200 in 131ms
+2026-07-02 13:03:52.767 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank5.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:52.767 +05:30 [INF] API REQUEST: GET /images/products/default/default5.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:52.767 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank4.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 13:03:52.779 +05:30 [INF] API REQUEST: GET /images/products/default/default11.jpg from IP ::1 responded 200 in 13ms
+2026-07-02 13:04:03.353 +05:30 [INF] API REQUEST: GET /images/products/default/default5.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:03.353 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank5.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:03.353 +05:30 [INF] API REQUEST: GET /images/products/power-bank/power-bank4.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:06.567 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker8.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:06.567 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker4.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:06.567 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker5.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:06.574 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker1.jpg from IP ::1 responded 200 in 7ms
+2026-07-02 13:04:08.494 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 13:04:08.495 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 13:04:08.495 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 13:04:08.496 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 13:04:08.586 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 25ms
+2026-07-02 13:04:08.619 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 9ms
+2026-07-02 13:04:08.711 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1. Response: 200 in 197ms
+2026-07-02 13:04:08.970 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker8.jpg from IP ::1 responded 404 in 2ms
+2026-07-02 13:04:08.970 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker14.jpg from IP ::1 responded 404 in 2ms
+2026-07-02 13:04:08.976 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker10.jpg from IP ::1 responded 200 in 9ms
+2026-07-02 13:04:13.832 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker2.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:13.833 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker5.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:13.833 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker4.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:14.696 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker7.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:14.697 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker3.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:14.697 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker15.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 13:04:14.697 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker13.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:16:59.716 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 7993137ms
+2026-07-02 15:17:01.636 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:17:02.353 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 2ms
+2026-07-02 15:17:02.572 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 115ms
+2026-07-02 15:17:03.987 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:17:03.989 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:17:04.154 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 47ms
+2026-07-02 15:17:04.234 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 10ms
+2026-07-02 15:17:04.375 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 5ms
+2026-07-02 15:17:04.271 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:17:04.283 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:17:04.521 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:17:04.703 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 14ms
+2026-07-02 15:17:04.706 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 17ms
+2026-07-02 15:17:04.367 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:17:04.435 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 2ms
+2026-07-02 15:17:04.631 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 15:17:04.828 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 11ms
+2026-07-02 15:17:04.995 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 119ms
+2026-07-02 15:17:05.016 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 8ms
+2026-07-02 15:17:05.017 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1. Response: 200 in 240ms
+2026-07-02 15:17:05.727 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker8.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 15:17:05.727 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker14.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:17:07.634 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 2795ms
+2026-07-02 15:21:03.683 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 238393ms
+2026-07-02 15:21:04.273 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:04.275 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:04.304 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 6ms
+2026-07-02 15:21:04.323 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 8ms
+2026-07-02 15:21:04.597 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:04.601 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:04.686 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 40ms
+2026-07-02 15:21:04.598 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:04.599 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:04.602 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:04.619 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:04.747 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1. Response: 200 in 2ms
+2026-07-02 15:21:04.687 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 41ms
+2026-07-02 15:21:04.731 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:04.747 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-02 15:21:04.742 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-07-02 15:21:04.808 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 5ms
+2026-07-02 15:21:04.920 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker8.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:21:04.920 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker14.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:21:06.020 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 1264ms
+2026-07-02 15:21:12.281 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 7330ms
+2026-07-02 15:21:12.706 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:12.711 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:12.724 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 5ms
+2026-07-02 15:21:12.739 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 4ms
+2026-07-02 15:21:13.023 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:13.024 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:13.024 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:13.024 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:13.027 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:13.027 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:13.034 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:13.036 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-02 15:21:13.040 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:21:13.041 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-02 15:21:13.068 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-07-02 15:21:13.097 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 5ms
+2026-07-02 15:21:13.169 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker8.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:21:13.169 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker14.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:23:06.462 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 113241ms
+2026-07-02 15:23:06.921 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:23:06.921 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:23:06.935 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 5ms
+2026-07-02 15:23:06.949 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 4ms
+2026-07-02 15:23:07.255 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:23:07.258 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:23:07.311 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 4ms
+2026-07-02 15:23:07.258 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 15:23:07.255 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:23:07.256 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:23:07.274 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:23:07.311 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-02 15:23:07.350 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:23:07.362 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-07-02 15:23:07.371 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-02 15:23:07.380 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1. Response: 200 in 15ms
+2026-07-02 15:23:07.402 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 5ms
+2026-07-02 15:23:07.517 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker8.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:23:07.518 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker14.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:23:08.603 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 1225ms
+2026-07-02 15:23:09.437 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 4ms
+2026-07-02 15:23:09.458 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 5ms
+2026-07-02 15:26:08.878 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 181425ms
+2026-07-02 15:27:07.278 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:07.282 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:07.317 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 6ms
+2026-07-02 15:27:07.334 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 4ms
+2026-07-02 15:27:07.934 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:07.936 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:07.961 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:07.939 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:08.056 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:07.945 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:07.961 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:08.014 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 14ms
+2026-07-02 15:27:08.014 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:08.057 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-02 15:27:08.094 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-07-02 15:27:08.100 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1. Response: 200 in 2ms
+2026-07-02 15:27:08.109 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-07-02 15:27:08.496 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker14.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:27:08.497 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker8.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:27:09.222 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 1147ms
+2026-07-02 15:27:20.651 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 12514ms
+2026-07-02 15:27:21.112 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.112 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.138 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 4ms
+2026-07-02 15:27:21.164 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 4ms
+2026-07-02 15:27:21.457 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.461 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.461 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.462 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.463 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.464 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.470 +05:30 [INF] API REQUEST: OPTIONS /api/product/11d81888-2d24-4d34-8ab5-1bdaa3a68fcf from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.473 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-02 15:27:21.480 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-02 15:27:21.481 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-02 15:27:21.520 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-07-02 15:27:21.558 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 3ms
+2026-07-02 15:27:21.643 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker8.jpg from IP ::1 responded 404 in 0ms
+2026-07-02 15:27:21.644 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker14.jpg from IP ::1 responded 404 in 1ms
+2026-07-02 17:17:01.112 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 6579389ms
+2026-07-02 17:17:02.596 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-02 17:17:02.609 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-02 17:17:03.052 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 291ms
+2026-07-02 17:17:04.218 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 17:17:04.223 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-02 17:28:57.674 +05:30 [ERR] An error occurred using the connection to database 'BeatBoxDb' on server '(localdb)\mssqllocaldb'.
+2026-07-02 17:28:57.674 +05:30 [ERR] An error occurred using the connection to database 'BeatBoxDb' on server '(localdb)\mssqllocaldb'.
+2026-07-02 17:28:57.759 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=713277; handshake=10; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParser.ConsumePreLoginHandshake(SqlConnectionEncryptOption encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean& marsCapable, Boolean& fedAuthRequired, Boolean tlsFirst, String serverCertificateFilename)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlConnectionInternal connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, DbConnectionPoolGroupProviderInfo providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback, SspiContextProvider sspiContextProvider)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreatePooledConnection(DbConnection owningConnection, IDbConnectionPool pool, DbConnectionPoolKey poolKey, DbConnectionOptions options, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__22_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:1d4bb6a2-33bd-49a1-a9b4-7a1d1b04b861
+Error Number:-2,State:0,Class:11
+Microsoft.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired.  The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement.  This could be because the pre-login handshake failed or the server was unable to respond back in time.  The duration spent while attempting to connect to this server was - [Pre-Login] initialization=713277; handshake=10; 
+ ---> System.ComponentModel.Win32Exception (258): The wait operation timed out.
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ThrowExceptionAndWarning(Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniError(TdsParserStateObject stateObj, UInt32 error)
+   at Microsoft.Data.SqlClient.TdsParserStateObject.ReadSniSyncOverAsync()
+   at Microsoft.Data.SqlClient.TdsParserStateObject.TryReadNetworkPacket()
+   at Microsoft.Data.SqlClient.TdsParser.ConsumePreLoginHandshake(SqlConnectionEncryptOption encrypt, Boolean trustServerCert, Boolean integratedSecurity, Boolean& marsCapable, Boolean& fedAuthRequired, Boolean tlsFirst, String serverCertificateFilename)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlConnectionInternal connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, DbConnectionPoolGroupProviderInfo providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback, SspiContextProvider sspiContextProvider)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreatePooledConnection(DbConnection owningConnection, IDbConnectionPool pool, DbConnectionPoolKey poolKey, DbConnectionOptions options, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__22_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:1d4bb6a2-33bd-49a1-a9b4-7a1d1b04b861
+Error Number:-2,State:0,Class:11

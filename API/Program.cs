@@ -35,7 +35,31 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add<API.Middleware.InputSanitizationFilter>();
+});
+
+builder.Services.AddMemoryCache();
+builder.Services.AddResponseCaching();
+
+// Response compression
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+    options.Providers.Add<Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProvider>();
+    options.Providers.Add<Microsoft.AspNetCore.ResponseCompression.GzipCompressionProvider>();
+});
+
+builder.Services.Configure<Microsoft.AspNetCore.ResponseCompression.BrotliCompressionProviderOptions>(options =>
+{
+    options.Level = System.IO.Compression.CompressionLevel.Fastest;
+});
+
+builder.Services.Configure<Microsoft.AspNetCore.ResponseCompression.GzipCompressionProviderOptions>(options =>
+{
+    options.Level = System.IO.Compression.CompressionLevel.Fastest;
+});
 
 QuestPDF.Settings.License = LicenseType.Community;
 // Register Clean Architecture Infrastructure Services (DbContext, Identity, JWT, etc.)
@@ -89,6 +113,9 @@ var app = builder.Build();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
+
+app.UseResponseCompression();
+
 app.UseStaticFiles();
 
 // Automatically apply pending EF migrations on startup
@@ -115,8 +142,7 @@ using (var scope = app.Services.CreateScope())
         DbSeeder.InitializeImagePools();
 
         // Seed high-fidelity e-commerce catalog data if empty
-        var forceSeed = app.Configuration.GetValue<bool>("Seed:Force", false);
-        await DbSeeder.SeedAsync(context, userManager, roleManager, forceSeed);
+        await DbSeeder.SeedAsync(context, userManager, roleManager);
     }
     catch (Exception ex)
     {
@@ -132,7 +158,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(); // Maps Swagger UI playground at /swagger/index.html
 }
 
-app.UseHttpsRedirection();
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
+app.UseResponseCaching();
 
 // Enable serving static files from wwwroot
 app.UseStaticFiles();

@@ -114,6 +114,7 @@ namespace Infrastructure
             services.AddScoped<IBusinessEventPublisher, BusinessEventPublisher>();
             services.AddScoped<ITransactionActionQueue, TransactionActionQueue>();
             services.AddScoped<IReturnService, ReturnService>();
+            services.AddScoped<IChatBotService, ChatBotService>();
 
             services.AddScoped<INotificationRepository, NotificationRepository>();
             services.AddScoped<IFileUploadService, FileUploadService>();

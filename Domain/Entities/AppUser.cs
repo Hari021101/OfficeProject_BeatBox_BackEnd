@@ -8,5 +8,6 @@ namespace Domain.Entities
         public bool IsEmailVerified { get; set; }
         public bool IsPhoneVerified { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+        public bool IsActive { get; set; } = true;
     }
 }

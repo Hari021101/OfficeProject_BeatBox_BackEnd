@@ -34,3 +34,13 @@ packages/
 
 # Publish output
 publish/
+/API/Logs/beatbox-log-20260619_004.txt
+/API/Logs/beatbox-log-20260623.txt
+/API/Logs/beatbox-log-20260625.txt
+/API/Middleware/InputSanitizationFilter.cs
+/Application/DTOs/AccountManagementDtos.cs
+/Application/DTOs/ChatQueryDto.cs
+/Application/DTOs/ChatResponseDto.cs
+/Application/DTOs/PromoDto.cs
+/Application/Interfaces/IChatBotService.cs
+/Infrastructure/Services/ChatBotService.cs

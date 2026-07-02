@@ -304,3 +304,63 @@ Error Number:-2,State:0,Class:11
 2026-06-19 18:34:11.223 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 16ms
 2026-06-19 18:34:11.430 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/821196e8-9178-4061-b859-02a3c1b81b55 from IP ::1. Response: 200 in 400ms
 2026-06-19 18:34:11.459 +05:30 [INF] USER ACTIVITY: User 004fb1df-5ebb-4169-bd70-f8d8646198b7 (thran6275@gmail.com) performed GET /api/product/821196e8-9178-4061-b859-02a3c1b81b55 from IP ::1. Response: 200 in 26ms
+2026-06-19 18:47:19.477 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-19 18:47:40.670 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-19 18:47:40.690 +05:30 [INF] API REQUEST: HEAD /api/product from IP ::1 responded 405 in 32ms
+2026-06-19 18:52:47.737 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-19 18:53:03.207 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-19 18:53:03.227 +05:30 [INF] API REQUEST: HEAD /api/product from IP ::1 responded 405 in 31ms
+2026-06-19 18:54:45.820 +05:30 [WRN] The foreign key property 'ReturnRequest.OrderId1' was created in shadow state because a conflicting property with the simple name 'OrderId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2026-06-19 18:54:58.109 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-06-19 18:54:58.132 +05:30 [INF] API REQUEST: HEAD /api/product from IP ::1 responded 405 in 35ms
+2026-06-19 18:57:53.962 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 12ms
+2026-06-19 18:57:53.962 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 12ms
+2026-06-19 18:57:54.260 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 18:57:54.260 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 2ms
+2026-06-19 18:57:54.260 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 2ms
+2026-06-19 18:57:54.260 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 2ms
+2026-06-19 18:57:54.262 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 18:57:54.262 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 18:57:54.447 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 176ms
+2026-06-19 18:57:54.447 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 176ms
+2026-06-19 18:57:54.834 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-06-19 18:57:56.896 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/product from IP ::1. Response: 200 in 2627ms
+2026-06-19 18:57:57.245 +05:30 [INF] API REQUEST: GET /images/products/default/default8.jpg from IP ::1 responded 200 in 51ms
+2026-06-19 18:57:57.245 +05:30 [INF] API REQUEST: GET /images/products/default/default3.jpg from IP ::1 responded 200 in 51ms
+2026-06-19 18:57:57.245 +05:30 [INF] API REQUEST: GET /images/products/default/default12.jpg from IP ::1 responded 200 in 51ms
+2026-06-19 18:58:02.406 +05:30 [INF] API REQUEST: GET /images/products/humidifiers/humidifier12.jpg from IP ::1 responded 200 in 19ms
+2026-06-19 18:58:02.406 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag1.jpg from IP ::1 responded 200 in 19ms
+2026-06-19 18:58:04.683 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 10230ms
+2026-06-19 18:58:09.497 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-19 18:58:09.497 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-19 18:59:25.233 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 1354ms
+2026-06-19 18:59:25.685 +05:30 [INF] API REQUEST: GET /images/products/default/default3.jpg from IP ::1 responded 200 in 4ms
+2026-06-19 18:59:25.685 +05:30 [INF] API REQUEST: GET /images/products/default/default12.jpg from IP ::1 responded 200 in 4ms
+2026-06-19 18:59:25.688 +05:30 [INF] API REQUEST: GET /images/products/default/default8.jpg from IP ::1 responded 200 in 6ms
+2026-06-19 18:59:25.799 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 99ms
+2026-06-19 18:59:48.389 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 1ms
+2026-06-19 18:59:48.611 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 217ms
+2026-06-19 19:01:01.216 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 0ms
+2026-06-19 19:01:17.787 +05:30 [INF] API REQUEST: POST /api/account/register from IP ::1 responded 200 in 16553ms
+2026-06-19 19:01:44.785 +05:30 [INF] API REQUEST: OPTIONS /api/otp/verify-email from IP ::1 responded 204 in 0ms
+2026-06-19 19:01:45.287 +05:30 [INF] API REQUEST: POST /api/otp/verify-email from IP ::1 responded 200 in 497ms
+2026-06-19 19:01:45.387 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-19 19:01:45.705 +05:30 [INF] USER ACTIVITY: User 7b594faa-4b3e-4dae-8325-28a0ff503174 (mhariharan2019@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 312ms
+2026-06-19 19:01:46.357 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 6ms
+2026-06-19 19:01:46.370 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-06-19 19:01:46.380 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 19:01:46.378 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 19:01:46.387 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 19:01:46.389 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-06-19 19:01:46.395 +05:30 [INF] USER ACTIVITY: User 7b594faa-4b3e-4dae-8325-28a0ff503174 (mhariharan2019@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 4ms
+2026-06-19 19:01:46.395 +05:30 [INF] USER ACTIVITY: User 7b594faa-4b3e-4dae-8325-28a0ff503174 (mhariharan2019@gmail.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 6ms
+2026-06-19 19:01:49.304 +05:30 [INF] USER ACTIVITY: User 7b594faa-4b3e-4dae-8325-28a0ff503174 (mhariharan2019@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 2906ms
+2026-06-19 19:01:49.847 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-06-19 19:03:39.552 +05:30 [INF] API REQUEST: GET /images/products/humidifiers/humidifier12.jpg from IP ::1 responded 200 in 6ms
+2026-06-19 19:03:39.552 +05:30 [INF] API REQUEST: GET /images/products/laptop-bags/laptop-bag1.jpg from IP ::1 responded 200 in 6ms
+2026-06-19 19:03:47.933 +05:30 [INF] API REQUEST: OPTIONS /api/cart/add from IP ::1 responded 204 in 0ms
+2026-06-19 19:03:48.414 +05:30 [INF] USER ACTIVITY: User 7b594faa-4b3e-4dae-8325-28a0ff503174 (mhariharan2019@gmail.com) performed POST /api/cart/add from IP ::1. Response: 200 in 473ms
+2026-06-19 19:03:48.421 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-06-19 19:03:48.517 +05:30 [INF] USER ACTIVITY: User 7b594faa-4b3e-4dae-8325-28a0ff503174 (mhariharan2019@gmail.com) performed GET /api/cart from IP ::1. Response: 200 in 91ms
+2026-06-19 19:04:31.802 +05:30 [INF] API REQUEST: OPTIONS /api/promo/validate from IP ::1 responded 204 in 0ms
+2026-06-19 19:04:31.885 +05:30 [INF] USER ACTIVITY: User 7b594faa-4b3e-4dae-8325-28a0ff503174 (mhariharan2019@gmail.com) performed POST /api/promo/validate from IP ::1. Response: 200 in 77ms

@@ -5,7 +5,7 @@ namespace Application.DTOs;
 public class ReturnRequestDto
 {
     public Guid Id { get; set; }
-    public Guid OrderId { get; set; }
+    public int OrderId { get; set; }
     public string UserId { get; set; } = string.Empty;
     public Guid ProductId { get; set; }
     public string ProductName { get; set; } = string.Empty;

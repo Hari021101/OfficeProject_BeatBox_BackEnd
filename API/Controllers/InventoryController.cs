@@ -7,6 +7,7 @@ namespace API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize(Roles = "Admin")]
 public class InventoryController : ControllerBase
 {
     private readonly IInventoryService _service;
@@ -32,7 +33,6 @@ public class InventoryController : ControllerBase
     }
 
     [HttpPut("update-stock")]
-    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateStock([FromBody] UpdateStockDto dto)
     {
         await _service.UpdateStockAsync(dto, User?.Identity?.Name ?? "system");
@@ -40,6 +40,7 @@ public class InventoryController : ControllerBase
     }
 
     [HttpPost("reserve")]
+    [Authorize]
     public async Task<IActionResult> Reserve([FromBody] ReserveStockDto dto)
     {
         await _service.ReserveStockAsync(dto);
@@ -47,6 +48,7 @@ public class InventoryController : ControllerBase
     }
 
     [HttpPost("release")]
+    [Authorize]
     public async Task<IActionResult> Release([FromBody] ReserveStockDto dto)
     {
         await _service.ReleaseStockAsync(dto);
@@ -54,7 +56,6 @@ public class InventoryController : ControllerBase
     }
 
     [HttpGet("low-stock")]
-    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> LowStock()
     {
         var result = await _service.GetLowStockAsync();
@@ -63,7 +64,6 @@ public class InventoryController : ControllerBase
 
 
     [HttpGet("logs")]
-    [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Logs()
     {
         var logs = await _service.GetInventoryLogsAsync();

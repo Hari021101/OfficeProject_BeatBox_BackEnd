@@ -1,13 +1,15 @@
+using Application.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Microsoft.AspNetCore.Authorization.Authorize]
 public class PromoController : ControllerBase
 {
     [HttpPost("validate")]
-    public IActionResult ValidatePromo([FromBody] PromoValidateRequest request)
+    public IActionResult ValidatePromo([FromBody] PromoValidateRequestDto request)
     {
         if (string.IsNullOrWhiteSpace(request.Code))
             return BadRequest(new { Message = "Promo code is required." });
@@ -17,7 +19,7 @@ public class PromoController : ControllerBase
         // Mock validation
         if (code == "BEATBOX10")
         {
-            return Ok(new PromoValidateResponse
+            return Ok(new PromoValidateResponseDto
             {
                 IsValid = true,
                 DiscountPercentage = 10,
@@ -28,7 +30,7 @@ public class PromoController : ControllerBase
         
         if (code == "FREESHIP")
         {
-            return Ok(new PromoValidateResponse
+            return Ok(new PromoValidateResponseDto
             {
                 IsValid = true,
                 DiscountPercentage = 0,
@@ -40,7 +42,7 @@ public class PromoController : ControllerBase
         
         if (code == "SUMMER50")
         {
-            return Ok(new PromoValidateResponse
+            return Ok(new PromoValidateResponseDto
             {
                 IsValid = true,
                 DiscountPercentage = 50,
@@ -51,18 +53,4 @@ public class PromoController : ControllerBase
 
         return BadRequest(new { Message = "Invalid or expired promo code." });
     }
-}
-
-public class PromoValidateRequest
-{
-    public string Code { get; set; }
-}
-
-public class PromoValidateResponse
-{
-    public bool IsValid { get; set; }
-    public decimal DiscountPercentage { get; set; }
-    public bool IsFreeShipping { get; set; }
-    public string Code { get; set; }
-    public string Message { get; set; }
 }

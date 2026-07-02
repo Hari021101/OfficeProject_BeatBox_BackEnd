@@ -1,8 +1,9 @@
-﻿using Application.DTOs;
+using Application.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/razorpay")]
+[Microsoft.AspNetCore.Authorization.Authorize]
 public class RazorpayController : ControllerBase
 {
     private readonly IRazorpayService _service;
