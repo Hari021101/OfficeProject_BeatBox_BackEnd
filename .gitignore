@@ -43,4 +43,6 @@ publish/
 /Application/DTOs/ChatResponseDto.cs
 /Application/DTOs/PromoDto.cs
 /Application/Interfaces/IChatBotService.cs
-/Infrastructure/Services/ChatBotService.cs
+
+# Ignore frontend build files hosted in backend
+API/wwwroot/

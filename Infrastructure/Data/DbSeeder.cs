@@ -412,6 +412,9 @@ public static class DbSeeder
         // Ensure admin user exists for reviews
         var admin = await EnsureAdminAsync(userManager, roleManager);
 
+        // Ensure standard user exists
+        await EnsureRegularUserAsync(userManager, roleManager);
+
         await SeedProductsAsync(context, admin?.Id, rnd);
 
         // Ensure all products (including existing ones from previous seedings/runs) have variants
@@ -547,6 +550,41 @@ public static class DbSeeder
         }
 
         return admin;
+    }
+
+    private static async Task EnsureRegularUserAsync(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+    {
+        var userEmail = "User@beatbox.com";
+        if (!await roleManager.RoleExistsAsync("User"))
+            await roleManager.CreateAsync(new IdentityRole("User"));
+
+        var standardUser = await userManager.FindByEmailAsync(userEmail);
+        if (standardUser == null)
+        {
+            standardUser = new AppUser
+            {
+                UserName = userEmail,
+                Email = userEmail,
+                FullName = "BeatBox User",
+                IsEmailVerified = true,
+                IsPhoneVerified = true
+            };
+
+            var result = await userManager.CreateAsync(standardUser, "User@123");
+            if (result.Succeeded)
+            {
+                await userManager.AddToRoleAsync(standardUser, "User");
+            }
+            else
+            {
+                Console.WriteLine("Failed to create standard user: " + string.Join(", ", result.Errors.Select(e => e.Description)));
+            }
+        }
+        else
+        {
+            if (!await userManager.IsInRoleAsync(standardUser, "User"))
+                await userManager.AddToRoleAsync(standardUser, "User");
+        }
     }
 
     // Seed products for every category ensuring at least 5 products per category and 250+ total

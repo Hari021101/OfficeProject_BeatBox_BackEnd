@@ -175,12 +175,8 @@ app.UseAuthorization();
 app.MapHub<Infrastructure.SignalR.NotificationHub>("/hubs/notifications");
 app.MapHub<Infrastructure.SignalR.OrderTrackingHub>("/hubs/orders");
 
-// Redirect root to Swagger UI so user never sees a 404
-app.MapGet("/", async context =>
-{
-    context.Response.Redirect("/swagger");
-    await Task.CompletedTask;
-});
+// Map fallback to serve the React SPA
+app.MapFallbackToFile("index.html");
 
 // Map controllers (e.g. AccountController)
 app.MapControllers();
