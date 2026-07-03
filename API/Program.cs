@@ -72,8 +72,7 @@ builder.Services.AddCors(options =>
     {
         policy.AllowAnyHeader()
               .AllowAnyMethod()
-              .SetIsOriginAllowed(origin => new Uri(origin).Host == "localhost")
-              .AllowCredentials();
+              .AllowAnyOrigin(); // Allow all origins for the live API
     });
 });
 
@@ -152,11 +151,8 @@ using (var scope = app.Services.CreateScope())
 }
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(); // Maps Swagger UI playground at /swagger/index.html
-}
+app.UseSwagger();
+app.UseSwaggerUI(); // Maps Swagger UI playground at /swagger/index.html
 
 if (!app.Environment.IsDevelopment())
 {
