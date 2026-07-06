@@ -1146,3 +1146,685 @@ Error Number:547,State:0,Class:16
 2026-07-06 10:48:09.434 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 200 in 6ms
 2026-07-06 10:48:19.117 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 81ms
 2026-07-06 10:48:19.178 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Return/e4b76c40-3104-4e22-9266-f849146ee942/status from IP ::1. Response: 200 in 12ms
+2026-07-06 11:23:18.141 +05:30 [ERR] Failed executing DbCommand (72ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ReturnRequests]') AND [c].[name] = N'OrderId');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [ReturnRequests] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [ReturnRequests] ALTER COLUMN [OrderId] int NOT NULL;
+2026-07-06 11:23:18.599 +05:30 [WRN] An warning or error occurred while applying database migrations. Proceeding to seeding.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Operand type clash: uniqueidentifier is incompatible with int
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__251_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQueryAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateImplementationAsync(DbContext context, String targetMigration, MigrationExecutionState state, Boolean useTransaction, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateImplementationAsync(DbContext context, String targetMigration, MigrationExecutionState state, Boolean useTransaction, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.<>c.<<MigrateAsync>b__22_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 135
+ClientConnectionId:e149534f-d340-405c-8d1b-5757847356d5
+Error Number:206,State:2,Class:16
+2026-07-06 11:23:36.182 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 210ms
+2026-07-06 11:23:36.175 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 211ms
+2026-07-06 11:23:36.177 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 213ms
+2026-07-06 11:23:36.175 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 210ms
+2026-07-06 11:23:36.176 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 211ms
+2026-07-06 11:23:36.176 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 210ms
+2026-07-06 11:23:36.375 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 3ms
+2026-07-06 11:23:36.375 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 4ms
+2026-07-06 11:23:36.381 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 11:23:36.397 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 11:23:36.426 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 11:23:36.483 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 11:23:36.549 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 2ms
+2026-07-06 11:23:36.577 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 11:23:38.804 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/notifications from IP ::1. Response: 200 in 2151ms
+2026-07-06 11:23:39.252 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/notifications from IP ::1. Response: 200 in 490ms
+2026-07-06 11:23:40.089 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-06 11:23:40.844 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/category from IP ::1. Response: 200 in 4160ms
+2026-07-06 11:23:41.077 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 4447ms
+2026-07-06 11:23:41.175 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 54ms
+2026-07-06 11:24:28.663 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:28.663 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:28.700 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 27ms
+2026-07-06 11:24:28.727 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/cart from IP ::1. Response: 204 in 7ms
+2026-07-06 11:24:28.979 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:28.983 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:28.982 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:28.980 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:28.979 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:28.979 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:29.033 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:29.039 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:29.046 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:29.052 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:29.059 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:29.068 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:48.171 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:48.172 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:48.172 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:48.175 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:48.186 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 15ms
+2026-07-06 11:24:48.357 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 172ms
+2026-07-06 11:24:48.376 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 7ms
+2026-07-06 11:24:48.470 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 289ms
+2026-07-06 11:24:48.483 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:48.494 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 22ms
+2026-07-06 11:24:48.576 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 82ms
+2026-07-06 11:24:48.586 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 8ms
+2026-07-06 11:24:48.590 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:48.636 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 35ms
+2026-07-06 11:24:48.645 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 7ms
+2026-07-06 11:24:48.652 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:48.841 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 178ms
+2026-07-06 11:24:48.851 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 8ms
+2026-07-06 11:24:48.853 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:48.952 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order from IP ::1. Response: 200 in 85ms
+2026-07-06 11:24:48.962 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/order from IP ::1. Response: 200 in 7ms
+2026-07-06 11:24:49.175 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/notifications from IP ::1. Response: 200 in 65ms
+2026-07-06 11:24:50.558 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:50.565 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:54.150 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/notifications from IP ::1. Response: 200 in 25055ms
+2026-07-06 11:24:55.352 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-06 11:24:55.352 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-06 11:25:20.458 +05:30 [INF] USER ACTIVITY: User 6c48bafb-0afb-40e1-8869-7f80a3b21d64 (BeatBox@admin.com) performed GET /api/account/users from IP ::1. Response: 200 in 25097ms
+2026-07-06 11:33:56.889 +05:30 [ERR] Failed executing DbCommand (45ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var12 sysname;
+SELECT @var12 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ReturnRequests]') AND [c].[name] = N'OrderId');
+IF @var12 IS NOT NULL EXEC(N'ALTER TABLE [ReturnRequests] DROP CONSTRAINT [' + @var12 + '];');
+ALTER TABLE [ReturnRequests] ALTER COLUMN [OrderId] int NOT NULL;
+2026-07-06 11:33:57.008 +05:30 [WRN] An warning or error occurred while applying database migrations. Proceeding to seeding.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Operand type clash: uniqueidentifier is incompatible with int
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__251_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQueryAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateImplementationAsync(DbContext context, String targetMigration, MigrationExecutionState state, Boolean useTransaction, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateImplementationAsync(DbContext context, String targetMigration, MigrationExecutionState state, Boolean useTransaction, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.<>c.<<MigrateAsync>b__22_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 141
+ClientConnectionId:41948074-22f0-48f6-8a62-06b8af8ef90c
+Error Number:206,State:2,Class:16
+2026-07-06 11:33:57.275 +05:30 [ERR] Failed executing DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Categories] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-07-06 11:33:57.288 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:41948074-22f0-48f6-8a62-06b8af8ef90c
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:41948074-22f0-48f6-8a62-06b8af8ef90c
+Error Number:208,State:1,Class:16
+2026-07-06 11:33:57.538 +05:30 [ERR] An error occurred while seeding the database.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Infrastructure.Data.DbSeeder.SeedAsync(AppDbContext context, UserManager`1 userManager, RoleManager`1 roleManager, Boolean force, Boolean isDevelopment) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 408
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 157
+ClientConnectionId:41948074-22f0-48f6-8a62-06b8af8ef90c
+Error Number:208,State:1,Class:16
+2026-07-06 11:34:23.389 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 39ms
+2026-07-06 11:34:23.974 +05:30 [ERR] Failed executing DbCommand (33ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsEmailVerified], [a].[IsPhoneVerified], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-07-06 11:34:23.991 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:41948074-22f0-48f6-8a62-06b8af8ef90c
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:41948074-22f0-48f6-8a62-06b8af8ef90c
+Error Number:208,State:1,Class:16
+2026-07-06 11:34:44.503 +05:30 [ERR] An unhandled exception occurred during request POST /api/account/login: Invalid object name 'AspNetUsers'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at API.Controllers.AccountController.Login(LoginDto loginDto) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Controllers\AccountController.cs:line 88
+   at lambda_method52(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+ClientConnectionId:41948074-22f0-48f6-8a62-06b8af8ef90c
+Error Number:208,State:1,Class:16
+2026-07-06 11:34:57.552 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 1ms
+2026-07-06 11:34:57.749 +05:30 [ERR] Failed executing DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsEmailVerified], [a].[IsPhoneVerified], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-07-06 11:34:57.757 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:41948074-22f0-48f6-8a62-06b8af8ef90c
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:41948074-22f0-48f6-8a62-06b8af8ef90c
+Error Number:208,State:1,Class:16
+2026-07-06 11:35:11.801 +05:30 [ERR] Failed executing DbCommand (47ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var12 sysname;
+SELECT @var12 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ReturnRequests]') AND [c].[name] = N'OrderId');
+IF @var12 IS NOT NULL EXEC(N'ALTER TABLE [ReturnRequests] DROP CONSTRAINT [' + @var12 + '];');
+ALTER TABLE [ReturnRequests] ALTER COLUMN [OrderId] int NOT NULL;
+2026-07-06 11:35:12.161 +05:30 [WRN] An warning or error occurred while applying database migrations. Proceeding to seeding.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Operand type clash: uniqueidentifier is incompatible with int
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<InternalExecuteNonQueryAsync>b__251_1(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQueryAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean beginTransaction, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQueryAsync(IReadOnlyList`1 migrationCommands, IRelationalConnection connection, MigrationExecutionState executionState, Boolean commitTransaction, Nullable`1 isolationLevel, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateImplementationAsync(DbContext context, String targetMigration, MigrationExecutionState state, Boolean useTransaction, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateImplementationAsync(DbContext context, String targetMigration, MigrationExecutionState state, Boolean useTransaction, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.<>c.<<MigrateAsync>b__22_1>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 141
+ClientConnectionId:0e668929-b480-495e-8e09-26e02eefd7c7
+Error Number:206,State:2,Class:16
+2026-07-06 11:35:12.607 +05:30 [ERR] Failed executing DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Categories] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-07-06 11:35:12.620 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0e668929-b480-495e-8e09-26e02eefd7c7
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0e668929-b480-495e-8e09-26e02eefd7c7
+Error Number:208,State:1,Class:16
+2026-07-06 11:35:13.021 +05:30 [ERR] An error occurred while seeding the database.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'Categories'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Infrastructure.Data.DbSeeder.SeedAsync(AppDbContext context, UserManager`1 userManager, RoleManager`1 roleManager, Boolean force, Boolean isDevelopment) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 408
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 157
+ClientConnectionId:0e668929-b480-495e-8e09-26e02eefd7c7
+Error Number:208,State:1,Class:16
+2026-07-06 11:35:24.552 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 32ms
+2026-07-06 11:35:25.080 +05:30 [ERR] Failed executing DbCommand (30ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsEmailVerified], [a].[IsPhoneVerified], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-07-06 11:35:25.096 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0e668929-b480-495e-8e09-26e02eefd7c7
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0e668929-b480-495e-8e09-26e02eefd7c7
+Error Number:208,State:1,Class:16
+2026-07-06 11:35:35.169 +05:30 [ERR] An unhandled exception occurred during request POST /api/account/register: Invalid object name 'AspNetUsers'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at API.Controllers.AccountController.Register(RegisterDto registerDto) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Controllers\AccountController.cs:line 41
+   at lambda_method52(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+ClientConnectionId:0e668929-b480-495e-8e09-26e02eefd7c7
+Error Number:208,State:1,Class:16
+2026-07-06 11:35:44.191 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 2ms
+2026-07-06 11:35:44.371 +05:30 [ERR] Failed executing DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsEmailVerified], [a].[IsPhoneVerified], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-07-06 11:35:44.380 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0e668929-b480-495e-8e09-26e02eefd7c7
+Error Number:208,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'AspNetUsers'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:0e668929-b480-495e-8e09-26e02eefd7c7
+Error Number:208,State:1,Class:16
+2026-07-06 11:38:58.472 +05:30 [ERR] Failed executing DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var12 sysname;
+SELECT @var12 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ReturnRequests]') AND [c].[name] = N'OrderId');
+IF @var12 IS NOT NULL EXEC(N'ALTER TABLE [ReturnRequests] DROP CONSTRAINT [' + @var12 + '];');
+ALTER TABLE [ReturnRequests] ALTER COLUMN [OrderId] int NOT NULL;
+2026-07-06 11:40:57.810 +05:30 [ERR] Failed executing DbCommand (68ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [ReturnRequests] DROP CONSTRAINT [FK_ReturnRequests_Orders_OrderId1];
+2026-07-06 11:45:25.354 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-06 11:45:25.777 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 1973ms
+2026-07-06 11:46:09.946 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 26494ms
+2026-07-06 11:46:09.946 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 26490ms
+2026-07-06 11:46:09.947 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 46148ms
+2026-07-06 11:46:10.061 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 26610ms
+2026-07-06 11:46:13.685 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_red_sideangle.jpg from IP ::1 responded 200 in 2855ms
+2026-07-06 11:46:13.709 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_grey_sideangle.jpg from IP ::1 responded 200 in 64ms
+2026-07-06 11:46:13.741 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband1.jpg from IP ::1 responded 200 in 5ms
+2026-07-06 11:46:13.905 +05:30 [INF] API REQUEST: GET /images/products/default/default1.jpg from IP ::1 responded 200 in 4ms
+2026-07-06 11:46:13.911 +05:30 [INF] API REQUEST: GET /images/products/default/default14.jpg from IP ::1 responded 200 in 3ms
+2026-07-06 11:46:23.286 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_black_frontangle.jpg from IP ::1 responded 200 in 21ms
+2026-07-06 11:46:41.236 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard1.jpg from IP ::1 responded 200 in 13ms
+2026-07-06 11:57:51.213 +05:30 [INF] API REQUEST: GET /images/products/default/default2.jpg from IP ::1 responded 200 in 3ms
+2026-07-06 11:59:24.676 +05:30 [INF] API REQUEST: GET /images/products/default/default12.jpg from IP ::1 responded 200 in 51ms
+2026-07-06 11:59:25.793 +05:30 [INF] API REQUEST: GET /images/products/default/default12.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:05:30.394 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-06 12:05:30.806 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 1350ms
+2026-07-06 12:05:31.029 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 1578ms
+2026-07-06 12:08:16.309 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-06 12:08:17.137 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 1423ms
+2026-07-06 12:12:35.270 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-06 12:12:35.603 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 1192ms
+2026-07-06 12:12:36.074 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 1668ms
+2026-07-06 12:13:07.744 +05:30 [INF] API REQUEST: GET /images/products/default/default11.jpg from IP ::1 responded 200 in 60ms
+2026-07-06 12:13:12.069 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar1.jpg from IP ::1 responded 200 in 124ms
+2026-07-06 12:13:12.070 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar10.jpg from IP ::1 responded 200 in 125ms
+2026-07-06 12:13:12.069 +05:30 [INF] API REQUEST: GET /images/products/default/default15.jpg from IP ::1 responded 200 in 94ms
+2026-07-06 12:13:12.093 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar11.jpg from IP ::1 responded 200 in 148ms
+2026-07-06 12:13:12.169 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_black_openAngle.jpg from IP ::1 responded 200 in 223ms
+2026-07-06 12:13:12.838 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar12.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:16.069 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone15.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:16.069 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone1.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:18.639 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone2.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:19.083 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone12.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:19.871 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone13.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:13:22.354 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_white_sideAngle.jpg from IP ::1 responded 200 in 143ms
+2026-07-06 12:13:22.456 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_topAngle2.jpg from IP ::1 responded 200 in 245ms
+2026-07-06 12:13:22.472 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_sideAngle.jpg from IP ::1 responded 200 in 261ms
+2026-07-06 12:13:22.497 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_sideAngle2.jpg from IP ::1 responded 200 in 286ms
+2026-07-06 12:13:23.813 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_white_fullAngle.jpg from IP ::1 responded 200 in 31ms
+2026-07-06 12:13:27.176 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband11.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:30.904 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker2.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:30.904 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker1.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:33.396 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker10.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:13:34.989 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker13.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:37.069 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker1.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:39.300 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker12.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:13:40.464 +05:30 [INF] API REQUEST: GET /api/product/f08d0722-ad2d-4948-a2b0-4b166f06a061 from IP ::1 responded 200 in 338ms
+2026-07-06 12:13:40.537 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker10.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:13:40.537 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker11.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:13:57.102 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar15.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:14:08.699 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_grey_frontangle.jpg from IP ::1 responded 200 in 112ms
+2026-07-06 12:14:08.722 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_brown_sideangle2.jpg from IP ::1 responded 200 in 134ms
+2026-07-06 12:14:15.870 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_brown_sideangle.jpg from IP ::1 responded 200 in 39ms
+2026-07-06 12:14:16.008 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_white_topangle.jpg from IP ::1 responded 200 in 10ms
+2026-07-06 12:14:16.028 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_brown_topangle.jpg from IP ::1 responded 200 in 8ms
+2026-07-06 12:14:38.882 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_black_topAngle.jpg from IP ::1 responded 200 in 383ms
+2026-07-06 12:14:38.899 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_blue_FrontAngle.jpg from IP ::1 responded 200 in 399ms
+2026-07-06 12:14:38.902 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_openAngle.jpg from IP ::1 responded 200 in 401ms
+2026-07-06 12:14:39.214 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_openAngle.jpg from IP ::1 responded 200 in 13ms
+2026-07-06 12:14:39.690 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_frontAngle.jpg from IP ::1 responded 200 in 11ms
+2026-07-06 12:14:40.308 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_sideAngle.jpg from IP ::1 responded 200 in 5ms
+2026-07-06 12:14:40.892 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_blue_SideAngle.jpg from IP ::1 responded 200 in 64ms
+2026-07-06 12:14:41.419 +05:30 [INF] API REQUEST: GET /api/product/a51dacd5-f2e0-4f4a-bd22-eaa17bc82ba3 from IP ::1 responded 200 in 29ms
+2026-07-06 12:14:43.294 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_frontAngle.jpg from IP ::1 responded 200 in 355ms
+2026-07-06 12:14:43.320 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_black_openAngle.jpg from IP ::1 responded 200 in 386ms
+2026-07-06 12:14:43.349 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_black_FrontAngle.jpg from IP ::1 responded 200 in 414ms
+2026-07-06 12:14:43.458 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_closedAngle.jpg from IP ::1 responded 200 in 524ms
+2026-07-06 12:14:45.876 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_white_sideAngle.jpg from IP ::1 responded 200 in 4ms
+2026-07-06 12:14:45.884 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_closedAngle.jpg from IP ::1 responded 200 in 13ms
+2026-07-06 12:14:47.356 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_white_topAngle.jpg from IP ::1 responded 200 in 25ms
+2026-07-06 12:14:47.357 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_white_frontAngle.jpg from IP ::1 responded 200 in 38ms
+2026-07-06 12:14:47.497 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_black_frontAngle.jpg from IP ::1 responded 200 in 178ms
+2026-07-06 12:14:47.587 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_black_upperAngle.jpg from IP ::1 responded 200 in 268ms
+2026-07-06 12:15:01.939 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 285ms
+2026-07-06 12:16:51.463 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 130ms
+2026-07-06 12:16:51.545 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:16:51.515 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 2ms
+2026-07-06 12:16:51.631 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 26ms
+2026-07-06 12:16:51.848 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 495ms
+2026-07-06 12:16:52.059 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar10.jpg from IP ::1 responded 200 in 3ms
+2026-07-06 12:16:52.065 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar1.jpg from IP ::1 responded 200 in 5ms
+2026-07-06 12:16:52.229 +05:30 [INF] API REQUEST: GET /images/products/default/default11.jpg from IP ::1 responded 200 in 6ms
+2026-07-06 12:16:52.176 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 1ms
+2026-07-06 12:16:52.069 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar11.jpg from IP ::1 responded 200 in 8ms
+2026-07-06 12:16:52.070 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:16:52.608 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_black_openAngle.jpg from IP ::1 responded 200 in 546ms
+2026-07-06 12:17:01.889 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 2ms
+2026-07-06 12:17:01.901 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:01.910 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:01.913 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:02.035 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:02.037 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:04.838 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:04.842 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:09.124 +05:30 [INF] API REQUEST: GET /api/product/2 from IP ::1 responded 400 in 102ms
+2026-07-06 12:17:09.129 +05:30 [INF] API REQUEST: GET /api/product/2 from IP ::1 responded 400 in 2ms
+2026-07-06 12:17:12.406 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar12.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:17:12.429 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar13.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:17:12.429 +05:30 [INF] API REQUEST: GET /images/products/default/default1.jpg from IP ::1 responded 200 in 4ms
+2026-07-06 12:17:12.456 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker11.jpg from IP ::1 responded 200 in 4ms
+2026-07-06 12:17:12.490 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_sideAngle.jpg from IP ::1 responded 200 in 75ms
+2026-07-06 12:17:12.716 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker10.jpg from IP ::1 responded 200 in 16ms
+2026-07-06 12:17:12.478 +05:30 [INF] API REQUEST: GET /images/products/default/default14.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:17:12.754 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_brown_topangle.jpg from IP ::1 responded 200 in 225ms
+2026-07-06 12:17:12.778 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_brown_sideangle.jpg from IP ::1 responded 200 in 358ms
+2026-07-06 12:17:20.187 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 1ms
+2026-07-06 12:17:20.189 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:20.193 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:20.196 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 0ms
+2026-07-06 12:17:23.249 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_brown_sideangle2.jpg from IP ::1 responded 200 in 46ms
+2026-07-06 12:17:24.133 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_topAngle2.jpg from IP ::1 responded 200 in 43ms
+2026-07-06 12:17:24.654 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker1.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:17:24.862 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_openAngle.jpg from IP ::1 responded 200 in 47ms
+2026-07-06 12:17:26.225 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_grey_sideangle.jpg from IP ::1 responded 200 in 13ms
+2026-07-06 12:17:26.749 +05:30 [INF] API REQUEST: GET /images/products/default/default2.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:17:27.234 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_topAngle.jpg from IP ::1 responded 200 in 8ms
+2026-07-06 12:17:28.223 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar14.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:17:28.233 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_sideAngle.jpg from IP ::1 responded 200 in 3ms
+2026-07-06 12:17:29.673 +05:30 [INF] API REQUEST: GET /images/products/default/default10.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:17:32.225 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_black_frontangle.jpg from IP ::1 responded 200 in 17ms
+2026-07-06 12:17:38.202 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_white_sideAngle.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:17:41.982 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 9ms
+2026-07-06 12:17:44.494 +05:30 [INF] API REQUEST: GET /images/products/default/default15.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:17:45.136 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband11.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:17:45.269 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband10.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:17:45.309 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone15.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:17:45.310 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband1.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:17:55.744 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_openAngle.jpg from IP ::1 responded 200 in 47ms
+2026-07-06 12:18:02.754 +05:30 [INF] API REQUEST: GET /images/products/default/default12.jpg from IP ::1 responded 200 in 1ms
+2026-07-06 12:18:24.415 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 162ms
+2026-07-06 12:20:22.206 +05:30 [INF] API REQUEST: GET /api/product/001efeb2-f469-4990-a129-9ef07b277a85 from IP ::1 responded 200 in 69ms
+2026-07-06 12:20:25.459 +05:30 [INF] API REQUEST: GET /images/products/default/default13.jpg from IP ::1 responded 200 in 4ms
+2026-07-06 12:30:05.108 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 260ms
+2026-07-06 12:30:05.140 +05:30 [INF] API REQUEST: GET /api/product/a51dacd5-f2e0-4f4a-bd22-eaa17bc82ba3 from IP ::1 responded 200 in 291ms
+2026-07-06 12:31:16.574 +05:30 [INF] API REQUEST: GET /api/products from IP ::1 responded 200 in 403ms
+2026-07-06 12:35:02.946 +05:30 [INF] API REQUEST: GET /api/products from IP ::1 responded 200 in 109ms
+2026-07-06 12:35:32.380 +05:30 [INF] API REQUEST: GET /api/products from IP ::1 responded 200 in 9ms
+2026-07-06 12:35:46.299 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-06 12:35:46.631 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 770ms
+2026-07-06 12:35:47.297 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 1435ms
+2026-07-06 12:36:02.350 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar13.jpg from IP ::1 responded 200 in 6ms
+2026-07-06 12:37:29.339 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 4130ms
+2026-07-06 12:37:38.863 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband10.jpg from IP ::1 responded 200 in 14ms
+2026-07-06 12:37:46.032 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone10.jpg from IP ::1 responded 200 in 8ms
+2026-07-06 12:37:53.247 +05:30 [INF] API REQUEST: GET /api/product/fb6c03d6-6cab-476f-9f15-4b35f7d2356a from IP ::1 responded 200 in 519ms
+2026-07-06 12:37:56.503 +05:30 [INF] API REQUEST: OPTIONS /api/cart/add from IP ::1 responded 204 in 3ms
+2026-07-06 12:37:56.540 +05:30 [INF] API REQUEST: POST /api/cart/add from IP ::1 responded 401 in 25ms
+2026-07-06 12:37:56.570 +05:30 [INF] API REQUEST: GET /api/cart from IP ::1 responded 401 in 4ms
+2026-07-06 12:38:00.825 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-06 12:38:00.950 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 116ms
+2026-07-06 12:38:02.812 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 36ms
+2026-07-06 12:38:29.043 +05:30 [INF] API REQUEST: GET /api/product/7f842ac6-dcc5-4db0-8756-31c37e08e77f from IP ::1 responded 200 in 162ms
+2026-07-06 12:38:39.860 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar14.jpg from IP ::1 responded 200 in 80ms
+2026-07-06 12:38:39.896 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse14.jpg from IP ::1 responded 200 in 113ms
+2026-07-06 12:38:39.904 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse11.jpg from IP ::1 responded 200 in 122ms
+2026-07-06 12:38:42.359 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse1.jpg from IP ::1 responded 200 in 3ms
+2026-07-06 12:38:43.869 +05:30 [INF] API REQUEST: GET /images/products/default/default10.jpg from IP ::1 responded 200 in 2ms
+2026-07-06 12:38:50.919 +05:30 [INF] API REQUEST: GET /api/product/0a6a392e-b03b-4440-b75e-025a5153771a from IP ::1 responded 200 in 46ms
+2026-07-06 12:38:54.532 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar2.jpg from IP ::1 responded 200 in 13ms

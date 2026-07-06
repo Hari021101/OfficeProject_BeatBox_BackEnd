@@ -20,17 +20,23 @@ var sinkOptions = new MSSqlServerSinkOptions
     AutoCreateSqlTable = true
 };
 
-Log.Logger = new LoggerConfiguration()
+var loggerConfig = new LoggerConfiguration()
     .MinimumLevel.Information()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
     .MinimumLevel.Override("System", LogEventLevel.Warning)
     .Enrich.FromLogContext()
     .WriteTo.Console()
-    .WriteTo.File("Logs/beatbox-log-.txt", rollingInterval: RollingInterval.Day)
-    .WriteTo.MSSqlServer(
+    .WriteTo.File("Logs/beatbox-log-.txt", rollingInterval: RollingInterval.Day);
+
+// Only log to SQL Server in production to avoid crashing if the local database isn't created yet
+if (!builder.Environment.IsDevelopment())
+{
+    loggerConfig.WriteTo.MSSqlServer(
         connectionString: connectionString,
-        sinkOptions: sinkOptions)
-    .CreateLogger();
+        sinkOptions: sinkOptions);
+}
+
+Log.Logger = loggerConfig.CreateLogger();
 
 builder.Host.UseSerilog();
 
@@ -147,8 +153,7 @@ using (var scope = app.Services.CreateScope())
         DbSeeder.InitializeImagePools();
 
         // Seed high-fidelity e-commerce catalog data if empty
-        var forceSeed = app.Configuration.GetValue<bool>("Seed:Force", false);
-        await DbSeeder.SeedAsync(context, userManager, roleManager, forceSeed, app.Environment.IsDevelopment());
+        await DbSeeder.SeedAsync(context, userManager, roleManager);
 
     }
     catch (Exception ex)
@@ -183,10 +188,10 @@ app.UseAuthorization();
 app.MapHub<Infrastructure.SignalR.NotificationHub>("/hubs/notifications");
 app.MapHub<Infrastructure.SignalR.OrderTrackingHub>("/hubs/orders");
 
-// Map fallback to serve the React SPA
-app.MapFallbackToFile("index.html");
-
 // Map controllers (e.g. AccountController)
 app.MapControllers();
+
+// Map fallback to serve the React SPA
+app.MapFallbackToFile("index.html");
 
 app.Run();
