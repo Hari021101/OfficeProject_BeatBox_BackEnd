@@ -4,6 +4,7 @@ using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,19 +20,28 @@ public class ProductService : IProductService
     private readonly AppDbContext _context;
     private readonly IFileUploadService _fileUploadService;
     private readonly IBusinessEventPublisher _eventPublisher;
+    private readonly IMemoryCache _cache;
 
     public ProductService(
         IProductRepository productRepository, 
         IMapper mapper, 
         AppDbContext context, 
         IFileUploadService fileUploadService,
-        IBusinessEventPublisher eventPublisher)
+        IBusinessEventPublisher eventPublisher,
+        IMemoryCache cache)
     {
         _productRepository = productRepository;
         _mapper = mapper;
         _context = context;
         _fileUploadService = fileUploadService;
         _eventPublisher = eventPublisher;
+        _cache = cache;
+    }
+
+    private void ClearProductCache(Guid productId)
+    {
+        _cache.Remove("products_all");
+        _cache.Remove($"product_{productId}");
     }
 
     public async Task<IEnumerable<ProductResponseDto>> GetAllProductsAsync()
@@ -76,6 +86,7 @@ public class ProductService : IProductService
 
         _mapper.Map(productUpdateDto, existingProduct);
         await _productRepository.UpdateAsync(existingProduct);
+        ClearProductCache(id);
 
         await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
         {
@@ -96,6 +107,7 @@ public class ProductService : IProductService
         if (existingProduct != null)
         {
             await _productRepository.DeleteAsync(id);
+            ClearProductCache(id);
 
             await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
             {
@@ -157,6 +169,7 @@ public class ProductService : IProductService
         foreach (var id in productIds)
         {
             await _productRepository.DeleteAsync(id);
+            ClearProductCache(id);
         }
     }
 
@@ -169,6 +182,7 @@ public class ProductService : IProductService
             {
                 product.IsFeatured = isFeatured;
                 await _productRepository.UpdateAsync(product);
+                ClearProductCache(id);
             }
         }
     }
@@ -203,6 +217,8 @@ public class ProductService : IProductService
             .Include(v => v.Images)
             .FirstOrDefaultAsync(v => v.Id == variant.Id);
 
+        ClearProductCache(productId);
+
         await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
         {
             ActionType = "CREATED",
@@ -227,6 +243,7 @@ public class ProductService : IProductService
 
         _mapper.Map(dto, variant);
         await _context.SaveChangesAsync();
+        ClearProductCache(variant.ProductId);
 
         var product = await _context.Products.FindAsync(variant.ProductId);
         await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
@@ -246,14 +263,23 @@ public class ProductService : IProductService
 
     public async Task DeleteVariantAsync(Guid variantId)
     {
-        var variant = await _context.ProductVariants.FindAsync(variantId);
+        var variant = await _context.ProductVariants
+            .Include(v => v.Images)
+            .FirstOrDefaultAsync(v => v.Id == variantId);
         if (variant != null)
         {
             var product = await _context.Products.FindAsync(variant.ProductId);
             var color = variant.Color;
+            var productId = variant.ProductId;
+
+            if (variant.Images != null && variant.Images.Any())
+            {
+                _context.ProductVariantImages.RemoveRange(variant.Images);
+            }
 
             _context.ProductVariants.Remove(variant);
             await _context.SaveChangesAsync();
+            ClearProductCache(productId);
 
             await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
             {
@@ -306,6 +332,7 @@ public class ProductService : IProductService
         }
 
         await _context.SaveChangesAsync();
+        ClearProductCache(variant.ProductId);
 
         var product = await _context.Products.FindAsync(variant.ProductId);
         await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
@@ -350,6 +377,11 @@ public class ProductService : IProductService
 
             var variant = await _context.ProductVariants.FindAsync(variantId);
             var product = variant != null ? await _context.Products.FindAsync(variant.ProductId) : null;
+            if (variant != null)
+            {
+                ClearProductCache(variant.ProductId);
+            }
+
             await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
             {
                 ActionType = "UPDATED",
@@ -366,15 +398,26 @@ public class ProductService : IProductService
 
     public async Task ReorderImagesAsync(List<ImageOrderDto> imageOrders)
     {
+        Guid? firstVariantId = null;
         foreach (var order in imageOrders)
         {
             var image = await _context.ProductVariantImages.FindAsync(order.ImageId);
             if (image != null)
             {
                 image.DisplayOrder = order.DisplayOrder;
+                if (firstVariantId == null) firstVariantId = image.VariantId;
             }
         }
         await _context.SaveChangesAsync();
+
+        if (firstVariantId != null)
+        {
+            var variant = await _context.ProductVariants.FindAsync(firstVariantId.Value);
+            if (variant != null)
+            {
+                ClearProductCache(variant.ProductId);
+            }
+        }
     }
 
     public async Task SetPrimaryImageAsync(Guid imageId)
@@ -394,6 +437,10 @@ public class ProductService : IProductService
         await _context.SaveChangesAsync();
 
         var variant = await _context.ProductVariants.FindAsync(image.VariantId);
+        if (variant != null)
+        {
+            ClearProductCache(variant.ProductId);
+        }
         var product = variant != null ? await _context.Products.FindAsync(variant.ProductId) : null;
         await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
         {

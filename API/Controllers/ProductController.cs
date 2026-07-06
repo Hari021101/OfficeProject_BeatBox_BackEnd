@@ -9,7 +9,8 @@ namespace API.Controllers;
 
 //[Authorize]
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/products")]
+[Route("api/product")]
 public class ProductController : ControllerBase
 {
     private readonly IProductService _productService;
@@ -108,6 +109,22 @@ public class ProductController : ControllerBase
             ClearProductCache(id);
         }
         return NoContent();
+    }
+
+    [HttpPost("{productId}/variants")]
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> AddVariant(Guid productId, [FromBody] ProductVariantCreateDto dto)
+    {
+        try
+        {
+            var created = await _productService.AddVariantAsync(productId, dto);
+            ClearProductCache(productId);
+            return Ok(created);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
     }
 
     [HttpGet("search")]

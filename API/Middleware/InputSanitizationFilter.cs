@@ -52,6 +52,7 @@ public class InputSanitizationFilter : IAsyncActionFilter
         var properties = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
         foreach (var prop in properties)
         {
+            if (prop.GetIndexParameters().Length > 0) continue;
             if (prop.PropertyType == typeof(string) && prop.CanWrite && prop.CanRead)
             {
                 var value = (string)prop.GetValue(obj);

@@ -1,507 +1,593 @@
 using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Infrastructure.Data;
 
 public static class DbSeeder
 {
-    // Base path for product images in wwwroot
     private const string ImageBasePath = "/images/products";
-
-    // Placeholder image path for missing images
     private const string PlaceholderImagePath = "/images/products/placeholder.jpg";
 
-    // Centralized category -> image lists (local file paths).
-    // Images are loaded from wwwroot/images/products/{category}/ folders.
     private static Dictionary<string, string[]> CategoryImages = new(StringComparer.OrdinalIgnoreCase);
-
-    // Root content path for accessing wwwroot (will be injected via configuration or constructor if needed)
     private static string _contentRootPath = "";
 
-    public static readonly string[] FrontendCategories = new[]
+    public static readonly string[] SeededCategories = new[]
     {
-        "Audio",
-        "Soundbars",
-        "Party Speakers",
-        "Portable Speakers",
-        "TWS",
+        "True Wireless Earbuds",
         "Neckbands",
         "Wireless Headphones",
         "Wired Earphones",
-        "USB Speakers",
-        "Conference Speakers",
-        "Wireless Microphones",
-        "Smart Watch",
-        "Keyboard",
+        "Bluetooth Speakers",
+        "Soundbars",
+        "Home Audio",
+        "Party Speakers",
+        "Gaming Headsets",
+        "Smart Watches",
+        "Keyboards",
         "Wireless Mouse"
     };
 
     private static readonly Dictionary<string, string> CategoryToFolderMap = new(StringComparer.OrdinalIgnoreCase)
     {
-        // Explicit/custom mappings
-        { "Keyboard And Mouse", "keyboards" },
-        { "Gaming Keyboard", "gaming-keyboards" },
-        { "Wired Keyboard", "keyboards" },
-        { "Wireless Keyboard", "keyboards" },
-        { "Wired Mouse", "mice" },
-        { "Wireless Mouse", "mice" },
-        { "Tyre Inflator", "tyre-inflators" },
-        { "Laptop Stand", "laptop-bags" },
-        { "Laptop Table", "laptop-bags" },
-        { "Car Mobile Holder", "mobile-holder" },
-        { "Bike Mobile Holder", "mobile-holder" },
-        { "Car Wireless Charger", "wireless-charger" },
-        { "Computer Cables", "cables" },
-        { "USB Hub", "cables" },
-        { "Gadget Cleaners", "ear-cleaners" },
-        { "Audio", "soundbars" },
-        { "Cable Organiser", "cables" },
-        { "Phone Wallet", "mobile-holder" },
-        { "Extension Board", "chargers" },
-        { "Wireless Presenter", "stylus" },
-
-        // Direct/Derived mappings (mapped explicitly to guarantee resolution)
-        { "Soundbars", "soundbars" },
-        { "Party Speakers", "party-speakers" },
-        { "Portable Speakers", "bluetooth_speaker" },
-        { "TWS", "tws_eaebuds" },
+        { "True Wireless Earbuds", "tws_eaebuds" },
         { "Neckbands", "neckbands" },
-        { "Wireless Headphones", "wireless-headphones" },
+        { "Wireless Headphones", "headphone" },
         { "Wired Earphones", "wired_headphones" },
-        { "USB Speakers", "usb-speakers" },
-        { "Conference Speakers", "conference-speakers" },
-        { "Wireless Microphones", "wireless-microphones" },
-        { "Power Bank", "power-bank" },
-        { "Cables", "cables" },
-        { "Wireless Charger", "wireless-charger" },
-        { "Chargers", "chargers" },
-        { "Mobile Holder", "mobile-holder" },
+        { "Bluetooth Speakers", "bluetooth_speaker" },
+        { "Soundbars", "soundbars" },
+        { "Home Audio", "usb-speakers" },
+        { "Party Speakers", "party-speakers" },
+        { "Gaming Headsets", "wireless-headphones" },
+        { "Smart Watches", "default" },
         { "Keyboards", "keyboards" },
-        { "Mice", "mice" },
-        { "Gaming Keyboards", "gaming-keyboards" },
-        { "Laptop Bags", "laptop-bags" },
-        { "Projectors", "projectors" },
-        { "Car Charger", "car-charger" },
-        { "Car Bluetooth", "car-bluetooth" },
-        { "Tyre Inflators", "tyre-inflators" },
-        { "Ear Cleaners", "ear-cleaners" },
-        { "Portable Fans", "portable-fans" },
-        { "Selfie Stick", "selfie-stick" },
-        { "Flashlight", "flashlight" },
-        { "Stylus", "stylus" },
-        { "Electric Kettle", "electric-kettle" },
-        { "Hair Dryer", "hair-dryer" },
-        { "Humidifiers", "humidifiers" },
-        { "Massagers", "massagers" },
-        { "Rechargeable Battery", "rechargeable-battery" }
+        { "Wireless Mouse", "mouse" }
     };
 
-    /// <summary>
-    /// Sets the content root path for image file validation.
-    /// Call this early in the application startup.
-    /// </summary>
+    private class ProductTemplate
+    {
+        public string CategoryName { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Brand { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string BatteryLife { get; set; } = string.Empty;
+        public string Connectivity { get; set; } = string.Empty;
+        public List<VariantTemplate> Variants { get; set; } = new();
+    }
+
+    private class VariantTemplate
+    {
+        public string Color { get; set; } = string.Empty;
+        public string ColorCode { get; set; } = string.Empty;
+        public string Sku { get; set; } = string.Empty;
+        public decimal Price { get; set; }
+        public decimal DiscountPrice { get; set; }
+        public string ImageFilter { get; set; } = string.Empty;
+    }
+
+    private static readonly List<ProductTemplate> ProductTemplates = new()
+    {
+        // 1. True Wireless Earbuds
+        new ProductTemplate
+        {
+            CategoryName = "True Wireless Earbuds",
+            Name = "BeatBox AirBuds 100",
+            Brand = "BeatBox",
+            Description = "Experience true audio freedom with the BeatBox AirBuds 100. Featuring high-fidelity drivers, ultra-low latency gaming mode, and ergonomic comfort for all-day listening.",
+            BatteryLife = "40 Hours",
+            Connectivity = "Bluetooth 5.3",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "BB-AB100-BLK", Price = 2999, DiscountPrice = 1299, ImageFilter = "tws1_black" },
+                new VariantTemplate { Color = "White", ColorCode = "#FFFFFF", Sku = "BB-AB100-WHT", Price = 2999, DiscountPrice = 1299, ImageFilter = "tws1_white" }
+            }
+        },
+        new ProductTemplate
+        {
+            CategoryName = "True Wireless Earbuds",
+            Name = "JBL C105TWS",
+            Brand = "JBL",
+            Description = "Immerse yourself in JBL Signature Sound. The C105TWS delivers pure bass performance, hands-free stereo calling, and a compact charging case that fits perfectly in your pocket.",
+            BatteryLife = "17 Hours",
+            Connectivity = "Bluetooth 5.0",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "JBL-C105-BLK", Price = 7999, DiscountPrice = 3499, ImageFilter = "tws2_black" },
+                new VariantTemplate { Color = "Blue", ColorCode = "#2563EB", Sku = "JBL-C105-BLU", Price = 7999, DiscountPrice = 3499, ImageFilter = "tws2_blue" }
+            }
+        },
+        new ProductTemplate
+        {
+            CategoryName = "True Wireless Earbuds",
+            Name = "boAt Airdopes 131",
+            Brand = "boAt",
+            Description = "Bring your favorite playlist to life with boAt Airdopes 131. Designed with Insta Wake 'n' Pair technology, it pairs automatically the moment you open the case lid.",
+            BatteryLife = "15 Hours",
+            Connectivity = "Bluetooth 5.0",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Grey", ColorCode = "#6B7280", Sku = "BOAT-AD131-GRY", Price = 2990, DiscountPrice = 999, ImageFilter = "tws3_grey" },
+                new VariantTemplate { Color = "White", ColorCode = "#FFFFFF", Sku = "BOAT-AD131-WHT", Price = 2990, DiscountPrice = 999, ImageFilter = "tws3_white" }
+            }
+        },
+
+        // 2. Wireless Headphones
+        new ProductTemplate
+        {
+            CategoryName = "Wireless Headphones",
+            Name = "BeatBox Studio Pro",
+            Brand = "BeatBox",
+            Description = "Uncompromising studio-grade sound meets wireless convenience. The BeatBox Studio Pro features Hybrid Active Noise Cancellation, high-res audio drivers, and plush memory foam earcups.",
+            BatteryLife = "50 Hours",
+            Connectivity = "Bluetooth 5.3",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "BB-SP-BLK", Price = 14999, DiscountPrice = 6999, ImageFilter = "headphone1_black" },
+                new VariantTemplate { Color = "Brown", ColorCode = "#8B4513", Sku = "BB-SP-BRN", Price = 14999, DiscountPrice = 6999, ImageFilter = "headphone1_brown" }
+            }
+        },
+        new ProductTemplate
+        {
+            CategoryName = "Wireless Headphones",
+            Name = "JBL Tune 510BT",
+            Brand = "JBL",
+            Description = "Grab a pair of JBL Tune 510BT and stream powerful JBL Pure Bass sound with no strings attached. Lightweight, comfortable, and folds flat for easy transport.",
+            BatteryLife = "40 Hours",
+            Connectivity = "Bluetooth 5.0",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Red", ColorCode = "#DC2626", Sku = "JBL-T510-RED", Price = 4499, DiscountPrice = 2899, ImageFilter = "headphone2_red" },
+                new VariantTemplate { Color = "White", ColorCode = "#FFFFFF", Sku = "JBL-T510-WHT", Price = 4499, DiscountPrice = 2899, ImageFilter = "headphone2_white" }
+            }
+        },
+        new ProductTemplate
+        {
+            CategoryName = "Wireless Headphones",
+            Name = "boAt Rockerz 550",
+            Brand = "boAt",
+            Description = "Designed for music lovers, the boAt Rockerz 550 features 50mm dynamic drivers that deliver punchy bass and crystalline vocals, alongside an ergonomic over-ear design.",
+            BatteryLife = "20 Hours",
+            Connectivity = "Bluetooth 5.0",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Orange", ColorCode = "#EA580C", Sku = "BOAT-R550-ORG", Price = 4999, DiscountPrice = 1999, ImageFilter = "headphone3_orange" },
+                new VariantTemplate { Color = "White", ColorCode = "#FFFFFF", Sku = "BOAT-R550-WHT", Price = 4999, DiscountPrice = 1999, ImageFilter = "headphone3_white" }
+            }
+        },
+
+        // 3. Bluetooth Speakers
+        new ProductTemplate
+        {
+            CategoryName = "Bluetooth Speakers",
+            Name = "BeatBox BoomCan 2.0",
+            Brand = "BeatBox",
+            Description = "Make way for heavy sound in a mini container. The BeatBox BoomCan 2.0 is a pocket-sized Bluetooth speaker with punchy acoustics and rugged IPX7 waterproof durability.",
+            BatteryLife = "10 Hours",
+            Connectivity = "Bluetooth 5.0",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "BB-BC2-BLK", Price = 3999, DiscountPrice = 1499, ImageFilter = "bluetoothSpeaker2_black" },
+                new VariantTemplate { Color = "White", ColorCode = "#FFFFFF", Sku = "BB-BC2-WHT", Price = 3999, DiscountPrice = 1499, ImageFilter = "bluetoothSpeaker2_white" },
+                new VariantTemplate { Color = "Brown", ColorCode = "#8B4513", Sku = "BB-BC2-BRN", Price = 3999, DiscountPrice = 1499, ImageFilter = "bluetoothSpeaker2_brown" }
+            }
+        },
+        new ProductTemplate
+        {
+            CategoryName = "Bluetooth Speakers",
+            Name = "JBL Flip 6",
+            Brand = "JBL",
+            Description = "The JBL Flip 6 2-way speaker system delivers loud, crystal-clear, powerful sound. Ruggedly designed, it is IP67 waterproof and dustproof, ready to go anywhere.",
+            BatteryLife = "12 Hours",
+            Connectivity = "Bluetooth 5.1",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Grey", ColorCode = "#6B7280", Sku = "JBL-F6-GRY", Price = 11999, DiscountPrice = 9999, ImageFilter = "bluetoothSpeaker3_grey" },
+                new VariantTemplate { Color = "Red", ColorCode = "#DC2626", Sku = "JBL-F6-RED", Price = 11999, DiscountPrice = 9999, ImageFilter = "bluetoothSpeaker3_red" }
+            }
+        },
+
+        // 4. Wired Earphones
+        new ProductTemplate
+        {
+            CategoryName = "Wired Earphones",
+            Name = "BeatBox BassHeads 100",
+            Brand = "BeatBox",
+            Description = "Get the famous hawk-inspired acoustic sound. The BassHeads 100 feature a premium coated cable, built-in HD microphone, and a stylish ergonomic shell.",
+            BatteryLife = "N/A",
+            Connectivity = "3.5mm Jack",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "BB-BH100-BLK", Price = 999, DiscountPrice = 399, ImageFilter = "wired_earPhones1_black" },
+                new VariantTemplate { Color = "White", ColorCode = "#FFFFFF", Sku = "BB-BH100-WHT", Price = 999, DiscountPrice = 399, ImageFilter = "wired_earPhones1_white" }
+            }
+        },
+        new ProductTemplate
+        {
+            CategoryName = "Wired Earphones",
+            Name = "boAt BassHeads 225",
+            Brand = "boAt",
+            Description = "Designed for style and bass performance. The BassHeads 225 feature polished metal chambers, dynamic 10mm drivers, and flat tangle-resistant cables.",
+            BatteryLife = "N/A",
+            Connectivity = "3.5mm Jack",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "White", ColorCode = "#FFFFFF", Sku = "BOAT-BH225-WHT", Price = 999, DiscountPrice = 499, ImageFilter = "wired_earPhones2_white" }
+            }
+        },
+
+        // 7. Party Speakers
+        new ProductTemplate
+        {
+            CategoryName = "Party Speakers",
+            Name = "BeatBox Party Blast",
+            Brand = "BeatBox",
+            Description = "Power up your celebrations with BeatBox Party Blast. Offering robust multi-directional sound, wireless karaoke mic, and multi-color beats-locked flashing lights.",
+            BatteryLife = "8 Hours",
+            Connectivity = "Bluetooth 5.0, AUX, SD Card",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "BB-PB-BLK", Price = 14999, DiscountPrice = 7999, ImageFilter = "generic" }
+            }
+        },
+
+       
+        // 9. Gaming Headsets
+        new ProductTemplate
+        {
+            CategoryName = "Gaming Headsets",
+            Name = "JBL Quantum 100",
+            Brand = "JBL",
+            Description = "Turn your game into an epic event. The JBL Quantum 100 features QuantumSOUND Signature that puts you in the center of the action with realistic soundscapes.",
+            BatteryLife = "N/A",
+            Connectivity = "3.5mm Audio Cable",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "JBL-Q100-BLK", Price = 3999, DiscountPrice = 2499, ImageFilter = "generic" },
+                new VariantTemplate { Color = "Blue", ColorCode = "#2563EB", Sku = "JBL-Q100-BLU", Price = 3999, DiscountPrice = 2499, ImageFilter = "generic" }
+            }
+        },
+
+        // 10. Smart Watches
+        new ProductTemplate
+        {
+            CategoryName = "Smart Watches",
+            Name = "BeatBox SmartWatch Active",
+            Brand = "BeatBox",
+            Description = "Stay connected and track your health metrics in real-time. Features a premium metal dial, bright AMOLED screen, multi-sport tracking, and 24/7 heart rate monitoring.",
+            BatteryLife = "7 Days",
+            Connectivity = "Bluetooth 5.1",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "BB-WA-BLK", Price = 5999, DiscountPrice = 2499, ImageFilter = "generic" },
+                new VariantTemplate { Color = "Silver", ColorCode = "#C0C0C0", Sku = "BB-WA-SLV", Price = 5999, DiscountPrice = 2499, ImageFilter = "generic" }
+            }
+        },
+
+        // 11. Keyboards
+        new ProductTemplate
+        {
+            CategoryName = "Keyboards",
+            Name = "BeatBox Elite Key",
+            Brand = "BeatBox",
+            Description = "Type in absolute comfort and silence. The Elite Key is a slim, minimalist wireless keyboard designed for multi-device workflows and comfortable quiet typing.",
+            BatteryLife = "6 Months",
+            Connectivity = "2.4GHz Wireless, Bluetooth 5.0",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "BB-EK-BLK", Price = 1999, DiscountPrice = 999, ImageFilter = "generic" },
+                new VariantTemplate { Color = "White", ColorCode = "#FFFFFF", Sku = "BB-EK-WHT", Price = 1999, DiscountPrice = 999, ImageFilter = "generic" }
+            }
+        },
+
+        // 12. Wireless Mouse
+        new ProductTemplate
+        {
+            CategoryName = "Wireless Mouse",
+            Name = "BeatBox Stealth Click",
+            Brand = "BeatBox",
+            Description = "Experience noise-free navigation. The Stealth Click features silent micro-switches, adjustable DPI sensitivity, and an ergonomic contour shape that supports your hand.",
+            BatteryLife = "12 Months",
+            Connectivity = "2.4GHz USB Receiver, Bluetooth",
+            Variants = new()
+            {
+                new VariantTemplate { Color = "Black", ColorCode = "#111111", Sku = "BB-SC-BLK", Price = 999, DiscountPrice = 499, ImageFilter = "generic" },
+                new VariantTemplate { Color = "Grey", ColorCode = "#6B7280", Sku = "BB-SC-GRY", Price = 999, DiscountPrice = 499, ImageFilter = "generic" }
+            }
+        }
+    };
+
     public static void SetContentRootPath(string contentRootPath)
     {
         _contentRootPath = contentRootPath;
     }
 
-    private static string? ResolveFolderForCategory(string categoryName)
-    {
-        // 1. Direct explicit mapping
-        if (CategoryToFolderMap.TryGetValue(categoryName, out var folder))
-        {
-            var explicitFolderPath = Path.Combine(_contentRootPath, "wwwroot", "images", "products", folder);
-            if (Directory.Exists(explicitFolderPath))
-            {
-                return folder;
-            }
-        }
-
-        // 2. Derive folder name: convert spaces to dashes, lowercase
-        var derived = categoryName.Replace(" ", "-").ToLowerInvariant();
-        var folderPath = Path.Combine(_contentRootPath, "wwwroot", "images", "products", derived);
-        if (Directory.Exists(folderPath))
-        {
-            return derived;
-        }
-
-        // 3. No mapping available -> returns null (caller will handle fallback to default)
-        return null;
-    }
-
-    /// <summary>
-    /// Initializes the image pools by loading category images from the filesystem.
-    /// Call this after SetContentRootPath().
-    /// </summary>
     public static void InitializeImagePools()
     {
-        if (string.IsNullOrWhiteSpace(_contentRootPath))
-        {
-            throw new InvalidOperationException("Content root path is not set.");
-        }
-
-        Console.WriteLine("\nInitializing Image Pools...");
-        Console.WriteLine(string.Format("{0,-25} | {1,-25} | {2,-11}", "Category", "Folder", "Image Count"));
-        Console.WriteLine(new string('-', 67));
-
         var map = new Dictionary<string, string[]>(StringComparer.OrdinalIgnoreCase);
-        var categoriesUsingDefault = new List<string>();
 
-        // Load the default image pool once
+        // Load default images pool
         var defaultImages = LoadCategoryImages("default");
         map["default"] = defaultImages;
 
-        foreach (var categoryName in FrontendCategories)
+        foreach (var categoryName in SeededCategories)
         {
-            var folder = ResolveFolderForCategory(categoryName);
-            string[] images;
-            string displayFolder;
-
-            if (folder != null)
+            if (CategoryToFolderMap.TryGetValue(categoryName, out var folder))
             {
-                displayFolder = folder;
-                images = LoadCategoryImages(folder);
+                var imgs = LoadCategoryImages(folder);
+                if (imgs.Length == 0) imgs = defaultImages;
+                map[categoryName] = imgs;
             }
             else
             {
-                displayFolder = "default";
-                images = defaultImages;
-                categoriesUsingDefault.Add(categoryName);
+                map[categoryName] = defaultImages;
             }
-
-            map[categoryName] = images;
-
-            // Log: Category | Folder | Image Count
-            Console.WriteLine(string.Format("{0,-25} | {1,-25} | {2,-11}", categoryName, displayFolder, images.Length));
         }
 
         CategoryImages = map;
-
-        // Print all categories still using default after initialization
-        if (categoriesUsingDefault.Any())
-        {
-            Console.WriteLine("\nCategories falling back to 'default':");
-            foreach (var cat in categoriesUsingDefault)
-            {
-                Console.WriteLine($"- {cat}");
-            }
-            Console.WriteLine();
-        }
     }
 
-    /// <summary>
-    /// Loads all image filenames from a category folder in wwwroot/images/products/.
-    /// Returns relative paths suitable for HTML img src attributes.
-    /// </summary>
     private static string[] LoadCategoryImages(string categoryFolder)
     {
         if (string.IsNullOrWhiteSpace(_contentRootPath))
         {
-            throw new InvalidOperationException("Content root path is not set.");
+            return Array.Empty<string>();
         }
 
         var folderPath = Path.Combine(_contentRootPath, "wwwroot", "images", "products", categoryFolder);
 
-        // If folder doesn't exist, throw an exception
         if (!Directory.Exists(folderPath))
         {
-            throw new DirectoryNotFoundException($"Category image folder not found: {folderPath}");
+            folderPath = Path.Combine(_contentRootPath, "wwwroot", "images", "products", "default");
+            categoryFolder = "default";
         }
 
-        // Get all image files (jpg, jpeg, png, webp, gif)
+        if (!Directory.Exists(folderPath))
+        {
+            return Array.Empty<string>();
+        }
+
         var imageExtensions = new[] { ".jpg", ".jpeg", ".png", ".webp", ".gif" };
         var imageFiles = Directory.GetFiles(folderPath)
             .Where(f => imageExtensions.Contains(Path.GetExtension(f).ToLowerInvariant()))
             .OrderBy(f => f)
             .ToList();
 
-        // If no images found, throw an exception
         if (!imageFiles.Any())
         {
-            throw new FileNotFoundException($"No images found in category folder: {folderPath}");
-        }
-
-        // Convert file paths to relative web paths (/images/products/category/filename)
-        var imagePaths = imageFiles
-            .Select(f =>
+            if (categoryFolder != "default")
             {
-                var fileName = Path.GetFileName(f);
-                return $"{ImageBasePath}/{categoryFolder}/{fileName}";
-            })
-            .ToArray();
-
-        // Ensure we have at least 3 images by circular padding using the existing images
-        if (imagePaths.Length < 3)
-        {
-            var paddedList = imagePaths.ToList();
-            while (paddedList.Count < 3)
-            {
-                paddedList.Add(imagePaths[paddedList.Count % imagePaths.Length]);
+                return LoadCategoryImages("default");
             }
-            return paddedList.ToArray();
+            return Array.Empty<string>();
         }
 
-        return imagePaths;
+        return imageFiles
+            .Select(f => $"{ImageBasePath}/{categoryFolder}/{Path.GetFileName(f)}")
+            .ToArray();
     }
 
-    // Build N ProductVariantImage objects for a category using the CategoryImages pool.
-    // Tracks globally used URLs to prevent any image reuse across variants of the same product.
-    private static List<ProductVariantImage> BuildVariantImagesForCategory(
-        string categoryName, 
-        int count, 
-        Random rnd, 
-        HashSet<string> globallyUsedUrls = null)
+    private static List<ProductVariantImage> BuildImagesForVariant(
+        string categoryName,
+        string imageFilter,
+        int variantIndex,
+        int imagesPerVariant)
     {
-        globallyUsedUrls ??= new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
-        var pool = CategoryImages.TryGetValue(categoryName, out var catPool) 
-            ? catPool 
-            : (CategoryImages.TryGetValue("default", out var d) ? d : CategoryImages.Values.First());
-
-        var list = new List<ProductVariantImage>();
-        var attemptsPerImage = 0;
-        var maxAttemptsPerImage = pool.Length * 2;
-
-        for (int i = 0; i < count; i++)
+        var pool = CategoryImages.TryGetValue(categoryName, out var catPool) ? catPool : CategoryImages["default"];
+        if (pool == null || pool.Length == 0)
         {
-            string selectedUrl = null;
-            attemptsPerImage = 0;
+            pool = CategoryImages["default"];
+        }
 
-            // Find an image URL not yet used in this global context
-            while (attemptsPerImage < maxAttemptsPerImage)
+        List<string> filtered = new();
+        if (!string.IsNullOrEmpty(imageFilter) && !imageFilter.Equals("generic", StringComparison.OrdinalIgnoreCase))
+        {
+            filtered = pool.Where(p => p.Contains(imageFilter, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            if (filtered.Count == 0 && imageFilter.Contains('_'))
             {
-                var idx = rnd.Next(0, pool.Length);
-                var candidateUrl = pool[idx];
+                var modelPrefix = imageFilter.Split('_')[0];
+                filtered = pool.Where(p => p.Contains(modelPrefix, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+        }
 
-                if (!globallyUsedUrls.Contains(candidateUrl))
+        if (filtered.Count > 0)
+        {
+            var result = new List<ProductVariantImage>();
+            for (int i = 0; i < filtered.Count; i++)
+            {
+                result.Add(new ProductVariantImage
                 {
-                    selectedUrl = candidateUrl;
-                    globallyUsedUrls.Add(candidateUrl);
-                    break;
-                }
-
-                attemptsPerImage++;
+                    Id = Guid.NewGuid(),
+                    ImageUrl = filtered[i],
+                    IsPrimary = i == 0,
+                    DisplayOrder = i + 1
+                });
             }
+            return result;
+        }
 
-            // Fallback if pool is exhausted: cycle through remaining unused images
-            if (selectedUrl == null)
-            {
-                foreach (var url in pool)
-                {
-                    if (!globallyUsedUrls.Contains(url))
-                    {
-                        selectedUrl = url;
-                        globallyUsedUrls.Add(url);
-                        break;
-                    }
-                }
-            }
-
-            // Last resort: if entire pool is used, wrap around (should be rare)
-            if (selectedUrl == null && pool.Length > 0)
-            {
-                selectedUrl = pool[i % pool.Length];
-                globallyUsedUrls.Add(selectedUrl);
-            }
-
-            // Validate image exists or use placeholder
-            selectedUrl = ValidateAndGetImagePath(selectedUrl);
-
-            list.Add(new ProductVariantImage
+        var fallbackList = new List<ProductVariantImage>();
+        var startIndex = (variantIndex * imagesPerVariant) % pool.Length;
+        for (int i = 0; i < imagesPerVariant; i++)
+        {
+            var idx = (startIndex + i) % pool.Length;
+            fallbackList.Add(new ProductVariantImage
             {
                 Id = Guid.NewGuid(),
-                ImageUrl = selectedUrl,
+                ImageUrl = pool[idx],
                 IsPrimary = i == 0,
                 DisplayOrder = i + 1
             });
         }
-
-        return list;
+        return fallbackList;
     }
 
-    /// <summary>
-    /// Validates that an image file exists at the given path.
-    /// Throws an exception if it doesn't exist.
-    /// </summary>
-    private static string ValidateAndGetImagePath(string imagePath)
+    public static async Task SeedAsync(
+        AppDbContext context, 
+        UserManager<AppUser> userManager, 
+        RoleManager<IdentityRole> roleManager, 
+        bool force = false, 
+        bool isDevelopment = false)
     {
-        // If no content root path is set, trust the path as-is (development/testing scenario)
-        if (string.IsNullOrWhiteSpace(_contentRootPath))
-        {
-            return imagePath;
-        }
-
-        // Construct full file path from the relative web path
-        // imagePath: /images/products/category/filename.jpg
-        // fullPath: {contentRoot}/wwwroot/images/products/category/filename.jpg
-        var relativePath = imagePath.TrimStart('/');
-        var fullPath = Path.Combine(_contentRootPath, "wwwroot", relativePath);
-
-        // Check if file exists
-        if (File.Exists(fullPath))
-        {
-            return imagePath;
-        }
-
-        // File doesn't exist, throw exception
-        throw new FileNotFoundException($"Seed image file not found on disk: {fullPath}");
-    }
-
-    // Seed entry point
-    public static async Task SeedAsync(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, bool force = false, bool isDevelopment = false)
-    {
-
         if (context == null) throw new ArgumentNullException(nameof(context));
         if (userManager == null) throw new ArgumentNullException(nameof(userManager));
         if (roleManager == null) throw new ArgumentNullException(nameof(roleManager));
 
+        // Normal mode safety checks: exit early if database already contains records
         if (!force && (await context.Categories.AnyAsync() || await context.Products.AnyAsync()))
         {
             await EnsureAdminAsync(userManager, roleManager);
+            await EnsureRegularUserAsync(userManager, roleManager);
+
             if (isDevelopment && !await context.Coupons.AnyAsync())
             {
                 var coupons = new List<Coupon>
                 {
-                    new Coupon { Code = "DEAL10", DiscountPercentage = 10, MinimumOrderAmount = 1000, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 100, UsedCount = 0 },
-                    new Coupon { Code = "BEATVIP", DiscountPercentage = 15, MinimumOrderAmount = 3000, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 50, UsedCount = 0 },
-                    new Coupon { Code = "FREESHIP", DiscountAmount = 0, MinimumOrderAmount = 0, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 500, UsedCount = 0 }
+                    new Coupon { Code = "DEAL10", DiscountType = "Percentage", DiscountPercentage = 10m, MinimumOrderAmount = 1000m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 100, UsedCount = 0 },
+                    new Coupon { Code = "BEATVIP", DiscountType = "Percentage", DiscountPercentage = 15m, MinimumOrderAmount = 3000m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 50, UsedCount = 0 },
+                    new Coupon { Code = "FREESHIP", DiscountType = "Shipping", DiscountAmount = 0m, MinimumOrderAmount = 0m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 500, UsedCount = 0 }
                 };
                 await context.Coupons.AddRangeAsync(coupons);
                 await context.SaveChangesAsync();
             }
+
+            // Sync inventories for all existing products
+            var existingProducts = await context.Products.Include(p => p.Variants).ToListAsync();
+            foreach (var p in existingProducts)
+            {
+                await CreateOrSyncInventory(context, p);
+            }
+            await context.SaveChangesAsync();
+
             return;
         }
 
-        // Keep deterministic random data
         var rnd = new Random(12345);
 
+        if (force)
+        {
+            context.ReturnRequests.RemoveRange(context.ReturnRequests);
+            context.Payments.RemoveRange(context.Payments);
+            context.OrderItems.RemoveRange(context.OrderItems);
+            context.Orders.RemoveRange(context.Orders);
+            context.CartItems.RemoveRange(context.CartItems);
+            context.Carts.RemoveRange(context.Carts);
+            context.WishlistItems.RemoveRange(context.WishlistItems);
+            context.Notifications.RemoveRange(context.Notifications);
+            context.AuditLogs.RemoveRange(context.AuditLogs);
+            context.ProductReviews.RemoveRange(context.ProductReviews);
+            context.ProductImages.RemoveRange(context.ProductImages);
+            context.ProductFaqs.RemoveRange(context.ProductFaqs);
+            context.ProductVariantImages.RemoveRange(context.ProductVariantImages);
+            context.ProductVariants.RemoveRange(context.ProductVariants);
+            context.Inventories.RemoveRange(context.Inventories);
+            context.InventoryHistories.RemoveRange(context.InventoryHistories);
+            context.Products.RemoveRange(context.Products);
+            context.Categories.RemoveRange(context.Categories);
+            await context.SaveChangesAsync();
+        }
 
-        await SeedCategories(context);
+        // Seed clean categories
+        var categoriesMap = new Dictionary<string, Category>(StringComparer.OrdinalIgnoreCase);
+        foreach (var catName in SeededCategories)
+        {
+            var cat = new Category
+            {
+                Id = Guid.NewGuid(),
+                Name = catName,
+                Description = $"High fidelity {catName} sound systems from premium brands."
+            };
+            context.Categories.Add(cat);
+            categoriesMap[catName] = cat;
+        }
+        await context.SaveChangesAsync();
 
-        // Ensure admin user exists for reviews
         var admin = await EnsureAdminAsync(userManager, roleManager);
-
-        // Ensure standard user exists
         await EnsureRegularUserAsync(userManager, roleManager);
 
-        await SeedProductsAsync(context, admin?.Id, rnd);
+        // Seed new curated catalog
+        var savedProducts = new List<Product>();
+        foreach (var temp in ProductTemplates)
+        {
+            if (!categoriesMap.TryGetValue(temp.CategoryName, out var category))
+            {
+                continue;
+            }
 
-        // Ensure all products (including existing ones from previous seedings/runs) have variants
-        await EnsureAllProductsHaveVariantsAsync(context, rnd);
+            var product = new Product
+            {
+                Id = Guid.NewGuid(),
+                Name = temp.Name,
+                Description = temp.Description,
+                CategoryId = category.Id,
+                Brand = temp.Brand,
+                Rating = Math.Round(4.0 + rnd.NextDouble() * 1.0, 1),
+                BatteryLife = temp.BatteryLife,
+                Connectivity = temp.Connectivity,
+                IsFeatured = rnd.NextDouble() > 0.6,
+                SoldCount = rnd.Next(50, 800),
+                DeliveryDays = rnd.Next(2, 5),
+                Faqs = CreateFaqs(),
+                Reviews = CreateReviews(admin?.Id, rnd)
+            };
 
-        // Seed coupons in development
+            var variants = new List<ProductVariant>();
+            for (int i = 0; i < temp.Variants.Count; i++)
+            {
+                var vt = temp.Variants[i];
+                var images = BuildImagesForVariant(temp.CategoryName, vt.ImageFilter, i, 4);
+
+                variants.Add(new ProductVariant
+                {
+                    Id = Guid.NewGuid(),
+                    ProductId = product.Id,
+                    Color = vt.Color,
+                    ColorCode = vt.ColorCode,
+                    Price = vt.Price,
+                    DiscountPrice = vt.DiscountPrice,
+                    StockQuantity = rnd.Next(30, 150),
+                    Sku = vt.Sku,
+                    IsActive = true,
+                    Images = images
+                });
+            }
+
+            product.Variants = variants;
+            product.Images = CreateImagesFromVariants(variants, temp.CategoryName);
+
+            context.Products.Add(product);
+            savedProducts.Add(product);
+        }
+        await context.SaveChangesAsync();
+
+        // Build Inventories
+        foreach (var p in savedProducts)
+        {
+            await CreateOrSyncInventory(context, p);
+        }
+
         if (isDevelopment && !await context.Coupons.AnyAsync())
         {
             var coupons = new List<Coupon>
             {
-                new Coupon { Code = "DEAL10", DiscountPercentage = 10, MinimumOrderAmount = 1000, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 100, UsedCount = 0 },
-                new Coupon { Code = "BEATVIP", DiscountPercentage = 15, MinimumOrderAmount = 3000, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 50, UsedCount = 0 },
-                new Coupon { Code = "FREESHIP", DiscountAmount = 0, MinimumOrderAmount = 0, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 500, UsedCount = 0 }
+                new Coupon { Code = "DEAL10", DiscountType = "Percentage", DiscountPercentage = 10m, MinimumOrderAmount = 1000m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 100, UsedCount = 0 },
+                new Coupon { Code = "BEATVIP", DiscountType = "Percentage", DiscountPercentage = 15m, MinimumOrderAmount = 3000m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 50, UsedCount = 0 },
+                new Coupon { Code = "FREESHIP", DiscountType = "Shipping", DiscountAmount = 0m, MinimumOrderAmount = 0m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 500, UsedCount = 0 }
             };
             await context.Coupons.AddRangeAsync(coupons);
         }
-
-        // Final save
-        await context.SaveChangesAsync();
-    }
-
-    private static async Task EnsureAllProductsHaveVariantsAsync(AppDbContext context, Random rnd)
-    {
-        var productsWithoutVariants = await context.Products
-            .Include(p => p.Category)
-            .Include(p => p.Variants)
-                .ThenInclude(v => v.Images)
-            .Where(p => !p.Variants.Any())
-            .ToListAsync();
-
-        if (productsWithoutVariants.Any())
-        {
-            Console.WriteLine($"Found {productsWithoutVariants.Count} products without variants. Seeding variants...");
-            foreach (var product in productsWithoutVariants)
-            {
-                try
-                {
-                    var categoryName = product.Category?.Name ?? "default";
-                    var variantCount = rnd.Next(3, 6);
-                    var variants = CreateVariants(variantCount, rnd, categoryName);
-                    
-                    foreach (var variant in variants)
-                    {
-                        variant.ProductId = product.Id;
-                        product.Variants.Add(variant);
-                        context.Entry(variant).State = EntityState.Added;
-                        foreach (var img in variant.Images)
-                        {
-                            context.Entry(img).State = EntityState.Added;
-                        }
-                    }
-
-                    // Also ensure we sync inventories for these products
-                    await CreateOrSyncInventory(context, product);
-                    await context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException ex)
-                {
-                    Console.WriteLine($"Concurrency error on product {product.Name} (Id: {product.Id}): {ex.Message}");
-                    foreach (var entry in ex.Entries)
-                    {
-                        Console.WriteLine($"Entity Type: {entry.Entity.GetType().FullName}, State: {entry.State}");
-                        var databaseValues = await entry.GetDatabaseValuesAsync();
-                        if (databaseValues == null)
-                        {
-                            Console.WriteLine("The entity was deleted by another user or cannot be found.");
-                        }
-                        else
-                        {
-                            entry.OriginalValues.SetValues(databaseValues);
-                        }
-                    }
-                    try
-                    {
-                        await context.SaveChangesAsync();
-                        Console.WriteLine("Successfully resolved concurrency error.");
-                    }
-                    catch (Exception retryEx)
-                    {
-                        Console.WriteLine($"Failed to resolve concurrency error: {retryEx.Message}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Error seeding variants for {product.Name} (Id: {product.Id}): {ex.Message}");
-                }
-            }
-            Console.WriteLine($"Finished variant check for {productsWithoutVariants.Count} products.");
-        }
-    }
-
-    // Ensure all frontend categories exist
-    private static async Task SeedCategories(AppDbContext context)
-    {
-        foreach (var name in FrontendCategories)
-        {
-            var exists = await context.Categories.AnyAsync(c => c.Name == name);
-            if (!exists)
-            {
-                context.Categories.Add(new Category
-                {
-                    Id = Guid.NewGuid(),
-                    Name = name,
-                    Description = name
-                });
-            }
-        }
-
 
         await context.SaveChangesAsync();
     }
 
     private static async Task<AppUser?> EnsureAdminAsync(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
     {
-        var adminEmail = "BeatBox@admin.com";
+        var adminEmail = "vikram.admin@beatbox.com";
         if (!await roleManager.RoleExistsAsync("Admin"))
             await roleManager.CreateAsync(new IdentityRole("Admin"));
 
@@ -512,7 +598,7 @@ public static class DbSeeder
             {
                 UserName = adminEmail,
                 Email = adminEmail,
-                FullName = "BeatBox Admin",
+                FullName = "Vikram Singh (Admin)",
                 IsEmailVerified = true,
                 IsPhoneVerified = true
             };
@@ -522,18 +608,12 @@ public static class DbSeeder
             {
                 await userManager.AddToRoleAsync(admin, "Admin");
             }
-            else
-            {
-                // If user creation failed, return null to avoid FK violations when adding reviews
-                return null;
-            }
         }
         else
         {
             if (!await userManager.IsInRoleAsync(admin, "Admin"))
                 await userManager.AddToRoleAsync(admin, "Admin");
         }
-
         return admin;
     }
 
@@ -560,10 +640,6 @@ public static class DbSeeder
             {
                 await userManager.AddToRoleAsync(standardUser, "User");
             }
-            else
-            {
-                Console.WriteLine("Failed to create standard user: " + string.Join(", ", result.Errors.Select(e => e.Description)));
-            }
         }
         else
         {
@@ -572,293 +648,26 @@ public static class DbSeeder
         }
     }
 
-    // Seed products for every category ensuring at least 5 products per category and 250+ total
-    private static async Task SeedProductsAsync(AppDbContext context, string? adminUserId, Random rnd)
+    private static List<ProductImage> CreateImagesFromVariants(IEnumerable<ProductVariant> variants, string categoryName)
     {
-        var categories = await context.Categories.ToListAsync();
+        var productImages = new List<ProductImage>();
+        var first = true;
 
-        // Product name parts and brands
-        var brands = new[] { "BeatBox", "SoundCore", "PulseTech", "NeoAudio", "Waveform", "AudioMax", "ClearTone", "BassLine", "ProSound", "EchoLabs" };
-        var adjectives = new[] { "Pro", "Max", "Lite", "Mini", "Ultra", "Plus", "Go", "Prime", "Elite", "Neo" };
-        var nouns = new[] { "Speaker", "Headset", "Earbuds", "Charger", "Stand", "Tracker", "Cleaner", "Hub", "Kettle", "Blower" };
-
-        var targetPerCategory = 5; // minimum
-
-        var globalProducts = new List<Product>();
-
-        foreach (var cat in categories)
+        foreach (var v in variants)
         {
-            // ensure at least targetPerCategory products in each category
-            var existingCount = await context.Products.CountAsync(p => p.CategoryId == cat.Id);
-            var toCreate = Math.Max(0, targetPerCategory - existingCount);
-
-            for (int i = 0; i < toCreate; i++)
+            foreach (var img in v.Images.OrderBy(i => i.DisplayOrder))
             {
-                var brand = brands[rnd.Next(brands.Length)];
-                var name = CreateProductName(cat.Name, adjectives, nouns, rnd);
-                var product = CreateProduct(name, cat.Id, brand, rnd);
-
-                // Variants (3-5)
-                var variantCount = rnd.Next(3, 6);
-                product.Variants = CreateVariants(variantCount, rnd, cat.Name);
-
-                // Reviews
-                product.Reviews = CreateReviews(adminUserId, rnd);
-
-                // FAQs
-                product.Faqs = CreateFaqs();
-
-                // --- VALIDATIONS (strict) ---
-                // Validate variants and their images
-                foreach (var variant in product.Variants)
+                productImages.Add(new ProductImage
                 {
-                    if (variant.Price <= 0)
-                        throw new Exception($"Invalid Price for variant of {product.Name}");
-                    if (variant.DiscountPrice <= 0)
-                        throw new Exception($"Invalid DiscountPrice for variant of {product.Name}");
-                    if (variant.DiscountPrice >= variant.Price)
-                        throw new Exception($"DiscountPrice must be lower than Price for variant of {product.Name}");
-                    // Ensure variant images exist and are valid
-                    if (variant.Images == null || variant.Images.Count < 3)
-                        throw new Exception($"Variant for {product.Name} must have at least 3 images.");
-                    if (!variant.Images.Any(img => img.IsPrimary))
-                        throw new Exception($"Variant for {product.Name} must have an IsPrimary image.");
-                    var orders = variant.Images.Select(img => img.DisplayOrder).ToList();
-                    if (orders.Min() != 1)
-                        throw new Exception($"Variant images for {product.Name} must have DisplayOrder starting at 1.");
-                    if (orders.Distinct().Count() != orders.Count)
-                        throw new Exception($"Variant images for {product.Name} contain duplicate DisplayOrder values.");
-                }
-                // No product-level color images are seeded from variants anymore
-
-                globalProducts.Add(product);
+                    ImageUrl = img.ImageUrl,
+                    ColorName = v.Color,
+                    ColorCode = v.ColorCode,
+                    IsPrimary = first
+                });
+                first = false;
             }
         }
-
-            if (globalProducts.Any())
-            {
-                // Add products with populated variant images so EF can persist ProductVariantImages
-                await context.Products.AddRangeAsync(globalProducts);
-                await context.SaveChangesAsync();
-
-                // After saving products, ensure variant images were persisted (they should be via FK)
-                // Create inventories and inventory histories
-                var savedProducts = await context.Products.Include(p => p.Variants).ThenInclude(v => v.Images).ToListAsync();
-                foreach (var p in savedProducts)
-                {
-                    await CreateOrSyncInventory(context, p);
-                }
-
-                await context.SaveChangesAsync();
-
-                // --- Ensure existing products/variants in DB have variant images ---
-                // Load all products with variants and variant images
-                var allProducts = await context.Products
-                    .Include(p => p.Variants)
-                        .ThenInclude(v => v.Images)
-                    .ToListAsync();
-
-                foreach (var prod in allProducts)
-                {
-                    var catName = (await context.Categories.Where(c => c.Id == prod.CategoryId).Select(c => c.Name).FirstOrDefaultAsync()) ?? "default";
-                    foreach (var variant in prod.Variants)
-                    {
-                        var currentCount = variant.Images?.Count ?? 0;
-                        if (currentCount >= 3) continue; // already populated
-
-                        var need = 3 - currentCount;
-                        if (need <= 0) need = 3; // safe fallback
-
-                        var imgs = BuildVariantImagesForCategory(catName, need, rnd);
-                        variant.Images ??= new List<ProductVariantImage>();
-                        int nextOrder = (variant.Images.Any() ? variant.Images.Max(x => x.DisplayOrder) : 0) + 1;
-                        foreach (var vi in imgs)
-                        {
-                            vi.DisplayOrder = nextOrder++;
-                            vi.VariantId = variant.Id;
-                            variant.Images.Add(vi);
-                        }
-                    }
-                }
-
-                // Persist newly added variant images
-                await context.SaveChangesAsync();
-            }
-    }
-
-    private static string CreateProductName(string categoryName, string[] adjectives, string[] nouns, Random rnd)
-    {
-        // Build readable product names based on category context
-        var adj = adjectives[rnd.Next(adjectives.Length)];
-        var noun = nouns[rnd.Next(nouns.Length)];
-        var suffix = rnd.Next(100, 999);
-
-        // Use category keyword if meaningful
-        var catToken = categoryName.Split(' ').First();
-        var name = new StringBuilder();
-        name.Append(catToken);
-        name.Append(' ');
-        name.Append(adj);
-        name.Append(' ');
-        name.Append(noun);
-        name.Append(' ');
-        name.Append(suffix);
-
-        return name.ToString();
-    }
-
-    private static Product CreateProduct(string name, Guid categoryId, string brand, Random rnd)
-    {
-        return new Product
-        {
-            Id = Guid.NewGuid(),
-            Name = name,
-            Description = $"{name} by {brand} — reliable, high-quality product designed for everyday use.",
-            CategoryId = categoryId,
-            Brand = brand,
-            Rating = Math.Round(3.5 + rnd.NextDouble() * 1.5, 1),
-            BatteryLife = GenerateBatteryLife(rnd),
-            Connectivity = GenerateConnectivity(rnd),
-            IsFeatured = rnd.NextDouble() > 0.8,
-            SoldCount = rnd.Next(10, 1000),
-            DeliveryDays = rnd.Next(1, 7),
-            Variants = new List<ProductVariant>(),
-            Images = new List<ProductImage>(),
-            Faqs = new List<ProductFaq>(),
-            Reviews = new List<ProductReview>()
-        };
-    }
-
-    private static string GenerateBatteryLife(Random rnd)
-    {
-        var options = new[] { "N/A", "6 Hours", "8 Hours", "10 Hours", "12 Hours", "24 Hours", "3 Days", "7 Days", "10 Days", "14 Days" };
-        return options[rnd.Next(options.Length)];
-    }
-
-    private static string GenerateConnectivity(Random rnd)
-    {
-        var options = new[] { "Bluetooth 5.3", "Bluetooth 5.2", "Bluetooth 5.0", "USB", "USB-C", "Wireless", "3.5mm", "WiFi" };
-        return options[rnd.Next(options.Length)];
-    }
-
-    private static List<ProductVariant> CreateVariants(int count, Random rnd, string categoryName)
-    {
-        var colors = new[]
-        {
-            ("Black","#111111"), ("White","#FFFFFF"), ("Blue","#2563EB"), ("Red","#DC2626"), ("Green","#10B981"),
-            ("Grey","#6B7280"), ("Gold","#D4AF37"), ("Silver","#C0C0C0"), ("Purple","#7C3AED"), ("Orange","#EA580C")
-        };
-
-        // Price bands based on category roughness
-        var basePrice = GetBasePriceForCategory(categoryName);
-
-        var variants = new List<ProductVariant>();
-        // Global tracker to ensure NO image URL is reused across ANY variant of this product
-        var globallyUsedUrls = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
-        for (int i = 0; i < count; i++)
-        {
-            var c = colors[i % colors.Length];
-            // Price logic: ensure an integer price between sensible ranges
-            var price = basePrice + (i * 500) + (decimal)(rnd.Next(0, 1000));
-            if (price < 1) price = Math.Abs(price) + 499m;
-
-            // Discount percent 5..40 inclusive
-            var discountPercent = rnd.Next(5, 41);
-            var discountPrice = Math.Round(price * (100m - discountPercent) / 100m, 2);
-
-            // Enforce mandatory rules
-            if (discountPrice <= 0m)
-            {
-                discountPercent = 5;
-                discountPrice = Math.Round(price * 0.95m, 2);
-            }
-
-            if (discountPrice >= price)
-            {
-                // ensure always strictly less than price
-                discountPrice = price - 1m;
-            }
-
-            // Final clamps
-            discountPrice = Math.Max(discountPrice, 1m);
-            if (discountPrice >= price) discountPrice = price - 1m;
-            var stock = rnd.Next(10, 200);
-
-            // pick unique images for this variant from the category pool (3-5 images)
-            // Pass globallyUsedUrls to ensure no reuse across variants
-            var imagesCount = rnd.Next(3, 6); // 3..5 images per variant
-            var imagesForVariant = BuildVariantImagesForCategory(categoryName, imagesCount, rnd, globallyUsedUrls);
-
-            variants.Add(new ProductVariant
-            {
-                Id = Guid.NewGuid(),
-                Color = c.Item1,
-                ColorCode = c.Item2,
-                Price = Math.Round(price, 0),
-                DiscountPrice = discountPrice,
-                StockQuantity = stock,
-                Images = imagesForVariant
-            });
-        }
-
-        return variants;
-    }
-
-    private static decimal GetBasePriceForCategory(string category)
-    {
-        // crude price banding based on category keywords
-        var low = new[] { "Accessory", "Cable", "Holder", "Cleaner", "Organiser", "Stylus", "Phone Wallet" };
-        var mid = new[] { "TWS", "Neckbands", "Portable", "USB", "Mobile", "Computer", "Wireless" };
-        var high = new[] { "Projectors", "Pressure", "Smart", "Kettle", "Blower", "Massagers" };
-
-        var name = category.ToLowerInvariant();
-        if (high.Any(h => name.Contains(h.ToLowerInvariant()))) return 8999m;
-        if (name.Contains("watch")) return 5999m;
-        if (name.Contains("speaker") || name.Contains("headphone") || name.Contains("earbuds") || name.Contains("tws")) return 3999m;
-        if (mid.Any(m => name.Contains(m.ToLowerInvariant()))) return 2999m;
-        return 1999m;
-    }
-
-    private static string GetPlaceholderImageUrl(string categoryName, int variantIndex)
-    {
-        // Use unsplash random images with a query derived from category
-        var query = Uri.EscapeDataString(categoryName.Split(' ').First());
-        return $"https://source.unsplash.com/collection/190727/800x600?{query}&v={variantIndex}";
-    }
-
-    private static List<ProductReview> CreateReviews(string? adminUserId, Random rnd)
-    {
-        var texts = new[]
-        {
-            "Excellent quality.",
-            "Battery life is amazing.",
-            "Worth the price.",
-            "Fast delivery.",
-            "Premium build quality.",
-            "Comfortable and light.",
-            "Soundstage is impressive.",
-            "Good value for money.",
-            "Setup was easy and intuitive.",
-            "Noise cancellation works well."
-        };
-
-        var reviews = new List<ProductReview>();
-        for (int i = 0; i < 3; i++)
-        {
-            var text = texts[rnd.Next(texts.Length)];
-            reviews.Add(new ProductReview
-            {
-                ProductId = Guid.Empty, // filled by EF when attached to product
-                UserId = adminUserId ?? string.Empty,
-                Rating = rnd.Next(3, 6),
-                Comment = text,
-                CreatedDate = DateTime.UtcNow.AddDays(-rnd.Next(1, 30)),
-                IsVerifiedPurchase = true
-            });
-        }
-
-        return reviews;
+        return productImages;
     }
 
     private static List<ProductFaq> CreateFaqs()
@@ -866,78 +675,33 @@ public static class DbSeeder
         return new List<ProductFaq>
         {
             new ProductFaq { Question = "What is the warranty period?", Answer = "All BeatBox products come with a 1 year warranty." },
-            new ProductFaq { Question = "How long does it take to charge?", Answer = "Charging time depends on the variant; typically 1-3 hours." },
-            new ProductFaq { Question = "Can I return this product?", Answer = "Yes, returns are accepted within 7 days if in original condition." }
+            new ProductFaq { Question = "Can I request returns?", Answer = "Yes, returns are accepted within 7 days in original packaging." }
         };
     }
 
-    private static List<ProductImage> CreateImagesFromVariants(IEnumerable<ProductVariant> variants, string categoryName, string productName)
+    private static List<ProductReview> CreateReviews(string? adminUserId, Random rnd)
     {
-        var images = new List<ProductImage>();
-        var variantList = variants.ToList();
-        if (!variantList.Any()) return images;
-
-        // Need between 4 and 5 images, prefer 5
-        var desired = Math.Max(4, Math.Min(5, Math.Max(4, variantList.Count)));
-
-        // Use category image pool if available
-        var usedUrls = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-        var pool = CategoryImages.TryGetValue(categoryName, out var catPool) ? catPool : CategoryImages.TryGetValue("default", out var d) ? d : CategoryImages.Values.First();
-        var firstFlag = true;
-
-        // Add one image per variant first (ensure each variant has its own image)
-        foreach (var v in variantList)
+        var texts = new[]
         {
-            if (v.Images != null && v.Images.Any())
-            {
-                foreach (var vi in v.Images.OrderBy(img => img.DisplayOrder))
-                {
-                    if (usedUrls.Contains(vi.ImageUrl)) continue;
-                    images.Add(new ProductImage
-                    {
-                        ProductId = Guid.Empty,
-                        ImageUrl = vi.ImageUrl,
-                        ColorName = v.Color,
-                        ColorCode = v.ColorCode,
-                        IsPrimary = firstFlag
-                    });
-                    usedUrls.Add(vi.ImageUrl);
-                    firstFlag = false;
-                    if (images.Count >= desired) break;
-                }
-            }
-            if (images.Count >= desired) break;
-        }
+            "Amazing clarity and punchy bass!",
+            "Great battery backup and fit is premium.",
+            "Really impressive quality for this price point.",
+            "Very fast delivery, product is extremely premium."
+        };
 
-        // If we still need more images, pull unique images from the category pool
-        var poolIdx = 0;
-        while (images.Count < desired && poolIdx < pool.Length)
+        var reviews = new List<ProductReview>();
+        for (int i = 0; i < 2; i++)
         {
-            var url = pool[poolIdx++];
-            if (string.IsNullOrWhiteSpace(url)) continue;
-            if (usedUrls.Contains(url)) continue;
-            images.Add(new ProductImage
+            reviews.Add(new ProductReview
             {
-                ProductId = Guid.Empty,
-                ImageUrl = url,
-                ColorName = string.Empty,
-                ColorCode = string.Empty,
-                IsPrimary = false
+                UserId = adminUserId ?? string.Empty,
+                Rating = rnd.Next(4, 6),
+                Comment = texts[rnd.Next(texts.Length)],
+                CreatedDate = DateTime.UtcNow.AddDays(-rnd.Next(1, 15)),
+                IsVerifiedPurchase = true
             });
-            usedUrls.Add(url);
         }
-
-        // Ensure one primary is set
-        if (!images.Any(i => i.IsPrimary)) images[0].IsPrimary = true;
-
-        // Validation: all images must have non-empty, valid urls
-        foreach (var img in images)
-        {
-            if (string.IsNullOrWhiteSpace(img.ImageUrl))
-                throw new Exception($"Missing image for {productName}");
-        }
-
-        return images;
+        return reviews;
     }
 
     private static async Task CreateOrSyncInventory(AppDbContext context, Product product)
