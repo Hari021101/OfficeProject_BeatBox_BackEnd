@@ -19,6 +19,7 @@ public class ReturnController : ControllerBase
         _returnService = returnService;
     }
 
+    /// <summary>Admin: get all return requests.</summary>
     [HttpGet]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> GetAll()
@@ -27,6 +28,16 @@ public class ReturnController : ControllerBase
         return Ok(requests);
     }
 
+    /// <summary>Customer: check if a return already exists for an order.</summary>
+    [HttpGet("order/{orderId:int}")]
+    public async Task<IActionResult> GetByOrder(int orderId)
+    {
+        var result = await _returnService.GetByOrderIdAsync(orderId);
+        if (result == null) return Ok(null);
+        return Ok(result);
+    }
+
+    /// <summary>Customer: create a new return request.</summary>
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] ReturnRequestDto dto)
     {
@@ -34,7 +45,8 @@ public class ReturnController : ControllerBase
         return CreatedAtAction(nameof(GetAll), new { id = result.Id }, result);
     }
 
-    [HttpPut("{id}/status")]
+    /// <summary>Admin: update the status of a return request.</summary>
+    [HttpPut("{id:guid}/status")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> UpdateStatus(Guid id, [FromBody] UpdateReturnStatusDto request)
     {

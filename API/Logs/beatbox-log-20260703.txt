@@ -1,0 +1,1004 @@
+2026-07-03 18:40:55.904 +05:30 [WRN] An warning or error occurred while applying database migrations. Proceeding to seeding.
+System.InvalidOperationException: An error was generated for warning 'Microsoft.EntityFrameworkCore.Migrations.PendingModelChangesWarning': The model for context 'AppDbContext' has pending changes. Add a new migration before updating the database. This exception can be suppressed or logged by passing event ID 'RelationalEventId.PendingModelChangesWarning' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+   at Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log[TLoggerCategory](IDiagnosticsLogger`1 logger, TParam arg)
+   at Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions.PendingModelChangesWarning(IDiagnosticsLogger`1 diagnostics, Type contextType)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 130
+2026-07-03 18:40:56.542 +05:30 [ERR] Failed executing DbCommand (8ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsEmailVerified], [a].[IsPhoneVerified], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2026-07-03 18:40:56.564 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsActive'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2a747377-1ba1-4835-ab95-00f85222ded6
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsActive'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2a747377-1ba1-4835-ab95-00f85222ded6
+Error Number:207,State:1,Class:16
+2026-07-03 18:40:56.578 +05:30 [ERR] An error occurred while seeding the database.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsActive'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at Infrastructure.Data.DbSeeder.EnsureAdminAsync(UserManager`1 userManager, RoleManager`1 roleManager) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 552
+   at Infrastructure.Data.DbSeeder.SeedAsync(AppDbContext context, UserManager`1 userManager, RoleManager`1 roleManager, Boolean force, Boolean isDevelopment) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 410
+   at Program.<Main>$(String[] args) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 146
+ClientConnectionId:2a747377-1ba1-4835-ab95-00f85222ded6
+Error Number:207,State:1,Class:16
+2026-07-03 18:40:57.314 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP 127.0.0.1 responded 204 in 28ms
+2026-07-03 18:40:57.314 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 28ms
+2026-07-03 18:40:57.795 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-03 18:40:57.992 +05:30 [ERR] Failed executing DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Comment], [s].[CreatedDate], [s].[IsVerifiedPurchase], [s].[ProductId], [s].[Rating], [s].[UserId], [s].[Id0], [s].[AccessFailedCount], [s].[ConcurrencyStamp], [s].[CreatedDate0], [s].[Email], [s].[EmailConfirmed], [s].[FullName], [s].[IsActive], [s].[IsEmailVerified], [s].[IsPhoneVerified], [s].[LockoutEnabled], [s].[LockoutEnd], [s].[NormalizedEmail], [s].[NormalizedUserName], [s].[PasswordHash], [s].[PhoneNumber], [s].[PhoneNumberConfirmed], [s].[SecurityStamp], [s].[TwoFactorEnabled], [s].[UserName], [p].[Id], [c].[Id]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+INNER JOIN (
+    SELECT [p0].[Id], [p0].[Comment], [p0].[CreatedDate], [p0].[IsVerifiedPurchase], [p0].[ProductId], [p0].[Rating], [p0].[UserId], [a].[Id] AS [Id0], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate] AS [CreatedDate0], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsEmailVerified], [a].[IsPhoneVerified], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [ProductReviews] AS [p0]
+    INNER JOIN [AspNetUsers] AS [a] ON [p0].[UserId] = [a].[Id]
+) AS [s] ON [p].[Id] = [s].[ProductId]
+ORDER BY [p].[Id], [c].[Id]
+2026-07-03 18:40:58.002 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsActive'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateSplitIncludeCollectionAsync>g__InitializeReaderAsync|26_0[TIncludingEntity,TIncludedEntity](RelationalQueryContext queryContext, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2a747377-1ba1-4835-ab95-00f85222ded6
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsActive'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateSplitIncludeCollectionAsync>g__InitializeReaderAsync|26_0[TIncludingEntity,TIncludedEntity](RelationalQueryContext queryContext, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:2a747377-1ba1-4835-ab95-00f85222ded6
+Error Number:207,State:1,Class:16
+2026-07-03 18:40:58.021 +05:30 [ERR] An unhandled exception occurred during request GET /api/product: Invalid column name 'IsActive'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsActive'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateSplitIncludeCollectionAsync>g__InitializeReaderAsync|26_0[TIncludingEntity,TIncludedEntity](RelationalQueryContext queryContext, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Infrastructure.Repositories.ProductRepository.GetAllAsync() in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Repositories\ProductRepository.cs:line 19
+   at Infrastructure.Services.ProductService.GetAllProductsAsync() in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ProductService.cs:line 39
+   at API.Controllers.ProductController.GetAllProducts() in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ProductController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+ClientConnectionId:2a747377-1ba1-4835-ab95-00f85222ded6
+Error Number:207,State:1,Class:16
+2026-07-03 18:40:58.023 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP 127.0.0.1. Response: 200 in 691ms
+2026-07-03 18:41:06.179 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:06.179 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:06.520 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP 127.0.0.1 responded 204 in 1ms
+2026-07-03 18:41:06.544 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 22ms
+2026-07-03 18:41:06.544 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 21ms
+2026-07-03 18:41:06.545 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 17ms
+2026-07-03 18:41:06.543 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:06.545 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 16ms
+2026-07-03 18:41:06.559 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:06.574 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:06.587 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:06.589 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 47ms
+2026-07-03 18:41:06.589 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 15ms
+2026-07-03 18:41:06.596 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:06.605 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:06.612 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:06.964 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP 127.0.0.1. Response: 200 in 757ms
+2026-07-03 18:41:07.008 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 35ms
+2026-07-03 18:41:07.069 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 450ms
+2026-07-03 18:41:07.088 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP 127.0.0.1. Response: 200 in 16ms
+2026-07-03 18:41:30.352 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 23613ms
+2026-07-03 18:41:30.648 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:30.648 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:30.707 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP 127.0.0.1. Response: 200 in 36ms
+2026-07-03 18:41:30.738 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 14ms
+2026-07-03 18:41:30.971 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:30.971 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:30.971 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:30.971 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:30.974 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:30.974 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:30.995 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 18:41:30.996 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:31.003 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 18:41:31.005 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:31.014 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:31.024 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:31.030 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:31.038 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:31.074 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP 127.0.0.1. Response: 200 in 18ms
+2026-07-03 18:41:31.096 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 18ms
+2026-07-03 18:41:38.047 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 6950ms
+2026-07-03 18:41:39.160 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:39.163 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:39.175 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 6ms
+2026-07-03 18:41:39.187 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP 127.0.0.1. Response: 200 in 7ms
+2026-07-03 18:41:39.715 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:39.717 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:39.722 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 18:41:39.725 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 18:41:39.725 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:39.727 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:39.728 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:39.728 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:39.730 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:39.730 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:39.735 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:39.739 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:39.741 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:39.744 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:41:39.754 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 5ms
+2026-07-03 18:41:39.764 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 6ms
+2026-07-03 18:41:51.381 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:41:51.381 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:07.256 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 27333ms
+2026-07-03 18:42:11.776 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:11.777 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:11.798 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 14ms
+2026-07-03 18:42:11.966 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 6ms
+2026-07-03 18:42:12.883 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:12.884 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:12.886 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:42:12.886 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:12.888 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:42:12.889 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:12.894 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 18:42:12.896 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:12.901 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:12.903 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 2ms
+2026-07-03 18:42:12.910 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:42:12.914 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:12.919 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:42:12.925 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:12.948 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 9ms
+2026-07-03 18:42:12.992 +05:30 [ERR] Failed executing DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Id], [s].[Comment], [s].[CreatedDate], [s].[IsVerifiedPurchase], [s].[ProductId], [s].[Rating], [s].[UserId], [s].[Id0], [s].[AccessFailedCount], [s].[ConcurrencyStamp], [s].[CreatedDate0], [s].[Email], [s].[EmailConfirmed], [s].[FullName], [s].[IsActive], [s].[IsEmailVerified], [s].[IsPhoneVerified], [s].[LockoutEnabled], [s].[LockoutEnd], [s].[NormalizedEmail], [s].[NormalizedUserName], [s].[PasswordHash], [s].[PhoneNumber], [s].[PhoneNumberConfirmed], [s].[SecurityStamp], [s].[TwoFactorEnabled], [s].[UserName], [p].[Id], [c].[Id]
+FROM [Products] AS [p]
+INNER JOIN [Categories] AS [c] ON [p].[CategoryId] = [c].[Id]
+INNER JOIN (
+    SELECT [p0].[Id], [p0].[Comment], [p0].[CreatedDate], [p0].[IsVerifiedPurchase], [p0].[ProductId], [p0].[Rating], [p0].[UserId], [a].[Id] AS [Id0], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[CreatedDate] AS [CreatedDate0], [a].[Email], [a].[EmailConfirmed], [a].[FullName], [a].[IsActive], [a].[IsEmailVerified], [a].[IsPhoneVerified], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+    FROM [ProductReviews] AS [p0]
+    INNER JOIN [AspNetUsers] AS [a] ON [p0].[UserId] = [a].[Id]
+) AS [s] ON [p].[Id] = [s].[ProductId]
+ORDER BY [p].[Id], [c].[Id]
+2026-07-03 18:42:13.034 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsActive'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateSplitIncludeCollectionAsync>g__InitializeReaderAsync|26_0[TIncludingEntity,TIncludedEntity](RelationalQueryContext queryContext, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:95349eda-fbc9-4b18-9e65-9d139d6d873d
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsActive'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateSplitIncludeCollectionAsync>g__InitializeReaderAsync|26_0[TIncludingEntity,TIncludedEntity](RelationalQueryContext queryContext, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:95349eda-fbc9-4b18-9e65-9d139d6d873d
+Error Number:207,State:1,Class:16
+2026-07-03 18:42:13.155 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-07-03 18:42:13.226 +05:30 [ERR] An unhandled exception occurred during request GET /api/product: Invalid column name 'IsActive'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'IsActive'.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__270_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateSplitIncludeCollectionAsync>g__InitializeReaderAsync|26_0[TIncludingEntity,TIncludedEntity](RelationalQueryContext queryContext, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Infrastructure.Repositories.ProductRepository.GetAllAsync() in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Repositories\ProductRepository.cs:line 19
+   at Infrastructure.Services.ProductService.GetAllProductsAsync() in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ProductService.cs:line 39
+   at API.Controllers.ProductController.GetAllProducts() in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ProductController.cs:line 31
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+ClientConnectionId:95349eda-fbc9-4b18-9e65-9d139d6d873d
+Error Number:207,State:1,Class:16
+2026-07-03 18:42:23.107 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 6ms
+2026-07-03 18:42:23.110 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:23.112 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:23.115 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:42:23.116 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 9868ms
+2026-07-03 18:42:23.120 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:23.296 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 163ms
+2026-07-03 18:42:23.331 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 8ms
+2026-07-03 18:42:23.357 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 231ms
+2026-07-03 18:42:23.410 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 35ms
+2026-07-03 18:42:23.437 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:23.559 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 94ms
+2026-07-03 18:42:23.653 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 5ms
+2026-07-03 18:42:23.727 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:23.771 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 37ms
+2026-07-03 18:42:23.928 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:23.930 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 4ms
+2026-07-03 18:42:24.267 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 331ms
+2026-07-03 18:42:24.292 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:24.294 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 11ms
+2026-07-03 18:42:24.611 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 305ms
+2026-07-03 18:42:24.650 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 19ms
+2026-07-03 18:42:37.526 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:37.527 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:58.576 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:58.578 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:58.581 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:58.582 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:42:58.582 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:42:58.583 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:42:58.593 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 5ms
+2026-07-03 18:42:58.598 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 18:42:58.614 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 11ms
+2026-07-03 18:42:58.808 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP 127.0.0.1. Response: 200 in 3ms
+2026-07-03 18:43:01.966 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 3162ms
+2026-07-03 18:43:06.389 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:43:06.389 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 18:43:06.408 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP 127.0.0.1. Response: 200 in 11ms
+2026-07-03 18:43:06.579 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 9ms
+2026-07-03 18:43:07.498 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:43:07.498 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:43:07.499 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:43:07.500 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:43:07.501 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:43:07.502 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:43:07.508 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:43:07.509 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 18:43:07.517 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 18:43:07.518 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:43:07.523 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP 127.0.0.1 responded 204 in 0ms
+2026-07-03 18:43:07.530 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:43:07.535 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:43:07.540 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:43:07.563 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 16ms
+2026-07-03 18:43:07.731 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 3ms
+2026-07-03 18:50:07.608 +05:30 [ERR] Failed executing DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ReturnRequests]') AND [c].[name] = N'OrderId');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [ReturnRequests] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [ReturnRequests] ALTER COLUMN [OrderId] int NOT NULL;
+2026-07-03 18:51:37.082 +05:30 [INF] API REQUEST: HEAD /api/product from IP ::1 responded 405 in 34ms
+2026-07-03 18:51:37.252 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-03 18:51:37.556 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 432ms
+2026-07-03 18:51:43.626 +05:30 [INF] API REQUEST: HEAD /api/product/search from IP ::1 responded 405 in 8ms
+2026-07-03 18:51:43.916 +05:30 [INF] API REQUEST: GET /api/product/search from IP ::1 responded 200 in 287ms
+2026-07-03 18:51:49.660 +05:30 [INF] API REQUEST: HEAD /api/product/55d28a95-7a00-49a0-a292-09c0584a7a16 from IP ::1 responded 405 in 0ms
+2026-07-03 18:51:49.767 +05:30 [INF] API REQUEST: GET /api/product/55d28a95-7a00-49a0-a292-09c0584a7a16 from IP ::1 responded 200 in 105ms
+2026-07-03 18:51:56.903 +05:30 [INF] API REQUEST: GET /api/product/55d28a95-7a00-49a0-a292-09c0584a7a16 from IP ::1 responded 200 in 12ms
+2026-07-03 18:51:56.958 +05:30 [INF] API REQUEST: GET /favicon.ico from IP ::1 responded 404 in 4ms
+2026-07-03 18:56:34.547 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 4ms
+2026-07-03 18:56:34.547 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 8ms
+2026-07-03 18:56:34.915 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 361ms
+2026-07-03 18:56:34.950 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 23ms
+2026-07-03 18:56:35.648 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.648 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.650 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.656 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.679 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.680 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.689 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 33ms
+2026-07-03 18:56:35.694 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 33ms
+2026-07-03 18:56:35.696 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.697 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.697 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.698 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:56:35.701 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 1ms
+2026-07-03 18:56:35.812 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 110ms
+2026-07-03 18:56:36.178 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 476ms
+2026-07-03 18:56:36.236 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 576ms
+2026-07-03 18:56:36.279 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 33ms
+2026-07-03 18:56:36.334 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker1.jpg from IP ::1 responded 304 in 5ms
+2026-07-03 18:56:36.334 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse1.jpg from IP ::1 responded 304 in 5ms
+2026-07-03 18:56:36.334 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_sideAngle.jpg from IP ::1 responded 304 in 7ms
+2026-07-03 18:56:36.334 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_topAngle.jpg from IP ::1 responded 304 in 7ms
+2026-07-03 18:56:36.334 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_closedAngle.jpg from IP ::1 responded 304 in 3ms
+2026-07-03 18:56:36.437 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone13.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:36.522 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone3_orange_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:36.523 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone1_brown_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:36.540 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard1.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:36.550 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone2_red_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:50.110 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_sideAngle2.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:50.641 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker1.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:50.641 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_grey_frontangle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:50.642 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker10.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:51.051 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband1.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:51.085 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker12.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:56:53.424 +05:30 [INF] API REQUEST: GET /images/products/neckbands/neckband11.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:57:19.802 +05:30 [INF] API REQUEST: OPTIONS /api/coupon from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:19.802 +05:30 [INF] API REQUEST: OPTIONS /api/coupon from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:19.826 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_black_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:57:19.826 +05:30 [INF] API REQUEST: GET /images/products/soundbars/soundbar1.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:57:19.916 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/coupon from IP ::1. Response: 200 in 109ms
+2026-07-03 18:57:19.923 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/coupon from IP ::1. Response: 200 in 4ms
+2026-07-03 18:57:21.486 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_white_frontangle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:57:22.997 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_blue_FrontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:57:22.997 +05:30 [INF] API REQUEST: GET /images/products/default/default13.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:57:28.695 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone2_red_sideAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:57:32.090 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:32.096 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 10ms
+2026-07-03 18:57:32.099 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:32.107 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 56234ms
+2026-07-03 18:57:32.107 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:32.236 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 130ms
+2026-07-03 18:57:32.246 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 8ms
+2026-07-03 18:57:32.331 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 227ms
+2026-07-03 18:57:32.339 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:32.377 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 42ms
+2026-07-03 18:57:32.450 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 108ms
+2026-07-03 18:57:32.456 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:32.467 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 14ms
+2026-07-03 18:57:32.559 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 98ms
+2026-07-03 18:57:32.563 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:32.570 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 9ms
+2026-07-03 18:57:32.804 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 236ms
+2026-07-03 18:57:32.817 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:32.834 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 25ms
+2026-07-03 18:57:33.112 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 290ms
+2026-07-03 18:57:33.126 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 12ms
+2026-07-03 18:57:33.695 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:33.695 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:38.193 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:38.194 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:38.254 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 56ms
+2026-07-03 18:57:38.267 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 9ms
+2026-07-03 18:57:41.257 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:41.258 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:41.342 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 81ms
+2026-07-03 18:57:41.352 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 6ms
+2026-07-03 18:57:48.216 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:48.217 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:48.268 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 48ms
+2026-07-03 18:57:51.524 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:51.526 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:51.526 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 18:57:51.561 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 31ms
+2026-07-03 18:57:51.561 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 34ms
+2026-07-03 18:57:51.576 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 7ms
+2026-07-03 18:57:51.576 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 7ms
+2026-07-03 18:58:03.247 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:03.249 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:03.349 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 100ms
+2026-07-03 18:58:03.373 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 21ms
+2026-07-03 18:58:04.220 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:04.220 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:04.220 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:04.222 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:04.231 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 7ms
+2026-07-03 18:58:04.231 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 6ms
+2026-07-03 18:58:04.242 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 6ms
+2026-07-03 18:58:04.242 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 5ms
+2026-07-03 18:58:06.307 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:06.307 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:06.308 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:06.315 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 18:58:06.316 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:06.316 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:06.318 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 18:58:06.331 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 14ms
+2026-07-03 18:58:06.339 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 5ms
+2026-07-03 18:58:09.422 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:09.423 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:09.425 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 2932ms
+2026-07-03 18:58:09.426 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 18:58:09.427 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 2ms
+2026-07-03 18:58:09.428 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:09.441 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:09.444 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 13ms
+2026-07-03 18:58:09.455 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 8ms
+2026-07-03 18:58:09.537 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 101ms
+2026-07-03 18:58:09.588 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 7ms
+2026-07-03 18:58:09.602 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_white_fullAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:58:11.711 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 2233ms
+2026-07-03 18:58:13.320 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:13.320 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:13.323 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 18:58:13.325 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 18:58:13.338 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:13.339 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:13.340 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:13.340 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:13.341 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:13.341 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:13.355 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 10ms
+2026-07-03 18:58:13.362 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 17ms
+2026-07-03 18:58:13.373 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 10ms
+2026-07-03 18:58:13.424 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 57ms
+2026-07-03 18:58:13.829 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 6ms
+2026-07-03 18:58:13.843 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 11ms
+2026-07-03 18:58:14.162 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:14.163 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:14.165 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 18:58:14.166 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 18:58:14.167 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:58:14.173 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 7ms
+2026-07-03 18:58:14.185 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 7ms
+2026-07-03 18:58:24.252 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_grey_sideangle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:58:24.751 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone1_brown_topAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:58:28.454 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone3_orange_topAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:58:28.972 +05:30 [INF] API REQUEST: GET /images/products/default/default2.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:58:33.197 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse12.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:58:44.091 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_closedAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:58:44.098 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone1_black_sideAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:58:44.115 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_black_FrontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 18:59:28.135 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 73621ms
+2026-07-03 18:59:28.137 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 1ms
+2026-07-03 18:59:28.137 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:28.140 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:28.141 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:28.150 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 6ms
+2026-07-03 18:59:28.199 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 45ms
+2026-07-03 18:59:28.205 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 65ms
+2026-07-03 18:59:28.234 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 24ms
+2026-07-03 18:59:28.268 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 1ms
+2026-07-03 18:59:28.268 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:28.283 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 10ms
+2026-07-03 18:59:28.293 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 7ms
+2026-07-03 18:59:28.321 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:28.323 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:28.336 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 8ms
+2026-07-03 18:59:28.348 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 9ms
+2026-07-03 18:59:28.410 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:28.431 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 17ms
+2026-07-03 18:59:28.453 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 14ms
+2026-07-03 18:59:28.535 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:28.604 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 62ms
+2026-07-03 18:59:28.666 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 57ms
+2026-07-03 18:59:35.536 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:35.536 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:35.545 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 7ms
+2026-07-03 18:59:35.552 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 3ms
+2026-07-03 18:59:36.396 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:36.396 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:36.465 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 66ms
+2026-07-03 18:59:37.578 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:37.578 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:37.578 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:37.579 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 18:59:37.587 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 5ms
+2026-07-03 18:59:37.591 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 8ms
+2026-07-03 18:59:37.600 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 8ms
+2026-07-03 18:59:37.603 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 6ms
+2026-07-03 19:02:01.778 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:01.782 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:01.783 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:02:01.784 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:01.787 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:01.787 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:01.788 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:01.789 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:02:01.799 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 8ms
+2026-07-03 19:02:01.808 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 13ms
+2026-07-03 19:02:01.808 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 6ms
+2026-07-03 19:02:14.420 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 12480ms
+2026-07-03 19:02:16.315 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:16.315 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:16.317 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:02:16.318 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:02:16.328 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:16.330 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:16.337 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 6ms
+2026-07-03 19:02:16.344 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-07-03 19:02:19.386 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 3027ms
+2026-07-03 19:02:19.388 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:19.388 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:19.393 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:02:19.393 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:02:19.394 +05:30 [INF] API REQUEST: OPTIONS /api/wishlist from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:19.394 +05:30 [INF] API REQUEST: OPTIONS /api/wishlist from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:19.404 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 7ms
+2026-07-03 19:02:19.410 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 3ms
+2026-07-03 19:02:19.558 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/wishlist from IP ::1. Response: 200 in 159ms
+2026-07-03 19:02:19.572 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/wishlist from IP ::1. Response: 200 in 10ms
+2026-07-03 19:02:43.047 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 23621ms
+2026-07-03 19:02:43.048 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:43.048 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:43.065 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:02:43.065 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 19:02:43.098 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:43.098 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:43.114 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 10ms
+2026-07-03 19:02:43.128 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 9ms
+2026-07-03 19:02:51.980 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard10.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:02:52.071 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone14.jpg from IP ::1 responded 304 in 1ms
+2026-07-03 19:02:54.961 +05:30 [INF] API REQUEST: OPTIONS /api/product/c82a5fc8-0c3c-48a6-b201-a2dd6d9b8d2a from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:54.962 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:54.962 +05:30 [INF] API REQUEST: OPTIONS /api/product/c82a5fc8-0c3c-48a6-b201-a2dd6d9b8d2a from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:54.962 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 19:02:54.978 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 11ms
+2026-07-03 19:02:54.989 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product/c82a5fc8-0c3c-48a6-b201-a2dd6d9b8d2a from IP ::1. Response: 200 in 20ms
+2026-07-03 19:02:54.995 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 12ms
+2026-07-03 19:02:55.130 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard11.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:02:55.130 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard12.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:02:57.032 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard13.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:02:57.032 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard14.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:02:57.033 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard15.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:02:57.033 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard2.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:03:44.144 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 101ms
+2026-07-03 19:03:44.144 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 101ms
+2026-07-03 19:03:48.492 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 52ms
+2026-07-03 19:03:49.510 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 856ms
+2026-07-03 19:04:02.048 +05:30 [INF] API REQUEST: HEAD /api/product from IP ::1 responded 405 in 6ms
+2026-07-03 19:04:02.256 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-03 19:04:02.722 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 671ms
+2026-07-03 19:06:52.068 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-03 19:06:52.422 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 345ms
+2026-07-03 19:07:03.248 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 193726ms
+2026-07-03 19:08:04.746 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 1ms
+2026-07-03 19:08:05.076 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 298ms
+2026-07-03 19:09:48.709 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-03 19:09:48.754 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 38ms
+2026-07-03 19:10:19.414 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-03 19:10:19.421 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 4ms
+2026-07-03 19:13:01.543 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-03 19:13:01.556 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 9ms
+2026-07-03 19:14:37.840 +05:30 [INF] API REQUEST: GET /swagger/index.html from IP ::1 responded 200 in 102ms
+2026-07-03 19:14:38.532 +05:30 [INF] API REQUEST: GET /swagger/v1/swagger.json from IP ::1 responded 200 in 138ms
+2026-07-03 19:19:06.823 +05:30 [INF] API REQUEST: POST /api/Account/login from IP ::1 responded 401 in 42ms
+2026-07-03 19:22:44.184 +05:30 [INF] API REQUEST: GET /api/Account/users from IP ::1 responded 401 in 20ms
+2026-07-03 19:23:01.672 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-03 19:23:02.045 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 365ms
+2026-07-03 19:23:02.159 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 19:23:02.451 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 283ms
+2026-07-03 19:23:03.435 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 8ms
+2026-07-03 19:23:03.435 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:23:03.436 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:23:03.437 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:23:03.438 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 2ms
+2026-07-03 19:23:03.453 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:23:03.480 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 28ms
+2026-07-03 19:23:03.481 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:23:03.492 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 19:23:03.750 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 295ms
+2026-07-03 19:23:03.843 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 330ms
+2026-07-03 19:23:03.909 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 51ms
+2026-07-03 19:23:04.016 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 536ms
+2026-07-03 19:23:04.338 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_sideAngle.jpg from IP ::1 responded 304 in 17ms
+2026-07-03 19:23:04.338 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_closedAngle.jpg from IP ::1 responded 304 in 5ms
+2026-07-03 19:23:04.339 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse1.jpg from IP ::1 responded 304 in 13ms
+2026-07-03 19:23:04.340 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_topAngle.jpg from IP ::1 responded 304 in 27ms
+2026-07-03 19:23:04.341 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker1.jpg from IP ::1 responded 304 in 12ms
+2026-07-03 19:23:22.457 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone2_red_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:23:28.390 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker1.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:23:28.963 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_grey_frontangle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:23:29.178 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone1_brown_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:23:29.999 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone13.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:23:30.989 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone3_orange_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:23:31.429 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone14.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:23:32.034 +05:30 [INF] API REQUEST: GET /images/products/default/default13.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:23:41.172 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse12.jpg from IP ::1 responded 304 in 2ms
+2026-07-03 19:23:41.815 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone1_brown_topAngle.jpg from IP ::1 responded 304 in 1ms
+2026-07-03 19:25:39.072 +05:30 [INF] API REQUEST: OPTIONS /api/product/b8c85549-190e-4247-a17f-999581f2d986 from IP ::1 responded 204 in 0ms
+2026-07-03 19:25:39.073 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 19:25:39.077 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 19:25:39.098 +05:30 [INF] API REQUEST: OPTIONS /api/product/b8c85549-190e-4247-a17f-999581f2d986 from IP ::1 responded 204 in 0ms
+2026-07-03 19:25:39.729 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 619ms
+2026-07-03 19:25:39.763 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 30ms
+2026-07-03 19:25:39.927 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product/b8c85549-190e-4247-a17f-999581f2d986 from IP ::1. Response: 200 in 830ms
+2026-07-03 19:25:40.311 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone15.jpg from IP ::1 responded 200 in 82ms
+2026-07-03 19:25:40.311 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone2.jpg from IP ::1 responded 200 in 81ms
+2026-07-03 19:25:42.833 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone11.jpg from IP ::1 responded 200 in 3ms
+2026-07-03 19:25:42.834 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone1.jpg from IP ::1 responded 200 in 9ms
+2026-07-03 19:25:42.847 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone10.jpg from IP ::1 responded 200 in 22ms
+2026-07-03 19:25:42.852 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone12.jpg from IP ::1 responded 200 in 21ms
+2026-07-03 19:25:45.630 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard1.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:25:47.112 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_frontAngle.jpg from IP ::1 responded 200 in 73ms
+2026-07-03 19:25:47.562 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone2_red_sideAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:25:47.951 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard10.jpg from IP ::1 responded 200 in 3ms
+2026-07-03 19:25:48.305 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_sideAngle2.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:25:49.216 +05:30 [INF] API REQUEST: OPTIONS /api/product/55d28a95-7a00-49a0-a292-09c0584a7a16 from IP ::1 responded 204 in 0ms
+2026-07-03 19:25:49.217 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 19:25:49.259 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product/55d28a95-7a00-49a0-a292-09c0584a7a16 from IP ::1. Response: 200 in 37ms
+2026-07-03 19:25:49.264 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 42ms
+2026-07-03 19:25:49.505 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_topAngle2.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:25:49.508 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_sideAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:26:02.232 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 4ms
+2026-07-03 19:26:02.237 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 1ms
+2026-07-03 19:26:09.041 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_topAngle2.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:26:10.445 +05:30 [INF] API REQUEST: OPTIONS /api/product/e1b6bc1d-9773-43df-a52d-46d2504af746 from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:10.449 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:10.450 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:10.449 +05:30 [INF] API REQUEST: OPTIONS /api/product/e1b6bc1d-9773-43df-a52d-46d2504af746 from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:10.540 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 64ms
+2026-07-03 19:26:10.564 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 22ms
+2026-07-03 19:26:10.576 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product/e1b6bc1d-9773-43df-a52d-46d2504af746 from IP ::1. Response: 200 in 119ms
+2026-07-03 19:26:10.865 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_topAngle.jpg from IP ::1 responded 200 in 51ms
+2026-07-03 19:26:10.959 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_sideAngle2.jpg from IP ::1 responded 200 in 145ms
+2026-07-03 19:26:19.977 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 0ms
+2026-07-03 19:26:19.981 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 196473ms
+2026-07-03 19:26:19.997 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:19.998 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:20.002 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:20.010 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:20.207 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 193ms
+2026-07-03 19:26:20.239 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 28ms
+2026-07-03 19:26:20.303 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 291ms
+2026-07-03 19:26:20.339 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 29ms
+2026-07-03 19:26:20.394 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:20.471 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 73ms
+2026-07-03 19:26:20.489 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 16ms
+2026-07-03 19:26:20.607 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:20.607 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:20.669 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 48ms
+2026-07-03 19:26:20.676 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 4ms
+2026-07-03 19:26:20.715 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 1ms
+2026-07-03 19:26:20.720 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:20.935 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 213ms
+2026-07-03 19:26:20.947 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 9ms
+2026-07-03 19:26:21.011 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:21.012 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:21.165 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 142ms
+2026-07-03 19:26:21.208 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 36ms
+2026-07-03 19:26:22.516 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:22.516 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:22.766 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 240ms
+2026-07-03 19:26:24.278 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 6ms
+2026-07-03 19:26:24.286 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 6ms
+2026-07-03 19:26:27.821 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:27.821 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:27.887 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 62ms
+2026-07-03 19:26:27.902 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 11ms
+2026-07-03 19:26:34.035 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:34.045 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:34.046 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:34.049 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:34.191 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 142ms
+2026-07-03 19:26:34.206 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 160ms
+2026-07-03 19:26:34.211 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 16ms
+2026-07-03 19:26:34.226 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 14ms
+2026-07-03 19:26:47.255 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:47.255 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 19:26:47.324 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 66ms
+2026-07-03 19:26:47.340 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 10ms
+2026-07-03 19:27:02.943 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:02.947 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:02.992 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 39ms
+2026-07-03 19:27:03.033 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 38ms
+2026-07-03 19:27:16.194 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:16.194 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:16.281 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 83ms
+2026-07-03 19:27:16.310 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 24ms
+2026-07-03 19:27:16.517 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:16.517 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:16.600 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 78ms
+2026-07-03 19:27:16.657 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 53ms
+2026-07-03 19:27:37.080 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.080 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.082 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 1ms
+2026-07-03 19:27:37.082 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.095 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.096 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.106 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.106 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.107 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.107 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.107 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.107 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 19:27:37.108 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:27:37.109 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 19:27:37.189 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 70ms
+2026-07-03 19:27:37.221 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 25ms
+2026-07-03 19:27:37.462 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 342ms
+2026-07-03 19:28:02.969 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone3_orange_topAngle.jpg from IP ::1 responded 200 in 131ms
+2026-07-03 19:28:03.325 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker10.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:28:12.593 +05:30 [INF] API REQUEST: GET /images/products/default/default2.jpg from IP ::1 responded 200 in 3ms
+2026-07-03 19:28:17.515 +05:30 [INF] API REQUEST: OPTIONS /api/product/c5d3753a-ce2b-48cd-90d1-b695a190bba9 from IP ::1 responded 204 in 0ms
+2026-07-03 19:28:17.515 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 1ms
+2026-07-03 19:28:17.515 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-03 19:28:17.515 +05:30 [INF] API REQUEST: OPTIONS /api/product/c5d3753a-ce2b-48cd-90d1-b695a190bba9 from IP ::1 responded 204 in 0ms
+2026-07-03 19:28:17.553 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 34ms
+2026-07-03 19:28:17.566 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 8ms
+2026-07-03 19:28:17.589 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product/c5d3753a-ce2b-48cd-90d1-b695a190bba9 from IP ::1. Response: 200 in 69ms
+2026-07-03 19:28:17.808 +05:30 [INF] API REQUEST: GET /images/products/default/default15.jpg from IP ::1 responded 200 in 4ms
+2026-07-03 19:28:17.808 +05:30 [INF] API REQUEST: GET /images/products/default/default14.jpg from IP ::1 responded 200 in 3ms
+2026-07-03 19:28:25.922 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:28:25.922 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:28:25.958 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 32ms
+2026-07-03 19:29:10.979 +05:30 [INF] API REQUEST: GET /swagger/index.html from IP ::1 responded 200 in 1ms
+2026-07-03 19:29:11.237 +05:30 [INF] API REQUEST: GET /swagger/v1/swagger.json from IP ::1 responded 200 in 32ms
+2026-07-03 19:29:50.172 +05:30 [INF] API REQUEST: GET /swagger/index.html from IP ::1 responded 200 in 1ms
+2026-07-03 19:29:50.363 +05:30 [INF] API REQUEST: GET /swagger/v1/swagger.json from IP ::1 responded 200 in 40ms
+2026-07-03 19:30:44.562 +05:30 [INF] API REQUEST: GET /api/Account/users from IP ::1 responded 401 in 0ms
+2026-07-03 19:31:09.705 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:09.728 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 20ms
+2026-07-03 19:31:09.861 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 3ms
+2026-07-03 19:31:14.166 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:14.173 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 3ms
+2026-07-03 19:31:14.183 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:14.186 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:31:14.228 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:14.240 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 9ms
+2026-07-03 19:31:14.269 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:14.340 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:14.351 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 76ms
+2026-07-03 19:31:14.639 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-07-03 19:31:36.354 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:36.403 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 44ms
+2026-07-03 19:31:36.590 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 10ms
+2026-07-03 19:31:38.248 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:38.251 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:31:38.260 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:38.264 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:31:38.282 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:38.293 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 7ms
+2026-07-03 19:31:38.325 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:38.325 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:31:38.359 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 2ms
+2026-07-03 19:32:01.011 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 46192ms
+2026-07-03 19:32:09.669 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 0ms
+2026-07-03 19:32:09.737 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 272357ms
+2026-07-03 19:32:09.816 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-03 19:32:09.857 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 36ms
+2026-07-03 19:32:09.949 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 19:32:09.962 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 9ms
+2026-07-03 19:32:11.321 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 18ms
+2026-07-03 19:32:11.813 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 4ms
+2026-07-03 19:32:12.367 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-03 19:32:12.382 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 8ms
+2026-07-03 19:32:12.421 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 3ms
+2026-07-03 19:32:13.068 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-03 19:32:13.078 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 4ms
+2026-07-03 19:32:13.773 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 3ms
+2026-07-03 19:32:15.932 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-03 19:32:15.953 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 18ms
+2026-07-03 19:32:15.970 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 7ms
+2026-07-03 19:32:16.183 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-03 19:32:16.202 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 14ms
+2026-07-03 19:32:16.256 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 4ms
+2026-07-03 19:33:58.009 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 139617ms
+2026-07-03 19:35:03.239 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:35:03.253 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:35:03.254 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:35:03.258 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:35:03.259 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:35:03.259 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:35:03.255 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:35:03.286 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:35:03.330 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 45ms
+2026-07-03 19:35:03.348 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 13ms
+2026-07-03 19:35:03.397 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 111ms
+2026-07-03 19:35:13.024 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_black_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:35:13.026 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_blue_FrontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-03 19:35:15.889 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 19:35:15.890 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 19:35:15.891 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 12298ms
+2026-07-03 19:35:15.955 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 52ms
+2026-07-03 19:35:16.100 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 68ms
+2026-07-03 19:35:45.538 +05:30 [INF] API REQUEST: OPTIONS /api/account/users/02617f55-f35f-4b7d-81cb-4ae2c64f4096/lock from IP ::1 responded 204 in 0ms
+2026-07-03 19:35:45.544 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/account/users/02617f55-f35f-4b7d-81cb-4ae2c64f4096/lock from IP ::1. Response: 404 in 0ms
+2026-07-03 19:37:31.394 +05:30 [INF] API REQUEST: GET /swagger/index.html from IP ::1 responded 200 in 1ms
+2026-07-03 19:37:31.627 +05:30 [INF] API REQUEST: GET /swagger/v1/swagger.json from IP ::1 responded 200 in 20ms
+2026-07-03 19:40:35.351 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-03 19:40:35.539 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/account/login from IP ::1. Response: 200 in 186ms
+2026-07-03 19:40:42.949 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:40:42.954 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-03 19:40:42.980 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:40:42.983 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:40:43.027 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:40:43.041 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 7ms
+2026-07-03 19:40:43.072 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:40:43.092 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 15ms
+2026-07-03 19:40:43.138 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-07-03 19:40:49.428 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 5499ms
+2026-07-03 19:40:49.434 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 19:40:49.448 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 11ms
+2026-07-03 19:40:49.893 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 19:40:49.904 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 6ms
+2026-07-03 19:40:50.043 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 4ms
+2026-07-03 19:40:50.140 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 2ms
+2026-07-03 19:42:33.064 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon from IP ::1 responded 204 in 1ms
+2026-07-03 19:42:33.611 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/Coupon from IP ::1. Response: 201 in 542ms
+2026-07-03 19:42:33.688 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 19:42:33.702 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 7ms
+2026-07-03 19:42:33.852 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 19:42:33.866 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 4ms
+2026-07-03 19:43:22.503 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/null from IP ::1 responded 204 in 0ms
+2026-07-03 19:43:22.509 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Coupon/null from IP ::1. Response: 404 in 0ms
+2026-07-03 19:43:53.270 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/null from IP ::1 responded 204 in 0ms
+2026-07-03 19:43:53.273 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Coupon/null from IP ::1. Response: 404 in 0ms
+2026-07-03 19:44:51.584 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/null from IP ::1 responded 204 in 0ms
+2026-07-03 19:44:51.593 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Coupon/null from IP ::1. Response: 404 in 0ms
+2026-07-03 19:46:03.190 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-03 19:46:03.251 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 56ms
+2026-07-03 19:46:03.339 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 3ms
+2026-07-03 19:46:05.617 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:46:05.620 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:46:05.633 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 19:46:05.635 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 19:46:05.664 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 19:46:05.673 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 6ms
+2026-07-03 19:46:05.843 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 19:46:05.910 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 19:46:05.925 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 78ms
+2026-07-03 19:46:05.936 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 16ms
+2026-07-03 19:46:06.141 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 5ms
+2026-07-03 19:46:20.911 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 14530ms
+2026-07-03 19:46:20.960 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 19:46:20.975 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 6ms
+2026-07-03 19:46:20.990 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 19:46:20.997 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 3ms
+2026-07-03 19:46:21.027 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 2ms
+2026-07-03 19:46:21.056 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 2ms
+2026-07-03 20:17:37.530 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/4/toggle from IP ::1 responded 204 in 0ms
+2026-07-03 20:17:37.594 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PATCH /api/Coupon/4/toggle from IP ::1. Response: 200 in 61ms
+2026-07-03 20:17:37.600 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-03 20:17:37.600 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-03 20:17:37.607 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 4ms
+2026-07-03 20:17:37.620 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 16ms
+2026-07-03 20:17:38.399 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PATCH /api/Coupon/4/toggle from IP ::1. Response: 200 in 4ms
+2026-07-03 20:17:38.418 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 5ms
+2026-07-03 20:17:38.421 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 7ms
+2026-07-03 20:17:56.156 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 20:17:56.156 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-03 20:17:56.181 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 20ms
+2026-07-03 20:17:56.197 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 11ms
+2026-07-03 20:17:57.181 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 9ms
+2026-07-03 20:17:57.193 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 8ms
+2026-07-03 20:17:58.314 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 19ms
+2026-07-03 20:17:58.332 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 12ms
+2026-07-03 20:18:04.245 +05:30 [INF] API REQUEST: OPTIONS /api/account/users/508ca526-5dab-4769-90c9-c2da4c775c9b/lock from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:04.248 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/account/users/508ca526-5dab-4769-90c9-c2da4c775c9b/lock from IP ::1. Response: 404 in 0ms
+2026-07-03 20:18:08.874 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:08.875 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:08.968 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 89ms
+2026-07-03 20:18:10.019 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 0ms
+2026-07-03 20:18:10.024 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.025 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.026 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.026 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.062 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 30ms
+2026-07-03 20:18:10.069 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 4ms
+2026-07-03 20:18:10.095 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 64ms
+2026-07-03 20:18:10.109 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 11ms
+2026-07-03 20:18:10.200 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.201 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.213 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 10ms
+2026-07-03 20:18:10.218 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 3ms
+2026-07-03 20:18:10.247 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.247 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.258 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 8ms
+2026-07-03 20:18:10.263 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 3ms
+2026-07-03 20:18:10.355 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.356 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.386 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 27ms
+2026-07-03 20:18:10.395 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 6ms
+2026-07-03 20:18:10.433 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:10.454 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 19ms
+2026-07-03 20:18:10.464 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 6ms
+2026-07-03 20:18:12.001 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:12.003 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:12.004 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 20:18:12.005 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:12.006 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:12.006 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:12.007 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-03 20:18:12.014 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-03 20:18:12.026 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 10ms
+2026-07-03 20:18:12.030 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 13ms
+2026-07-03 20:18:12.040 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 7ms
+2026-07-03 20:44:22.204 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 1569985ms

@@ -19,6 +19,24 @@ public class ReturnService : IReturnService
         _context = context;
     }
 
+    private static ReturnRequestDto ToDto(ReturnRequest x) => new ReturnRequestDto
+    {
+        Id = x.Id,
+        OrderId = x.OrderId,
+        UserId = x.UserId,
+        ProductId = x.ProductId,
+        ProductName = x.Product?.Name ?? "Unknown Product",
+        CustomerName = x.User?.FullName ?? "Unknown User",
+        Reason = x.Reason,
+        Description = x.Description,
+        ImageUrls = x.ImageUrls,
+        PreferredResolution = x.PreferredResolution,
+        Status = x.Status,
+        AdminNotes = x.AdminNotes,
+        RequestDate = x.RequestDate,
+        ProcessedDate = x.ProcessedDate
+    };
+
     public async Task<IEnumerable<ReturnRequestDto>> GetAllRequestsAsync()
     {
         var requests = await _context.ReturnRequests
@@ -28,20 +46,17 @@ public class ReturnService : IReturnService
             .OrderByDescending(x => x.RequestDate)
             .ToListAsync();
 
-        return requests.Select(x => new ReturnRequestDto
-        {
-            Id = x.Id,
-            OrderId = x.OrderId,
-            UserId = x.UserId,
-            ProductId = x.ProductId,
-            ProductName = x.Product?.Name ?? "Unknown Product",
-            CustomerName = x.User?.FullName ?? "Unknown User",
-            Reason = x.Reason,
-            Status = x.Status,
-            AdminNotes = x.AdminNotes,
-            RequestDate = x.RequestDate,
-            ProcessedDate = x.ProcessedDate
-        });
+        return requests.Select(ToDto);
+    }
+
+    public async Task<ReturnRequestDto?> GetByOrderIdAsync(int orderId)
+    {
+        var request = await _context.ReturnRequests
+            .Include(x => x.Product)
+            .Include(x => x.User)
+            .FirstOrDefaultAsync(x => x.OrderId == orderId);
+
+        return request == null ? null : ToDto(request);
     }
 
     public async Task<ReturnRequestDto> CreateRequestAsync(ReturnRequestDto dto)
@@ -52,6 +67,9 @@ public class ReturnService : IReturnService
             UserId = dto.UserId,
             ProductId = dto.ProductId,
             Reason = dto.Reason,
+            Description = dto.Description,
+            ImageUrls = dto.ImageUrls,
+            PreferredResolution = dto.PreferredResolution,
             Status = "Pending Approval"
         };
 
@@ -70,22 +88,15 @@ public class ReturnService : IReturnService
         if (request == null) throw new Exception("Return request not found");
 
         request.Status = status;
-        request.AdminNotes = adminNotes;
+        if (adminNotes != null) request.AdminNotes = adminNotes;
         request.ProcessedDate = DateTime.UtcNow;
 
         await _context.SaveChangesAsync();
 
-        return new ReturnRequestDto
-        {
-            Id = request.Id,
-            OrderId = request.OrderId,
-            UserId = request.UserId,
-            ProductId = request.ProductId,
-            Reason = request.Reason,
-            Status = request.Status,
-            AdminNotes = request.AdminNotes,
-            RequestDate = request.RequestDate,
-            ProcessedDate = request.ProcessedDate
-        };
+        // Re-load with navigations for full DTO
+        await _context.Entry(request).Reference(x => x.Product).LoadAsync();
+        await _context.Entry(request).Reference(x => x.User).LoadAsync();
+
+        return ToDto(request);
     }
 }

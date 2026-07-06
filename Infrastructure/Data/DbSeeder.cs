@@ -398,14 +398,33 @@ public static class DbSeeder
     }
 
     // Seed entry point
-    public static async Task SeedAsync(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+    public static async Task SeedAsync(AppDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager, bool force = false, bool isDevelopment = false)
     {
+
         if (context == null) throw new ArgumentNullException(nameof(context));
         if (userManager == null) throw new ArgumentNullException(nameof(userManager));
         if (roleManager == null) throw new ArgumentNullException(nameof(roleManager));
 
+        if (!force && (await context.Categories.AnyAsync() || await context.Products.AnyAsync()))
+        {
+            await EnsureAdminAsync(userManager, roleManager);
+            if (isDevelopment && !await context.Coupons.AnyAsync())
+            {
+                var coupons = new List<Coupon>
+                {
+                    new Coupon { Code = "DEAL10", DiscountPercentage = 10, MinimumOrderAmount = 1000, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 100, UsedCount = 0 },
+                    new Coupon { Code = "BEATVIP", DiscountPercentage = 15, MinimumOrderAmount = 3000, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 50, UsedCount = 0 },
+                    new Coupon { Code = "FREESHIP", DiscountAmount = 0, MinimumOrderAmount = 0, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 500, UsedCount = 0 }
+                };
+                await context.Coupons.AddRangeAsync(coupons);
+                await context.SaveChangesAsync();
+            }
+            return;
+        }
+
         // Keep deterministic random data
         var rnd = new Random(12345);
+
 
         await SeedCategories(context);
 
@@ -419,6 +438,18 @@ public static class DbSeeder
 
         // Ensure all products (including existing ones from previous seedings/runs) have variants
         await EnsureAllProductsHaveVariantsAsync(context, rnd);
+
+        // Seed coupons in development
+        if (isDevelopment && !await context.Coupons.AnyAsync())
+        {
+            var coupons = new List<Coupon>
+            {
+                new Coupon { Code = "DEAL10", DiscountPercentage = 10, MinimumOrderAmount = 1000, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 100, UsedCount = 0 },
+                new Coupon { Code = "BEATVIP", DiscountPercentage = 15, MinimumOrderAmount = 3000, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 50, UsedCount = 0 },
+                new Coupon { Code = "FREESHIP", DiscountAmount = 0, MinimumOrderAmount = 0, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 500, UsedCount = 0 }
+            };
+            await context.Coupons.AddRangeAsync(coupons);
+        }
 
         // Final save
         await context.SaveChangesAsync();
@@ -510,6 +541,7 @@ public static class DbSeeder
                 });
             }
         }
+
 
         await context.SaveChangesAsync();
     }

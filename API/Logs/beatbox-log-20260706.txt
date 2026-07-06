@@ -1,0 +1,1148 @@
+2026-07-06 09:48:33.135 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-06 09:48:33.296 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 627ms
+2026-07-06 09:48:55.126 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 385ms
+2026-07-06 09:48:55.520 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 379ms
+2026-07-06 09:50:06.712 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 111ms
+2026-07-06 09:50:06.765 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 44ms
+2026-07-06 09:51:50.484 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 8ms
+2026-07-06 09:51:50.484 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 1ms
+2026-07-06 09:51:50.975 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 447ms
+2026-07-06 09:51:51.027 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 55ms
+2026-07-06 09:52:39.609 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-06 09:52:39.866 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/account/login from IP ::1. Response: 401 in 252ms
+2026-07-06 09:54:05.016 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:05.349 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 328ms
+2026-07-06 09:54:05.415 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:05.447 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 26ms
+2026-07-06 09:54:06.400 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.406 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.415 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.416 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.433 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.434 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.425 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 1ms
+2026-07-06 09:54:06.445 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.446 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.447 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.448 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 09:54:06.458 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 1ms
+2026-07-06 09:54:06.483 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 34ms
+2026-07-06 09:54:06.484 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 74ms
+2026-07-06 09:54:06.487 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 41ms
+2026-07-06 09:54:06.814 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 346ms
+2026-07-06 09:54:06.830 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 12ms
+2026-07-06 09:54:07.192 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 727ms
+2026-07-06 09:54:07.393 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_sideAngle.jpg from IP ::1 responded 304 in 26ms
+2026-07-06 09:54:07.393 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_topAngle.jpg from IP ::1 responded 304 in 26ms
+2026-07-06 09:54:07.394 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker1.jpg from IP ::1 responded 304 in 12ms
+2026-07-06 09:54:07.395 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_closedAngle.jpg from IP ::1 responded 304 in 9ms
+2026-07-06 09:54:07.396 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse1.jpg from IP ::1 responded 304 in 24ms
+2026-07-06 09:54:07.391 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_grey_frontangle.jpg from IP ::1 responded 304 in 11ms
+2026-07-06 09:54:26.312 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone2_red_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 09:54:29.040 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 22474ms
+2026-07-06 09:56:42.035 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-06 09:56:42.048 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 7ms
+2026-07-06 09:56:42.093 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 9ms
+2026-07-06 09:56:42.846 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-06 09:56:42.858 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-06 09:56:42.927 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 64ms
+2026-07-06 09:56:42.930 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 36ms
+2026-07-06 09:56:42.933 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 4ms
+2026-07-06 09:56:42.937 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 3ms
+2026-07-06 09:57:39.918 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/null from IP ::1 responded 204 in 0ms
+2026-07-06 09:57:39.924 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Coupon/null from IP ::1. Response: 404 in 1ms
+2026-07-06 09:58:04.744 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/null from IP ::1 responded 204 in 0ms
+2026-07-06 09:58:04.754 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Coupon/null from IP ::1. Response: 404 in 0ms
+2026-07-06 10:00:49.222 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon from IP ::1 responded 204 in 0ms
+2026-07-06 10:00:49.505 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/Coupon from IP ::1. Response: 201 in 276ms
+2026-07-06 10:00:49.550 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-06 10:00:49.554 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-06 10:00:49.560 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 5ms
+2026-07-06 10:00:49.569 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 4ms
+2026-07-06 10:01:52.711 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/4 from IP ::1 responded 204 in 0ms
+2026-07-06 10:01:52.795 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Coupon/4 from IP ::1. Response: 200 in 74ms
+2026-07-06 10:01:52.900 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-06 10:01:52.906 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 3ms
+2026-07-06 10:01:52.945 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-06 10:01:52.964 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 3ms
+2026-07-06 10:02:09.811 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/4/toggle from IP ::1 responded 204 in 0ms
+2026-07-06 10:02:09.870 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PATCH /api/Coupon/4/toggle from IP ::1. Response: 200 in 54ms
+2026-07-06 10:02:10.010 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-06 10:02:10.016 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 3ms
+2026-07-06 10:02:10.136 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-06 10:02:10.143 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 3ms
+2026-07-06 10:02:48.465 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/5 from IP ::1 responded 204 in 0ms
+2026-07-06 10:02:48.539 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed DELETE /api/Coupon/5 from IP ::1. Response: 204 in 69ms
+2026-07-06 10:02:48.591 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-06 10:02:48.599 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 3ms
+2026-07-06 10:02:48.644 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-06 10:02:48.655 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 3ms
+2026-07-06 10:04:30.739 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-06 10:04:30.863 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/account/login from IP ::1. Response: 200 in 121ms
+2026-07-06 10:04:58.923 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:04:58.934 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:04:58.936 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:04:58.940 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:04:58.973 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:04:58.986 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-07-06 10:04:59.032 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 10:04:59.055 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 20ms
+2026-07-06 10:04:59.175 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:04:59.184 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 6ms
+2026-07-06 10:04:59.632 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 3ms
+2026-07-06 10:05:10.223 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:05:36.975 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 35156ms
+2026-07-06 10:05:36.988 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:05:36.992 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:05:37.054 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:05:37.057 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:05:37.102 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:05:37.107 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 2ms
+2026-07-06 10:05:37.123 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:05:37.139 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 12ms
+2026-07-06 10:05:37.198 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 2ms
+2026-07-06 10:05:37.327 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 3ms
+2026-07-06 10:05:37.873 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_white_fullAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:05:37.926 +05:30 [INF] API REQUEST: OPTIONS /api/Return/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:05:37.957 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 28ms
+2026-07-06 10:05:38.573 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 2ms
+2026-07-06 10:07:28.217 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:07:28.354 +05:30 [ERR] Failed executing DbCommand (50ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ReturnRequests] ([Id], [AdminNotes], [Description], [ImageUrls], [OrderId], [PreferredResolution], [ProcessedDate], [ProductId], [Reason], [RequestDate], [Status], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-07-06 10:07:28.383 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-07-06 10:07:28.385 +05:30 [ERR] An unhandled exception occurred during request POST /api/Return: An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Infrastructure.Services.ReturnService.CreateRequestAsync(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ReturnService.cs:line 77
+   at API.Controllers.ReturnController.Create(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ReturnController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+2026-07-06 10:07:55.741 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:07:55.750 +05:30 [ERR] Failed executing DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ReturnRequests] ([Id], [AdminNotes], [Description], [ImageUrls], [OrderId], [PreferredResolution], [ProcessedDate], [ProductId], [Reason], [RequestDate], [Status], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-07-06 10:07:55.754 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-07-06 10:07:55.758 +05:30 [ERR] An unhandled exception occurred during request POST /api/Return: An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Infrastructure.Services.ReturnService.CreateRequestAsync(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ReturnService.cs:line 77
+   at API.Controllers.ReturnController.Create(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ReturnController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+2026-07-06 10:09:26.144 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:09:26.157 +05:30 [ERR] Failed executing DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ReturnRequests] ([Id], [AdminNotes], [Description], [ImageUrls], [OrderId], [PreferredResolution], [ProcessedDate], [ProductId], [Reason], [RequestDate], [Status], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-07-06 10:09:26.158 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-07-06 10:09:26.162 +05:30 [ERR] An unhandled exception occurred during request POST /api/Return: An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Infrastructure.Services.ReturnService.CreateRequestAsync(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ReturnService.cs:line 77
+   at API.Controllers.ReturnController.Create(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ReturnController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+2026-07-06 10:10:24.258 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 285228ms
+2026-07-06 10:10:24.262 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:10:24.268 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:10:25.976 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:10:25.980 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-06 10:10:26.610 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:10:26.615 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 2ms
+2026-07-06 10:10:27.516 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:10:27.521 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 2ms
+2026-07-06 10:10:27.816 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-07-06 10:10:31.983 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:10:31.987 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:10:32.752 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:10:32.756 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:10:32.853 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:10:32.861 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-07-06 10:10:33.102 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:10:33.112 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 6ms
+2026-07-06 10:10:33.222 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 3ms
+2026-07-06 10:10:33.272 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 5ms
+2026-07-06 10:10:34.627 +05:30 [INF] API REQUEST: OPTIONS /api/Return/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:10:34.632 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 2ms
+2026-07-06 10:10:35.187 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 2ms
+2026-07-06 10:13:03.856 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:13:03.867 +05:30 [ERR] Failed executing DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ReturnRequests] ([Id], [AdminNotes], [Description], [ImageUrls], [OrderId], [PreferredResolution], [ProcessedDate], [ProductId], [Reason], [RequestDate], [Status], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-07-06 10:13:03.868 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-07-06 10:13:03.870 +05:30 [ERR] An unhandled exception occurred during request POST /api/Return: An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Infrastructure.Services.ReturnService.CreateRequestAsync(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ReturnService.cs:line 77
+   at API.Controllers.ReturnController.Create(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ReturnController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+2026-07-06 10:14:04.319 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:14:04.326 +05:30 [ERR] Failed executing DbCommand (1ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ReturnRequests] ([Id], [AdminNotes], [Description], [ImageUrls], [OrderId], [PreferredResolution], [ProcessedDate], [ProductId], [Reason], [RequestDate], [Status], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-07-06 10:14:04.327 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-07-06 10:14:04.329 +05:30 [ERR] An unhandled exception occurred during request POST /api/Return: An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a61b749c-637e-445c-96e2-7336421c14f7
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Infrastructure.Services.ReturnService.CreateRequestAsync(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ReturnService.cs:line 77
+   at API.Controllers.ReturnController.Create(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ReturnController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+2026-07-06 10:14:56.727 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 4ms
+2026-07-06 10:14:56.779 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 261030ms
+2026-07-06 10:14:56.781 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-06 10:14:56.794 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-06 10:14:56.862 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 66ms
+2026-07-06 10:14:56.869 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 2ms
+2026-07-06 10:14:56.925 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 141ms
+2026-07-06 10:14:56.938 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 9ms
+2026-07-06 10:14:58.378 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-06 10:14:58.448 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 66ms
+2026-07-06 10:14:58.454 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 2ms
+2026-07-06 10:14:58.778 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-06 10:14:58.812 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 30ms
+2026-07-06 10:14:58.839 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 3ms
+2026-07-06 10:14:59.438 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-06 10:14:59.616 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 136ms
+2026-07-06 10:14:59.625 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 5ms
+2026-07-06 10:15:00.193 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-06 10:15:00.242 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 5ms
+2026-07-06 10:15:00.250 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 5ms
+2026-07-06 10:15:39.615 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:15:39.700 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 81ms
+2026-07-06 10:15:39.813 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 2ms
+2026-07-06 10:15:55.119 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:15:55.125 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:15:55.568 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:15:55.572 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:15:55.589 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:15:55.598 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-07-06 10:15:55.720 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:15:55.736 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 6ms
+2026-07-06 10:15:55.780 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 2ms
+2026-07-06 10:15:55.800 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 4ms
+2026-07-06 10:15:57.479 +05:30 [INF] API REQUEST: OPTIONS /api/Return/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:15:57.487 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 2ms
+2026-07-06 10:15:57.834 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 2ms
+2026-07-06 10:18:34.721 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:18:34.734 +05:30 [ERR] Failed executing DbCommand (3ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ReturnRequests] ([Id], [AdminNotes], [Description], [ImageUrls], [OrderId], [PreferredResolution], [ProcessedDate], [ProductId], [Reason], [RequestDate], [Status], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-07-06 10:18:34.738 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:bd67466a-057e-4fa4-aac9-d263f8a7f23d
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:bd67466a-057e-4fa4-aac9-d263f8a7f23d
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-07-06 10:18:34.742 +05:30 [ERR] An unhandled exception occurred during request POST /api/Return: An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:bd67466a-057e-4fa4-aac9-d263f8a7f23d
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Infrastructure.Services.ReturnService.CreateRequestAsync(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ReturnService.cs:line 77
+   at API.Controllers.ReturnController.Create(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ReturnController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+2026-07-06 10:18:56.953 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:18:56.961 +05:30 [ERR] Failed executing DbCommand (2ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (Size = 4000), @p9='?' (DbType = DateTime2), @p10='?' (Size = 4000), @p11='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [ReturnRequests] ([Id], [AdminNotes], [Description], [ImageUrls], [OrderId], [PreferredResolution], [ProcessedDate], [ProductId], [Reason], [RequestDate], [Status], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11);
+2026-07-06 10:18:56.963 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:bd67466a-057e-4fa4-aac9-d263f8a7f23d
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:bd67466a-057e-4fa4-aac9-d263f8a7f23d
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-07-06 10:18:56.966 +05:30 [ERR] An unhandled exception occurred during request POST /api/Return: An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ReturnRequests_AspNetUsers_UserId". The conflict occurred in database "BeatBoxDb", table "dbo.AspNetUsers", column 'Id'.
+The statement has been terminated.
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:bd67466a-057e-4fa4-aac9-d263f8a7f23d
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Infrastructure.Services.ReturnService.CreateRequestAsync(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ReturnService.cs:line 77
+   at API.Controllers.ReturnController.Create(ReturnRequestDto dto) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ReturnController.cs:line 44
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+2026-07-06 10:28:27.907 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 191ms
+2026-07-06 10:28:37.526 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 759265ms
+2026-07-06 10:28:39.425 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-06 10:28:39.429 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-06 10:28:39.464 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 31ms
+2026-07-06 10:28:39.472 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 4ms
+2026-07-06 10:28:40.423 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:28:40.428 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:28:40.428 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:28:40.433 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:28:40.433 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:28:40.438 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 10:28:40.450 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:28:40.452 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 14ms
+2026-07-06 10:28:40.467 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 11ms
+2026-07-06 10:28:40.476 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:28:40.495 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 12ms
+2026-07-06 10:28:40.500 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 21ms
+2026-07-06 10:28:40.511 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 3ms
+2026-07-06 10:28:40.554 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 112ms
+2026-07-06 10:28:40.839 +05:30 [INF] API REQUEST: OPTIONS /api/Return/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:28:40.896 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 54ms
+2026-07-06 10:28:41.106 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 2ms
+2026-07-06 10:29:03.132 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 21639ms
+2026-07-06 10:29:37.039 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-07-06 10:29:37.182 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/account/login from IP ::1. Response: 200 in 136ms
+2026-07-06 10:29:46.040 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:29:46.046 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:29:46.088 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:29:46.091 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:29:46.174 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:29:46.184 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 5ms
+2026-07-06 10:29:46.202 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:29:46.467 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 2ms
+2026-07-06 10:30:30.928 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 38270ms
+2026-07-06 10:30:40.596 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:30:40.601 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:30:41.089 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:30:41.093 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:30:41.131 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:30:41.146 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 2ms
+2026-07-06 10:30:41.402 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:30:41.460 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 2ms
+2026-07-06 10:30:41.467 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 61ms
+2026-07-06 10:30:41.527 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 4ms
+2026-07-06 10:30:42.361 +05:30 [INF] API REQUEST: OPTIONS /api/Return/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:30:42.418 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 50ms
+2026-07-06 10:30:42.913 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 2ms
+2026-07-06 10:31:12.036 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 28669ms
+2026-07-06 10:31:12.049 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:12.079 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:31:12.131 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:12.143 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:12.153 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 6ms
+2026-07-06 10:31:12.181 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 47ms
+2026-07-06 10:31:12.710 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 4ms
+2026-07-06 10:31:29.086 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:29.090 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:29.147 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 53ms
+2026-07-06 10:31:29.181 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 29ms
+2026-07-06 10:31:29.249 +05:30 [INF] API REQUEST: OPTIONS /api/Return/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:29.288 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 36ms
+2026-07-06 10:31:29.328 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 5ms
+2026-07-06 10:31:33.081 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 20719ms
+2026-07-06 10:31:33.085 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:33.085 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:33.136 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 44ms
+2026-07-06 10:31:33.146 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 4ms
+2026-07-06 10:31:38.396 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:38.400 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:31:38.645 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:38.648 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:31:38.700 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:38.705 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 3ms
+2026-07-06 10:31:38.781 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:38.789 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 4ms
+2026-07-06 10:31:38.822 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 3ms
+2026-07-06 10:31:38.955 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 3ms
+2026-07-06 10:31:39.567 +05:30 [INF] API REQUEST: OPTIONS /api/Return/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:31:39.574 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 2ms
+2026-07-06 10:31:39.948 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 204 in 2ms
+2026-07-06 10:32:30.842 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:32:30.965 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/Return from IP ::1. Response: 201 in 106ms
+2026-07-06 10:32:30.975 +05:30 [INF] API REQUEST: OPTIONS /api/Return/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:32:31.094 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 200 in 114ms
+2026-07-06 10:32:42.780 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 63078ms
+2026-07-06 10:32:42.783 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-06 10:32:42.794 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 7ms
+2026-07-06 10:32:42.877 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-06 10:32:42.885 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 5ms
+2026-07-06 10:32:42.945 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 23ms
+2026-07-06 10:32:42.952 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 27ms
+2026-07-06 10:33:11.449 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/4 from IP ::1 responded 204 in 0ms
+2026-07-06 10:33:11.503 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed DELETE /api/Coupon/4 from IP ::1. Response: 204 in 50ms
+2026-07-06 10:33:11.556 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-06 10:33:11.563 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 3ms
+2026-07-06 10:33:11.637 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-06 10:33:11.642 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 2ms
+2026-07-06 10:41:36.306 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:36.364 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/Coupon from IP ::1. Response: 400 in 52ms
+2026-07-06 10:41:56.033 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.037 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.279 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 241ms
+2026-07-06 10:41:56.289 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 6ms
+2026-07-06 10:41:56.476 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.476 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.483 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.484 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:41:56.523 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 40ms
+2026-07-06 10:41:56.527 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.527 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.527 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.527 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.528 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.528 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.534 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.535 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.535 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 10:41:56.604 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 68ms
+2026-07-06 10:41:56.726 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 190ms
+2026-07-06 10:41:56.743 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 14ms
+2026-07-06 10:41:57.066 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 528ms
+2026-07-06 10:41:57.247 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_topAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:41:57.249 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_sideAngle.jpg from IP ::1 responded 304 in 2ms
+2026-07-06 10:41:57.249 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_closedAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:41:57.250 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse1.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:41:57.260 +05:30 [INF] API REQUEST: GET /images/products/usb-speakers/usb-speaker1.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:41:57.262 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard1.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:41:57.269 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone13.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:41:57.270 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone1_brown_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:41:57.270 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone3_orange_frontAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:41:57.278 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone2_red_frontAngle.jpg from IP ::1 responded 304 in 1ms
+2026-07-06 10:42:01.147 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_grey_frontangle.jpg from IP ::1 responded 304 in 3ms
+2026-07-06 10:42:04.853 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone14.jpg from IP ::1 responded 304 in 1ms
+2026-07-06 10:42:04.929 +05:30 [INF] API REQUEST: GET /images/products/default/default13.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:42:05.029 +05:30 [INF] API REQUEST: GET /images/products/mice/mouse12.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:42:06.503 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone3_orange_topAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:42:13.118 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:13.118 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:13.118 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:13.119 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:13.119 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 16572ms
+2026-07-06 10:42:13.131 +05:30 [INF] API REQUEST: GET /hubs/notifications from IP ::1 responded 401 in 0ms
+2026-07-06 10:42:13.197 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 67ms
+2026-07-06 10:42:13.221 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 19ms
+2026-07-06 10:42:13.396 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 268ms
+2026-07-06 10:42:13.402 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:13.428 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 22ms
+2026-07-06 10:42:13.444 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:13.462 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 62ms
+2026-07-06 10:42:13.466 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 18ms
+2026-07-06 10:42:13.577 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:13.587 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 35ms
+2026-07-06 10:42:13.692 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 32ms
+2026-07-06 10:42:13.809 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 183ms
+2026-07-06 10:42:13.819 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:13.840 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 24ms
+2026-07-06 10:42:13.874 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 51ms
+2026-07-06 10:42:13.900 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 18ms
+2026-07-06 10:42:17.126 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:17.126 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:42:17.165 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 34ms
+2026-07-06 10:42:17.175 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 7ms
+2026-07-06 10:43:49.636 +05:30 [INF] API REQUEST: OPTIONS /api/Return/e4b76c40-3104-4e22-9266-f849146ee942/status from IP ::1 responded 204 in 0ms
+2026-07-06 10:43:49.976 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Return/e4b76c40-3104-4e22-9266-f849146ee942/status from IP ::1. Response: 200 in 334ms
+2026-07-06 10:43:49.981 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:43:50.027 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 43ms
+2026-07-06 10:44:02.448 +05:30 [INF] API REQUEST: OPTIONS /api/Return/e4b76c40-3104-4e22-9266-f849146ee942/status from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:03.105 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Return/e4b76c40-3104-4e22-9266-f849146ee942/status from IP ::1. Response: 200 in 627ms
+2026-07-06 10:44:03.144 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:03.482 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 327ms
+2026-07-06 10:44:11.172 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:11.173 +05:30 [INF] API REQUEST: OPTIONS /api/account/users from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:11.313 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 137ms
+2026-07-06 10:44:11.335 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 18ms
+2026-07-06 10:44:12.679 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 16ms
+2026-07-06 10:44:12.712 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/account/users from IP ::1. Response: 200 in 24ms
+2026-07-06 10:44:21.422 +05:30 [INF] API REQUEST: OPTIONS /api/account/users/508ca526-5dab-4769-90c9-c2da4c775c9b/lock from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:21.430 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/account/users/508ca526-5dab-4769-90c9-c2da4c775c9b/lock from IP ::1. Response: 404 in 0ms
+2026-07-06 10:44:25.137 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:25.138 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:26.338 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:26.341 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:26.750 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 407ms
+2026-07-06 10:44:26.897 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 1756ms
+2026-07-06 10:44:28.435 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 26ms
+2026-07-06 10:44:28.895 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker1.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:44:34.057 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:34.061 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:34.061 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:34.061 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:34.062 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:34.062 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:34.062 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:44:34.122 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-06 10:44:34.148 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 26ms
+2026-07-06 10:44:34.159 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 7ms
+2026-07-06 10:44:39.738 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker12.jpg from IP ::1 responded 304 in 1ms
+2026-07-06 10:44:40.617 +05:30 [INF] API REQUEST: OPTIONS /api/product/9578ac49-d559-4c6c-80d9-62d84044117a from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:40.618 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:40.619 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:40.623 +05:30 [INF] API REQUEST: OPTIONS /api/product/9578ac49-d559-4c6c-80d9-62d84044117a from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:40.729 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 107ms
+2026-07-06 10:44:40.749 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 13ms
+2026-07-06 10:44:41.486 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/product/9578ac49-d559-4c6c-80d9-62d84044117a from IP ::1. Response: 200 in 863ms
+2026-07-06 10:44:41.671 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker11.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:44:41.672 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker10.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:44:44.590 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_white_fullAngle.jpg from IP ::1 responded 304 in 1ms
+2026-07-06 10:44:44.687 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:44.687 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:44.687 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:44.688 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:44.694 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 10437ms
+2026-07-06 10:44:44.704 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 0ms
+2026-07-06 10:44:44.710 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 5ms
+2026-07-06 10:44:44.720 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 14ms
+2026-07-06 10:44:44.759 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 34ms
+2026-07-06 10:44:44.764 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 76ms
+2026-07-06 10:44:44.814 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 42ms
+2026-07-06 10:44:47.202 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:47.203 +05:30 [INF] API REQUEST: OPTIONS /api/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:47.254 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 50ms
+2026-07-06 10:44:47.270 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/order/7 from IP ::1. Response: 200 in 11ms
+2026-07-06 10:44:47.298 +05:30 [INF] API REQUEST: OPTIONS /api/Return/order/7 from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:47.327 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 200 in 26ms
+2026-07-06 10:44:47.362 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 200 in 7ms
+2026-07-06 10:44:54.846 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /hubs/notifications from IP ::1. Response: 101 in 10106ms
+2026-07-06 10:44:54.850 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:54.850 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:54.851 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:54.851 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:54.854 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:54.856 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-07-06 10:44:54.859 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 1ms
+2026-07-06 10:44:54.859 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /hubs/notifications/negotiate from IP ::1. Response: 200 in 2ms
+2026-07-06 10:44:54.874 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 14ms
+2026-07-06 10:44:54.884 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 6ms
+2026-07-06 10:44:58.672 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone1_brown_topAngle.jpg from IP ::1 responded 304 in 0ms
+2026-07-06 10:47:24.958 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-06 10:47:25.003 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 29ms
+2026-07-06 10:47:25.025 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 5ms
+2026-07-06 10:47:26.729 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/all from IP ::1 responded 204 in 0ms
+2026-07-06 10:47:26.732 +05:30 [INF] API REQUEST: OPTIONS /api/Coupon/stats from IP ::1 responded 204 in 0ms
+2026-07-06 10:47:26.740 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 6ms
+2026-07-06 10:47:26.742 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 6ms
+2026-07-06 10:47:26.744 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 2ms
+2026-07-06 10:47:26.752 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/stats from IP ::1. Response: 200 in 1ms
+2026-07-06 10:47:53.269 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 79ms
+2026-07-06 10:47:53.316 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Coupon/all from IP ::1. Response: 200 in 11ms
+2026-07-06 10:47:53.477 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 70ms
+2026-07-06 10:47:59.213 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 67ms
+2026-07-06 10:47:59.252 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/Coupon from IP ::1. Response: 201 in 19ms
+2026-07-06 10:47:59.271 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed POST /api/Coupon from IP ::1. Response: 400 in 5ms
+2026-07-06 10:47:59.304 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PATCH /api/Coupon/6/toggle from IP ::1. Response: 200 in 7ms
+2026-07-06 10:47:59.321 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Coupon/6 from IP ::1. Response: 200 in 8ms
+2026-07-06 10:47:59.330 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed DELETE /api/Coupon/6 from IP ::1. Response: 204 in 4ms
+2026-07-06 10:48:09.417 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 177ms
+2026-07-06 10:48:09.434 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed GET /api/Return/order/7 from IP ::1. Response: 200 in 6ms
+2026-07-06 10:48:19.117 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 81ms
+2026-07-06 10:48:19.178 +05:30 [INF] USER ACTIVITY: User 02617f55-f35f-4b7d-81cb-4ae2c64f4096 (vikram.admin@beatbox.com) performed PUT /api/Return/e4b76c40-3104-4e22-9266-f849146ee942/status from IP ::1. Response: 200 in 12ms

@@ -182,6 +182,9 @@ namespace Infrastructure.Data
 
                 entity.Property(x => x.MinimumOrderAmount)
                       .HasColumnType("decimal(18,2)");
+
+                entity.Property(x => x.MaximumDiscount)
+                      .HasColumnType("decimal(18,2)");
             });
 
         }

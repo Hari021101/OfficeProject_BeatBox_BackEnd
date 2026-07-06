@@ -15,9 +15,20 @@ public class ReturnRequest
     public Guid ProductId { get; set; }
     public Product Product { get; set; } = null!;
     
+    /// <summary>Short reason category (dropdown selection).</summary>
     public string Reason { get; set; } = string.Empty;
+
+    /// <summary>Detailed description from customer.</summary>
+    public string? Description { get; set; }
+
+    /// <summary>Comma-separated image URLs or JSON array.</summary>
+    public string? ImageUrls { get; set; }
+
+    /// <summary>Refund | Replacement</summary>
+    public string? PreferredResolution { get; set; }
     
-    public string Status { get; set; } = "Pending Approval"; // Pending Approval, Approved, Refunded, Rejected
+    /// <summary>Pending Approval | Under Review | Approved | Rejected | Refunded | Replacement Sent | Completed</summary>
+    public string Status { get; set; } = "Pending Approval";
     
     public string? AdminNotes { get; set; }
     

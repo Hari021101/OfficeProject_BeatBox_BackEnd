@@ -1,4 +1,4 @@
-﻿namespace Application.DTOs;
+namespace Application.DTOs;
 
 public class CouponResultDto
 {
@@ -9,4 +9,6 @@ public class CouponResultDto
     public decimal Discount { get; set; }
 
     public decimal FinalAmount { get; set; }
-}
+
+    public bool IsFreeShipping { get; set; }
+}

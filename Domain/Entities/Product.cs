@@ -33,6 +33,7 @@ public class Product
     public ICollection<ProductFaq> Faqs { get; set; } = new List<ProductFaq>();
     public ICollection<ProductVariant> Variants { get; set; }
     = new List<ProductVariant>();
+    
 
 
 }
