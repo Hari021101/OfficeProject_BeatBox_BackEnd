@@ -1,0 +1,274 @@
+2026-07-14 10:01:28.241 +05:30 [WRN] An warning or error occurred while applying database migrations. Proceeding to seeding.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (64): The specified network name is no longer available.
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlConnectionInternal connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, DbConnectionPoolGroupProviderInfo providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback, SspiContextProvider sspiContextProvider)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreatePooledConnection(DbConnection owningConnection, IDbConnectionPool pool, DbConnectionPoolKey poolKey, DbConnectionOptions options, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass20_0.<<ExistsAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:64,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 141
+2026-07-14 10:01:29.180 +05:30 [ERR] An error occurred using the connection to database 'db58415' on server 'db58415.databaseasp.net'.
+2026-07-14 10:01:29.216 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (64): The specified network name is no longer available.
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(SqlConnectionOverrides overrides, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:64,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (64): The specified network name is no longer available.
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(SqlConnectionOverrides overrides, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:64,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-07-14 10:01:29.805 +05:30 [ERR] An error occurred while seeding the database.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (64): The specified network name is no longer available.
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 taskCompletionSource, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, SqlConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(SqlConnectionOverrides overrides, CancellationToken cancellationToken)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:64,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Infrastructure.Data.DbSeeder.SeedAsync(AppDbContext context, UserManager`1 userManager, RoleManager`1 roleManager, Boolean force, Boolean isDevelopment) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Data\DbSeeder.cs:line 442
+   at Program.<Main>$(String[] args) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Program.cs:line 157
+2026-07-14 10:03:57.512 +05:30 [INF] API REQUEST: GET /swagger/index.html from IP ::1 responded 200 in 273ms
+2026-07-14 10:03:57.785 +05:30 [WRN] Unable to configure Browser Link script injection on the response. This may have been caused by the response's Content-Encoding: '["br"]'. Consider disabling response compression.
+2026-07-14 10:03:57.932 +05:30 [INF] API REQUEST: GET /swagger/swagger-ui.css from IP ::1 responded 200 in 217ms
+2026-07-14 10:03:57.932 +05:30 [INF] API REQUEST: GET /swagger/swagger-ui-standalone-preset.js from IP ::1 responded 200 in 191ms
+2026-07-14 10:03:57.942 +05:30 [WRN] Unable to configure browser refresh script injection on the response. This may have been caused by the response's Content-Encoding: '["br"]'. Consider disabling response compression.
+2026-07-14 10:03:57.992 +05:30 [INF] API REQUEST: GET /swagger/swagger-ui-bundle.js from IP ::1 responded 200 in 277ms
+2026-07-14 10:03:58.363 +05:30 [INF] API REQUEST: GET /swagger/favicon-32x32.png from IP ::1 responded 200 in 1ms
+2026-07-14 10:03:58.446 +05:30 [INF] API REQUEST: GET /swagger/v1/swagger.json from IP ::1 responded 200 in 135ms
+2026-07-14 10:04:22.183 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-14 10:05:03.507 +05:30 [ERR] An error occurred using the connection to database 'db58415' on server 'db58415.databaseasp.net'.
+2026-07-14 10:05:03.597 +05:30 [ERR] An exception occurred while iterating over the results of a query for context type 'Infrastructure.Data.AppDbContext'.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (64): The specified network name is no longer available.
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlConnectionInternal connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, DbConnectionPoolGroupProviderInfo providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback, SspiContextProvider sspiContextProvider)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreatePooledConnection(DbConnection owningConnection, IDbConnectionPool pool, DbConnectionPoolKey poolKey, DbConnectionOptions options, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:64,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (64): The specified network name is no longer available.
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlConnectionInternal connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, DbConnectionPoolGroupProviderInfo providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback, SspiContextProvider sspiContextProvider)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreatePooledConnection(DbConnection owningConnection, IDbConnectionPool pool, DbConnectionPoolKey poolKey, DbConnectionOptions options, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:64,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-07-14 10:15:16.897 +05:30 [ERR] An unhandled exception occurred during request GET /api/products: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure' to the 'UseSqlServer' call.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (64): The specified network name is no longer available.
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlConnectionInternal connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, DbConnectionPoolGroupProviderInfo providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, IDbConnectionPool pool, Func`3 accessTokenCallback, SspiContextProvider sspiContextProvider)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionPoolGroupProviderInfo poolGroupProviderInfo, IDbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreatePooledConnection(DbConnection owningConnection, IDbConnectionPool pool, DbConnectionPoolKey poolKey, DbConnectionOptions options, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.SqlClient.ConnectionPool.WaitHandleDbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:64,State:0,Class:20
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Infrastructure.Repositories.ProductRepository.GetAllAsync() in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Repositories\ProductRepository.cs:line 19
+   at Infrastructure.Services.ProductService.GetAllProductsAsync() in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ProductService.cs:line 49
+   at API.Controllers.ProductController.GetAllProducts() in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Controllers\ProductController.cs:line 32
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.ResponseCaching.ResponseCachingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)
+   at API.Middleware.RequestLoggingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Middleware\RequestLoggingMiddleware.cs:line 26
+   at API.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in C:\Users\Mhari\Source\Repos\OfficeProject_BeatBox_BackEnd\API\Middleware\ExceptionHandlingMiddleware.cs:line 22
+2026-07-14 10:16:36.373 +05:30 [INF] API REQUEST: GET /swagger/index.html from IP 127.0.0.1 responded 200 in 229ms
+2026-07-14 10:16:36.513 +05:30 [WRN] Unable to configure Browser Link script injection on the response. This may have been caused by the response's Content-Encoding: '["br"]'. Consider disabling response compression.
+2026-07-14 10:16:36.523 +05:30 [WRN] Unable to configure browser refresh script injection on the response. This may have been caused by the response's Content-Encoding: '["br"]'. Consider disabling response compression.
+2026-07-14 10:16:36.776 +05:30 [INF] API REQUEST: GET /swagger/v1/swagger.json from IP 127.0.0.1 responded 200 in 172ms
+2026-07-14 10:16:47.392 +05:30 [INF] API REQUEST: GET /api/Address from IP 127.0.0.1 responded 401 in 257ms
+2026-07-14 10:16:56.838 +05:30 [INF] API REQUEST: GET /api/Coupon from IP 127.0.0.1 responded 401 in 6ms
+2026-07-14 10:17:03.157 +05:30 [INF] API REQUEST: GET /api/admin/dashboard/summary from IP 127.0.0.1 responded 401 in 8ms
+2026-07-14 10:17:09.891 +05:30 [INF] API REQUEST: GET /api/Order from IP 127.0.0.1 responded 401 in 1ms
+2026-07-14 10:18:06.918 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-07-14 10:18:07.377 +05:30 [INF] API REQUEST: GET /api/category from IP ::1 responded 200 in 2390ms
+2026-07-14 10:18:07.836 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 2850ms
+2026-07-14 10:18:08.471 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker1.jpg from IP ::1 responded 200 in 445ms
+2026-07-14 10:18:08.471 +05:30 [INF] API REQUEST: GET /images/products/default/default13.jpg from IP ::1 responded 200 in 500ms
+2026-07-14 10:18:08.478 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone2_red_frontAngle.jpg from IP ::1 responded 200 in 504ms
+2026-07-14 10:18:08.745 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_closedAngle.jpg from IP ::1 responded 200 in 720ms
+2026-07-14 10:18:10.987 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_white_frontAngle.jpg from IP ::1 responded 200 in 320ms
+2026-07-14 10:18:11.097 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_brown_sideangle.jpg from IP ::1 responded 200 in 433ms
+2026-07-14 10:18:15.002 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone13.jpg from IP ::1 responded 200 in 22ms
+2026-07-14 10:18:15.073 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone1_brown_frontAngle.jpg from IP ::1 responded 200 in 92ms
+2026-07-14 10:18:15.086 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_black_sideAngle.jpg from IP ::1 responded 200 in 106ms
+2026-07-14 10:18:15.090 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_sideAngle.jpg from IP ::1 responded 200 in 111ms
+2026-07-14 10:18:17.004 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker2_brown_topangle.jpg from IP ::1 responded 200 in 111ms
+2026-07-14 10:18:17.970 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone2.jpg from IP ::1 responded 200 in 30ms
+2026-07-14 10:18:36.334 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 4ms
+2026-07-14 10:18:36.871 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 401 in 509ms
+2026-07-14 10:18:50.802 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 0ms
+2026-07-14 10:18:58.959 +05:30 [INF] API REQUEST: POST /api/account/register from IP ::1 responded 200 in 8136ms
+2026-07-14 10:19:13.699 +05:30 [INF] API REQUEST: OPTIONS /api/otp/verify-email from IP ::1 responded 204 in 0ms
+2026-07-14 10:19:14.386 +05:30 [INF] API REQUEST: POST /api/otp/verify-email from IP ::1 responded 200 in 662ms
+2026-07-14 10:19:14.470 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-07-14 10:19:14.962 +05:30 [INF] USER ACTIVITY: User be111c7d-71b4-40dc-ab7a-c4f44b7516fd (mhariharan2019@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 471ms
+2026-07-14 10:19:15.546 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-14 10:19:15.552 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-07-14 10:19:15.700 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 31ms
+2026-07-14 10:19:15.700 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 41ms
+2026-07-14 10:19:15.701 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-07-14 10:19:15.769 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 8ms
+2026-07-14 10:19:15.979 +05:30 [INF] USER ACTIVITY: User be111c7d-71b4-40dc-ab7a-c4f44b7516fd (mhariharan2019@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 121ms
+2026-07-14 10:19:15.996 +05:30 [INF] USER ACTIVITY: User be111c7d-71b4-40dc-ab7a-c4f44b7516fd (mhariharan2019@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 13ms
+2026-07-14 10:19:26.690 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone3_orange_frontAngle.jpg from IP ::1 responded 200 in 103ms
+2026-07-14 10:19:26.700 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_red_topangle.jpg from IP ::1 responded 200 in 97ms
+2026-07-14 10:19:26.747 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_red_sideangle.jpg from IP ::1 responded 200 in 159ms
+2026-07-14 10:19:27.745 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones2_white_topAngle2.jpg from IP ::1 responded 200 in 110ms
+2026-07-14 10:19:29.994 +05:30 [INF] API REQUEST: GET /images/products/keyboards/keyboard13.jpg from IP ::1 responded 200 in 31ms
+2026-07-14 10:19:30.080 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_blue_FrontAngle.jpg from IP ::1 responded 200 in 117ms
+2026-07-14 10:19:31.797 +05:30 [INF] API REQUEST: GET /images/products/default/default14.jpg from IP ::1 responded 200 in 44ms
