@@ -456,11 +456,26 @@ public static class DbSeeder
                 await context.SaveChangesAsync();
             }
 
-            // Sync inventories for all existing products
+            // Sync inventories for all existing products and ensure demo engraving settings are applied
             var existingProducts = await context.Products.Include(p => p.Variants).ToListAsync();
+            var demoEngravingNames = new HashSet<string>
+            {
+                "boAt Airdopes 131",
+                "JBL Tune 510BT",
+                "JBL C105TWS",
+                "boAt Rockerz 550",
+                "BeatBox AirBuds 100",
+                "BeatBox Studio Pro"
+            };
+
             foreach (var p in existingProducts)
             {
                 await CreateOrSyncInventory(context, p);
+                if (demoEngravingNames.Contains(p.Name))
+                {
+                    p.IsEngravingAvailable = true;
+                    p.EngravingPrice = 99.00m;
+                }
             }
             await context.SaveChangesAsync();
 
@@ -519,6 +534,16 @@ public static class DbSeeder
                 continue;
             }
 
+            var isDemoEngravable = new[]
+            {
+                "boAt Airdopes 131",
+                "JBL Tune 510BT",
+                "JBL C105TWS",
+                "boAt Rockerz 550",
+                "BeatBox AirBuds 100",
+                "BeatBox Studio Pro"
+            }.Contains(temp.Name);
+
             var product = new Product
             {
                 Id = Guid.NewGuid(),
@@ -532,6 +557,8 @@ public static class DbSeeder
                 IsFeatured = rnd.NextDouble() > 0.6,
                 SoldCount = rnd.Next(50, 800),
                 DeliveryDays = rnd.Next(2, 5),
+                IsEngravingAvailable = isDemoEngravable,
+                EngravingPrice = isDemoEngravable ? 99.00m : 99.00m,
                 Faqs = CreateFaqs(),
                 Reviews = CreateReviews(admin?.Id, rnd)
             };

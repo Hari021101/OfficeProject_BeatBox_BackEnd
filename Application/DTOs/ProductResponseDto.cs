@@ -26,6 +26,8 @@ public class ProductResponseDto
     public string Connectivity { get; set; } = string.Empty;
 
     public bool IsFeatured { get; set; }
+    public bool IsEngravingAvailable { get; set; }
+    public decimal EngravingPrice { get; set; }
     public int SoldCount { get; set; }
 
     public int DeliveryDays { get; set; }

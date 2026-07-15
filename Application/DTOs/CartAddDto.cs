@@ -7,5 +7,9 @@ public class CartAddDto
 
     public int Quantity { get; set; }
 
+    public bool IsPersonalised { get; set; }
+    public string? EngravingName { get; set; }
+    public string? EngravingDate { get; set; }
+    public string? EngravingMessage { get; set; }
 
 }

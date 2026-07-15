@@ -71,10 +71,15 @@ public class OrderService : IOrderService
 				Color = ci.Color,
 				ColorCode = ci.ColorCode,
 				ProductVariantId = ci.VariantId,
-				ProductImageUrl = ci.ProductImageUrl
+				ProductImageUrl = ci.ProductImageUrl,
+				IsPersonalised = ci.IsPersonalised,
+				EngravingName = ci.EngravingName,
+				EngravingDate = ci.EngravingDate,
+				EngravingMessage = ci.EngravingMessage,
+				EngravingPrice = ci.EngravingPrice
 			}).ToList();
 
-			decimal subtotal = cart.CartItems.Sum(ci => ci.Quantity * ci.UnitPrice);
+			decimal subtotal = cart.CartItems.Sum(ci => ci.Quantity * (ci.UnitPrice + (ci.IsPersonalised ? ci.EngravingPrice : 0)));
 
 			var addr = orderCreateDto.ShippingAddress;
 			var parts = new[]

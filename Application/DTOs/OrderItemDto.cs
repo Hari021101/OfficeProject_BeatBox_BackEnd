@@ -12,5 +12,11 @@ public class OrderItemDto
     public Guid? ProductVariantId { get; set; }
     public string? ProductImageUrl { get; set; }
 
-    public decimal TotalPrice => Quantity * UnitPrice;
+    public bool IsPersonalised { get; set; }
+    public string? EngravingName { get; set; }
+    public string? EngravingDate { get; set; }
+    public string? EngravingMessage { get; set; }
+    public decimal EngravingPrice { get; set; }
+
+    public decimal TotalPrice => Quantity * (UnitPrice + (IsPersonalised ? EngravingPrice : 0));
 }

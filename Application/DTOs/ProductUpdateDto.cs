@@ -25,6 +25,8 @@ public class ProductUpdateDto
     public string? Connectivity { get; set; }
 
     public bool? IsFeatured { get; set; }
+    public bool? IsEngravingAvailable { get; set; }
+    public decimal? EngravingPrice { get; set; }
 
     public List<ProductFaqDto>? Faqs { get; set; }
 }

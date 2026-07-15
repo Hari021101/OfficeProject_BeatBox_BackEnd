@@ -34,6 +34,8 @@ public class Product
     public ICollection<ProductVariant> Variants { get; set; }
     = new List<ProductVariant>();
     
+    public bool IsEngravingAvailable { get; set; } = false;
+    public decimal EngravingPrice { get; set; } = 99.00m;
 
 
 }

@@ -15,5 +15,11 @@ namespace Domain.Entities
         public string? ColorCode { get; set; }
         public Guid? ProductVariantId { get; set; }
         public string? ProductImageUrl { get; set; }
+
+        public bool IsPersonalised { get; set; } = false;
+        public string? EngravingName { get; set; }
+        public string? EngravingDate { get; set; }
+        public string? EngravingMessage { get; set; }
+        public decimal EngravingPrice { get; set; } = 0.00m;
     }
 }

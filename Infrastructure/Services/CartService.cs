@@ -66,32 +66,62 @@ public class CartService : ICartService
         if (variant == null)
             throw new Exception($"Variant not found for product {product.Id}. Provide a valid VariantId.");
 
+        // Validate customization fields if personalization is requested
+        bool isPersonalised = false;
+        string? engravingName = null;
+        string? engravingDate = null;
+        string? engravingMessage = null;
+        decimal engravingPrice = 0.00m;
+
+        if (cartAddDto.IsPersonalised)
+        {
+            if (!product.IsEngravingAvailable)
+            {
+                throw new Exception("Custom engraving is not available for this product.");
+            }
+
+            if (string.IsNullOrWhiteSpace(cartAddDto.EngravingName))
+            {
+                throw new Exception("Engraving name is required for personalized products.");
+            }
+
+            if (cartAddDto.EngravingName.Length > 12)
+            {
+                throw new Exception("Engraving name cannot exceed 12 characters.");
+            }
+
+            if (!string.IsNullOrEmpty(cartAddDto.EngravingMessage) && cartAddDto.EngravingMessage.Length > 40)
+            {
+                throw new Exception("Engraving message cannot exceed 40 characters.");
+            }
+
+            isPersonalised = true;
+            engravingName = cartAddDto.EngravingName.ToUpper();
+            engravingDate = cartAddDto.EngravingDate;
+            engravingMessage = cartAddDto.EngravingMessage?.ToUpper();
+            engravingPrice = product.EngravingPrice;
+        }
+
         // Create cart item
-var cartItem = new CartItem
-{
-    CartId = cart.CartId,
-
-    ProductId = cartAddDto.ProductId,
-
-    VariantId = variant.Id,
-
-    ProductVariantId = variant.Id,
-
-    Quantity = cartAddDto.Quantity,
-
-    UnitPrice =
-        variant.DiscountPrice.HasValue &&
-        variant.DiscountPrice.Value > 0
-            ? variant.DiscountPrice.Value
-            : variant.Price,
-
-    Color = variant.Color,
-
-    ColorCode = variant.ColorCode,
-
-    ProductImageUrl = variant.Images
-        .FirstOrDefault(i => i.IsPrimary)?.ImageUrl
-};
+        var cartItem = new CartItem
+        {
+            CartId = cart.CartId,
+            ProductId = cartAddDto.ProductId,
+            VariantId = variant.Id,
+            ProductVariantId = variant.Id,
+            Quantity = cartAddDto.Quantity,
+            UnitPrice = variant.DiscountPrice.HasValue && variant.DiscountPrice.Value > 0
+                    ? variant.DiscountPrice.Value
+                    : variant.Price,
+            Color = variant.Color,
+            ColorCode = variant.ColorCode,
+            ProductImageUrl = variant.Images.FirstOrDefault(i => i.IsPrimary)?.ImageUrl,
+            IsPersonalised = isPersonalised,
+            EngravingName = engravingName,
+            EngravingDate = engravingDate,
+            EngravingMessage = engravingMessage,
+            EngravingPrice = engravingPrice
+        };
 
         await _cartRepository.AddCartItemAsync(cartItem);
 

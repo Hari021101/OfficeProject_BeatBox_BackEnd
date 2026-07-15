@@ -85,7 +85,13 @@ namespace Infrastructure.Data
             builder.Entity<OrderItem>(entity =>
 			{
 				entity.Property(oi => oi.UnitPrice).HasColumnType("decimal(18,2)");
+				entity.Property(oi => oi.EngravingPrice).HasColumnType("decimal(18,2)");
 			});
+
+            builder.Entity<Product>(entity =>
+            {
+                entity.Property(p => p.EngravingPrice).HasColumnType("decimal(18,2)");
+            });
 
             builder.Entity<Payment>(entity =>
             {
@@ -107,6 +113,7 @@ namespace Infrastructure.Data
             builder.Entity<CartItem>(entity =>
 			{
 				entity.Property(ci => ci.UnitPrice).HasColumnType("decimal(18,2)");
+				entity.Property(ci => ci.EngravingPrice).HasColumnType("decimal(18,2)");
 			});
             builder.Entity<CartItem>()
            .HasOne(ci => ci.Variant)

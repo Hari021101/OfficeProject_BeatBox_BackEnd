@@ -17,6 +17,8 @@ public class ProductCreateDto
     public string Connectivity { get; set; } = string.Empty;
 
     public bool IsFeatured { get; set; }
+    public bool IsEngravingAvailable { get; set; } = false;
+    public decimal EngravingPrice { get; set; } = 99.00m;
 
     public List<ProductFaqDto> Faqs { get; set; } = new();
 }
