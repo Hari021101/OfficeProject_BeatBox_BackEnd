@@ -20,4 +20,6 @@ public class OrderDto
 
     public string? ProductImageUrl { get; set; }
 
-}
+    public string? PromoCode { get; set; }
+    public decimal DiscountAmount { get; set; }
+}

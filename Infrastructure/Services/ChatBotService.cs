@@ -112,7 +112,7 @@ namespace Infrastructure.Services
                 new IntentDefinition {
                     Id = "payment",
                     Keywords = new List<string> { "payment", "pay", "upi", "card", "credit card", "debit card", "net banking", "cod", "emi", "wallet" },
-                    Response = "We accept all major payment methods! 💳\n\n**Payment Options:**\n• 💳 Credit & Debit Cards (Visa, Mastercard, RuPay)\n• 📱 UPI (GPay, PhonePe, Paytm, BHIM)\n• 🏦 Net Banking (All major banks)\n• 💵 Cash on Delivery (COD)\n• 🔄 EMI — Available on orders above ₹3,000\n\nAll payments are **100% secure** & encrypted with SSL."
+                    Response = "We accept the following payment options! 💳\n\n**Payment Options:**\n• 🏦 Net Banking (All major Indian banks)\n• 💵 Cash on Delivery (COD)\n\nAll payments are **100% secure** & encrypted with SSL."
                 },
                 new IntentDefinition {
                     Id = "account",

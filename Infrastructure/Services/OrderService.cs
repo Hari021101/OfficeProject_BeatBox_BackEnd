@@ -64,6 +64,15 @@ public class OrderService : IOrderService
 				throw new Exception("Cart is empty. Please add items to your cart before checking out.");
 			}
 
+			if (!string.IsNullOrWhiteSpace(orderCreateDto.PaymentMethod))
+			{
+				var normalizedMethod = orderCreateDto.PaymentMethod.Trim().ToUpperInvariant();
+				if (normalizedMethod != "NETBANKING" && normalizedMethod != "COD")
+				{
+					throw new Exception("Invalid payment method. Only Net Banking and Cash on Delivery (COD) are supported.");
+				}
+			}
+
 			var orderItems = cart.CartItems.Select(ci => new OrderItem
 			{
 				ProductId = ci.ProductId,
@@ -151,6 +160,21 @@ public class OrderService : IOrderService
 
 			await _orderRepository.AddOrderAsync(order);
 			await _orderRepository.SaveChangesAsync();
+
+			if (string.Equals(orderCreateDto.PaymentMethod, "COD", StringComparison.OrdinalIgnoreCase))
+			{
+				var payment = new Domain.Entities.Payment
+				{
+					OrderId = order.OrderId,
+					Amount = grandTotal,
+					Method = "COD",
+					Status = "Pending",
+					TransactionId = orderCreateDto.PaymentDetails?.TransactionReference ?? $"COD-{DateTime.UtcNow.Ticks}",
+					CreatedDate = DateTime.UtcNow
+				};
+				await _paymentRepository.AddPaymentAsync(payment);
+				await _paymentRepository.SaveChangesAsync();
+			}
 
 			// Reserve stock for each item
 			foreach (var item in order.OrderItems)

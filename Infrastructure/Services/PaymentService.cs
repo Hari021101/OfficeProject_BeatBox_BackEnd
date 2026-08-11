@@ -39,6 +39,12 @@ public class PaymentService : IPaymentService
         Console.WriteLine($"Payment Amount: {paymentProcessDto.Amount}");
         if (order == null) throw new Exception("Order not found");
 
+        if (!string.Equals(paymentProcessDto.Method, "NETBANKING", StringComparison.OrdinalIgnoreCase) &&
+            !string.Equals(paymentProcessDto.Method, "COD", StringComparison.OrdinalIgnoreCase))
+        {
+            throw new Exception("Unsupported payment method. Only NETBANKING and COD are accepted.");
+        }
+
         var paymentAmountInRupees =
     paymentProcessDto.Amount / 100m;
 
