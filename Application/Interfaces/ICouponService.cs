@@ -8,6 +8,7 @@ namespace Application.Interfaces;
 public interface ICouponService
 {
     // Customer-facing
+    Task<PromoValidateResponseDto> ValidatePromoCodeAsync(PromoValidateRequestDto dto);
     Task<CouponResultDto> ApplyCouponAsync(ApplyCouponDto dto);
     Task<IEnumerable<Coupon>> GetActiveCouponsAsync();
 

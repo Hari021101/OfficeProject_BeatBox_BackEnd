@@ -36,6 +36,15 @@ public class CouponController : ControllerBase
         return Ok(result);
     }
 
+    /// <summary>Validates a promo code (Customer-facing).</summary>
+    [HttpPost("validate")]
+    public async Task<IActionResult> ValidateCoupon([FromBody] PromoValidateRequestDto dto)
+    {
+        var result = await _couponService.ValidatePromoCodeAsync(dto);
+        if (!result.IsValid) return BadRequest(new { message = result.Message, isValid = false });
+        return Ok(result);
+    }
+
     // ─── Admin ─────────────────────────────────────────────────────────────────
 
     /// <summary>Returns ALL coupons including inactive/expired.</summary>

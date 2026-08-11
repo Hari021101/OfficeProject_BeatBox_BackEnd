@@ -30,4 +30,8 @@ public class Coupon
     public int UsageLimit { get; set; }
 
     public int UsedCount { get; set; }
+
+    public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+
+    public DateTime? UpdatedDate { get; set; }
 }

@@ -1,6 +1,8 @@
 using Application.DTOs;
 using Application.Interfaces;
 using Domain.Entities;
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +13,12 @@ namespace Infrastructure.Services;
 public class CouponService : ICouponService
 {
     private readonly ICouponRepository _couponRepository;
+    private readonly AppDbContext _context;
 
-    public CouponService(ICouponRepository couponRepository)
+    public CouponService(ICouponRepository couponRepository, AppDbContext context)
     {
         _couponRepository = couponRepository;
+        _context = context;
     }
 
     // ─── Helpers ──────────────────────────────────────────────────────────────
@@ -22,7 +26,9 @@ public class CouponService : ICouponService
     private static string DeriveStatus(Coupon c)
     {
         var now = DateTime.UtcNow;
-        if (c.ExpiryDate < now) return "Expired";
+        if (!c.IsActive) return "Expired";
+        if (c.ExpiryDate <= now) return "Expired";
+        if (c.UsageLimit > 0 && c.UsedCount >= c.UsageLimit) return "Expired";
         if (c.StartDate.HasValue && c.StartDate.Value > now) return "Scheduled";
         return "Active";
     }
@@ -42,6 +48,8 @@ public class CouponService : ICouponService
         IsActive = c.IsActive,
         UsageLimit = c.UsageLimit,
         UsedCount = c.UsedCount,
+        CreatedDate = c.CreatedDate,
+        UpdatedDate = c.UpdatedDate,
         Status = DeriveStatus(c)
     };
 
@@ -54,67 +62,151 @@ public class CouponService : ICouponService
         return coupons.Where(c =>
             c.IsActive &&
             c.ExpiryDate > now &&
+            (c.UsageLimit == 0 || c.UsedCount < c.UsageLimit) &&
             (!c.StartDate.HasValue || c.StartDate.Value <= now));
+    }
+
+    public async Task<PromoValidateResponseDto> ValidatePromoCodeAsync(PromoValidateRequestDto dto)
+    {
+        if (string.IsNullOrWhiteSpace(dto.Code))
+        {
+            return new PromoValidateResponseDto
+            {
+                IsValid = false,
+                Message = "Promo code is required."
+            };
+        }
+
+        var normalizedCode = dto.Code.Trim().ToUpperInvariant();
+        var coupon = await _couponRepository.GetByCodeAsync(normalizedCode);
+
+        if (coupon == null)
+        {
+            return new PromoValidateResponseDto
+            {
+                IsValid = false,
+                Code = normalizedCode,
+                Message = "Invalid promo code."
+            };
+        }
+
+        if (!coupon.IsActive)
+        {
+            return new PromoValidateResponseDto
+            {
+                IsValid = false,
+                Code = coupon.Code,
+                Message = "Promo code is not active."
+            };
+        }
+
+        var now = DateTime.UtcNow;
+        if (coupon.StartDate.HasValue && coupon.StartDate.Value > now)
+        {
+            return new PromoValidateResponseDto
+            {
+                IsValid = false,
+                Code = coupon.Code,
+                Message = "Promo code is not active yet."
+            };
+        }
+
+        if (coupon.ExpiryDate <= now)
+        {
+            return new PromoValidateResponseDto
+            {
+                IsValid = false,
+                Code = coupon.Code,
+                Message = "Promo code has expired."
+            };
+        }
+
+        if (coupon.UsageLimit > 0 && coupon.UsedCount >= coupon.UsageLimit)
+        {
+            return new PromoValidateResponseDto
+            {
+                IsValid = false,
+                Code = coupon.Code,
+                Message = "Promo code usage limit has been reached."
+            };
+        }
+
+        if (dto.CartTotal < coupon.MinimumOrderAmount)
+        {
+            return new PromoValidateResponseDto
+            {
+                IsValid = false,
+                Code = coupon.Code,
+                Message = $"Minimum order amount is ₹{coupon.MinimumOrderAmount:N0}."
+            };
+        }
+
+        decimal discountAmount = 0;
+        bool isFreeShipping = false;
+        string message = "";
+
+        if (string.Equals(coupon.DiscountType, "Shipping", StringComparison.OrdinalIgnoreCase))
+        {
+            isFreeShipping = true;
+            discountAmount = 0;
+            message = "Free shipping applied!";
+        }
+        else if (string.Equals(coupon.DiscountType, "Percentage", StringComparison.OrdinalIgnoreCase) || coupon.DiscountPercentage.HasValue)
+        {
+            var pct = coupon.DiscountPercentage ?? 0;
+            discountAmount = Math.Round(dto.CartTotal * pct / 100m, 2);
+            if (coupon.MaximumDiscount.HasValue && discountAmount > coupon.MaximumDiscount.Value)
+            {
+                discountAmount = coupon.MaximumDiscount.Value;
+            }
+            message = $"{pct}% discount applied!";
+        }
+        else
+        {
+            discountAmount = Math.Min(dto.CartTotal, coupon.DiscountAmount);
+            message = $"₹{discountAmount:N0} discount applied!";
+        }
+
+        decimal finalAmount = Math.Max(0, dto.CartTotal - discountAmount);
+
+        // DO NOT increment UsedCount here. Read-only validation.
+        return new PromoValidateResponseDto
+        {
+            IsValid = true,
+            Code = coupon.Code,
+            DiscountType = coupon.DiscountType,
+            DiscountPercentage = coupon.DiscountPercentage ?? 0,
+            DiscountAmount = discountAmount,
+            IsFreeShipping = isFreeShipping,
+            FinalAmount = finalAmount,
+            Message = message
+        };
     }
 
     public async Task<CouponResultDto> ApplyCouponAsync(ApplyCouponDto dto)
     {
-        var coupon = await _couponRepository.GetByCodeAsync(dto.CouponCode);
+        var validation = await ValidatePromoCodeAsync(new PromoValidateRequestDto
+        {
+            Code = dto.CouponCode,
+            CartTotal = dto.OrderAmount
+        });
 
-        if (coupon == null)
-            return new CouponResultDto { IsValid = false, Message = "Invalid coupon code" };
-
-        if (!coupon.IsActive)
-            return new CouponResultDto { IsValid = false, Message = "Coupon is disabled" };
-
-        var now = DateTime.UtcNow;
-        if (coupon.ExpiryDate < now)
-            return new CouponResultDto { IsValid = false, Message = "Coupon has expired" };
-
-        if (coupon.StartDate.HasValue && coupon.StartDate.Value > now)
-            return new CouponResultDto { IsValid = false, Message = "Coupon is not yet active" };
-
-        if (coupon.UsageLimit > 0 && coupon.UsedCount >= coupon.UsageLimit)
-            return new CouponResultDto { IsValid = false, Message = "Coupon usage limit reached" };
-
-        if (dto.OrderAmount < coupon.MinimumOrderAmount)
-            return new CouponResultDto { IsValid = false, Message = $"Minimum order ₹{coupon.MinimumOrderAmount}" };
-
-        decimal discount = 0;
-
-        if (coupon.DiscountType == "Shipping")
+        if (!validation.IsValid)
         {
             return new CouponResultDto
             {
-                IsValid = true,
-                Discount = 0,
-                IsFreeShipping = true,
-                FinalAmount = dto.OrderAmount,
-                Message = "Free shipping applied!"
+                IsValid = false,
+                Message = validation.Message
             };
         }
-        else if (coupon.DiscountType == "Percentage" || coupon.DiscountPercentage.HasValue)
-        {
-            var pct = coupon.DiscountPercentage ?? 0;
-            discount = dto.OrderAmount * pct / 100;
-            if (coupon.MaximumDiscount.HasValue && discount > coupon.MaximumDiscount.Value)
-                discount = coupon.MaximumDiscount.Value;
-        }
-        else
-        {
-            discount = coupon.DiscountAmount;
-        }
-
-        // Increment usage count
-        coupon.UsedCount++;
-        await _couponRepository.UpdateAsync(coupon);
 
         return new CouponResultDto
         {
             IsValid = true,
-            Discount = discount,
-            FinalAmount = dto.OrderAmount - discount,
-            Message = "Coupon applied successfully"
+            Discount = validation.DiscountAmount,
+            FinalAmount = validation.FinalAmount,
+            IsFreeShipping = validation.IsFreeShipping,
+            Message = validation.Message
         };
     }
 
@@ -135,23 +227,40 @@ public class CouponService : ICouponService
 
     public async Task<CouponDto> CreateCouponAsync(CouponCreateDto dto)
     {
-        // Uniqueness check
-        if (await _couponRepository.CodeExistsAsync(dto.Code.ToUpper()))
-            throw new Exception($"Coupon code '{dto.Code}' already exists");
+        if (string.IsNullOrWhiteSpace(dto.Code))
+            throw new Exception("Coupon code is required");
 
-        // Validation
-        if (dto.DiscountType == "Percentage" && dto.DiscountPercentage is > 100)
-            throw new Exception("Percentage discount cannot exceed 100%");
+        var normalizedCode = dto.Code.Trim().ToUpperInvariant();
 
-        if (dto.StartDate.HasValue && dto.StartDate.Value >= dto.ExpiryDate)
-            throw new Exception("Start date must be before expiry date");
+        if (await _couponRepository.CodeExistsAsync(normalizedCode))
+            throw new Exception($"Coupon code '{normalizedCode}' already exists");
+
+        if (string.Equals(dto.DiscountType, "Percentage", StringComparison.OrdinalIgnoreCase))
+        {
+            if (dto.DiscountPercentage is null or <= 0 or > 100)
+                throw new Exception("Percentage discount must be between 1 and 100%");
+        }
+        else if (string.Equals(dto.DiscountType, "Fixed", StringComparison.OrdinalIgnoreCase))
+        {
+            if (dto.DiscountAmount <= 0)
+                throw new Exception("Fixed discount amount must be greater than 0");
+        }
+
+        if (dto.MinimumOrderAmount < 0)
+            throw new Exception("Minimum order amount cannot be negative");
+
+        if (dto.MaximumDiscount.HasValue && dto.MaximumDiscount.Value < 0)
+            throw new Exception("Maximum discount cannot be negative");
 
         if (dto.UsageLimit < 0)
             throw new Exception("Usage limit cannot be negative");
 
+        if (dto.StartDate.HasValue && dto.StartDate.Value >= dto.ExpiryDate)
+            throw new Exception("Expiry date must be after start date");
+
         var coupon = new Coupon
         {
-            Code = dto.Code.ToUpper().Trim(),
+            Code = normalizedCode,
             Description = dto.Description,
             DiscountType = dto.DiscountType,
             DiscountAmount = dto.DiscountAmount,
@@ -162,7 +271,8 @@ public class CouponService : ICouponService
             ExpiryDate = dto.ExpiryDate,
             IsActive = dto.IsActive,
             UsageLimit = dto.UsageLimit,
-            UsedCount = 0
+            UsedCount = 0,
+            CreatedDate = DateTime.UtcNow
         };
 
         await _couponRepository.AddAsync(coupon);
@@ -174,17 +284,38 @@ public class CouponService : ICouponService
         var coupon = await _couponRepository.GetByIdAsync(id)
             ?? throw new Exception($"Coupon {id} not found");
 
-        // Uniqueness check (exclude self)
-        if (await _couponRepository.CodeExistsAsync(dto.Code.ToUpper(), id))
-            throw new Exception($"Coupon code '{dto.Code}' already used by another coupon");
+        if (string.IsNullOrWhiteSpace(dto.Code))
+            throw new Exception("Coupon code is required");
 
-        if (dto.DiscountType == "Percentage" && dto.DiscountPercentage is > 100)
-            throw new Exception("Percentage discount cannot exceed 100%");
+        var normalizedCode = dto.Code.Trim().ToUpperInvariant();
+
+        if (await _couponRepository.CodeExistsAsync(normalizedCode, id))
+            throw new Exception($"Coupon code '{normalizedCode}' is already used by another coupon");
+
+        if (string.Equals(dto.DiscountType, "Percentage", StringComparison.OrdinalIgnoreCase))
+        {
+            if (dto.DiscountPercentage is null or <= 0 or > 100)
+                throw new Exception("Percentage discount must be between 1 and 100%");
+        }
+        else if (string.Equals(dto.DiscountType, "Fixed", StringComparison.OrdinalIgnoreCase))
+        {
+            if (dto.DiscountAmount <= 0)
+                throw new Exception("Fixed discount amount must be greater than 0");
+        }
+
+        if (dto.MinimumOrderAmount < 0)
+            throw new Exception("Minimum order amount cannot be negative");
+
+        if (dto.MaximumDiscount.HasValue && dto.MaximumDiscount.Value < 0)
+            throw new Exception("Maximum discount cannot be negative");
+
+        if (dto.UsageLimit < 0)
+            throw new Exception("Usage limit cannot be negative");
 
         if (dto.StartDate.HasValue && dto.StartDate.Value >= dto.ExpiryDate)
-            throw new Exception("Start date must be before expiry date");
+            throw new Exception("Expiry date must be after start date");
 
-        coupon.Code = dto.Code.ToUpper().Trim();
+        coupon.Code = normalizedCode;
         coupon.Description = dto.Description;
         coupon.DiscountType = dto.DiscountType;
         coupon.DiscountAmount = dto.DiscountAmount;
@@ -195,6 +326,7 @@ public class CouponService : ICouponService
         coupon.ExpiryDate = dto.ExpiryDate;
         coupon.IsActive = dto.IsActive;
         coupon.UsageLimit = dto.UsageLimit;
+        coupon.UpdatedDate = DateTime.UtcNow;
 
         await _couponRepository.UpdateAsync(coupon);
         return ToDto(coupon);
@@ -202,14 +334,30 @@ public class CouponService : ICouponService
 
     public async Task DeleteCouponAsync(int id)
     {
-        await _couponRepository.DeleteAsync(id);
+        var coupon = await _couponRepository.GetByIdAsync(id);
+        if (coupon == null) return;
+
+        // Soft delete/disable if the coupon was ever used in completed/placed orders
+        bool hasBeenUsed = await _context.Orders.AnyAsync(o => o.PromoCode == coupon.Code);
+        if (hasBeenUsed || coupon.UsedCount > 0)
+        {
+            coupon.IsActive = false;
+            coupon.UpdatedDate = DateTime.UtcNow;
+            await _couponRepository.UpdateAsync(coupon);
+        }
+        else
+        {
+            await _couponRepository.DeleteAsync(id);
+        }
     }
 
     public async Task<CouponDto> ToggleActiveAsync(int id)
     {
         var coupon = await _couponRepository.GetByIdAsync(id)
             ?? throw new Exception($"Coupon {id} not found");
+
         coupon.IsActive = !coupon.IsActive;
+        coupon.UpdatedDate = DateTime.UtcNow;
         await _couponRepository.UpdateAsync(coupon);
         return ToDto(coupon);
     }
@@ -221,13 +369,17 @@ public class CouponService : ICouponService
         var all = (await _couponRepository.GetAllAsync()).ToList();
         var now = DateTime.UtcNow;
 
+        var totalDiscountGivenFromOrders = await _context.Orders
+            .Where(o => o.Status != "Cancelled" && o.DiscountAmount > 0)
+            .SumAsync(o => (decimal?)o.DiscountAmount) ?? 0m;
+
         return new CouponStatsDto
         {
-            ActiveCount = all.Count(c => c.IsActive && c.ExpiryDate > now && (!c.StartDate.HasValue || c.StartDate.Value <= now)),
-            ExpiredCount = all.Count(c => c.ExpiryDate < now),
-            ScheduledCount = all.Count(c => c.StartDate.HasValue && c.StartDate.Value > now),
+            ActiveCount = all.Count(c => c.IsActive && c.ExpiryDate > now && (c.UsageLimit == 0 || c.UsedCount < c.UsageLimit) && (!c.StartDate.HasValue || c.StartDate.Value <= now)),
+            ExpiredCount = all.Count(c => !c.IsActive || c.ExpiryDate <= now || (c.UsageLimit > 0 && c.UsedCount >= c.UsageLimit)),
+            ScheduledCount = all.Count(c => c.IsActive && c.StartDate.HasValue && c.StartDate.Value > now && c.ExpiryDate > now),
             TotalRedemptions = all.Sum(c => c.UsedCount),
-            TotalDiscountGiven = all.Sum(c => c.UsedCount * (c.DiscountPercentage.HasValue ? 0 : c.DiscountAmount))
+            TotalDiscountGiven = totalDiscountGivenFromOrders
         };
     }
 }

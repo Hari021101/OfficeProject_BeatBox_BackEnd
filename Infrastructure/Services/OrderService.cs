@@ -4,6 +4,7 @@ using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 
@@ -92,8 +93,49 @@ public class OrderService : IOrderService
 
 			var gst = subtotal * 0.18m;
 			var shipping = subtotal >= 999 ? 0 : 79;
-			var discount = orderCreateDto.DiscountAmount;
-			var grandTotal = subtotal + gst + shipping - discount;
+			decimal calculatedDiscount = 0m;
+			string? appliedPromoCode = null;
+
+			if (!string.IsNullOrWhiteSpace(orderCreateDto.PromoCode))
+			{
+				var normalizedCode = orderCreateDto.PromoCode.Trim().ToUpperInvariant();
+				var coupon = await _context.Coupons.FirstOrDefaultAsync(c => c.Code == normalizedCode);
+				var now = DateTime.UtcNow;
+
+				if (coupon == null || !coupon.IsActive || coupon.ExpiryDate <= now ||
+					(coupon.StartDate.HasValue && coupon.StartDate.Value > now) ||
+					(coupon.UsageLimit > 0 && coupon.UsedCount >= coupon.UsageLimit) ||
+					subtotal < coupon.MinimumOrderAmount)
+				{
+					throw new Exception($"Invalid, expired, or inapplicable promo code '{orderCreateDto.PromoCode}'.");
+				}
+
+				if (string.Equals(coupon.DiscountType, "Shipping", StringComparison.OrdinalIgnoreCase))
+				{
+					shipping = 0;
+					calculatedDiscount = 0m;
+				}
+				else if (string.Equals(coupon.DiscountType, "Percentage", StringComparison.OrdinalIgnoreCase) || coupon.DiscountPercentage.HasValue)
+				{
+					var pct = coupon.DiscountPercentage ?? 0;
+					calculatedDiscount = Math.Round(subtotal * pct / 100m, 2);
+					if (coupon.MaximumDiscount.HasValue && calculatedDiscount > coupon.MaximumDiscount.Value)
+					{
+						calculatedDiscount = coupon.MaximumDiscount.Value;
+					}
+				}
+				else
+				{
+					calculatedDiscount = Math.Min(subtotal, coupon.DiscountAmount);
+				}
+
+				// Increment UsedCount within the single existing transaction
+				coupon.UsedCount++;
+				_context.Coupons.Update(coupon);
+				appliedPromoCode = coupon.Code;
+			}
+
+			var grandTotal = Math.Max(0, subtotal + gst + shipping - calculatedDiscount);
 
 			var order = new Order
 			{
@@ -101,8 +143,8 @@ public class OrderService : IOrderService
 				ShippingAddress = shippingAddress,
 				CreatedDate = DateTime.UtcNow,
 				Status = "Pending",
-				PromoCode = orderCreateDto.PromoCode,
-				DiscountAmount = orderCreateDto.DiscountAmount,
+				PromoCode = appliedPromoCode,
+				DiscountAmount = calculatedDiscount,
 				TotalAmount = grandTotal,
 				OrderItems = orderItems
 			};

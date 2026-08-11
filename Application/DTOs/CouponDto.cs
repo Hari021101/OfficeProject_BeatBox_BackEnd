@@ -29,6 +29,10 @@ public class CouponDto
 
     public int UsedCount { get; set; }
 
+    public DateTime CreatedDate { get; set; }
+
+    public DateTime? UpdatedDate { get; set; }
+
     /// <summary>Derived status: Active | Expired | Scheduled</summary>
     public string Status { get; set; } = string.Empty;
 }

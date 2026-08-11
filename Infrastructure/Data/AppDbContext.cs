@@ -181,6 +181,9 @@ namespace Infrastructure.Data
 
             builder.Entity<Coupon>(entity =>
             {
+                entity.HasIndex(x => x.Code)
+                      .IsUnique();
+
                 entity.Property(x => x.DiscountAmount)
                       .HasColumnType("decimal(18,2)");
 
