@@ -17,13 +17,50 @@ public class AdminDashboardRepository : IAdminDashboardRepository
 
     public async Task<DashboardSummaryDto> GetSummaryAsync()
     {
-        // Use aggregation queries with AsNoTracking
-        var totalRevenue = await _context.Orders
-    .AsNoTracking()
-    .Where(o => o.Status != "Cancelled")
-    .SumAsync(o => (decimal?)o.TotalAmount) ?? 0m;
+        var now = DateTime.UtcNow;
+        var startOfCurrentMonth = new DateTime(now.Year, now.Month, 1, 0, 0, 0, DateTimeKind.Utc);
+        var startOfNextMonth = startOfCurrentMonth.AddMonths(1);
+        var startOfPreviousMonth = startOfCurrentMonth.AddMonths(-1);
+
+        var validOrdersQuery = _context.Orders.AsNoTracking().Where(o => o.Status != "Cancelled");
+
+        var totalRevenue = await validOrdersQuery.SumAsync(o => (decimal?)o.TotalAmount) ?? 0m;
         var totalOrders = await _context.Orders.AsNoTracking().CountAsync();
         var totalCustomers = await _context.Users.AsNoTracking().CountAsync();
+
+        // Current & Previous Month queries
+        var currentMonthOrdersQuery = validOrdersQuery.Where(o => o.CreatedDate >= startOfCurrentMonth && o.CreatedDate < startOfNextMonth);
+        var previousMonthOrdersQuery = validOrdersQuery.Where(o => o.CreatedDate >= startOfPreviousMonth && o.CreatedDate < startOfCurrentMonth);
+
+        var currentMonthRevenue = await currentMonthOrdersQuery.SumAsync(o => (decimal?)o.TotalAmount) ?? 0m;
+        var previousMonthRevenue = await previousMonthOrdersQuery.SumAsync(o => (decimal?)o.TotalAmount) ?? 0m;
+        var revenueChange = CalculatePercentageChange(currentMonthRevenue, previousMonthRevenue);
+
+        var currentMonthOrderCount = await currentMonthOrdersQuery.CountAsync();
+        var previousMonthOrderCount = await previousMonthOrdersQuery.CountAsync();
+        var ordersChange = CalculatePercentageChange(currentMonthOrderCount, previousMonthOrderCount);
+
+        // Active Users: count of distinct UserIds in valid orders
+        var currentActiveUserIds = await currentMonthOrdersQuery.Select(o => o.UserId).Distinct().ToListAsync();
+        var previousActiveUserIds = await previousMonthOrdersQuery.Select(o => o.UserId).Distinct().ToListAsync();
+
+        var currentActiveUsersCount = currentActiveUserIds.Count;
+        var previousActiveUsersCount = previousActiveUserIds.Count;
+
+        var displayActiveUsers = currentActiveUsersCount > 0 ? currentActiveUsersCount : totalCustomers;
+        var activeUsersChange = CalculatePercentageChange(currentActiveUsersCount, previousActiveUsersCount);
+
+        // Conversion Rate: (orders / active users) * 100
+        var currentConversionRate = displayActiveUsers > 0
+            ? Math.Round(((decimal)currentMonthOrderCount / displayActiveUsers) * 100m, 2)
+            : 0m;
+
+        var previousConversionRate = previousActiveUsersCount > 0
+            ? Math.Round(((decimal)previousMonthOrderCount / previousActiveUsersCount) * 100m, 2)
+            : 0m;
+
+        var conversionRateChange = CalculatePercentageChange(currentConversionRate, previousConversionRate);
+
         var totalProducts = await _context.Products.AsNoTracking().CountAsync();
         var totalCategories = await _context.Categories.AsNoTracking().CountAsync();
         var totalInventoryItems = await _context.Inventories.AsNoTracking().CountAsync();
@@ -37,8 +74,21 @@ public class AdminDashboardRepository : IAdminDashboardRepository
         return new DashboardSummaryDto
         {
             TotalRevenue = totalRevenue,
+            RevenueGrowthPercentage = revenueChange,
+            RevenueChangePercentage = revenueChange,
+
             TotalOrders = totalOrders,
+            OrdersGrowthPercentage = ordersChange,
+            OrdersChangePercentage = ordersChange,
+
+            ActiveUsers = displayActiveUsers,
             TotalCustomers = totalCustomers,
+            ActiveUsersChangePercentage = activeUsersChange,
+            CustomerGrowthPercentage = activeUsersChange,
+
+            ConversionRate = currentConversionRate,
+            ConversionRateChangePercentage = conversionRateChange,
+
             TotalProducts = totalProducts,
             TotalCategories = totalCategories,
             TotalInventoryItems = totalInventoryItems,
@@ -49,6 +99,16 @@ public class AdminDashboardRepository : IAdminDashboardRepository
             CancelledOrders = cancelled,
             LowStockProducts = lowStock
         };
+    }
+
+    private static decimal CalculatePercentageChange(decimal current, decimal previous)
+    {
+        if (previous == 0m)
+        {
+            return current > 0m ? 100m : 0m;
+        }
+
+        return Math.Round(((current - previous) / previous) * 100m, 2);
     }
 
     public async Task<IEnumerable<TimeSeriesDto>> GetSalesTimeseriesAsync(DateTime from, DateTime to, string period)
@@ -94,14 +154,24 @@ public class AdminDashboardRepository : IAdminDashboardRepository
 
     public async Task<IEnumerable<RevenueByMonthDto>> GetRevenueByMonthAsync(int year)
     {
-        var items = await _context.Orders.AsNoTracking()
+        var dbItems = await _context.Orders.AsNoTracking()
             .Where(o => o.CreatedDate.Year == year && o.Status != "Cancelled")
-            .GroupBy(o => new { o.CreatedDate.Year, o.CreatedDate.Month })
-            .Select(g => new RevenueByMonthDto { Year = g.Key.Year, Month = g.Key.Month, Revenue = g.Sum(x => x.TotalAmount) })
-            .OrderBy(x => x.Month)
-            .ToListAsync();
+            .GroupBy(o => o.CreatedDate.Month)
+            .Select(g => new { Month = g.Key, Revenue = g.Sum(x => x.TotalAmount) })
+            .ToDictionaryAsync(x => x.Month, x => x.Revenue);
 
-        return items;
+        var result = new List<RevenueByMonthDto>();
+        for (int m = 1; m <= 12; m++)
+        {
+            result.Add(new RevenueByMonthDto
+            {
+                Year = year,
+                Month = m,
+                Revenue = dbItems.TryGetValue(m, out var rev) ? rev : 0m
+            });
+        }
+
+        return result;
     }
 
     public async Task<IEnumerable<ProductAnalyticsDto>> GetTopProductsAsync(int take)
