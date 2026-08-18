@@ -197,7 +197,5 @@ app.MapHub<Infrastructure.SignalR.OrderTrackingHub>("/hubs/orders");
 // Map controllers (e.g. AccountController)
 app.MapControllers();
 
-// Map fallback to serve the React SPA
-app.MapFallbackToFile("index.html");
 
 app.Run();
