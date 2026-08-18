@@ -22,24 +22,29 @@ The backend is built following **Clean Architecture** principles to ensure scala
 ## 🛠 Tech Stack
 
 ### Core Framework & Architecture
+
 - **Framework:** .NET 9 (ASP.NET Core Web API)
 - **Language:** C# 13
 - **Architecture:** Clean Architecture (Domain, Application, Infrastructure, Presentation/API layers)
 
 ### Database & ORM
+
 - **Database:** Microsoft SQL Server
 - **ORM:** Entity Framework Core (Code-First Approach with Migrations)
 
 ### Security & Identity
+
 - **Authentication:** ASP.NET Core Identity
 - **Tokens:** JSON Web Tokens (JWT)
 - **CORS:** Configured for cross-origin integration (e.g., Vercel Frontend)
 
 ### Real-Time & Communications
+
 - **WebSockets:** ASP.NET Core SignalR
 - **Email Provider:** MailKit / MimeKit (SMTP)
 
 ### Utilities & Integrations
+
 - **Payment Gateway:** Razorpay SDK
 - **API Documentation:** Swagger / OpenAPI
 - **Logging:** Serilog (MSSQL Sink, File Sink, Console)
@@ -52,23 +57,28 @@ The backend is built following **Clean Architecture** principles to ensure scala
 
 The project strictly follows the Clean Architecture pattern:
 
-* **`Domain/`**: Contains all enterprise logic, entities (e.g., `Product`, `Order`, `AppUser`), enums, and exceptions. No external dependencies.
-* **`Application/`**: Contains the business logic, DTOs, interfaces (e.g., `IProductRepository`, `IPaymentService`), and mapping profiles.
-* **`Infrastructure/`**: Implements the interfaces defined in Application. Contains the `AppDbContext`, EF Core migrations, Repository implementations, SignalR Hubs, and external service integrations (Razorpay, Email, Auth).
-* **`API/`**: The Presentation layer. Contains the Controllers, Middleware (Exception Handling, Request Logging), `Program.cs`, and `appsettings.json`.
+- **`Domain/`**: Contains all enterprise logic, entities (e.g., `Product`, `Order`, `AppUser`), enums, and exceptions. No external dependencies.
+- **`Application/`**: Contains the business logic, DTOs, interfaces (e.g., `IProductRepository`, `IPaymentService`), and mapping profiles.
+- **`Infrastructure/`**: Implements the interfaces defined in Application. Contains the `AppDbContext`, EF Core migrations, Repository implementations, SignalR Hubs, and external service integrations (Razorpay, Email, Auth).
+- **`API/`**: The Presentation layer. Contains the Controllers, Middleware (Exception Handling, Request Logging), `Program.cs`, and `appsettings.json`.
 
 ---
 
 ## 🌐 Deployment
 
-The backend is configured for deployment on Windows/IIS environments and is currently hosted on **RunASP.net / MonsterASP**. 
+The backend is configured for deployment on Windows/IIS environments and is currently hosted on **RunASP.net / MonsterASP**.
 
 ### Environment Setup
+
 The API requires the following environment variables / `appsettings.json` configurations:
+
 - `ConnectionStrings:DefaultConnection` (SQL Server)
 - `JWT:Key` (Super secret key for token signing)
 - `Razorpay:Key` & `Razorpay:Secret`
 - `Email:SenderEmail` & `Email:AppPassword` (SMTP Credentials)
 
 ### Frontend Integration
+
 The frontend is built with **React/Vite** and hosted independently on **Vercel**. The frontend communicates with this backend via the exposed REST API endpoints and connects to the SignalR Hubs using the provided JWT tokens.
+
+Local Connection String: `Server=(localdb)\\MSSQLLocalDB;Database=BeatBoxDb;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True"`
