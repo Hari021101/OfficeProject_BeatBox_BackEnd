@@ -34,7 +34,11 @@ public class ExceptionHandlingMiddleware
     {
         context.Response.ContentType = "application/json";
         
-        var statusCode = exception switch
+        var isStockConflict = exception is InvalidOperationException && 
+                              (exception.Message.Contains("available", StringComparison.OrdinalIgnoreCase) || 
+                               exception.Message.Contains("stock", StringComparison.OrdinalIgnoreCase));
+
+        var statusCode = isStockConflict ? HttpStatusCode.Conflict : exception switch
         {
             ArgumentException => HttpStatusCode.BadRequest,
             InvalidOperationException => HttpStatusCode.BadRequest,

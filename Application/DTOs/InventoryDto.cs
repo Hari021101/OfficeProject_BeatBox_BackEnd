@@ -4,6 +4,8 @@ public class InventoryDto
 {
     public Guid Id { get; set; }
     public Guid ProductId { get; set; }
+    public string ProductName { get; set; } = string.Empty;
+    public string CategoryName { get; set; } = string.Empty;
     public int AvailableStock { get; set; }
     public int ReservedStock { get; set; }
     public string WarehouseLocation { get; set; } = string.Empty;

@@ -5,6 +5,8 @@ using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
+using Microsoft.Extensions.Caching.Memory;
+
 namespace Infrastructure.Services;
 
 public class InventoryService : IInventoryService
@@ -15,6 +17,7 @@ public class InventoryService : IInventoryService
     private readonly INotificationService _notifier;
     private readonly IAdminDashboardService _dashboardService;
     private readonly IBusinessEventPublisher _eventPublisher;
+    private readonly IMemoryCache _cache;
 
     public InventoryService(
         IInventoryRepository repo, 
@@ -22,7 +25,8 @@ public class InventoryService : IInventoryService
         IMapper mapper, 
         INotificationService notifier, 
         IAdminDashboardService dashboardService,
-        IBusinessEventPublisher eventPublisher)
+        IBusinessEventPublisher eventPublisher,
+        IMemoryCache cache)
     {
         _repo = repo;
         _context = context;
@@ -30,6 +34,7 @@ public class InventoryService : IInventoryService
         _notifier = notifier;
         _dashboardService = dashboardService;
         _eventPublisher = eventPublisher;
+        _cache = cache;
     }
 
     public async Task FinalizeReservationAsync(Guid productId, int quantity, string? performedBy = null)
@@ -82,19 +87,26 @@ public class InventoryService : IInventoryService
 
     public async Task UpdateStockAsync(UpdateStockDto dto, string performedBy)
     {
+        if (dto.Quantity < 0)
+            throw new ArgumentException("Target stock quantity cannot be negative.");
+
         // Use transaction for safe updates
         var hasActiveTransaction = _context.Database.CurrentTransaction != null;
         using var tx = hasActiveTransaction ? null : await _context.Database.BeginTransactionAsync();
         try
         {
             var inv = await _repo.GetByProductIdAsync(dto.ProductId);
+            int oldStock = inv?.AvailableStock ?? 0;
+            int newStock = dto.Quantity;
+            int delta = newStock - oldStock;
+
             if (inv == null)
             {
                 inv = new Inventory
                 {
                     Id = Guid.NewGuid(),
                     ProductId = dto.ProductId,
-                    AvailableStock = Math.Max(0, dto.Quantity),
+                    AvailableStock = newStock,
                     ReservedStock = 0,
                     WarehouseLocation = string.Empty,
                     LowStockThreshold = 5,
@@ -102,72 +114,116 @@ public class InventoryService : IInventoryService
                 };
 
                 await _repo.AddAsync(inv);
-                if (tx != null) await tx.CommitAsync();
-                await _repo.AddHistoryAsync(new InventoryHistory
-                {
-                    Id = Guid.NewGuid(),
-                    InventoryId = inv.Id,
-                    Change = dto.Quantity,
-                    Reason = dto.Reason,
-                    Timestamp = DateTime.UtcNow,
-                    PerformedBy = performedBy
-                });
-
-                var createdProd = await _context.Products.FindAsync(dto.ProductId);
-                await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
-                {
-                    ActionType = "STOCK_INCREASED",
-                    EntityType = "Inventory",
-                    EntityId = dto.ProductId.ToString(),
-                    Title = createdProd?.Name ?? "Product",
-                    Description = $"Inventory initialized with {dto.Quantity} units. Reason: {dto.Reason}",
-                    Icon = "PlusCircle",
-                    ColorClass = "text-success",
-                    BgClass = "bg-success",
-                    ProductId = dto.ProductId
-                });
-
-                return;
+            }
+            else
+            {
+                inv.AvailableStock = newStock;
+                inv.LastUpdated = DateTime.UtcNow;
+                await _repo.UpdateAsync(inv);
             }
 
-            // compute new available stock
-            var newAvailable = inv.AvailableStock + dto.Quantity;
-            if (newAvailable < 0)
-                throw new InvalidOperationException("Available stock cannot go below zero.");
+            // Sync ProductVariants if present so aggregate product stock matches newStock
+            var variants = await _context.ProductVariants.Where(v => v.ProductId == dto.ProductId).ToListAsync();
+            if (variants.Any())
+            {
+                if (variants.Count == 1)
+                {
+                    variants[0].StockQuantity = newStock;
+                }
+                else
+                {
+                    int currentVariantSum = variants.Sum(v => v.StockQuantity);
+                    int diff = newStock - currentVariantSum;
 
-            inv.AvailableStock = newAvailable;
-            inv.LastUpdated = DateTime.UtcNow;
+                    if (diff > 0)
+                    {
+                        var primary = variants.FirstOrDefault(v => v.IsActive) ?? variants[0];
+                        primary.StockQuantity += diff;
+                    }
+                    else if (diff < 0)
+                    {
+                        int remainingToDeduct = Math.Abs(diff);
+                        var primary = variants.FirstOrDefault(v => v.IsActive) ?? variants[0];
 
-            await _repo.UpdateAsync(inv);
+                        int deductFromPrimary = Math.Min(primary.StockQuantity, remainingToDeduct);
+                        primary.StockQuantity -= deductFromPrimary;
+                        remainingToDeduct -= deductFromPrimary;
+
+                        foreach (var v in variants.Where(v => v != primary))
+                        {
+                            if (remainingToDeduct <= 0) break;
+                            int deduct = Math.Min(v.StockQuantity, remainingToDeduct);
+                            v.StockQuantity -= deduct;
+                            remainingToDeduct -= deduct;
+                        }
+
+                        if (newStock == 0)
+                        {
+                            foreach (var v in variants) v.StockQuantity = 0;
+                        }
+                    }
+                }
+                await _context.SaveChangesAsync();
+            }
 
             await _repo.AddHistoryAsync(new InventoryHistory
             {
                 Id = Guid.NewGuid(),
                 InventoryId = inv.Id,
-                Change = dto.Quantity,
+                Change = delta,
                 Reason = dto.Reason,
                 Timestamp = DateTime.UtcNow,
                 PerformedBy = performedBy
             });
 
-            if (tx != null) await tx.CommitAsync();
-
             var prod = await _context.Products.FindAsync(dto.ProductId);
             var prodName = prod?.Name ?? "Product";
+
+            string actionType;
+            string description;
+            string icon;
+            string colorClass;
+            string bgClass;
+
+            if (delta > 0)
+            {
+                actionType = "STOCK_INCREASED";
+                description = $"Stock increased by {delta} units. Reason: {dto.Reason}. New Stock: {newStock}";
+                icon = "PlusCircle";
+                colorClass = "text-success";
+                bgClass = "bg-success";
+            }
+            else if (delta < 0)
+            {
+                actionType = "STOCK_REDUCED";
+                description = $"Stock reduced by {Math.Abs(delta)} units. Reason: {dto.Reason}. New Stock: {newStock}";
+                icon = "MinusCircle";
+                colorClass = "text-warning";
+                bgClass = "bg-warning";
+            }
+            else
+            {
+                actionType = "STOCK_UPDATED";
+                description = $"No stock quantity change occurred. Reason: {dto.Reason}. New Stock: {newStock}";
+                icon = "Edit";
+                colorClass = "text-info";
+                bgClass = "bg-info";
+            }
+
             await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
             {
-                ActionType = dto.Quantity > 0 ? "STOCK_INCREASED" : "STOCK_REDUCED",
+                ActionType = actionType,
                 EntityType = "Inventory",
                 EntityId = dto.ProductId.ToString(),
                 Title = prodName,
-                Description = $"Stock {(dto.Quantity > 0 ? "increased" : "reduced")} by {Math.Abs(dto.Quantity)} units. Reason: {dto.Reason}. New Stock: {inv.AvailableStock}",
-                Icon = dto.Quantity > 0 ? "PlusCircle" : "MinusCircle",
-                ColorClass = dto.Quantity > 0 ? "text-success" : "text-warning",
-                BgClass = dto.Quantity > 0 ? "bg-success" : "bg-warning",
+                Description = description,
+                Icon = icon,
+                ColorClass = colorClass,
+                BgClass = bgClass,
                 ProductId = dto.ProductId
             });
 
-            if (inv.AvailableStock == 0)
+            if (newStock == 0)
             {
                 await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
                 {
@@ -182,7 +238,7 @@ public class InventoryService : IInventoryService
                     ProductId = dto.ProductId
                 });
             }
-            else if (inv.AvailableStock < inv.LowStockThreshold)
+            else if (newStock < inv.LowStockThreshold)
             {
                 await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
                 {
@@ -190,7 +246,7 @@ public class InventoryService : IInventoryService
                     EntityType = "Inventory",
                     EntityId = dto.ProductId.ToString(),
                     Title = prodName,
-                    Description = $"Product '{prodName}' has Low Stock! Only {inv.AvailableStock} left.",
+                    Description = $"Product '{prodName}' has Low Stock! Only {newStock} left.",
                     Icon = "ShieldAlert",
                     ColorClass = "text-warning",
                     BgClass = "bg-warning",
@@ -198,11 +254,16 @@ public class InventoryService : IInventoryService
                 });
             }
 
-            if (inv.AvailableStock < inv.LowStockThreshold)
+            // Commit transaction after all EF Core operations (inventory update + audit log)
+            if (tx != null) await tx.CommitAsync();
+
+            // Invalidate product memory cache so API immediately returns fresh stock
+            _cache.Remove("products_all");
+            _cache.Remove($"product_{dto.ProductId}");
+
+            if (newStock < inv.LowStockThreshold)
             {
-                // notify admins about low stock
-                await _notifier.NotifyAdminLowStockAsync(inv.ProductId, inv.AvailableStock);
-                // Best-effort dashboard broadcast
+                await _notifier.NotifyAdminLowStockAsync(inv.ProductId, newStock);
                 try
                 {
                     var summary = await _dashboardService.GetSummaryAsync();

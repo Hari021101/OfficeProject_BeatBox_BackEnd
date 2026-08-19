@@ -8,6 +8,9 @@ public class InventoryProfile : Profile
 {
     public InventoryProfile()
     {
-        CreateMap<Inventory, InventoryDto>().ReverseMap();
+        CreateMap<Inventory, InventoryDto>()
+            .ForMember(d => d.ProductName, opt => opt.MapFrom(s => s.Product != null ? s.Product.Name : string.Empty))
+            .ForMember(d => d.CategoryName, opt => opt.MapFrom(s => s.Product != null && s.Product.Category != null ? s.Product.Category.Name : string.Empty))
+            .ReverseMap();
     }
 }
