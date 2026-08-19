@@ -85,7 +85,7 @@ public class InventoryService : IInventoryService
         return _mapper.Map<InventoryDto>(inv);
     }
 
-    public async Task UpdateStockAsync(UpdateStockDto dto, string performedBy)
+    public async Task<InventoryDto> UpdateStockAsync(UpdateStockDto dto, string performedBy)
     {
         if (dto.Quantity < 0)
             throw new ArgumentException("Target stock quantity cannot be negative.");
@@ -254,7 +254,47 @@ public class InventoryService : IInventoryService
                 });
             }
 
-            // Commit transaction after all EF Core operations (inventory update + audit log)
+            // Check for stock refill 0 -> >0 transition and notify subscribers
+            if (oldStock == 0 && newStock > 0)
+            {
+                var activeSubscriptions = await _context.StockNotificationSubscriptions
+                    .Where(s => s.ProductId == dto.ProductId && s.IsActive)
+                    .ToListAsync();
+
+                if (activeSubscriptions.Any())
+                {
+                    foreach (var sub in activeSubscriptions)
+                    {
+                        var variant = await _context.ProductVariants.FirstOrDefaultAsync(v => v.Id == sub.ProductVariantId);
+                        if (variant == null || variant.StockQuantity > 0)
+                        {
+                            var variantLabel = variant != null && !string.IsNullOrEmpty(variant.Color) ? $" ({variant.Color})" : "";
+
+                            await _eventPublisher.PublishAsync(new Application.Common.Events.BusinessEvent
+                            {
+                                ActionType = "ALERT",
+                                EntityType = "Inventory",
+                                EntityId = sub.ProductVariantId.ToString(),
+                                UserId = sub.UserId,
+                                Title = $"{prodName}{variantLabel} Back in Stock!",
+                                Description = $"Great news! '{prodName}{variantLabel}' is now back in stock.",
+                                NotificationTitle = "Product Back in Stock!",
+                                NotificationMessage = $"'{prodName}{variantLabel}' is back in stock! Order yours now.",
+                                NotificationType = "StockRefill",
+                                ProductId = dto.ProductId,
+                                Icon = "PackageCheck",
+                                NavigationUrl = $"/products/{dto.ProductId}"
+                            });
+
+                            sub.IsActive = false;
+                            sub.NotificationSentAt = DateTime.UtcNow;
+                        }
+                    }
+                    await _context.SaveChangesAsync();
+                }
+            }
+
+            // Commit transaction after all EF Core operations (inventory update + audit log + notifications)
             if (tx != null) await tx.CommitAsync();
 
             // Invalidate product memory cache so API immediately returns fresh stock
@@ -273,6 +313,8 @@ public class InventoryService : IInventoryService
                 {
                 }
             }
+
+            return _mapper.Map<InventoryDto>(inv);
         }
         catch
         {

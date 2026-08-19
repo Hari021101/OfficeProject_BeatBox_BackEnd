@@ -24,7 +24,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet]
-    [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public async Task<IActionResult> GetAllProducts()
     {
         if (!_cache.TryGetValue(ProductsAllCacheKey, out var products))
@@ -41,7 +41,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
+    [ResponseCache(NoStore = true, Location = ResponseCacheLocation.None)]
     public async Task<IActionResult> GetProductById(Guid id)
     {
         var cacheKey = $"product_{id}";

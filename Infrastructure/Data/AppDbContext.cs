@@ -41,10 +41,35 @@ namespace Infrastructure.Data
         public DbSet<Coupon> Coupons => Set<Coupon>();
         public DbSet<ReturnRequest> ReturnRequests => Set<ReturnRequest>();
         public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
+        public DbSet<StockNotificationSubscription> StockNotificationSubscriptions => Set<StockNotificationSubscription>();
 
         protected override void OnModelCreating(ModelBuilder builder)
-		{
-			base.OnModelCreating(builder);
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<StockNotificationSubscription>(entity =>
+            {
+                entity.HasKey(s => s.Id);
+
+                entity.HasIndex(s => new { s.UserId, s.ProductVariantId, s.IsActive })
+                      .HasFilter("[IsActive] = 1")
+                      .IsUnique();
+
+                entity.HasOne(s => s.Product)
+                      .WithMany()
+                      .HasForeignKey(s => s.ProductId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(s => s.Variant)
+                      .WithMany()
+                      .HasForeignKey(s => s.ProductVariantId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(s => s.User)
+                      .WithMany()
+                      .HasForeignKey(s => s.UserId)
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
             builder.Entity<ProductVariant>(entity =>
             {
                 entity.Property(v => v.Price)

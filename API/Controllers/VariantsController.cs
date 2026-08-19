@@ -2,6 +2,7 @@ using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,10 +17,13 @@ namespace API.Controllers;
 public class VariantsController : ControllerBase
 {
     private readonly IProductService _productService;
+    private readonly IMemoryCache _cache;
+    private const string ProductsAllCacheKey = "products_all";
 
-    public VariantsController(IProductService productService)
+    public VariantsController(IProductService productService, IMemoryCache cache)
     {
         _productService = productService;
+        _cache = cache;
     }
 
     [HttpPut("{variantId}")]
@@ -28,6 +32,7 @@ public class VariantsController : ControllerBase
         try
         {
             var updated = await _productService.UpdateVariantAsync(variantId, dto);
+            ClearProductCache(updated.ProductId);
             return Ok(updated);
         }
         catch (Exception ex)
@@ -42,6 +47,7 @@ public class VariantsController : ControllerBase
         try
         {
             await _productService.DeleteVariantAsync(variantId);
+            _cache.Remove(ProductsAllCacheKey);
             return NoContent();
         }
         catch (Exception ex)
@@ -72,6 +78,7 @@ public class VariantsController : ControllerBase
             }
 
             var uploadedImages = await _productService.UploadVariantImagesAsync(variantId, fileDetails);
+            _cache.Remove(ProductsAllCacheKey);
             return Ok(uploadedImages);
         }
         catch (Exception ex)
@@ -85,5 +92,11 @@ public class VariantsController : ControllerBase
                 detail.Stream.Dispose();
             }
         }
+    }
+
+    private void ClearProductCache(Guid productId)
+    {
+        _cache.Remove(ProductsAllCacheKey);
+        _cache.Remove($"product_{productId}");
     }
 }
