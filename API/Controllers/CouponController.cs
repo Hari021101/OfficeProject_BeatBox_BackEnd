@@ -2,6 +2,7 @@ using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers;
 
@@ -40,6 +41,14 @@ public class CouponController : ControllerBase
     [HttpPost("validate")]
     public async Task<IActionResult> ValidateCoupon([FromBody] PromoValidateRequestDto dto)
     {
+        if (User.Identity?.IsAuthenticated == true)
+        {
+            var authUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!string.IsNullOrEmpty(authUserId))
+            {
+                dto.UserId = authUserId;
+            }
+        }
         var result = await _couponService.ValidatePromoCodeAsync(dto);
         if (!result.IsValid) return BadRequest(new { message = result.Message, isValid = false });
         return Ok(result);

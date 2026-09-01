@@ -16,5 +16,7 @@ namespace Domain.Entities
 
         public decimal DiscountAmount { get; set; }
 
+        public decimal ShippingAmount { get; set; }
+
     }
 }

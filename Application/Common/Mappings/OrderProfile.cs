@@ -25,7 +25,10 @@ public class OrderProfile : Profile
                 opt => opt.MapFrom(src =>
                     src.Payments.Any()
                         ? src.Payments.OrderByDescending(p => p.CreatedDate).First().Status
-                        : "Pending"));
+                        : "Pending"))
+
+            .ForMember(dest => dest.ShippingAmount,
+                opt => opt.MapFrom(src => src.ShippingAmount));
 
        CreateMap<OrderItem, OrderItemDto>()
     .ForMember(dest => dest.ProductName,

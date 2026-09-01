@@ -107,6 +107,13 @@ namespace Infrastructure.Data
                       .OnDelete(DeleteBehavior.Cascade);
             });
 
+            builder.Entity<Order>(entity =>
+            {
+                entity.Property(o => o.TotalAmount).HasColumnType("decimal(18,2)");
+                entity.Property(o => o.DiscountAmount).HasColumnType("decimal(18,2)");
+                entity.Property(o => o.ShippingAmount).HasColumnType("decimal(18,2)");
+            });
+
             builder.Entity<OrderItem>(entity =>
 			{
 				entity.Property(oi => oi.UnitPrice).HasColumnType("decimal(18,2)");

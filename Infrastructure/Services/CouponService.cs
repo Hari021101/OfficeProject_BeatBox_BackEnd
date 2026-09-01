@@ -141,6 +141,27 @@ public class CouponService : ICouponService
             };
         }
 
+        // Enforce First Order restriction for FREESHIP / Free Shipping coupons
+        if (string.Equals(coupon.Code, "FREESHIP", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(coupon.DiscountType, "Shipping", StringComparison.OrdinalIgnoreCase))
+        {
+            if (!string.IsNullOrEmpty(dto.UserId))
+            {
+                var hasPreviousOrder = await _context.Orders
+                    .AnyAsync(o => o.UserId == dto.UserId && o.Status != "Cancelled" && o.Status != "Failed");
+
+                if (hasPreviousOrder)
+                {
+                    return new PromoValidateResponseDto
+                    {
+                        IsValid = false,
+                        Code = coupon.Code,
+                        Message = "This free shipping offer is available only on your first order."
+                    };
+                }
+            }
+        }
+
         decimal discountAmount = 0;
         bool isFreeShipping = false;
         string message = "";

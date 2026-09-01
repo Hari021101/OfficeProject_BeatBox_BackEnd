@@ -22,4 +22,5 @@ public class OrderDto
 
     public string? PromoCode { get; set; }
     public decimal DiscountAmount { get; set; }
+    public decimal ShippingAmount { get; set; }
 }
