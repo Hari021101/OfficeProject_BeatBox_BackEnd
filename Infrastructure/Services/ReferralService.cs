@@ -90,6 +90,7 @@ public class ReferralService : IReferralService
                 r.Id,
                 r.Status,
                 r.RewardAmount,
+                r.ReferrerCouponCode,
                 r.CreatedDate,
                 ReferredUserFullName = r.ReferredUser != null ? r.ReferredUser.FullName : null,
                 r.ReferredUserEmail
@@ -99,7 +100,7 @@ public class ReferralService : IReferralService
         int friendsInvited = referrals.Count;
         int successfulReferrals = referrals.Count(r => r.Status == ReferralStatus.Qualified || r.Status == ReferralStatus.RewardCredited);
         
-        // Total Rewards Earned only counts actual credited rewards
+        // Total Rewards Earned (Coupons Earned)
         decimal totalRewardsEarned = referrals
             .Where(r => r.Status == ReferralStatus.RewardCredited)
             .Sum(r => r.RewardAmount);
@@ -110,7 +111,8 @@ public class ReferralService : IReferralService
             FriendName = !string.IsNullOrWhiteSpace(r.ReferredUserFullName)
                 ? MaskName(r.ReferredUserFullName)
                 : (!string.IsNullOrWhiteSpace(r.ReferredUserEmail) ? MaskEmail(r.ReferredUserEmail) : "BeatBox Member"),
-            Status = r.Status.ToString(),
+            Status = r.Status == ReferralStatus.RewardCredited ? "Coupon Issued" : (r.Status == ReferralStatus.Qualified ? "Completed" : r.Status.ToString()),
+            CouponCode = r.ReferrerCouponCode,
             RewardAmount = r.RewardAmount,
             CreatedDate = r.CreatedDate
         }).ToList();
@@ -210,6 +212,24 @@ public class ReferralService : IReferralService
             return new ApplyReferralResultDto { Success = false, Message = "A referral code has already been linked to this account." };
         }
 
+        // Generate Welcome Coupon for the new friend (14 day expiration)
+        string friendCouponCode = $"WELCOME-{GenerateRandomString(6)}";
+        var friendCoupon = new Coupon
+        {
+            Code = friendCouponCode,
+            Description = "₹500 OFF Welcome Coupon for your first BeatBox order",
+            DiscountType = "Fixed",
+            DiscountAmount = _referralOptions.DefaultRewardAmount,
+            MinimumOrderAmount = 0m,
+            StartDate = DateTime.UtcNow,
+            ExpiryDate = DateTime.UtcNow.AddDays(14),
+            IsActive = true,
+            UsageLimit = 1,
+            UsedCount = 0,
+            CreatedDate = DateTime.UtcNow
+        };
+        _context.Coupons.Add(friendCoupon);
+
         var referral = new Referral
         {
             ReferrerId = referrer.Id,
@@ -218,6 +238,7 @@ public class ReferralService : IReferralService
             ReferralCode = cleanCode,
             Status = ReferralStatus.Pending,
             RewardAmount = _referralOptions.DefaultRewardAmount,
+            FriendCouponCode = friendCouponCode,
             CreatedDate = DateTime.UtcNow
         };
 
@@ -230,7 +251,10 @@ public class ReferralService : IReferralService
             {
                 Success = true,
                 Message = "Referral code applied successfully!",
-                ReferralId = referral.Id
+                ReferralId = referral.Id,
+                CouponCode = friendCouponCode,
+                DiscountAmount = friendCoupon.DiscountAmount,
+                ExpiryDate = friendCoupon.ExpiryDate
             };
         }
         catch (DbUpdateException ex)
@@ -242,6 +266,63 @@ public class ReferralService : IReferralService
                 Message = "Referral code has already been applied."
             };
         }
+    }
+
+    public async Task<ReferralEligibilityDto> GetReferralEligibilityAsync(string userId, CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrEmpty(userId))
+        {
+            return new ReferralEligibilityDto { IsEligible = false, Message = "Authentication required." };
+        }
+
+        var referral = await _context.Referrals
+            .AsNoTracking()
+            .FirstOrDefaultAsync(r => r.ReferredUserId == userId && r.Status == ReferralStatus.Pending, cancellationToken);
+
+        if (referral == null)
+        {
+            return new ReferralEligibilityDto
+            {
+                IsEligible = false,
+                DiscountAmount = 0m,
+                Message = "No pending referral benefit found for this account."
+            };
+        }
+
+        // Verify not self-referred
+        if (referral.ReferrerId == userId)
+        {
+            return new ReferralEligibilityDto
+            {
+                IsEligible = false,
+                DiscountAmount = 0m,
+                Message = "Self-referral benefits are not permitted."
+            };
+        }
+
+        // Verify user has no previously completed orders that consumed referral
+        bool hasPriorOrders = await _context.Orders
+            .AsNoTracking()
+            .AnyAsync(o => o.UserId == userId && o.Status != "Cancelled" && o.Status != "Failed", cancellationToken);
+
+        if (hasPriorOrders)
+        {
+            return new ReferralEligibilityDto
+            {
+                IsEligible = false,
+                DiscountAmount = 0m,
+                Message = "Referral discount is only valid for your first qualifying order."
+            };
+        }
+
+        return new ReferralEligibilityDto
+        {
+            IsEligible = true,
+            DiscountAmount = referral.RewardAmount,
+            ReferralCode = referral.ReferralCode,
+            CouponCode = referral.FriendCouponCode,
+            Message = $"You are eligible for ₹{referral.RewardAmount:N0} OFF your first purchase! Coupon: {referral.FriendCouponCode}"
+        };
     }
 
     public async Task ProcessQualifyingOrderAsync(int orderId, string userId, decimal orderTotal, CancellationToken cancellationToken = default)
@@ -277,10 +358,28 @@ public class ReferralService : IReferralService
             return;
         }
 
-        // Idempotent state transition
+        // Idempotent state transition & referrer coupon creation (30 day expiration)
+        string referrerCouponCode = $"REF-{GenerateRandomString(6)}";
+        var referrerCoupon = new Coupon
+        {
+            Code = referrerCouponCode,
+            Description = "₹500 OFF Referral Reward Coupon for your next BeatBox purchase",
+            DiscountType = "Fixed",
+            DiscountAmount = referral.RewardAmount,
+            MinimumOrderAmount = 0m,
+            StartDate = DateTime.UtcNow,
+            ExpiryDate = DateTime.UtcNow.AddDays(30),
+            IsActive = true,
+            UsageLimit = 1,
+            UsedCount = 0,
+            CreatedDate = DateTime.UtcNow
+        };
+        _context.Coupons.Add(referrerCoupon);
+
         referral.Status = ReferralStatus.RewardCredited;
         referral.QualifyingOrderId = orderId;
         referral.QualifiedDate = DateTime.UtcNow;
+        referral.ReferrerCouponCode = referrerCouponCode;
 
         if (referral.Referrer != null)
         {
@@ -294,14 +393,27 @@ public class ReferralService : IReferralService
                 OrderId = orderId,
                 Amount = referral.RewardAmount,
                 TransactionType = "ReferralCredit",
-                Description = $"Referral reward for qualifying first order #{orderId}",
+                Description = $"Referral reward coupon {referrerCouponCode} issued for qualifying first order #{orderId}",
                 CreatedDate = DateTime.UtcNow
             };
             _context.RewardTransactions.Add(rewardTx);
         }
 
         await _context.SaveChangesAsync(cancellationToken);
-        _logger.LogInformation("Successfully credited referral reward ₹{Reward} to user {ReferrerId} for order #{OrderId}", referral.RewardAmount, referral.ReferrerId, orderId);
+        _logger.LogInformation("Successfully issued referral reward coupon {CouponCode} (₹{Reward}) to user {ReferrerId} for order #{OrderId}", referrerCouponCode, referral.RewardAmount, referral.ReferrerId, orderId);
+    }
+
+    private static string GenerateRandomString(int length)
+    {
+        const string chars = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+        var bytes = new byte[length];
+        RandomNumberGenerator.Fill(bytes);
+        var sb = new StringBuilder();
+        foreach (byte b in bytes)
+        {
+            sb.Append(chars[b % chars.Length]);
+        }
+        return sb.ToString();
     }
 
     private static string GenerateSecureCode()

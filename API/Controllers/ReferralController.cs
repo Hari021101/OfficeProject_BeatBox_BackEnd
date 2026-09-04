@@ -22,6 +22,7 @@ public class ReferralController : ControllerBase
     /// Obtains or generates the authenticated user's unique referral code.
     /// </summary>
     [HttpGet("my-code")]
+    [HttpGet("me")]
     [Authorize]
     public async Task<IActionResult> GetMyCode(CancellationToken cancellationToken)
     {
@@ -30,6 +31,21 @@ public class ReferralController : ControllerBase
 
         var code = await _referralService.GetUserReferralCodeAsync(userId, cancellationToken);
         return Ok(new { code });
+    }
+
+    /// <summary>
+    /// GET /api/referral/eligibility
+    /// Checks if the authenticated user is eligible for a referral first-order discount.
+    /// </summary>
+    [HttpGet("eligibility")]
+    [Authorize]
+    public async Task<IActionResult> GetEligibility(CancellationToken cancellationToken)
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
+        var result = await _referralService.GetReferralEligibilityAsync(userId, cancellationToken);
+        return Ok(result);
     }
 
     /// <summary>

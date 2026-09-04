@@ -27,4 +27,7 @@ public class Referral
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     public DateTime? QualifiedDate { get; set; }
     public int? QualifyingOrderId { get; set; }
+
+    public string? FriendCouponCode { get; set; }
+    public string? ReferrerCouponCode { get; set; }
 }
