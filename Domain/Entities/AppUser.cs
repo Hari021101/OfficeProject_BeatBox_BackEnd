@@ -9,5 +9,7 @@ namespace Domain.Entities
         public bool IsPhoneVerified { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
         public bool IsActive { get; set; } = true;
+        public string? ReferralCode { get; set; }
+        public decimal RewardBalance { get; set; } = 0m;
     }
 }

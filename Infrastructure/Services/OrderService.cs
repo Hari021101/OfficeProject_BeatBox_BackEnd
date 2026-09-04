@@ -24,6 +24,7 @@ public class OrderService : IOrderService
 	private readonly IBusinessEventPublisher _eventPublisher;
 	private readonly AppDbContext _context;
 	private readonly ITransactionActionQueue _actionQueue;
+	private readonly IReferralService _referralService;
 
 	public OrderService(
 		IOrderRepository orderRepository, 
@@ -37,7 +38,8 @@ public class OrderService : IOrderService
 		IPaymentRepository paymentRepository,
 		IBusinessEventPublisher eventPublisher,
 		AppDbContext context,
-		ITransactionActionQueue actionQueue)
+		ITransactionActionQueue actionQueue,
+		IReferralService referralService)
 	{
 		_orderRepository = orderRepository;
 		_cartRepository = cartRepository;
@@ -51,6 +53,7 @@ public class OrderService : IOrderService
 		_eventPublisher = eventPublisher;
 		_context = context;
 		_actionQueue = actionQueue;
+		_referralService = referralService;
 	}
 
 	public async Task<OrderDto> CreateOrderAsync(string userId, OrderCreateDto orderCreateDto)
@@ -240,6 +243,9 @@ public class OrderService : IOrderService
 				await _cartRepository.ClearCartAsync(cart.CartId);
 				await _cartRepository.SaveChangesAsync();
 			}
+
+			// Process referral reward qualification inside transaction
+			await _referralService.ProcessQualifyingOrderAsync(order.OrderId, userId, order.TotalAmount);
 
 			await tx.CommitAsync();
 			await _actionQueue.RunAllAsync();

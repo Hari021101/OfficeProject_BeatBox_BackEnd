@@ -26,6 +26,10 @@ namespace Infrastructure
                     b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)
                           .UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
+            // Register Options
+            services.Configure<Application.Common.Options.FrontendOptions>(configuration.GetSection(Application.Common.Options.FrontendOptions.SectionName));
+            services.Configure<Application.Common.Options.ReferralOptions>(configuration.GetSection(Application.Common.Options.ReferralOptions.SectionName));
+
             // Register ASP.NET Core Identity
             services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
@@ -115,6 +119,7 @@ namespace Infrastructure
             services.AddScoped<ITransactionActionQueue, TransactionActionQueue>();
             services.AddScoped<IReturnService, ReturnService>();
             services.AddScoped<IChatBotService, ChatBotService>();
+            services.AddScoped<IReferralService, ReferralService>();
 
             services.AddScoped<INotificationRepository, NotificationRepository>();
             services.AddScoped<IFileUploadService, FileUploadService>();
