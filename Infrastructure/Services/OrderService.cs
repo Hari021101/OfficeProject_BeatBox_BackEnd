@@ -116,7 +116,8 @@ public class OrderService : IOrderService
 				if (coupon == null || !coupon.IsActive || coupon.ExpiryDate <= now ||
 					(coupon.StartDate.HasValue && coupon.StartDate.Value > now) ||
 					(coupon.UsageLimit > 0 && coupon.UsedCount >= coupon.UsageLimit) ||
-					subtotal < coupon.MinimumOrderAmount)
+					subtotal < coupon.MinimumOrderAmount ||
+					(!string.IsNullOrEmpty(coupon.UserId) && !string.Equals(coupon.UserId, userId, StringComparison.OrdinalIgnoreCase)))
 				{
 					throw new Exception($"Invalid, expired, or inapplicable promo code '{orderCreateDto.PromoCode}'.");
 				}

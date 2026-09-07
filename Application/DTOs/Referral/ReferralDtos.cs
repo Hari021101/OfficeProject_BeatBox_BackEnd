@@ -6,7 +6,8 @@ public class ReferralDashboardDto
     public string ReferralLink { get; set; } = string.Empty;
     public int FriendsInvited { get; set; }
     public int SuccessfulReferrals { get; set; }
-    public decimal TotalRewardsEarned { get; set; }
+    public decimal CouponsEarned { get; set; }
+    public decimal TotalRewardsEarned => CouponsEarned;
     public List<ReferralHistoryItemDto> History { get; set; } = new();
 }
 

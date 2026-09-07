@@ -28,6 +28,17 @@ public class CouponController : ControllerBase
         return Ok(coupons);
     }
 
+    /// <summary>Returns active coupons specifically available to the current authenticated user.</summary>
+    [HttpGet("my-coupons")]
+    public async Task<IActionResult> GetMyCoupons()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
+        var coupons = await _couponService.GetUserCouponsAsync(userId);
+        return Ok(coupons);
+    }
+
     /// <summary>Validates and applies a coupon during checkout.</summary>
     [HttpPost("apply")]
     public async Task<IActionResult> ApplyCoupon([FromBody] ApplyCouponDto dto)

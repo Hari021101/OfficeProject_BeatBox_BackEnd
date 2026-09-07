@@ -229,6 +229,8 @@ namespace Infrastructure.Data
 
                 entity.Property(x => x.MaximumDiscount)
                       .HasColumnType("decimal(18,2)");
+
+                entity.HasIndex(x => x.UserId);
             });
 
             builder.Entity<AppUser>(entity =>

@@ -66,6 +66,29 @@ public class CouponService : ICouponService
             (!c.StartDate.HasValue || c.StartDate.Value <= now));
     }
 
+    public async Task<IEnumerable<CouponDto>> GetUserCouponsAsync(string userId)
+    {
+        if (string.IsNullOrWhiteSpace(userId)) return Enumerable.Empty<CouponDto>();
+
+        var now = DateTime.UtcNow;
+
+        // Fetch coupons directly assigned to the user OR linked via Referral entity
+        var userReferralCouponCodes = await _context.Referrals
+            .AsNoTracking()
+            .Where(r => (r.ReferrerId == userId && r.ReferrerCouponCode != null) || (r.ReferredUserId == userId && r.FriendCouponCode != null))
+            .Select(r => r.ReferrerId == userId ? r.ReferrerCouponCode : r.FriendCouponCode)
+            .Where(c => c != null)
+            .ToListAsync();
+
+        var coupons = await _context.Coupons
+            .AsNoTracking()
+            .Where(c => c.IsActive && c.ExpiryDate > now && (c.UsageLimit == 0 || c.UsedCount < c.UsageLimit) && (!c.StartDate.HasValue || c.StartDate.Value <= now))
+            .Where(c => c.UserId == userId || (c.UserId == null && userReferralCouponCodes.Contains(c.Code)))
+            .ToListAsync();
+
+        return coupons.Select(ToDto);
+    }
+
     public async Task<PromoValidateResponseDto> ValidatePromoCodeAsync(PromoValidateRequestDto dto)
     {
         if (string.IsNullOrWhiteSpace(dto.Code))
@@ -128,6 +151,17 @@ public class CouponService : ICouponService
                 IsValid = false,
                 Code = coupon.Code,
                 Message = "Promo code usage limit has been reached."
+            };
+        }
+
+        // Validate user restriction
+        if (!string.IsNullOrEmpty(coupon.UserId) && !string.Equals(coupon.UserId, dto.UserId, StringComparison.OrdinalIgnoreCase))
+        {
+            return new PromoValidateResponseDto
+            {
+                IsValid = false,
+                Code = coupon.Code,
+                Message = "This coupon code does not belong to your account."
             };
         }
 

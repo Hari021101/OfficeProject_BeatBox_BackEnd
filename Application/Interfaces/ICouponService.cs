@@ -11,6 +11,7 @@ public interface ICouponService
     Task<PromoValidateResponseDto> ValidatePromoCodeAsync(PromoValidateRequestDto dto);
     Task<CouponResultDto> ApplyCouponAsync(ApplyCouponDto dto);
     Task<IEnumerable<Coupon>> GetActiveCouponsAsync();
+    Task<IEnumerable<CouponDto>> GetUserCouponsAsync(string userId);
 
     // Admin CRUD
     Task<IEnumerable<CouponDto>> GetAllCouponsAsync();

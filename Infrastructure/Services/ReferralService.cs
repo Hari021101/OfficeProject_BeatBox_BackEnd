@@ -1,4 +1,5 @@
 using Application.Common.Options;
+using Application.DTOs;
 using Application.DTOs.Referral;
 using Application.Interfaces;
 using Domain.Entities;
@@ -16,6 +17,7 @@ public class ReferralService : IReferralService
 {
     private readonly AppDbContext _context;
     private readonly UserManager<AppUser> _userManager;
+    private readonly INotificationManagerService _notificationManager;
     private readonly FrontendOptions _frontendOptions;
     private readonly ReferralOptions _referralOptions;
     private readonly ILogger<ReferralService> _logger;
@@ -23,12 +25,14 @@ public class ReferralService : IReferralService
     public ReferralService(
         AppDbContext context,
         UserManager<AppUser> userManager,
+        INotificationManagerService notificationManager,
         IOptions<FrontendOptions> frontendOptions,
         IOptions<ReferralOptions> referralOptions,
         ILogger<ReferralService> logger)
     {
         _context = context;
         _userManager = userManager;
+        _notificationManager = notificationManager;
         _frontendOptions = frontendOptions.Value;
         _referralOptions = referralOptions.Value;
         _logger = logger;
@@ -123,7 +127,7 @@ public class ReferralService : IReferralService
             ReferralLink = referralLink,
             FriendsInvited = friendsInvited,
             SuccessfulReferrals = successfulReferrals,
-            TotalRewardsEarned = totalRewardsEarned,
+            CouponsEarned = totalRewardsEarned,
             History = history
         };
     }
@@ -212,7 +216,7 @@ public class ReferralService : IReferralService
             return new ApplyReferralResultDto { Success = false, Message = "A referral code has already been linked to this account." };
         }
 
-        // Generate Welcome Coupon for the new friend (14 day expiration)
+        // Generate Welcome Coupon for the new friend using configured validity
         string friendCouponCode = $"WELCOME-{GenerateRandomString(6)}";
         var friendCoupon = new Coupon
         {
@@ -222,10 +226,11 @@ public class ReferralService : IReferralService
             DiscountAmount = _referralOptions.DefaultRewardAmount,
             MinimumOrderAmount = 0m,
             StartDate = DateTime.UtcNow,
-            ExpiryDate = DateTime.UtcNow.AddDays(14),
+            ExpiryDate = DateTime.UtcNow.AddDays(_referralOptions.FriendCouponValidityDays),
             IsActive = true,
             UsageLimit = 1,
             UsedCount = 0,
+            UserId = referredUserId,
             CreatedDate = DateTime.UtcNow
         };
         _context.Coupons.Add(friendCoupon);
@@ -247,6 +252,18 @@ public class ReferralService : IReferralService
         try
         {
             await _context.SaveChangesAsync(cancellationToken);
+
+            // Trigger persistent notification for the referred friend
+            await _notificationManager.CreateNotificationAsync(new CreateNotificationDto
+            {
+                UserId = referredUserId,
+                Title = "₹500 Welcome Coupon Unlocked",
+                Message = "Your ₹500 first-order coupon is ready. Use it on your eligible first purchase.",
+                Type = "Promo",
+                Icon = "Tag",
+                NavigationUrl = "/daily-deals"
+            });
+
             return new ApplyReferralResultDto
             {
                 Success = true,
@@ -358,7 +375,7 @@ public class ReferralService : IReferralService
             return;
         }
 
-        // Idempotent state transition & referrer coupon creation (30 day expiration)
+        // Idempotent state transition & referrer coupon creation using configured validity
         string referrerCouponCode = $"REF-{GenerateRandomString(6)}";
         var referrerCoupon = new Coupon
         {
@@ -368,10 +385,11 @@ public class ReferralService : IReferralService
             DiscountAmount = referral.RewardAmount,
             MinimumOrderAmount = 0m,
             StartDate = DateTime.UtcNow,
-            ExpiryDate = DateTime.UtcNow.AddDays(30),
+            ExpiryDate = DateTime.UtcNow.AddDays(_referralOptions.ReferrerCouponValidityDays),
             IsActive = true,
             UsageLimit = 1,
             UsedCount = 0,
+            UserId = referral.ReferrerId,
             CreatedDate = DateTime.UtcNow
         };
         _context.Coupons.Add(referrerCoupon);
@@ -400,6 +418,18 @@ public class ReferralService : IReferralService
         }
 
         await _context.SaveChangesAsync(cancellationToken);
+
+        // Trigger persistent notification for referrer
+        await _notificationManager.CreateNotificationAsync(new CreateNotificationDto
+        {
+            UserId = referral.ReferrerId,
+            Title = "Referral Reward Unlocked",
+            Message = "Your friend joined BeatBox using your referral link. You've received a ₹500 coupon for your next eligible purchase.",
+            Type = "Promo",
+            Icon = "Gift",
+            NavigationUrl = "/daily-deals"
+        });
+
         _logger.LogInformation("Successfully issued referral reward coupon {CouponCode} (₹{Reward}) to user {ReferrerId} for order #{OrderId}", referrerCouponCode, referral.RewardAmount, referral.ReferrerId, orderId);
     }
 
