@@ -1,9 +1,11 @@
 using Application.DTOs;
 using Application.Interfaces;
 using Domain.Entities;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace API.Controllers
@@ -17,19 +19,22 @@ namespace API.Controllers
         private readonly ITokenService _tokenService;
         private readonly IOtpService _otpService;
         private readonly IAuditLogService _auditLogService;
+        private readonly AppDbContext _context;
 
         public AccountController(
             UserManager<AppUser> userManager,
             RoleManager<IdentityRole> roleManager,
             ITokenService tokenService,
             IOtpService otpService,
-            IAuditLogService auditLogService)
+            IAuditLogService auditLogService,
+            AppDbContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _tokenService = tokenService;
             _otpService = otpService;
             _auditLogService = auditLogService;
+            _context = context;
         }
 
         // ─── POST /api/account/register ───────────────────────────────────────
@@ -247,6 +252,193 @@ namespace API.Controllers
                 NewRole = newRole,
                 Message = $"{target.FullName ?? target.Email} is now a {newRole}."
             });
+        }
+
+        // ─── DELETE /api/account ──────────────────────────────────────────────
+        /// <summary>Delete currently authenticated customer account. Customer self-delete.</summary>
+        [Authorize]
+        [HttpDelete]
+        public async Task<IActionResult> DeleteSelfAccount()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized("User identity could not be verified.");
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return NotFound("Account not found.");
+
+            var userLabel = user.FullName ?? user.Email ?? userId;
+            var success = await DeleteUserAccountInternalAsync(user);
+            if (!success)
+                return StatusCode(500, "Failed to delete account due to a database constraint or server error.");
+
+            // Audit log
+            await _auditLogService.LogActionAsync(
+                adminId: userId,
+                adminName: userLabel,
+                action: "ACCOUNT_DELETED",
+                target: $"Self-Delete User: {userLabel}",
+                details: "Customer requested permanent account deletion.",
+                icon: "UserMinus",
+                colorClass: "text-danger",
+                bgClass: "bg-danger"
+            );
+
+            return Ok(new { success = true, message = "Your account has been deleted successfully." });
+        }
+
+        // ─── DELETE /api/account/users/{id} ─────────────────────────────────
+        /// <summary>Delete customer account. Admin only.</summary>
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("users/{id}")]
+        public async Task<IActionResult> DeleteUserByAdmin(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return BadRequest("User ID is required.");
+
+            var adminId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (adminId == id)
+                return BadRequest("You cannot delete your own account through the admin account management endpoint. Please use the self-delete option in Settings.");
+
+            var target = await _userManager.FindByIdAsync(id);
+            if (target == null)
+                return NotFound("User not found.");
+
+            var targetLabel = target.FullName ?? target.Email ?? id;
+            var success = await DeleteUserAccountInternalAsync(target);
+            if (!success)
+                return StatusCode(500, "Failed to delete customer account due to a database error.");
+
+            // Audit log
+            var adminName = User.FindFirstValue(ClaimTypes.GivenName)
+                            ?? User.FindFirstValue(ClaimTypes.Name)
+                            ?? "Admin";
+
+            await _auditLogService.LogActionAsync(
+                adminId: adminId ?? string.Empty,
+                adminName: adminName,
+                action: "ADMIN_DELETED_USER",
+                target: $"User: {targetLabel}",
+                details: $"Customer account {targetLabel} was permanently deleted by admin.",
+                icon: "UserX",
+                colorClass: "text-danger",
+                bgClass: "bg-danger"
+            );
+
+            return Ok(new { success = true, message = $"Account for {targetLabel} deleted successfully." });
+        }
+
+        private async Task<bool> DeleteUserAccountInternalAsync(AppUser user)
+        {
+            var userId = user.Id;
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                // 1. Remove Carts & CartItems
+                var carts = await _context.Carts.Where(c => c.UserId == userId).ToListAsync();
+                if (carts.Any())
+                {
+                    var cartIds = carts.Select(c => c.CartId).ToList();
+                    var cartItems = await _context.CartItems.Where(ci => cartIds.Contains(ci.CartId)).ToListAsync();
+                    _context.CartItems.RemoveRange(cartItems);
+                    _context.Carts.RemoveRange(carts);
+                }
+
+                // 2. Remove WishlistItems
+                var wishlists = await _context.WishlistItems.Where(w => w.UserId == userId).ToListAsync();
+                if (wishlists.Any())
+                {
+                    _context.WishlistItems.RemoveRange(wishlists);
+                }
+
+                // 3. Remove UserAddresses
+                var addresses = await _context.UserAddresses.Where(a => a.UserId == userId).ToListAsync();
+                if (addresses.Any())
+                {
+                    _context.UserAddresses.RemoveRange(addresses);
+                }
+
+                // 4. Remove Notifications
+                var notifications = await _context.Notifications.Where(n => n.UserId == userId).ToListAsync();
+                if (notifications.Any())
+                {
+                    _context.Notifications.RemoveRange(notifications);
+                }
+
+                // 5. Remove StockNotificationSubscriptions
+                var subscriptions = await _context.StockNotificationSubscriptions.Where(s => s.UserId == userId).ToListAsync();
+                if (subscriptions.Any())
+                {
+                    _context.StockNotificationSubscriptions.RemoveRange(subscriptions);
+                }
+
+                // 6. Remove OtpRecords
+                var otps = await _context.OtpRecords.Where(o => o.UserId == userId || (user.Email != null && o.UserId == user.Email) || (user.PhoneNumber != null && o.UserId == user.PhoneNumber)).ToListAsync();
+                if (otps.Any())
+                {
+                    _context.OtpRecords.RemoveRange(otps);
+                }
+
+                // 7. Coupons: Unlink personal user coupons so historical coupon records stay intact without FK issues
+                var coupons = await _context.Coupons.Where(c => c.UserId == userId).ToListAsync();
+                foreach (var coupon in coupons)
+                {
+                    coupon.UserId = null;
+                }
+
+                // 8. Referrals: Clear ReferrerId & ReferredUserId foreign key constraints
+                var referralsAsReferrer = await _context.Referrals.Where(r => r.ReferrerId == userId).ToListAsync();
+                foreach (var refItem in referralsAsReferrer)
+                {
+                    refItem.ReferrerId = string.Empty;
+                }
+                var referralsAsReferred = await _context.Referrals.Where(r => r.ReferredUserId == userId).ToListAsync();
+                foreach (var refItem in referralsAsReferred)
+                {
+                    refItem.ReferredUserId = null;
+                }
+
+                // 9. RewardTransactions: Remove transactions belonging to user
+                var rewardTxs = await _context.RewardTransactions.Where(rt => rt.UserId == userId).ToListAsync();
+                if (rewardTxs.Any())
+                {
+                    _context.RewardTransactions.RemoveRange(rewardTxs);
+                }
+
+                // 10. ProductReviews: Remove reviews created by user
+                var reviews = await _context.ProductReviews.Where(r => r.UserId == userId).ToListAsync();
+                if (reviews.Any())
+                {
+                    _context.ProductReviews.RemoveRange(reviews);
+                }
+
+                // 11. ReturnRequests: Remove user return requests
+                var returnRequests = await _context.ReturnRequests.Where(rr => rr.UserId == userId).ToListAsync();
+                if (returnRequests.Any())
+                {
+                    _context.ReturnRequests.RemoveRange(returnRequests);
+                }
+
+                await _context.SaveChangesAsync();
+
+                // 12. Delete Identity User (removes user from AspNetUsers)
+                var deleteResult = await _userManager.DeleteAsync(user);
+                if (!deleteResult.Succeeded)
+                {
+                    await transaction.RollbackAsync();
+                    return false;
+                }
+
+                await transaction.CommitAsync();
+                return true;
+            }
+            catch
+            {
+                await transaction.RollbackAsync();
+                throw;
+            }
         }
     }
 }
