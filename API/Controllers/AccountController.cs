@@ -20,6 +20,7 @@ namespace API.Controllers
         private readonly IOtpService _otpService;
         private readonly IAuditLogService _auditLogService;
         private readonly AppDbContext _context;
+        private readonly ILogger<AccountController> _logger;
 
         public AccountController(
             UserManager<AppUser> userManager,
@@ -27,7 +28,8 @@ namespace API.Controllers
             ITokenService tokenService,
             IOtpService otpService,
             IAuditLogService auditLogService,
-            AppDbContext context)
+            AppDbContext context,
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -35,6 +37,7 @@ namespace API.Controllers
             _otpService = otpService;
             _auditLogService = auditLogService;
             _context = context;
+            _logger = logger;
         }
 
         // ─── POST /api/account/register ───────────────────────────────────────
@@ -332,6 +335,7 @@ namespace API.Controllers
         private async Task<bool> DeleteUserAccountInternalAsync(AppUser user)
         {
             var userId = user.Id;
+            _logger.LogInformation("Starting account deletion transaction for User ID: {UserId}, Email: {Email}", userId, user.Email);
 
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
@@ -344,6 +348,7 @@ namespace API.Controllers
                     var cartItems = await _context.CartItems.Where(ci => cartIds.Contains(ci.CartId)).ToListAsync();
                     _context.CartItems.RemoveRange(cartItems);
                     _context.Carts.RemoveRange(carts);
+                    _logger.LogInformation("Removed {CartCount} carts and {CartItemCount} cart items for user {UserId}", carts.Count, cartItems.Count, userId);
                 }
 
                 // 2. Remove WishlistItems
@@ -351,6 +356,7 @@ namespace API.Controllers
                 if (wishlists.Any())
                 {
                     _context.WishlistItems.RemoveRange(wishlists);
+                    _logger.LogInformation("Removed {WishlistCount} wishlist items for user {UserId}", wishlists.Count, userId);
                 }
 
                 // 3. Remove UserAddresses
@@ -358,6 +364,7 @@ namespace API.Controllers
                 if (addresses.Any())
                 {
                     _context.UserAddresses.RemoveRange(addresses);
+                    _logger.LogInformation("Removed {AddressCount} addresses for user {UserId}", addresses.Count, userId);
                 }
 
                 // 4. Remove Notifications
@@ -365,6 +372,7 @@ namespace API.Controllers
                 if (notifications.Any())
                 {
                     _context.Notifications.RemoveRange(notifications);
+                    _logger.LogInformation("Removed {NotificationCount} notifications for user {UserId}", notifications.Count, userId);
                 }
 
                 // 5. Remove StockNotificationSubscriptions
@@ -372,6 +380,7 @@ namespace API.Controllers
                 if (subscriptions.Any())
                 {
                     _context.StockNotificationSubscriptions.RemoveRange(subscriptions);
+                    _logger.LogInformation("Removed {SubCount} stock subscriptions for user {UserId}", subscriptions.Count, userId);
                 }
 
                 // 6. Remove OtpRecords
@@ -379,6 +388,7 @@ namespace API.Controllers
                 if (otps.Any())
                 {
                     _context.OtpRecords.RemoveRange(otps);
+                    _logger.LogInformation("Removed {OtpCount} OTP records for user {UserId}", otps.Count, userId);
                 }
 
                 // 7. Coupons: Unlink personal user coupons so historical coupon records stay intact without FK issues
@@ -387,17 +397,25 @@ namespace API.Controllers
                 {
                     coupon.UserId = null;
                 }
+                if (coupons.Any())
+                {
+                    _logger.LogInformation("Unlinked {CouponCount} coupons for user {UserId}", coupons.Count, userId);
+                }
 
                 // 8. Referrals: Clear ReferrerId & ReferredUserId foreign key constraints
                 var referralsAsReferrer = await _context.Referrals.Where(r => r.ReferrerId == userId).ToListAsync();
                 foreach (var refItem in referralsAsReferrer)
                 {
-                    refItem.ReferrerId = string.Empty;
+                    refItem.ReferrerId = null;
                 }
                 var referralsAsReferred = await _context.Referrals.Where(r => r.ReferredUserId == userId).ToListAsync();
                 foreach (var refItem in referralsAsReferred)
                 {
                     refItem.ReferredUserId = null;
+                }
+                if (referralsAsReferrer.Any() || referralsAsReferred.Any())
+                {
+                    _logger.LogInformation("Unlinked {ReferrerCount} referrer records and {ReferredCount} referred records for user {UserId}", referralsAsReferrer.Count, referralsAsReferred.Count, userId);
                 }
 
                 // 9. RewardTransactions: Remove transactions belonging to user
@@ -405,6 +423,7 @@ namespace API.Controllers
                 if (rewardTxs.Any())
                 {
                     _context.RewardTransactions.RemoveRange(rewardTxs);
+                    _logger.LogInformation("Removed {RewardTxCount} reward transactions for user {UserId}", rewardTxs.Count, userId);
                 }
 
                 // 10. ProductReviews: Remove reviews created by user
@@ -412,6 +431,7 @@ namespace API.Controllers
                 if (reviews.Any())
                 {
                     _context.ProductReviews.RemoveRange(reviews);
+                    _logger.LogInformation("Removed {ReviewCount} reviews for user {UserId}", reviews.Count, userId);
                 }
 
                 // 11. ReturnRequests: Remove user return requests
@@ -419,6 +439,7 @@ namespace API.Controllers
                 if (returnRequests.Any())
                 {
                     _context.ReturnRequests.RemoveRange(returnRequests);
+                    _logger.LogInformation("Removed {ReturnCount} return requests for user {UserId}", returnRequests.Count, userId);
                 }
 
                 await _context.SaveChangesAsync();
@@ -427,16 +448,20 @@ namespace API.Controllers
                 var deleteResult = await _userManager.DeleteAsync(user);
                 if (!deleteResult.Succeeded)
                 {
+                    var errors = string.Join(", ", deleteResult.Errors.Select(e => e.Description));
+                    _logger.LogError("UserManager.DeleteAsync failed for user {UserId}: {Errors}", userId, errors);
                     await transaction.RollbackAsync();
                     return false;
                 }
 
                 await transaction.CommitAsync();
+                _logger.LogInformation("Account deletion transaction committed successfully for user {UserId}", userId);
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
                 await transaction.RollbackAsync();
+                _logger.LogError(ex, "Account deletion transaction failed and was rolled back for user {UserId}", userId);
                 throw;
             }
         }

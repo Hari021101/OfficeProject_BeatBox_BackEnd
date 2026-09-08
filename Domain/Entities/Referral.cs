@@ -12,7 +12,7 @@ public class Referral
 {
     public int Id { get; set; }
     
-    public string ReferrerId { get; set; } = string.Empty;
+    public string? ReferrerId { get; set; }
     public AppUser? Referrer { get; set; }
 
     public string? ReferredUserId { get; set; }

@@ -253,7 +253,7 @@ namespace Infrastructure.Data
                 entity.HasOne(r => r.Referrer)
                       .WithMany()
                       .HasForeignKey(r => r.ReferrerId)
-                      .OnDelete(DeleteBehavior.Restrict);
+                      .OnDelete(DeleteBehavior.SetNull);
 
                 entity.HasOne(r => r.ReferredUser)
                       .WithMany()
