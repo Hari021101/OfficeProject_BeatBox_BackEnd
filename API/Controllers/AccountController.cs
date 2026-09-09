@@ -335,9 +335,16 @@ namespace API.Controllers
         private async Task<bool> DeleteUserAccountInternalAsync(AppUser user)
         {
             var userId = user.Id;
-            _logger.LogInformation("Starting account deletion transaction for User ID: {UserId}, Email: {Email}", userId, user.Email);
+            _logger.LogInformation("Starting account deletion process for User ID: {UserId}, Email: {Email}", userId, user.Email);
 
-            using var transaction = await _context.Database.BeginTransactionAsync();
+            var existingTransaction = _context.Database.CurrentTransaction;
+            Microsoft.EntityFrameworkCore.Storage.IDbContextTransaction? createdTransaction = null;
+
+            if (existingTransaction == null)
+            {
+                createdTransaction = await _context.Database.BeginTransactionAsync();
+            }
+
             try
             {
                 // 1. Remove Carts & CartItems
@@ -450,19 +457,35 @@ namespace API.Controllers
                 {
                     var errors = string.Join(", ", deleteResult.Errors.Select(e => e.Description));
                     _logger.LogError("UserManager.DeleteAsync failed for user {UserId}: {Errors}", userId, errors);
-                    await transaction.RollbackAsync();
+                    if (createdTransaction != null)
+                    {
+                        await createdTransaction.RollbackAsync();
+                    }
                     return false;
                 }
 
-                await transaction.CommitAsync();
-                _logger.LogInformation("Account deletion transaction committed successfully for user {UserId}", userId);
+                if (createdTransaction != null)
+                {
+                    await createdTransaction.CommitAsync();
+                }
+                _logger.LogInformation("Account deletion process completed successfully for user {UserId}", userId);
                 return true;
             }
             catch (Exception ex)
             {
-                await transaction.RollbackAsync();
-                _logger.LogError(ex, "Account deletion transaction failed and was rolled back for user {UserId}", userId);
+                if (createdTransaction != null)
+                {
+                    await createdTransaction.RollbackAsync();
+                }
+                _logger.LogError(ex, "Account deletion process failed and was rolled back for user {UserId}", userId);
                 throw;
+            }
+            finally
+            {
+                if (createdTransaction != null)
+                {
+                    await createdTransaction.DisposeAsync();
+                }
             }
         }
     }
