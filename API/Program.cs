@@ -115,7 +115,12 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 var app = builder.Build();
-
+app.MapGet("/health/version", () => Results.Ok(new
+{
+    Application = "BeatBox API",
+    Version = "DELETE-FIX-2026-09-09",
+    Build = "226103b"
+}));
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
 
