@@ -40,6 +40,7 @@ public class ProductRepository : IProductRepository
    .Include(p => p.Variants)
     .ThenInclude(v => v.Images)
     .AsSplitQuery()
+    .AsNoTracking()
     .FirstOrDefaultAsync(p => p.Id == id);
     }
 

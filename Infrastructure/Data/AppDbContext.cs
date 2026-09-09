@@ -41,10 +41,37 @@ namespace Infrastructure.Data
         public DbSet<Coupon> Coupons => Set<Coupon>();
         public DbSet<ReturnRequest> ReturnRequests => Set<ReturnRequest>();
         public DbSet<AuditLog> AuditLogs => Set<AuditLog>();
+        public DbSet<StockNotificationSubscription> StockNotificationSubscriptions => Set<StockNotificationSubscription>();
+        public DbSet<Referral> Referrals => Set<Referral>();
+        public DbSet<RewardTransaction> RewardTransactions => Set<RewardTransaction>();
 
         protected override void OnModelCreating(ModelBuilder builder)
-		{
-			base.OnModelCreating(builder);
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<StockNotificationSubscription>(entity =>
+            {
+                entity.HasKey(s => s.Id);
+
+                entity.HasIndex(s => new { s.UserId, s.ProductVariantId, s.IsActive })
+                      .HasFilter("[IsActive] = 1")
+                      .IsUnique();
+
+                entity.HasOne(s => s.Product)
+                      .WithMany()
+                      .HasForeignKey(s => s.ProductId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(s => s.Variant)
+                      .WithMany()
+                      .HasForeignKey(s => s.ProductVariantId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(s => s.User)
+                      .WithMany()
+                      .HasForeignKey(s => s.UserId)
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
             builder.Entity<ProductVariant>(entity =>
             {
                 entity.Property(v => v.Price)
@@ -80,6 +107,13 @@ namespace Infrastructure.Data
                       .WithMany(v => v.Images)
                       .HasForeignKey(pvi => pvi.VariantId)
                       .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            builder.Entity<Order>(entity =>
+            {
+                entity.Property(o => o.TotalAmount).HasColumnType("decimal(18,2)");
+                entity.Property(o => o.DiscountAmount).HasColumnType("decimal(18,2)");
+                entity.Property(o => o.ShippingAmount).HasColumnType("decimal(18,2)");
             });
 
             builder.Entity<OrderItem>(entity =>
@@ -195,6 +229,71 @@ namespace Infrastructure.Data
 
                 entity.Property(x => x.MaximumDiscount)
                       .HasColumnType("decimal(18,2)");
+
+                entity.HasIndex(x => x.UserId);
+            });
+
+            builder.Entity<AppUser>(entity =>
+            {
+                entity.HasIndex(u => u.ReferralCode)
+                      .HasFilter("[ReferralCode] IS NOT NULL")
+                      .IsUnique();
+
+                entity.Property(u => u.RewardBalance)
+                      .HasColumnType("decimal(18,2)");
+            });
+
+            builder.Entity<Referral>(entity =>
+            {
+                entity.HasKey(r => r.Id);
+
+                entity.Property(r => r.RewardAmount)
+                      .HasColumnType("decimal(18,2)");
+
+                entity.HasOne(r => r.Referrer)
+                      .WithMany()
+                      .HasForeignKey(r => r.ReferrerId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasOne(r => r.ReferredUser)
+                      .WithMany()
+                      .HasForeignKey(r => r.ReferredUserId)
+                      .OnDelete(DeleteBehavior.Restrict);
+
+                entity.HasIndex(r => r.ReferralCode);
+
+                // Enforce at most ONE referral record per referred user
+                entity.HasIndex(r => r.ReferredUserId)
+                      .HasFilter("[ReferredUserId] IS NOT NULL")
+                      .IsUnique();
+
+                // Enforce at most ONE reward per qualifying order
+                entity.HasIndex(r => r.QualifyingOrderId)
+                      .HasFilter("[QualifyingOrderId] IS NOT NULL")
+                      .IsUnique();
+            });
+
+            builder.Entity<RewardTransaction>(entity =>
+            {
+                entity.HasKey(rt => rt.Id);
+
+                entity.Property(rt => rt.Amount)
+                      .HasColumnType("decimal(18,2)");
+
+                entity.HasOne(rt => rt.User)
+                      .WithMany()
+                      .HasForeignKey(rt => rt.UserId)
+                      .OnDelete(DeleteBehavior.Cascade);
+
+                entity.HasOne(rt => rt.Referral)
+                      .WithMany()
+                      .HasForeignKey(rt => rt.ReferralId)
+                      .OnDelete(DeleteBehavior.SetNull);
+
+                entity.HasOne(rt => rt.Order)
+                      .WithMany()
+                      .HasForeignKey(rt => rt.OrderId)
+                      .OnDelete(DeleteBehavior.SetNull);
             });
 
         }

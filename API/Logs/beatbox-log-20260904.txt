@@ -1,0 +1,452 @@
+2026-09-04 19:30:49.108 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 68ms
+2026-09-04 19:30:49.108 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 67ms
+2026-09-04 19:30:49.172 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 3ms
+2026-09-04 19:30:49.172 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 3ms
+2026-09-04 19:30:49.179 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:30:49.179 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-09-04 19:30:49.304 +05:30 [INF] API REQUEST: OPTIONS /api/referral/dashboard from IP ::1 responded 204 in 0ms
+2026-09-04 19:30:49.304 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-09-04 19:30:49.308 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-09-04 19:30:49.308 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:30:49.308 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-09-04 19:30:49.311 +05:30 [INF] API REQUEST: OPTIONS /api/referral/dashboard from IP ::1 responded 204 in 0ms
+2026-09-04 19:30:50.040 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/referral/dashboard from IP ::1. Response: 200 in 686ms
+2026-09-04 19:30:50.041 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 702ms
+2026-09-04 19:30:50.143 +05:30 [WRN] You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+2026-09-04 19:30:50.299 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/referral/dashboard from IP ::1. Response: 200 in 220ms
+2026-09-04 19:30:50.300 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 270ms
+2026-09-04 19:30:50.721 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 1357ms
+2026-09-04 19:30:51.245 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 1918ms
+2026-09-04 19:30:51.303 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/cart from IP ::1. Response: 200 in 54ms
+2026-09-04 19:30:51.738 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 2417ms
+2026-09-04 19:30:51.741 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 14ms
+2026-09-04 19:31:00.176 +05:30 [INF] API REQUEST: POST /api/referral/validate/BBFB6ACB from IP ::1 responded 405 in 1ms
+2026-09-04 19:31:00.176 +05:30 [INF] API REQUEST: POST /api/referral/validate/BBFB6ACB from IP ::1 responded 405 in 1ms
+2026-09-04 19:31:32.294 +05:30 [INF] API REQUEST: OPTIONS /api/account/register from IP ::1 responded 204 in 0ms
+2026-09-04 19:31:41.802 +05:30 [INF] API REQUEST: POST /api/account/register from IP ::1 responded 200 in 9490ms
+2026-09-04 19:32:17.687 +05:30 [INF] API REQUEST: OPTIONS /api/otp/verify-email from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:17.931 +05:30 [INF] API REQUEST: POST /api/otp/verify-email from IP ::1 responded 200 in 216ms
+2026-09-04 19:32:17.962 +05:30 [INF] API REQUEST: OPTIONS /api/referral/apply from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:17.962 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.000 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 204 in 21ms
+2026-09-04 19:32:18.252 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed POST /api/referral/apply from IP ::1. Response: 200 in 279ms
+2026-09-04 19:32:18.591 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.591 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.591 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.595 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.596 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.597 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.601 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.610 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.614 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.622 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.630 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.636 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:18.658 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 13ms
+2026-09-04 19:32:18.661 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/category from IP ::1. Response: 200 in 4ms
+2026-09-04 19:32:18.678 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 9ms
+2026-09-04 19:32:18.759 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 108ms
+2026-09-04 19:32:18.796 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 34ms
+2026-09-04 19:32:18.802 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 17ms
+2026-09-04 19:32:18.811 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/product from IP ::1. Response: 200 in 17ms
+2026-09-04 19:32:18.986 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker1.jpg from IP ::1 responded 200 in 32ms
+2026-09-04 19:32:18.986 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws2_blue_FrontAngle.jpg from IP ::1 responded 200 in 33ms
+2026-09-04 19:32:18.986 +05:30 [INF] API REQUEST: GET /images/products/bluetooth_speaker/bluetoothSpeaker3_red_topangle.jpg from IP ::1 responded 200 in 29ms
+2026-09-04 19:32:19.021 +05:30 [INF] API REQUEST: GET /uploads/products/9ddd6a94-73ce-4479-a88f-6635917a2472.png from IP ::1 responded 200 in 112ms
+2026-09-04 19:32:19.035 +05:30 [INF] API REQUEST: GET /uploads/products/5aa97a7f-ddd6-4450-aa74-d9844b2caf18.jpg from IP ::1 responded 200 in 78ms
+2026-09-04 19:32:37.320 +05:30 [INF] API REQUEST: GET /images/products/wireless-headphones/wireless-headphone1.jpg from IP ::1 responded 200 in 43ms
+2026-09-04 19:32:43.305 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone2_white_frontAngle.jpg from IP ::1 responded 200 in 12ms
+2026-09-04 19:32:49.314 +05:30 [INF] API REQUEST: GET /images/products/default/default13.jpg from IP ::1 responded 200 in 46ms
+2026-09-04 19:32:55.657 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 1ms
+2026-09-04 19:32:55.657 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:55.659 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:55.659 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:55.660 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:55.661 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:55.665 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:55.673 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:55.712 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 26ms
+2026-09-04 19:32:55.725 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 8ms
+2026-09-04 19:32:55.731 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 52ms
+2026-09-04 19:32:55.745 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 12ms
+2026-09-04 19:32:55.820 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 116ms
+2026-09-04 19:32:55.835 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 9ms
+2026-09-04 19:32:58.915 +05:30 [INF] API REQUEST: GET /images/products/headphone/headphone3_white_frontAngle.jpg from IP ::1 responded 200 in 2ms
+2026-09-04 19:32:58.917 +05:30 [INF] API REQUEST: GET /images/products/wired_headphones/wired_earPhones1_white_fullAngle.jpg from IP ::1 responded 200 in 4ms
+2026-09-04 19:32:58.917 +05:30 [INF] API REQUEST: GET /images/products/default/default15.jpg from IP ::1 responded 200 in 3ms
+2026-09-04 19:32:58.933 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:58.933 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:58.933 +05:30 [INF] API REQUEST: OPTIONS /api/coupon from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:58.934 +05:30 [INF] API REQUEST: OPTIONS /api/coupon from IP ::1 responded 204 in 0ms
+2026-09-04 19:32:58.963 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 12ms
+2026-09-04 19:32:58.976 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 11ms
+2026-09-04 19:32:59.145 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/coupon from IP ::1. Response: 200 in 164ms
+2026-09-04 19:32:59.153 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/coupon from IP ::1. Response: 200 in 6ms
+2026-09-04 19:33:02.479 +05:30 [INF] API REQUEST: OPTIONS /api/cart/add from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:02.930 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed POST /api/cart/add from IP ::1. Response: 200 in 430ms
+2026-09-04 19:33:02.970 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:03.112 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 200 in 130ms
+2026-09-04 19:33:04.730 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:04.731 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:04.882 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 138ms
+2026-09-04 19:33:04.896 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 11ms
+2026-09-04 19:33:23.778 +05:30 [INF] API REQUEST: OPTIONS /api/promo/validate from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:23.862 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed POST /api/promo/validate from IP ::1. Response: 400 in 66ms
+2026-09-04 19:33:27.923 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:27.923 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:27.927 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:27.930 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:27.930 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:27.932 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:27.934 +05:30 [INF] API REQUEST: OPTIONS /api/referral/eligibility from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:27.939 +05:30 [INF] API REQUEST: OPTIONS /api/referral/eligibility from IP ::1 responded 204 in 0ms
+2026-09-04 19:33:28.002 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 24ms
+2026-09-04 19:33:28.004 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 26ms
+2026-09-04 19:33:28.053 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 13ms
+2026-09-04 19:33:28.054 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 9ms
+2026-09-04 19:33:28.142 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/referral/eligibility from IP ::1. Response: 200 in 129ms
+2026-09-04 19:33:28.156 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/referral/eligibility from IP ::1. Response: 200 in 11ms
+2026-09-04 19:34:10.066 +05:30 [INF] API REQUEST: OPTIONS /api/checkout from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:10.400 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:34:10.494 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:34:10.557 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:34:10.634 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:34:10.793 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:34:11.166 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:34:11.313 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:34:11.342 +05:30 [INF] Successfully credited referral reward ₹500.00 to user 17b671b7-5bfa-453e-a0e0-2b76f5179848 for order #26
+2026-09-04 19:34:11.406 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed POST /api/checkout from IP ::1. Response: 200 in 1306ms
+2026-09-04 19:34:11.420 +05:30 [INF] API REQUEST: OPTIONS /api/cart/clear from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:11.450 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed DELETE /api/cart/clear from IP ::1. Response: 200 in 23ms
+2026-09-04 19:34:11.461 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:11.477 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 200 in 6ms
+2026-09-04 19:34:17.083 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:17.083 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:17.191 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 90ms
+2026-09-04 19:34:17.203 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 9ms
+2026-09-04 19:34:20.142 +05:30 [INF] API REQUEST: OPTIONS /api/order/26 from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:20.142 +05:30 [INF] API REQUEST: OPTIONS /api/order/26 from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:20.246 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/26 from IP ::1. Response: 200 in 95ms
+2026-09-04 19:34:20.290 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/26 from IP ::1. Response: 200 in 10ms
+2026-09-04 19:34:35.820 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:35.827 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 3ms
+2026-09-04 19:34:35.902 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 11ms
+2026-09-04 19:34:35.916 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 11ms
+2026-09-04 19:34:50.233 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:50.235 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:50.236 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:50.239 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:50.280 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 19ms
+2026-09-04 19:34:50.280 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 5ms
+2026-09-04 19:34:50.289 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 4ms
+2026-09-04 19:34:50.301 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 8ms
+2026-09-04 19:34:57.220 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:57.220 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:57.220 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:57.221 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:34:57.258 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-09-04 19:34:57.271 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 10ms
+2026-09-04 19:35:00.269 +05:30 [INF] API REQUEST: GET /images/products/party-speakers/party-speaker11.jpg from IP ::1 responded 200 in 5ms
+2026-09-04 19:35:29.884 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:29.886 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:29.887 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:29.888 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:29.888 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:29.889 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:29.914 +05:30 [INF] API REQUEST: OPTIONS /api/profile from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:29.928 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:29.959 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 11ms
+2026-09-04 19:35:29.967 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 4ms
+2026-09-04 19:35:29.990 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 19ms
+2026-09-04 19:35:30.048 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 17ms
+2026-09-04 19:35:30.079 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/profile from IP ::1. Response: 200 in 11ms
+2026-09-04 19:35:30.098 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 14ms
+2026-09-04 19:35:39.137 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:39.138 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:39.138 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:39.139 +05:30 [INF] API REQUEST: OPTIONS /api/referral/dashboard from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:39.139 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:39.140 +05:30 [INF] API REQUEST: OPTIONS /api/referral/dashboard from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:39.211 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-09-04 19:35:39.225 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 9ms
+2026-09-04 19:35:39.257 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/referral/dashboard from IP ::1. Response: 200 in 71ms
+2026-09-04 19:35:39.275 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/referral/dashboard from IP ::1. Response: 200 in 15ms
+2026-09-04 19:35:43.600 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 3ms
+2026-09-04 19:35:45.051 +05:30 [INF] API REQUEST: OPTIONS /api/notifications/b278bb0f-30d6-467f-8911-ee310955bf26/read from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:45.168 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed PUT /api/notifications/b278bb0f-30d6-467f-8911-ee310955bf26/read from IP ::1. Response: 204 in 108ms
+2026-09-04 19:35:45.192 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:45.207 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 6ms
+2026-09-04 19:35:45.256 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:45.258 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:45.259 +05:30 [INF] API REQUEST: OPTIONS /api/order/26 from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:45.260 +05:30 [INF] API REQUEST: OPTIONS /api/order/26 from IP ::1 responded 204 in 0ms
+2026-09-04 19:35:45.265 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 5ms
+2026-09-04 19:35:45.274 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 6ms
+2026-09-04 19:35:45.293 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/26 from IP ::1. Response: 200 in 12ms
+2026-09-04 19:35:45.307 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/26 from IP ::1. Response: 200 in 10ms
+2026-09-04 19:36:24.654 +05:30 [INF] API REQUEST: OPTIONS /api/coupon from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:24.656 +05:30 [INF] API REQUEST: OPTIONS /api/coupon from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:24.668 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/coupon from IP ::1. Response: 200 in 5ms
+2026-09-04 19:36:24.746 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/coupon from IP ::1. Response: 200 in 77ms
+2026-09-04 19:36:29.269 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_white_closedAngle.jpg from IP ::1 responded 304 in 1ms
+2026-09-04 19:36:41.286 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:41.286 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:41.325 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:41.328 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:41.391 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 90ms
+2026-09-04 19:36:41.528 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 201ms
+2026-09-04 19:36:41.555 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 21ms
+2026-09-04 19:36:41.555 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:41.564 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 118ms
+2026-09-04 19:36:41.657 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 76ms
+2026-09-04 19:36:41.663 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 3ms
+2026-09-04 19:36:41.668 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:41.727 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 48ms
+2026-09-04 19:36:41.733 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 3ms
+2026-09-04 19:36:41.794 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:41.797 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:41.988 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 186ms
+2026-09-04 19:36:42.005 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:42.008 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 15ms
+2026-09-04 19:36:42.111 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 92ms
+2026-09-04 19:36:42.129 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 16ms
+2026-09-04 19:36:51.099 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:51.101 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:51.101 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:51.102 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:51.121 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-09-04 19:36:51.127 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-09-04 19:36:52.505 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_openAngle.jpg from IP ::1 responded 200 in 3ms
+2026-09-04 19:36:52.730 +05:30 [INF] API REQUEST: OPTIONS /api/product/324b9156-a442-4755-94a4-34d55166328a from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:52.731 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:52.732 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:52.734 +05:30 [INF] API REQUEST: OPTIONS /api/product/324b9156-a442-4755-94a4-34d55166328a from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:52.765 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 15ms
+2026-09-04 19:36:52.776 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 8ms
+2026-09-04 19:36:52.816 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/product/324b9156-a442-4755-94a4-34d55166328a from IP ::1. Response: 200 in 78ms
+2026-09-04 19:36:52.821 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/product/324b9156-a442-4755-94a4-34d55166328a from IP ::1. Response: 200 in 2ms
+2026-09-04 19:36:52.979 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_sideAngle.jpg from IP ::1 responded 200 in 2ms
+2026-09-04 19:36:52.979 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_frontAngle.jpg from IP ::1 responded 200 in 2ms
+2026-09-04 19:36:52.982 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws3_grey_closedAngle.jpg from IP ::1 responded 200 in 6ms
+2026-09-04 19:36:54.083 +05:30 [INF] API REQUEST: GET /images/products/tws_eaebuds/tws1_black_frontAngle.jpg from IP ::1 responded 200 in 47ms
+2026-09-04 19:36:55.902 +05:30 [INF] API REQUEST: OPTIONS /api/cart/add from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:55.963 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:55.964 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:55.966 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:55.966 +05:30 [INF] API REQUEST: OPTIONS /api/referral/eligibility from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:55.966 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:55.974 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed POST /api/cart/add from IP ::1. Response: 200 in 63ms
+2026-09-04 19:36:55.978 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 4ms
+2026-09-04 19:36:55.981 +05:30 [INF] API REQUEST: OPTIONS /api/referral/eligibility from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:55.992 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 5ms
+2026-09-04 19:36:55.999 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 2ms
+2026-09-04 19:36:56.006 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/referral/eligibility from IP ::1. Response: 200 in 3ms
+2026-09-04 19:36:56.015 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 5ms
+2026-09-04 19:36:56.033 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/referral/eligibility from IP ::1. Response: 200 in 4ms
+2026-09-04 19:36:56.035 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-09-04 19:36:56.107 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 200 in 7ms
+2026-09-04 19:37:19.484 +05:30 [INF] API REQUEST: OPTIONS /api/checkout from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:19.620 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:19.886 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:19.895 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:19.903 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:19.970 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:20.020 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:20.033 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed POST /api/checkout from IP ::1. Response: 200 in 542ms
+2026-09-04 19:37:20.048 +05:30 [INF] API REQUEST: OPTIONS /api/cart/clear from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:20.068 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed DELETE /api/cart/clear from IP ::1. Response: 200 in 8ms
+2026-09-04 19:37:20.088 +05:30 [INF] API REQUEST: OPTIONS /api/cart from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:20.107 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/cart from IP ::1. Response: 200 in 9ms
+2026-09-04 19:37:25.389 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:25.389 +05:30 [INF] API REQUEST: OPTIONS /api/order/my-orders from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:25.419 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 9ms
+2026-09-04 19:37:25.430 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/order/my-orders from IP ::1. Response: 200 in 10ms
+2026-09-04 19:37:34.179 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:34.180 +05:30 [INF] API REQUEST: OPTIONS /api/product from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:34.223 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 35ms
+2026-09-04 19:37:34.227 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/product from IP ::1. Response: 200 in 4ms
+2026-09-04 19:37:36.030 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:36.030 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:36.057 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 19ms
+2026-09-04 19:37:36.081 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 22ms
+2026-09-04 19:37:42.506 +05:30 [INF] API REQUEST: OPTIONS /api/order/status/27 from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:42.969 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:42.987 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:42.998 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed PUT /api/order/status/27 from IP ::1. Response: 200 in 93ms
+2026-09-04 19:37:43.030 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:43.068 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 18ms
+2026-09-04 19:37:47.087 +05:30 [INF] API REQUEST: OPTIONS /api/order/status/26 from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:47.118 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:47.124 +05:30 [WRN] Savepoints are disabled because Multiple Active Result Sets (MARS) is enabled. If 'SaveChanges' fails, then the transaction cannot be automatically rolled back to a known clean state. Instead, the transaction should be rolled back by the application before retrying 'SaveChanges'. See https://go.microsoft.com/fwlink/?linkid=2149338 for more information and examples. To identify the code which triggers this warning, call 'ConfigureWarnings(w => w.Throw(SqlServerEventId.SavepointsDisabledBecauseOfMARS))'.
+2026-09-04 19:37:47.130 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed PUT /api/order/status/26 from IP ::1. Response: 200 in 39ms
+2026-09-04 19:37:47.167 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 24ms
+2026-09-04 19:37:49.036 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:49.038 +05:30 [INF] API REQUEST: OPTIONS /api/Return from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:51.194 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 2146ms
+2026-09-04 19:37:51.938 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:51.939 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-09-04 19:37:51.967 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 20ms
+2026-09-04 19:37:52.054 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 84ms
+2026-09-04 19:37:52.931 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/Return from IP ::1. Response: 200 in 1824ms
+2026-09-04 19:38:11.077 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-09-04 19:38:11.077 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-09-04 19:38:11.078 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/summary from IP ::1 responded 204 in 0ms
+2026-09-04 19:38:11.079 +05:30 [INF] API REQUEST: OPTIONS /api/auditlogs from IP ::1 responded 204 in 0ms
+2026-09-04 19:38:11.112 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 6ms
+2026-09-04 19:38:11.138 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 50ms
+2026-09-04 19:38:11.142 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/auditlogs from IP ::1. Response: 200 in 7ms
+2026-09-04 19:38:11.173 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/revenue from IP ::1 responded 204 in 0ms
+2026-09-04 19:38:11.185 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/summary from IP ::1. Response: 200 in 44ms
+2026-09-04 19:38:11.194 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 4ms
+2026-09-04 19:38:11.214 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/revenue from IP ::1. Response: 200 in 4ms
+2026-09-04 19:38:11.234 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/sales from IP ::1 responded 204 in 0ms
+2026-09-04 19:38:11.249 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 4ms
+2026-09-04 19:38:11.319 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/sales from IP ::1. Response: 200 in 4ms
+2026-09-04 19:38:11.333 +05:30 [INF] API REQUEST: OPTIONS /api/admin/dashboard/products from IP ::1 responded 204 in 0ms
+2026-09-04 19:38:11.389 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 18ms
+2026-09-04 19:38:11.430 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/admin/dashboard/products from IP ::1. Response: 200 in 9ms
+2026-09-04 19:38:11.437 +05:30 [INF] API REQUEST: OPTIONS /api/order from IP ::1 responded 204 in 0ms
+2026-09-04 19:38:11.467 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 17ms
+2026-09-04 19:38:11.549 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/order from IP ::1. Response: 200 in 11ms
+2026-09-04 19:39:19.792 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:19.793 +05:30 [INF] API REQUEST: OPTIONS /api/address from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:19.809 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 7ms
+2026-09-04 19:39:19.816 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/address from IP ::1. Response: 200 in 3ms
+2026-09-04 19:39:43.532 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:43.540 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:43.540 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:43.550 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:43.551 +05:30 [INF] API REQUEST: OPTIONS /api/referral/dashboard from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:43.551 +05:30 [INF] API REQUEST: OPTIONS /api/referral/dashboard from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:43.565 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 3ms
+2026-09-04 19:39:43.575 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/notifications from IP ::1. Response: 200 in 6ms
+2026-09-04 19:39:43.581 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/referral/dashboard from IP ::1. Response: 200 in 6ms
+2026-09-04 19:39:43.589 +05:30 [INF] USER ACTIVITY: User 4cdd5c17-d883-496b-ba42-67ad875d9321 (thran6275@gmail.com) performed GET /api/referral/dashboard from IP ::1. Response: 200 in 6ms
+2026-09-04 19:39:53.562 +05:30 [INF] API REQUEST: OPTIONS /api/referral/validate/BBEYFSS9 from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:53.565 +05:30 [INF] API REQUEST: OPTIONS /api/referral/validate/BBEYFSS9 from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:53.574 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed POST /api/referral/validate/BBEYFSS9 from IP ::1. Response: 405 in 0ms
+2026-09-04 19:39:53.582 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed POST /api/referral/validate/BBEYFSS9 from IP ::1. Response: 405 in 0ms
+2026-09-04 19:39:53.599 +05:30 [INF] API REQUEST: OPTIONS /api/referral/apply from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:53.650 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed POST /api/referral/apply from IP ::1. Response: 200 in 34ms
+2026-09-04 19:39:53.734 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'Infrastructure.Data.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Referrals' with unique index 'IX_Referrals_ReferredUserId'. The duplicate key value is (17b671b7-5bfa-453e-a0e0-2b76f5179848).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:dd194614-d8c5-4c60-a175-9d1d8e06659b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Referrals' with unique index 'IX_Referrals_ReferredUserId'. The duplicate key value is (17b671b7-5bfa-453e-a0e0-2b76f5179848).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:dd194614-d8c5-4c60-a175-9d1d8e06659b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-09-04 19:39:53.745 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:53.748 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:53.749 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:53.750 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:39:53.804 +05:30 [WRN] Duplicate referral attribution attempt for user 17b671b7-5bfa-453e-a0e0-2b76f5179848
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.Referrals' with unique index 'IX_Referrals_ReferredUserId'. The duplicate key value is (17b671b7-5bfa-453e-a0e0-2b76f5179848).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.Connection.SqlConnectionInternal.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:dd194614-d8c5-4c60-a175-9d1d8e06659b
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Infrastructure.Services.ReferralService.ApplyReferralAsync(String code, String referredUserId, CancellationToken cancellationToken) in C:\Users\HP\source\repos\OfficeProject_BeatBox_BackEnd\Infrastructure\Services\ReferralService.cs:line 228
+2026-09-04 19:39:53.862 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 21ms
+2026-09-04 19:39:53.886 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 21ms
+2026-09-04 19:39:53.967 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed POST /api/referral/apply from IP ::1. Response: 400 in 352ms
+2026-09-04 19:40:07.777 +05:30 [INF] API REQUEST: POST /api/referral/validate/BBEYFSS9 from IP ::1 responded 405 in 0ms
+2026-09-04 19:40:07.778 +05:30 [INF] API REQUEST: POST /api/referral/validate/BBEYFSS9 from IP ::1 responded 405 in 0ms
+2026-09-04 19:42:04.692 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 28ms
+2026-09-04 19:42:04.695 +05:30 [INF] API REQUEST: GET /api/product from IP ::1 responded 200 in 3ms
+2026-09-04 19:42:11.013 +05:30 [INF] API REQUEST: GET /api/Return from IP ::1 responded 401 in 4ms
+2026-09-04 19:42:11.020 +05:30 [INF] API REQUEST: GET /api/Return from IP ::1 responded 401 in 1ms
+2026-09-04 19:42:20.070 +05:30 [INF] API REQUEST: GET /api/Return from IP ::1 responded 401 in 0ms
+2026-09-04 19:42:20.077 +05:30 [INF] API REQUEST: GET /api/Return from IP ::1 responded 401 in 0ms
+2026-09-04 19:42:21.937 +05:30 [INF] API REQUEST: GET /api/Return from IP ::1 responded 401 in 0ms
+2026-09-04 19:42:21.946 +05:30 [INF] API REQUEST: GET /api/Return from IP ::1 responded 401 in 0ms
+2026-09-04 19:42:34.464 +05:30 [INF] API REQUEST: OPTIONS /api/account/login from IP ::1 responded 204 in 0ms
+2026-09-04 19:42:34.737 +05:30 [INF] API REQUEST: POST /api/account/login from IP ::1 responded 200 in 260ms
+2026-09-04 19:42:34.771 +05:30 [INF] API REQUEST: OPTIONS /api/referral/apply from IP ::1 responded 204 in 1ms
+2026-09-04 19:42:34.782 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed POST /api/referral/apply from IP ::1. Response: 400 in 4ms
+2026-09-04 19:42:35.081 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:42:35.082 +05:30 [INF] API REQUEST: OPTIONS /hubs/notifications/negotiate from IP ::1 responded 204 in 0ms
+2026-09-04 19:42:35.088 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:42:35.090 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-09-04 19:42:35.091 +05:30 [INF] API REQUEST: OPTIONS /api/notifications from IP ::1 responded 204 in 0ms
+2026-09-04 19:42:35.091 +05:30 [INF] API REQUEST: OPTIONS /api/category from IP ::1 responded 204 in 0ms
+2026-09-04 19:42:35.121 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 9ms
+2026-09-04 19:42:35.132 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/category from IP ::1. Response: 200 in 12ms
+2026-09-04 19:42:35.133 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/notifications from IP ::1. Response: 200 in 5ms
+2026-09-04 19:47:47.565 +05:30 [INF] API REQUEST: OPTIONS /api/referral/dashboard from IP ::1 responded 204 in 0ms
+2026-09-04 19:47:47.565 +05:30 [INF] API REQUEST: OPTIONS /api/referral/dashboard from IP ::1 responded 204 in 0ms
+2026-09-04 19:47:47.732 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/referral/dashboard from IP ::1. Response: 200 in 155ms
+2026-09-04 19:47:47.740 +05:30 [INF] USER ACTIVITY: User 17b671b7-5bfa-453e-a0e0-2b76f5179848 (vikram.admin@beatbox.com) performed GET /api/referral/dashboard from IP ::1. Response: 200 in 6ms

@@ -35,8 +35,13 @@ public class InventoryController : ControllerBase
     [HttpPut("update-stock")]
     public async Task<IActionResult> UpdateStock([FromBody] UpdateStockDto dto)
     {
-        await _service.UpdateStockAsync(dto, User?.Identity?.Name ?? "system");
-        return NoContent();
+        var result = await _service.UpdateStockAsync(dto, User?.Identity?.Name ?? "system");
+        return Ok(new
+        {
+            success = true,
+            message = "Stock updated successfully.",
+            data = result
+        });
     }
 
     [HttpPost("reserve")]

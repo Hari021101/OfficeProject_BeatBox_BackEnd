@@ -26,6 +26,18 @@ namespace Infrastructure
                     b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)
                           .UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
+            // Register Options with startup validation
+            services.AddOptions<Application.Common.Options.FrontendOptions>()
+                .Bind(configuration.GetSection(Application.Common.Options.FrontendOptions.SectionName))
+                .Validate(options =>
+                    !string.IsNullOrWhiteSpace(options.BaseUrl) &&
+                    Uri.TryCreate(options.BaseUrl, UriKind.Absolute, out var uri) &&
+                    (uri.Scheme == Uri.UriSchemeHttp || uri.Scheme == Uri.UriSchemeHttps),
+                    "Frontend:BaseUrl configuration is required and must be a valid HTTP or HTTPS absolute URL.")
+                .ValidateOnStart();
+
+            services.Configure<Application.Common.Options.ReferralOptions>(configuration.GetSection(Application.Common.Options.ReferralOptions.SectionName));
+
             // Register ASP.NET Core Identity
             services.AddIdentity<AppUser, IdentityRole>(opt =>
             {
@@ -115,6 +127,7 @@ namespace Infrastructure
             services.AddScoped<ITransactionActionQueue, TransactionActionQueue>();
             services.AddScoped<IReturnService, ReturnService>();
             services.AddScoped<IChatBotService, ChatBotService>();
+            services.AddScoped<IReferralService, ReferralService>();
 
             services.AddScoped<INotificationRepository, NotificationRepository>();
             services.AddScoped<IFileUploadService, FileUploadService>();

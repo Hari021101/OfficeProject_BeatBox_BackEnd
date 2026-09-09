@@ -2,6 +2,7 @@ using Application.DTOs;
 using Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace API.Controllers;
 
@@ -27,6 +28,17 @@ public class CouponController : ControllerBase
         return Ok(coupons);
     }
 
+    /// <summary>Returns active coupons specifically available to the current authenticated user.</summary>
+    [HttpGet("my-coupons")]
+    public async Task<IActionResult> GetMyCoupons()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userId)) return Unauthorized();
+
+        var coupons = await _couponService.GetUserCouponsAsync(userId);
+        return Ok(coupons);
+    }
+
     /// <summary>Validates and applies a coupon during checkout.</summary>
     [HttpPost("apply")]
     public async Task<IActionResult> ApplyCoupon([FromBody] ApplyCouponDto dto)
@@ -40,6 +52,14 @@ public class CouponController : ControllerBase
     [HttpPost("validate")]
     public async Task<IActionResult> ValidateCoupon([FromBody] PromoValidateRequestDto dto)
     {
+        if (User.Identity?.IsAuthenticated == true)
+        {
+            var authUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!string.IsNullOrEmpty(authUserId))
+            {
+                dto.UserId = authUserId;
+            }
+        }
         var result = await _couponService.ValidatePromoCodeAsync(dto);
         if (!result.IsValid) return BadRequest(new { message = result.Message, isValid = false });
         return Ok(result);

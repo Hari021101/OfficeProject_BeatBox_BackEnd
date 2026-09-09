@@ -450,7 +450,7 @@ public static class DbSeeder
                 {
                     new Coupon { Code = "DEAL10", DiscountType = "Percentage", DiscountPercentage = 10m, MinimumOrderAmount = 1000m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 100, UsedCount = 0 },
                     new Coupon { Code = "BEATVIP", DiscountType = "Percentage", DiscountPercentage = 15m, MinimumOrderAmount = 3000m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 50, UsedCount = 0 },
-                    new Coupon { Code = "FREESHIP", DiscountType = "Shipping", DiscountAmount = 0m, MinimumOrderAmount = 0m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 500, UsedCount = 0 }
+                    new Coupon { Code = "FREESHIP", Description = "Free shipping on your first order. Valid for new customers only.", DiscountType = "Shipping", DiscountAmount = 0m, MinimumOrderAmount = 0m, ExpiryDate = DateTime.UtcNow.AddDays(30), IsActive = true, UsageLimit = 500, UsedCount = 0 }
                 };
                 await context.Coupons.AddRangeAsync(coupons);
                 await context.SaveChangesAsync();

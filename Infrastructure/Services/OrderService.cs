@@ -24,6 +24,7 @@ public class OrderService : IOrderService
 	private readonly IBusinessEventPublisher _eventPublisher;
 	private readonly AppDbContext _context;
 	private readonly ITransactionActionQueue _actionQueue;
+	private readonly IReferralService _referralService;
 
 	public OrderService(
 		IOrderRepository orderRepository, 
@@ -37,7 +38,8 @@ public class OrderService : IOrderService
 		IPaymentRepository paymentRepository,
 		IBusinessEventPublisher eventPublisher,
 		AppDbContext context,
-		ITransactionActionQueue actionQueue)
+		ITransactionActionQueue actionQueue,
+		IReferralService referralService)
 	{
 		_orderRepository = orderRepository;
 		_cartRepository = cartRepository;
@@ -51,6 +53,7 @@ public class OrderService : IOrderService
 		_eventPublisher = eventPublisher;
 		_context = context;
 		_actionQueue = actionQueue;
+		_referralService = referralService;
 	}
 
 	public async Task<OrderDto> CreateOrderAsync(string userId, OrderCreateDto orderCreateDto)
@@ -100,8 +103,7 @@ public class OrderService : IOrderService
 			};
 			var shippingAddress = string.Join(", ", parts.Where(p => !string.IsNullOrWhiteSpace(p)));
 
-			var gst = subtotal * 0.18m;
-			var shipping = subtotal >= 999 ? 0 : 79;
+			decimal shipping = 49m;
 			decimal calculatedDiscount = 0m;
 			string? appliedPromoCode = null;
 
@@ -114,9 +116,22 @@ public class OrderService : IOrderService
 				if (coupon == null || !coupon.IsActive || coupon.ExpiryDate <= now ||
 					(coupon.StartDate.HasValue && coupon.StartDate.Value > now) ||
 					(coupon.UsageLimit > 0 && coupon.UsedCount >= coupon.UsageLimit) ||
-					subtotal < coupon.MinimumOrderAmount)
+					subtotal < coupon.MinimumOrderAmount ||
+					(!string.IsNullOrEmpty(coupon.UserId) && !string.Equals(coupon.UserId, userId, StringComparison.OrdinalIgnoreCase)))
 				{
 					throw new Exception($"Invalid, expired, or inapplicable promo code '{orderCreateDto.PromoCode}'.");
+				}
+
+				if (string.Equals(coupon.Code, "FREESHIP", StringComparison.OrdinalIgnoreCase) ||
+					string.Equals(coupon.DiscountType, "Shipping", StringComparison.OrdinalIgnoreCase))
+				{
+					var hasPreviousOrder = await _context.Orders
+						.AnyAsync(o => o.UserId == userId && o.Status != "Cancelled" && o.Status != "Failed");
+
+					if (hasPreviousOrder)
+					{
+						throw new Exception("This free shipping offer is available only on your first order.");
+					}
 				}
 
 				if (string.Equals(coupon.DiscountType, "Shipping", StringComparison.OrdinalIgnoreCase))
@@ -144,7 +159,7 @@ public class OrderService : IOrderService
 				appliedPromoCode = coupon.Code;
 			}
 
-			var grandTotal = Math.Max(0, subtotal + gst + shipping - calculatedDiscount);
+			var grandTotal = Math.Max(0, subtotal + shipping - calculatedDiscount);
 
 			var order = new Order
 			{
@@ -154,6 +169,7 @@ public class OrderService : IOrderService
 				Status = "Pending",
 				PromoCode = appliedPromoCode,
 				DiscountAmount = calculatedDiscount,
+				ShippingAmount = shipping,
 				TotalAmount = grandTotal,
 				OrderItems = orderItems
 			};
@@ -228,6 +244,9 @@ public class OrderService : IOrderService
 				await _cartRepository.ClearCartAsync(cart.CartId);
 				await _cartRepository.SaveChangesAsync();
 			}
+
+			// Process referral reward qualification inside transaction
+			await _referralService.ProcessQualifyingOrderAsync(order.OrderId, userId, order.TotalAmount);
 
 			await tx.CommitAsync();
 			await _actionQueue.RunAllAsync();
@@ -442,9 +461,8 @@ public class OrderService : IOrderService
 		var paymentInfo = await _paymentRepository.GetPaymentByOrderIdAsync(orderId);
 
 		decimal subtotal = order.OrderItems.Sum(x => x.UnitPrice * x.Quantity);
-		decimal gst = subtotal * 0.18m;
-		decimal shipping = subtotal >= 999 ? 0 : 79;
-		decimal grandTotal = subtotal + gst + shipping - order.DiscountAmount;
+		decimal shipping = order.ShippingAmount;
+		decimal grandTotal = order.TotalAmount != 0 ? order.TotalAmount : Math.Max(0, subtotal + shipping - order.DiscountAmount);
 
 		var document = Document.Create(container =>
 		{
@@ -523,12 +541,6 @@ public class OrderService : IOrderService
 						{
 							row.RelativeItem().Text("Subtotal");
 							row.ConstantItem(100).AlignRight().Text($"₹{subtotal:N2}");
-						});
-
-						total.Item().Row(row =>
-						{
-							row.RelativeItem().Text("GST (18%)");
-							row.ConstantItem(100).AlignRight().Text($"₹{gst:N2}");
 						});
 
 						total.Item().Row(row =>

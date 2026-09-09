@@ -4,6 +4,7 @@ public class PromoValidateRequestDto
 {
     public string Code { get; set; } = string.Empty;
     public decimal CartTotal { get; set; }
+    public string? UserId { get; set; }
 }
 
 public class PromoValidateResponseDto

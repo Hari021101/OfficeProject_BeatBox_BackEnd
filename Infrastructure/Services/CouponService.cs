@@ -66,6 +66,29 @@ public class CouponService : ICouponService
             (!c.StartDate.HasValue || c.StartDate.Value <= now));
     }
 
+    public async Task<IEnumerable<CouponDto>> GetUserCouponsAsync(string userId)
+    {
+        if (string.IsNullOrWhiteSpace(userId)) return Enumerable.Empty<CouponDto>();
+
+        var now = DateTime.UtcNow;
+
+        // Fetch coupons directly assigned to the user OR linked via Referral entity
+        var userReferralCouponCodes = await _context.Referrals
+            .AsNoTracking()
+            .Where(r => (r.ReferrerId == userId && r.ReferrerCouponCode != null) || (r.ReferredUserId == userId && r.FriendCouponCode != null))
+            .Select(r => r.ReferrerId == userId ? r.ReferrerCouponCode : r.FriendCouponCode)
+            .Where(c => c != null)
+            .ToListAsync();
+
+        var coupons = await _context.Coupons
+            .AsNoTracking()
+            .Where(c => c.IsActive && c.ExpiryDate > now && (c.UsageLimit == 0 || c.UsedCount < c.UsageLimit) && (!c.StartDate.HasValue || c.StartDate.Value <= now))
+            .Where(c => c.UserId == userId || (c.UserId == null && userReferralCouponCodes.Contains(c.Code)))
+            .ToListAsync();
+
+        return coupons.Select(ToDto);
+    }
+
     public async Task<PromoValidateResponseDto> ValidatePromoCodeAsync(PromoValidateRequestDto dto)
     {
         if (string.IsNullOrWhiteSpace(dto.Code))
@@ -131,6 +154,17 @@ public class CouponService : ICouponService
             };
         }
 
+        // Validate user restriction
+        if (!string.IsNullOrEmpty(coupon.UserId) && !string.Equals(coupon.UserId, dto.UserId, StringComparison.OrdinalIgnoreCase))
+        {
+            return new PromoValidateResponseDto
+            {
+                IsValid = false,
+                Code = coupon.Code,
+                Message = "This coupon code does not belong to your account."
+            };
+        }
+
         if (dto.CartTotal < coupon.MinimumOrderAmount)
         {
             return new PromoValidateResponseDto
@@ -139,6 +173,27 @@ public class CouponService : ICouponService
                 Code = coupon.Code,
                 Message = $"Minimum order amount is ₹{coupon.MinimumOrderAmount:N0}."
             };
+        }
+
+        // Enforce First Order restriction for FREESHIP / Free Shipping coupons
+        if (string.Equals(coupon.Code, "FREESHIP", StringComparison.OrdinalIgnoreCase) ||
+            string.Equals(coupon.DiscountType, "Shipping", StringComparison.OrdinalIgnoreCase))
+        {
+            if (!string.IsNullOrEmpty(dto.UserId))
+            {
+                var hasPreviousOrder = await _context.Orders
+                    .AnyAsync(o => o.UserId == dto.UserId && o.Status != "Cancelled" && o.Status != "Failed");
+
+                if (hasPreviousOrder)
+                {
+                    return new PromoValidateResponseDto
+                    {
+                        IsValid = false,
+                        Code = coupon.Code,
+                        Message = "This free shipping offer is available only on your first order."
+                    };
+                }
+            }
         }
 
         decimal discountAmount = 0;
