@@ -130,6 +130,10 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 var app = builder.Build();
+
+// Redirect root path to Swagger UI documentation
+app.MapGet("/", () => Results.Redirect("/swagger"));
+
 app.MapGet("/health/version", () => Results.Ok(new
 {
     Application = "BeatBox API",
