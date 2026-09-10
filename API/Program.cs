@@ -11,8 +11,16 @@ using API.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Serilog Logging
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-    ?? "Server=(localdb)\\mssqllocaldb;Database=BeatBoxDb;Trusted_Connection=True;";
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+if (string.IsNullOrWhiteSpace(connectionString) || (!builder.Environment.IsDevelopment() && connectionString.Contains("(localdb)", StringComparison.OrdinalIgnoreCase)))
+{
+    var remoteConn = builder.Configuration.GetConnectionString("RemoteConnection");
+    if (!string.IsNullOrWhiteSpace(remoteConn))
+    {
+        connectionString = remoteConn;
+    }
+}
+connectionString ??= "Server=(localdb)\\mssqllocaldb;Database=BeatBoxDb;Trusted_Connection=True;";
 
 var sinkOptions = new MSSqlServerSinkOptions
 {
@@ -31,9 +39,16 @@ var loggerConfig = new LoggerConfiguration()
 // Only log to SQL Server in production to avoid crashing if the local database isn't created yet
 if (!builder.Environment.IsDevelopment())
 {
-    loggerConfig.WriteTo.MSSqlServer(
-        connectionString: connectionString,
-        sinkOptions: sinkOptions);
+    try
+    {
+        loggerConfig.WriteTo.MSSqlServer(
+            connectionString: connectionString,
+            sinkOptions: sinkOptions);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"[Warning] Failed to initialize Serilog MSSqlServer Sink: {ex.Message}");
+    }
 }
 
 Log.Logger = loggerConfig.CreateLogger();
@@ -118,8 +133,8 @@ var app = builder.Build();
 app.MapGet("/health/version", () => Results.Ok(new
 {
     Application = "BeatBox API",
-    Version = "DELETE-FIX-2026-09-09",
-    Build = "226103b"
+    Version = "HOTFIX-500.30-2026-09-10",
+    Build = "prod-ready"
 }));
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
@@ -185,9 +200,6 @@ if (!app.Environment.IsDevelopment())
 
 app.UseResponseCaching();
 
-// Enable serving static files from wwwroot
-app.UseStaticFiles();
-
 // Apply CORS Policy
 app.UseCors("CorsPolicy");
 
@@ -202,5 +214,17 @@ app.MapHub<Infrastructure.SignalR.OrderTrackingHub>("/hubs/orders");
 // Map controllers (e.g. AccountController)
 app.MapControllers();
 
-
-app.Run();
+try
+{
+    Log.Information("Starting BeatBox API host...");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "BeatBox API host terminated unexpectedly.");
+    throw;
+}
+finally
+{
+    Log.CloseAndFlush();
+}

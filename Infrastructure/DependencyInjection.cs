@@ -20,15 +20,28 @@ namespace Infrastructure
     {
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
-            // Register DbContext
+            // Register DbContext with fallback connection string support
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                connectionString = configuration.GetConnectionString("RemoteConnection");
+            }
+
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
+                options.UseSqlServer(connectionString,
                     b => b.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)
                           .UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
-            // Register Options with startup validation
+            // Register Options with startup validation and fallback for production stability
             services.AddOptions<Application.Common.Options.FrontendOptions>()
                 .Bind(configuration.GetSection(Application.Common.Options.FrontendOptions.SectionName))
+                .PostConfigure(options =>
+                {
+                    if (string.IsNullOrWhiteSpace(options.BaseUrl))
+                    {
+                        options.BaseUrl = "https://office-project-beat-box-front-end.vercel.app";
+                    }
+                })
                 .Validate(options =>
                     !string.IsNullOrWhiteSpace(options.BaseUrl) &&
                     Uri.TryCreate(options.BaseUrl, UriKind.Absolute, out var uri) &&
