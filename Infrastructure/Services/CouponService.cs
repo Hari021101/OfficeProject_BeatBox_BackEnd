@@ -60,6 +60,7 @@ public class CouponService : ICouponService
         var coupons = await _couponRepository.GetAllAsync();
         var now = DateTime.UtcNow;
         return coupons.Where(c =>
+            c.UserId == null &&
             c.IsActive &&
             c.ExpiryDate > now &&
             (c.UsageLimit == 0 || c.UsedCount < c.UsageLimit) &&

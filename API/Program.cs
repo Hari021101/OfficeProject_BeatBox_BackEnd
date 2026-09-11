@@ -86,14 +86,27 @@ QuestPDF.Settings.License = LicenseType.Community;
 // Register Clean Architecture Infrastructure Services (DbContext, Identity, JWT, etc.)
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
-// Add CORS Policy for Vite React Frontend
+// Configure Environment-Specific CORS Policy for Frontend & SignalR Hub Credentials
+var configuredOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
+    ?? Array.Empty<string>();
+
+var frontendBaseUrl = builder.Configuration["Frontend:BaseUrl"];
+
+var allowedOrigins = configuredOrigins
+    .Concat(new[] { frontendBaseUrl, "http://localhost:5173", "https://office-project-beat-box-front-end.vercel.app" })
+    .Where(o => !string.IsNullOrWhiteSpace(o))
+    .Select(o => o.TrimEnd('/'))
+    .Distinct()
+    .ToArray();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", policy =>
     {
-        policy.AllowAnyHeader()
+        policy.WithOrigins(allowedOrigins)
+              .AllowAnyHeader()
               .AllowAnyMethod()
-              .AllowAnyOrigin(); // Allow all origins for the live API
+              .AllowCredentials();
     });
 });
 
@@ -134,12 +147,6 @@ var app = builder.Build();
 // Redirect root path to Swagger UI documentation
 app.MapGet("/", () => Results.Redirect("/swagger"));
 
-app.MapGet("/health/version", () => Results.Ok(new
-{
-    Application = "BeatBox API",
-    Version = "HOTFIX-500.30-2026-09-10",
-    Build = "prod-ready"
-}));
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseMiddleware<RequestLoggingMiddleware>();
 

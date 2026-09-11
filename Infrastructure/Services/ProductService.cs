@@ -142,10 +142,16 @@ public class ProductService : IProductService
     }
     public async Task AddReviewAsync(Guid productId, string userId, AddReviewDto dto)
     {
-        var product = await _productRepository.GetByIdAsync(productId);
-
-        if (product == null)
+        var productExists = await _context.Products.AnyAsync(p => p.Id == productId);
+        if (!productExists)
             throw new Exception("Product not found");
+
+        bool hasPurchased = await _context.Orders
+            .AsNoTracking()
+            .AnyAsync(o => o.UserId == userId &&
+                           o.Status != "Cancelled" &&
+                           o.Status != "Failed" &&
+                           o.OrderItems.Any(i => i.ProductId == productId));
 
         var review = new ProductReview
         {
@@ -154,14 +160,11 @@ public class ProductService : IProductService
             Rating = dto.Rating,
             Comment = dto.Comment,
             CreatedDate = DateTime.UtcNow,
-            IsVerifiedPurchase = true
+            IsVerifiedPurchase = hasPurchased
         };
 
-        product.Reviews ??= new List<ProductReview>();
-
-        product.Reviews.Add(review);
-
-        await _productRepository.UpdateAsync(product);
+        _context.ProductReviews.Add(review);
+        await _context.SaveChangesAsync();
     }
 
     public async Task BulkDeleteAsync(IEnumerable<Guid> productIds)
