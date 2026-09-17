@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using Infrastructure.Repositories;
 using Application.Common.Mappings;
 using Infrastructure.SignalR;
+using Application.Common.Options;
 
 
 namespace Infrastructure
@@ -33,8 +34,8 @@ namespace Infrastructure
                           .UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
             // Register Options with startup validation and fallback for production stability
-            services.AddOptions<Application.Common.Options.FrontendOptions>()
-                .Bind(configuration.GetSection(Application.Common.Options.FrontendOptions.SectionName))
+            services.AddOptions<FrontendOptions>()
+                .Bind(configuration.GetSection(FrontendOptions.SectionName))
                 .PostConfigure(options =>
                 {
                     if (string.IsNullOrWhiteSpace(options.BaseUrl))
@@ -49,7 +50,8 @@ namespace Infrastructure
                     "Frontend:BaseUrl configuration is required and must be a valid HTTP or HTTPS absolute URL.")
                 .ValidateOnStart();
 
-            services.Configure<Application.Common.Options.ReferralOptions>(configuration.GetSection(Application.Common.Options.ReferralOptions.SectionName));
+            services.Configure<ReferralOptions>(configuration.GetSection(ReferralOptions.SectionName));
+            services.Configure<OrderSettingsOptions>(configuration.GetSection(OrderSettingsOptions.SectionName));
 
             // Register ASP.NET Core Identity
             services.AddIdentity<AppUser, IdentityRole>(opt =>

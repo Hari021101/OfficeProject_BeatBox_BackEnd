@@ -13,4 +13,5 @@ public interface IAdminDashboardService
     Task<IEnumerable<CustomerAnalyticsDto>> GetTopCustomersAsync(int take);
     Task<IEnumerable<ProductAnalyticsDto>> GetLowStockProductsAsync(int take);
     Task<IEnumerable<RecentOrderDto>> GetRecentOrdersAsync(int take);
+    Task<ProductSalesReportDto> GetProductSalesReportAsync();
 }

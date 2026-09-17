@@ -48,6 +48,11 @@ public class NotificationManagerService : INotificationManagerService
 
     public async Task CreateNotificationAsync(CreateNotificationDto dto)
     {
+        if (string.IsNullOrWhiteSpace(dto.UserId))
+        {
+            throw new ArgumentException("Notification UserId is required and cannot be null or empty.", nameof(dto.UserId));
+        }
+
         var notification = new Notification
         {
             Id = Guid.NewGuid(),

@@ -357,9 +357,24 @@ public class ReferralService : IReferralService
 
         if (referral == null) return;
 
-        // Verify self-referral protection
-        if (referral.ReferrerId == userId)
+        // Verify self-referral or missing referrer protection
+        if (string.IsNullOrWhiteSpace(referral.ReferrerId) || referral.ReferrerId == userId)
         {
+            _logger.LogWarning("Invalid or self-referral attempt for referral {ReferralId}. Marking as Expired.", referral.Id);
+            referral.Status = ReferralStatus.Expired;
+            await _context.SaveChangesAsync(cancellationToken);
+            return;
+        }
+
+        // Ensure Referrer entity is loaded
+        if (referral.Referrer == null)
+        {
+            referral.Referrer = await _context.Users.FirstOrDefaultAsync(u => u.Id == referral.ReferrerId, cancellationToken);
+        }
+
+        if (referral.Referrer == null)
+        {
+            _logger.LogWarning("Referrer user account {ReferrerId} not found in database for referral {ReferralId}. Marking as Expired.", referral.ReferrerId, referral.Id);
             referral.Status = ReferralStatus.Expired;
             await _context.SaveChangesAsync(cancellationToken);
             return;
@@ -375,6 +390,8 @@ public class ReferralService : IReferralService
             return;
         }
 
+        string referrerId = referral.ReferrerId!;
+
         // Idempotent state transition & referrer coupon creation using configured validity
         string referrerCouponCode = $"REF-{GenerateRandomString(6)}";
         var referrerCoupon = new Coupon
@@ -389,7 +406,7 @@ public class ReferralService : IReferralService
             IsActive = true,
             UsageLimit = 1,
             UsedCount = 0,
-            UserId = referral.ReferrerId,
+            UserId = referrerId,
             CreatedDate = DateTime.UtcNow
         };
         _context.Coupons.Add(referrerCoupon);
@@ -399,30 +416,27 @@ public class ReferralService : IReferralService
         referral.QualifiedDate = DateTime.UtcNow;
         referral.ReferrerCouponCode = referrerCouponCode;
 
-        if (referral.Referrer != null)
-        {
-            referral.Referrer.RewardBalance += referral.RewardAmount;
+        referral.Referrer.RewardBalance += referral.RewardAmount;
 
-            // Audit Ledger Entry
-            var rewardTx = new RewardTransaction
-            {
-                UserId = referral.ReferrerId,
-                ReferralId = referral.Id,
-                OrderId = orderId,
-                Amount = referral.RewardAmount,
-                TransactionType = "ReferralCredit",
-                Description = $"Referral reward coupon {referrerCouponCode} issued for qualifying first order #{orderId}",
-                CreatedDate = DateTime.UtcNow
-            };
-            _context.RewardTransactions.Add(rewardTx);
-        }
+        // Audit Ledger Entry
+        var rewardTx = new RewardTransaction
+        {
+            UserId = referrerId,
+            ReferralId = referral.Id,
+            OrderId = orderId,
+            Amount = referral.RewardAmount,
+            TransactionType = "ReferralCredit",
+            Description = $"Referral reward coupon {referrerCouponCode} issued for qualifying first order #{orderId}",
+            CreatedDate = DateTime.UtcNow
+        };
+        _context.RewardTransactions.Add(rewardTx);
 
         await _context.SaveChangesAsync(cancellationToken);
 
-        // Trigger persistent notification for referrer
+        // Trigger persistent notification for referrer using verified non-null UserId
         await _notificationManager.CreateNotificationAsync(new CreateNotificationDto
         {
-            UserId = referral.ReferrerId,
+            UserId = referrerId,
             Title = "Referral Reward Unlocked",
             Message = "Your friend joined BeatBox using your referral link. You've received a ₹500 coupon for your next eligible purchase.",
             Type = "Promo",
@@ -430,7 +444,7 @@ public class ReferralService : IReferralService
             NavigationUrl = "/daily-deals"
         });
 
-        _logger.LogInformation("Successfully issued referral reward coupon {CouponCode} (₹{Reward}) to user {ReferrerId} for order #{OrderId}", referrerCouponCode, referral.RewardAmount, referral.ReferrerId, orderId);
+        _logger.LogInformation("Successfully issued referral reward coupon {CouponCode} (₹{Reward}) to user {ReferrerId} for order #{OrderId}", referrerCouponCode, referral.RewardAmount, referrerId, orderId);
     }
 
     private static string GenerateRandomString(int length)

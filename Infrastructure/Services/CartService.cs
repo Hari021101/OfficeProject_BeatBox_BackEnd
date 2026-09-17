@@ -1,9 +1,11 @@
+using Application.Common.Options;
 using Application.DTOs;
 using Application.Interfaces;
 using AutoMapper;
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace Infrastructure.Services;
 
@@ -12,12 +14,18 @@ public class CartService : ICartService
     private readonly ICartRepository _cartRepository;
     private readonly IMapper _mapper;
     private readonly IProductRepository _productRepository;
+    private readonly OrderSettingsOptions _orderSettingsOptions;
 
-    public CartService(ICartRepository cartRepository, IMapper mapper,IProductRepository productRepository)
+    public CartService(
+        ICartRepository cartRepository, 
+        IMapper mapper,
+        IProductRepository productRepository,
+        IOptions<OrderSettingsOptions> orderSettingsOptions)
     {
         _cartRepository = cartRepository;
         _mapper = mapper;
         _productRepository = productRepository;
+        _orderSettingsOptions = orderSettingsOptions.Value;
     }
 
     public async Task<CartDto> GetCartAsync(string userId)
@@ -28,6 +36,11 @@ public class CartService : ICartService
 
     public async Task AddToCartAsync(string userId, CartAddDto cartAddDto)
     {
+        if (cartAddDto.Quantity <= 0)
+        {
+            throw new InvalidOperationException("Quantity must be greater than 0.");
+        }
+
         var cart = await _cartRepository.GetCartByUserIdAsync(userId);
 
         // Create cart if not exists
@@ -40,17 +53,14 @@ public class CartService : ICartService
             };
 
             await _cartRepository.AddCartAsync(cart);
-
             await _cartRepository.SaveChangesAsync();
         }
 
         // Fetch product from database
-        var product =
-         await _productRepository.GetByIdAsync(
-         cartAddDto.ProductId);
+        var product = await _productRepository.GetByIdAsync(cartAddDto.ProductId);
 
         if (product == null)
-            throw new Exception("Product not found");
+            throw new KeyNotFoundException("Product not found");
 
         // If client didn't provide a variant id, pick the first available variant.
         ProductVariant? variant = null;
@@ -64,7 +74,26 @@ public class CartService : ICartService
         }
 
         if (variant == null)
-            throw new Exception($"Variant not found for product {product.Id}. Provide a valid VariantId.");
+            throw new KeyNotFoundException($"Variant not found for product {product.Id}. Provide a valid VariantId.");
+
+        var maxQty = _orderSettingsOptions.MaxNormalOrderQuantity;
+
+        // Calculate existing quantity for the same variant in user's cart
+        var existingVariantQuantity = cart.CartItems
+            .Where(ci => ci.VariantId == variant.Id)
+            .Sum(ci => ci.Quantity);
+
+        var proposedQuantity = existingVariantQuantity + cartAddDto.Quantity;
+
+        if (proposedQuantity > maxQty)
+        {
+            throw new InvalidOperationException($"Maximum quantity per product is {maxQty}. For larger quantities, please use Corporate & Bulk Orders.");
+        }
+
+        if (variant.StockQuantity < proposedQuantity)
+        {
+            throw new InvalidOperationException($"Only {variant.StockQuantity} units are available in stock.");
+        }
 
         // Validate customization fields if personalization is requested
         bool isPersonalised = false;
@@ -77,22 +106,22 @@ public class CartService : ICartService
         {
             if (!product.IsEngravingAvailable)
             {
-                throw new Exception("Custom engraving is not available for this product.");
+                throw new InvalidOperationException("Custom engraving is not available for this product.");
             }
 
             if (string.IsNullOrWhiteSpace(cartAddDto.EngravingName))
             {
-                throw new Exception("Engraving name is required for personalized products.");
+                throw new InvalidOperationException("Engraving name is required for personalized products.");
             }
 
             if (cartAddDto.EngravingName.Length > 12)
             {
-                throw new Exception("Engraving name cannot exceed 12 characters.");
+                throw new InvalidOperationException("Engraving name cannot exceed 12 characters.");
             }
 
             if (!string.IsNullOrEmpty(cartAddDto.EngravingMessage) && cartAddDto.EngravingMessage.Length > 40)
             {
-                throw new Exception("Engraving message cannot exceed 40 characters.");
+                throw new InvalidOperationException("Engraving message cannot exceed 40 characters.");
             }
 
             isPersonalised = true;
@@ -124,17 +153,41 @@ public class CartService : ICartService
         };
 
         await _cartRepository.AddCartItemAsync(cartItem);
-
         await _cartRepository.SaveChangesAsync();
     }
 
     public async Task UpdateCartItemAsync(string userId, CartUpdateDto cartUpdateDto)
     {
+        if (cartUpdateDto.Quantity <= 0)
+        {
+            throw new InvalidOperationException("Quantity must be greater than 0.");
+        }
+
         var cart = await _cartRepository.GetCartByUserIdAsync(userId);
-        if (cart == null) throw new Exception("Cart not found");
+        if (cart == null) throw new KeyNotFoundException("Cart not found");
 
         var cartItem = cart.CartItems.FirstOrDefault(ci => ci.CartItemId == cartUpdateDto.CartItemId);
-        if (cartItem == null) throw new Exception("Cart item not found");
+        if (cartItem == null) throw new KeyNotFoundException("Cart item not found");
+
+        var maxQty = _orderSettingsOptions.MaxNormalOrderQuantity;
+
+        var otherItemsQuantity = cart.CartItems
+            .Where(ci => ci.VariantId == cartItem.VariantId && ci.CartItemId != cartItem.CartItemId)
+            .Sum(ci => ci.Quantity);
+
+        var proposedQuantity = otherItemsQuantity + cartUpdateDto.Quantity;
+
+        if (proposedQuantity > maxQty)
+        {
+            throw new InvalidOperationException($"Maximum quantity per product is {maxQty}. For larger quantities, please use Corporate & Bulk Orders.");
+        }
+
+        var product = await _productRepository.GetByIdAsync(cartItem.ProductId);
+        var variant = product?.Variants.FirstOrDefault(v => v.Id == cartItem.VariantId);
+        if (variant != null && variant.StockQuantity < proposedQuantity)
+        {
+            throw new InvalidOperationException($"Only {variant.StockQuantity} units are available in stock.");
+        }
 
         cartItem.Quantity = cartUpdateDto.Quantity;
         await _cartRepository.UpdateCartItemAsync(cartItem);
@@ -144,7 +197,7 @@ public class CartService : ICartService
     public async Task RemoveCartItemAsync(string userId, int cartItemId)
     {
         var cart = await _cartRepository.GetCartByUserIdAsync(userId);
-        if (cart == null) throw new Exception("Cart not found");
+        if (cart == null) throw new KeyNotFoundException("Cart not found");
 
         await _cartRepository.RemoveCartItemAsync(cartItemId);
         await _cartRepository.SaveChangesAsync();
@@ -153,7 +206,7 @@ public class CartService : ICartService
     public async Task ClearCartAsync(string userId)
     {
         var cart = await _cartRepository.GetCartByUserIdAsync(userId);
-        if (cart == null) throw new Exception("Cart not found");
+        if (cart == null) throw new KeyNotFoundException("Cart not found");
 
         await _cartRepository.ClearCartAsync(cart.CartId);
         await _cartRepository.SaveChangesAsync();

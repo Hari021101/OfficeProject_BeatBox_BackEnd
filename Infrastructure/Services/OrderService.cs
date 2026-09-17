@@ -25,6 +25,7 @@ public class OrderService : IOrderService
 	private readonly AppDbContext _context;
 	private readonly ITransactionActionQueue _actionQueue;
 	private readonly IReferralService _referralService;
+	private readonly Application.Common.Options.OrderSettingsOptions _orderSettingsOptions;
 
 	public OrderService(
 		IOrderRepository orderRepository, 
@@ -39,7 +40,8 @@ public class OrderService : IOrderService
 		IBusinessEventPublisher eventPublisher,
 		AppDbContext context,
 		ITransactionActionQueue actionQueue,
-		IReferralService referralService)
+		IReferralService referralService,
+		Microsoft.Extensions.Options.IOptions<Application.Common.Options.OrderSettingsOptions> orderSettingsOptions)
 	{
 		_orderRepository = orderRepository;
 		_cartRepository = cartRepository;
@@ -54,6 +56,7 @@ public class OrderService : IOrderService
 		_context = context;
 		_actionQueue = actionQueue;
 		_referralService = referralService;
+		_orderSettingsOptions = orderSettingsOptions.Value;
 	}
 
 	public async Task<OrderDto> CreateOrderAsync(string userId, OrderCreateDto orderCreateDto)
@@ -65,6 +68,19 @@ public class OrderService : IOrderService
 			if (cart == null || !cart.CartItems.Any())
 			{
 				throw new Exception("Cart is empty. Please add items to your cart before checking out.");
+			}
+
+			var maxQty = _orderSettingsOptions.MaxNormalOrderQuantity;
+			var variantGroups = cart.CartItems
+				.GroupBy(ci => ci.VariantId != Guid.Empty ? ci.VariantId : ci.ProductId);
+
+			foreach (var group in variantGroups)
+			{
+				var variantTotal = group.Sum(ci => ci.Quantity);
+				if (variantTotal > maxQty)
+				{
+					throw new InvalidOperationException($"Maximum quantity per product is {maxQty}. For larger quantities, please use Corporate & Bulk Orders.");
+				}
 			}
 
 			if (!string.IsNullOrWhiteSpace(orderCreateDto.PaymentMethod))

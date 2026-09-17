@@ -68,4 +68,11 @@ public class DashboardController : ControllerBase
         var result = await _service.GetTopCustomersAsync(take);
         return Ok(result);
     }
+
+    [HttpGet("product-sales")]
+    public async Task<IActionResult> GetProductSalesReport()
+    {
+        var result = await _service.GetProductSalesReportAsync();
+        return Ok(result);
+    }
 }

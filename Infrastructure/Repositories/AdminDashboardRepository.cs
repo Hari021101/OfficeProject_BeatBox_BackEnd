@@ -177,6 +177,7 @@ public class AdminDashboardRepository : IAdminDashboardRepository
     public async Task<IEnumerable<ProductAnalyticsDto>> GetTopProductsAsync(int take)
     {
         var items = await _context.OrderItems.AsNoTracking()
+            .Where(oi => oi.Order.Status != "Cancelled" && oi.Order.Status != "Failed")
             .GroupBy(oi => oi.ProductId)
             .Select(g => new { ProductId = g.Key, UnitsSold = g.Sum(x => x.Quantity), Revenue = g.Sum(x => x.Quantity * x.UnitPrice) })
             .OrderByDescending(x => x.UnitsSold)
@@ -199,6 +200,7 @@ public class AdminDashboardRepository : IAdminDashboardRepository
     public async Task<IEnumerable<ProductAnalyticsDto>> GetWorstProductsAsync(int take)
     {
         var items = await _context.OrderItems.AsNoTracking()
+            .Where(oi => oi.Order.Status != "Cancelled" && oi.Order.Status != "Failed")
             .GroupBy(oi => oi.ProductId)
             .Select(g => new { ProductId = g.Key, UnitsSold = g.Sum(x => x.Quantity), Revenue = g.Sum(x => x.Quantity * x.UnitPrice) })
             .OrderBy(x => x.UnitsSold)
@@ -296,5 +298,108 @@ public class AdminDashboardRepository : IAdminDashboardRepository
                 ItemCount = o.OrderItems.Count
             })
             .ToListAsync();
+    }
+
+    public async Task<ProductSalesReportDto> GetProductSalesReportAsync()
+    {
+        var now = DateTime.UtcNow;
+        var startOfCurrentMonth = new DateTime(now.Year, now.Month, 1, 0, 0, 0, DateTimeKind.Utc);
+        var startOfNextMonth = startOfCurrentMonth.AddMonths(1);
+        var startOfPreviousMonth = startOfCurrentMonth.AddMonths(-1);
+
+        var validOrderItems = _context.OrderItems
+            .AsNoTracking()
+            .Where(oi => oi.Order.Status != "Cancelled" && oi.Order.Status != "Failed");
+
+        var salesGrouped = await validOrderItems
+            .GroupBy(oi => oi.ProductId)
+            .Select(g => new
+            {
+                ProductId = g.Key,
+                UnitsSold = g.Sum(x => x.Quantity),
+                OrderCount = g.Select(x => x.OrderId).Distinct().Count(),
+                Revenue = g.Sum(x => x.Quantity * x.UnitPrice)
+            })
+            .ToDictionaryAsync(x => x.ProductId);
+
+        var currentMonthItems = await validOrderItems
+            .Where(oi => oi.Order.CreatedDate >= startOfCurrentMonth && oi.Order.CreatedDate < startOfNextMonth)
+            .Select(oi => new { oi.OrderId, oi.ProductId, oi.Quantity, oi.UnitPrice })
+            .ToListAsync();
+
+        var previousMonthItems = await validOrderItems
+            .Where(oi => oi.Order.CreatedDate >= startOfPreviousMonth && oi.Order.CreatedDate < startOfCurrentMonth)
+            .Select(oi => new { oi.OrderId, oi.ProductId, oi.Quantity, oi.UnitPrice })
+            .ToListAsync();
+
+        var currentMonthRevenue = currentMonthItems.Sum(x => (decimal)x.Quantity * x.UnitPrice);
+        var previousMonthRevenue = previousMonthItems.Sum(x => (decimal)x.Quantity * x.UnitPrice);
+
+        var currentMonthUnits = currentMonthItems.Sum(x => x.Quantity);
+        var previousMonthUnits = previousMonthItems.Sum(x => x.Quantity);
+
+        var currentMonthOrders = currentMonthItems.Select(x => x.OrderId).Distinct().Count();
+        var previousMonthOrders = previousMonthItems.Select(x => x.OrderId).Distinct().Count();
+
+        var currentMonthActiveProds = currentMonthItems.Select(x => x.ProductId).Distinct().Count();
+        var previousMonthActiveProds = previousMonthItems.Select(x => x.ProductId).Distinct().Count();
+
+        var products = await _context.Products
+            .AsNoTracking()
+            .Include(p => p.Category)
+            .Include(p => p.Images)
+            .Include(p => p.Variants).ThenInclude(v => v.Images)
+            .ToListAsync();
+
+        var productList = products.Select(p =>
+        {
+            salesGrouped.TryGetValue(p.Id, out var sales);
+            var primaryImg = p.Images?.FirstOrDefault(i => i.IsPrimary)?.ImageUrl
+                ?? p.Images?.FirstOrDefault()?.ImageUrl
+                ?? p.Variants?.SelectMany(v => v.Images)?.FirstOrDefault(i => i.IsPrimary)?.ImageUrl
+                ?? p.Variants?.SelectMany(v => v.Images)?.FirstOrDefault()?.ImageUrl;
+
+            return new ProductSalesOverviewDto
+            {
+                ProductId = p.Id,
+                ProductName = p.Name,
+                CategoryName = p.Category?.Name ?? "Uncategorized",
+                UnitsSold = sales?.UnitsSold ?? 0,
+                OrderCount = sales?.OrderCount ?? 0,
+                Revenue = sales?.Revenue ?? 0m,
+                ImageUrl = primaryImg
+            };
+        })
+        .OrderByDescending(x => x.UnitsSold)
+        .ThenByDescending(x => x.Revenue)
+        .ThenBy(x => x.ProductName)
+        .ToList();
+
+        var metrics = new ProductSalesMetricsDto
+        {
+            CurrentMonthRevenue = currentMonthRevenue,
+            PreviousMonthRevenue = previousMonthRevenue,
+            RevenueChangePercent = CalculatePercentageChange(currentMonthRevenue, previousMonthRevenue),
+
+            CurrentMonthUnitsSold = currentMonthUnits,
+            PreviousMonthUnitsSold = previousMonthUnits,
+            UnitsChangePercent = CalculatePercentageChange(currentMonthUnits, previousMonthUnits),
+
+            CurrentMonthOrders = currentMonthOrders,
+            PreviousMonthOrders = previousMonthOrders,
+            OrdersChangePercent = CalculatePercentageChange(currentMonthOrders, previousMonthOrders),
+
+            CurrentMonthActiveProducts = currentMonthActiveProds,
+            PreviousMonthActiveProducts = previousMonthActiveProds,
+            ActiveProductsChangePercent = CalculatePercentageChange(currentMonthActiveProds, previousMonthActiveProds),
+
+            TotalProductsCount = products.Count
+        };
+
+        return new ProductSalesReportDto
+        {
+            Metrics = metrics,
+            Products = productList
+        };
     }
 }

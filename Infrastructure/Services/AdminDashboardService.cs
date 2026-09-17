@@ -54,4 +54,9 @@ public class AdminDashboardService : IAdminDashboardService
     {
         return await _repo.GetRecentOrdersAsync(take);
     }
+
+    public async Task<ProductSalesReportDto> GetProductSalesReportAsync()
+    {
+        return await _repo.GetProductSalesReportAsync();
+    }
 }
