@@ -1,0 +1,45 @@
+name: Deploy BeatBox Backend to MonsterASP
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'API/**'
+      - 'Application/**'
+      - 'Infrastructure/**'
+      - 'Domain/**'
+      - 'EcommerceSolution.slnx'
+      - '.github/workflows/deploy-backend.yml'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore Dependencies
+        run: dotnet restore API/API.csproj
+
+      - name: Build Release
+        run: dotnet build API/API.csproj -c Release --no-incremental
+
+      - name: Publish API
+        run: dotnet publish API/API.csproj -c Release -o ./publish
+
+      - name: Deploy to MonsterASP via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER || 'site77584.siteasp.net' }}
+          username: ${{ secrets.FTP_USERNAME || 'site77584' }}
+          password: ${{ secrets.FTP_PASSWORD || 'Hari0211' }}
+          server-dir: '/wwwroot/'
+          local-dir: './publish/'
+          delete-destination-files: false
