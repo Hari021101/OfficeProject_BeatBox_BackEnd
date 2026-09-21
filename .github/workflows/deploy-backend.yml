@@ -37,9 +37,9 @@ jobs:
       - name: Deploy to MonsterASP via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER || 'site77584.siteasp.net' }}
-          username: ${{ secrets.FTP_USERNAME || 'site77584' }}
-          password: ${{ secrets.FTP_PASSWORD || 'Hari0211' }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           server-dir: '/wwwroot/'
           local-dir: './publish/'
           delete-destination-files: false

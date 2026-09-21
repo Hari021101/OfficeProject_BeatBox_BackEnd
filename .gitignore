@@ -4,6 +4,12 @@
 # Build folders
 bin/
 obj/
+publish/
+
+# Node / npm dependencies
+node_modules/
+package-lock.json
+.package-lock.json
 
 # User-specific files
 *.user
@@ -17,6 +23,7 @@ obj/
 
 # Logs
 *.log
+API/Logs/
 
 # Database/cache
 *.sqlite
@@ -33,10 +40,6 @@ Thumbs.db
 packages/
 
 # Publish output
-publish/
-/API/Logs/beatbox-log-20260619_004.txt
-/API/Logs/beatbox-log-20260623.txt
-/API/Logs/beatbox-log-20260625.txt
 /API/Middleware/InputSanitizationFilter.cs
 /Application/DTOs/AccountManagementDtos.cs
 /Application/DTOs/ChatQueryDto.cs
@@ -44,5 +47,4 @@ publish/
 /Application/DTOs/PromoDto.cs
 /Application/Interfaces/IChatBotService.cs
 
-# Ignore frontend build files hosted in backend
 API/wwwroot/
