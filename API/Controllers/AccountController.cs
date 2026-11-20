@@ -117,6 +117,95 @@ namespace API.Controllers
             };
         }
 
+        // ─── POST /api/account/forgot-password ───────────────────────────────
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword([FromBody] ForgotPasswordDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.Identifier))
+                return BadRequest(new { message = "Email or phone number is required." });
+
+            AppUser? user = null;
+            var isEmail = dto.Identifier.Contains('@');
+
+            if (isEmail)
+                user = await _userManager.FindByEmailAsync(dto.Identifier);
+            else
+                user = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == dto.Identifier);
+
+            if (user == null)
+                return NotFound(new { message = "No account found with this identifier." });
+
+            if (!user.IsActive)
+                return BadRequest(new { message = "This account has been suspended. Please contact support." });
+
+            try
+            {
+                if (isEmail && !string.IsNullOrWhiteSpace(user.Email))
+                {
+                    await _otpService.SendEmailOtpAsync(user.Id, user.Email);
+                }
+                else if (!string.IsNullOrWhiteSpace(user.PhoneNumber))
+                {
+                    await _otpService.SendPhoneOtpAsync(user.Id, user.PhoneNumber);
+                }
+                else
+                {
+                    return BadRequest(new { message = "Account has no verified email or phone associated with it." });
+                }
+
+                return Ok(new
+                {
+                    success = true,
+                    userId = user.Id,
+                    identifierType = isEmail ? "email" : "phone",
+                    message = $"Verification code has been sent to your {(isEmail ? "email" : "phone")}."
+                });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to send password reset OTP for user {UserId}", user.Id);
+                return StatusCode(500, new { message = "Failed to dispatch verification code. Please try again." });
+            }
+        }
+
+        // ─── POST /api/account/reset-password ────────────────────────────────
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.UserId) || string.IsNullOrWhiteSpace(dto.Code) || string.IsNullOrWhiteSpace(dto.NewPassword))
+                return BadRequest(new { message = "User ID, OTP code, and new password are required." });
+
+            if (dto.NewPassword.Length < 6)
+                return BadRequest(new { message = "Password must be at least 6 characters long." });
+
+            var user = await _userManager.FindByIdAsync(dto.UserId);
+            if (user == null)
+                return NotFound(new { message = "User not found." });
+
+            // Verify OTP against Email or Phone records
+            var isValidOtp = await _otpService.VerifyOtpAsync(user.Id, dto.Code, Domain.Entities.OtpType.Email)
+                          || await _otpService.VerifyOtpAsync(user.Id, dto.Code, Domain.Entities.OtpType.Phone);
+
+            if (!isValidOtp)
+                return BadRequest(new { message = "Invalid or expired verification code. Please request a new one." });
+
+            // Generate reset token and reset password via ASP.NET Core Identity
+            var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetResult = await _userManager.ResetPasswordAsync(user, resetToken, dto.NewPassword);
+
+            if (!resetResult.Succeeded)
+            {
+                var errorMessages = string.Join("; ", resetResult.Errors.Select(e => e.Description));
+                return BadRequest(new { message = errorMessages });
+            }
+
+            return Ok(new
+            {
+                success = true,
+                message = "Your password has been reset successfully. Please log in with your new password."
+            });
+        }
+
         // ─── GET /api/account/users ───────────────────────────────────────────
         [Authorize(Roles = "Admin")]
         [HttpGet("users")]
