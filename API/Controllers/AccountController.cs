@@ -176,12 +176,41 @@ namespace API.Controllers
             }
         }
 
+        // ─── POST /api/account/verify-reset-code ────────────────────────────
+        [HttpPost("verify-reset-code")]
+        public async Task<IActionResult> VerifyResetCode([FromBody] VerifyResetCodeDto dto)
+        {
+            if (string.IsNullOrWhiteSpace(dto.UserId) || string.IsNullOrWhiteSpace(dto.Code))
+                return BadRequest(new { message = "User ID and verification code are required." });
+
+            var user = await _userManager.FindByIdAsync(dto.UserId);
+            if (user == null)
+                return BadRequest(new { message = "User not found or recovery session expired. Please request a new code." });
+
+            var cleanCode = dto.Code.Trim();
+            var isValidOtp = await _otpService.VerifyOtpAsync(user.Id, cleanCode, Domain.Entities.OtpType.Email)
+                          || await _otpService.VerifyOtpAsync(user.Id, cleanCode, Domain.Entities.OtpType.Phone);
+
+            if (!isValidOtp)
+                return BadRequest(new { message = "Invalid or expired verification code. Please check your code or request a new one." });
+
+            // Generate reset token via ASP.NET Core Identity
+            var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            return Ok(new
+            {
+                success = true,
+                resetToken = resetToken,
+                message = "Verification code confirmed successfully."
+            });
+        }
+
         // ─── POST /api/account/reset-password ────────────────────────────────
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
         {
-            if (string.IsNullOrWhiteSpace(dto.UserId) || string.IsNullOrWhiteSpace(dto.Code) || string.IsNullOrWhiteSpace(dto.NewPassword))
-                return BadRequest(new { message = "User ID, OTP code, and new password are required." });
+            if (string.IsNullOrWhiteSpace(dto.UserId) || string.IsNullOrWhiteSpace(dto.NewPassword))
+                return BadRequest(new { message = "User ID and new password are required." });
 
             if (dto.NewPassword.Length < 6)
                 return BadRequest(new { message = "Password must be at least 6 characters long." });
@@ -190,15 +219,25 @@ namespace API.Controllers
             if (user == null)
                 return BadRequest(new { message = "User not found or recovery session expired. Please request a new code." });
 
-            // Verify OTP against Email or Phone records
-            var isValidOtp = await _otpService.VerifyOtpAsync(user.Id, dto.Code, Domain.Entities.OtpType.Email)
-                          || await _otpService.VerifyOtpAsync(user.Id, dto.Code, Domain.Entities.OtpType.Phone);
+            string? resetToken = dto.ResetToken;
 
-            if (!isValidOtp)
-                return BadRequest(new { message = "Invalid or expired verification code. Please request a new one." });
+            // If resetToken was not pre-generated, verify the OTP code directly
+            if (string.IsNullOrWhiteSpace(resetToken))
+            {
+                if (string.IsNullOrWhiteSpace(dto.Code))
+                    return BadRequest(new { message = "Verification code or reset token is required." });
 
-            // Generate reset token and reset password via ASP.NET Core Identity
-            var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var cleanCode = dto.Code.Trim();
+                var isValidOtp = await _otpService.VerifyOtpAsync(user.Id, cleanCode, Domain.Entities.OtpType.Email)
+                              || await _otpService.VerifyOtpAsync(user.Id, cleanCode, Domain.Entities.OtpType.Phone);
+
+                if (!isValidOtp)
+                    return BadRequest(new { message = "Invalid or expired verification code. Please request a new one." });
+
+                resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+            }
+
+            // Reset password via Identity
             var resetResult = await _userManager.ResetPasswordAsync(user, resetToken, dto.NewPassword);
 
             if (!resetResult.Succeeded)
