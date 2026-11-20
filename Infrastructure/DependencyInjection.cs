@@ -23,9 +23,19 @@ namespace Infrastructure
         {
             // Register DbContext with fallback connection string support
             var connectionString = configuration.GetConnectionString("DefaultConnection");
+            var remoteConnection = configuration.GetConnectionString("RemoteConnection");
+
+            var aspnetEnv = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            if (string.Equals(aspnetEnv, "Production", StringComparison.OrdinalIgnoreCase) &&
+                connectionString != null && connectionString.Contains("(localdb)", StringComparison.OrdinalIgnoreCase) &&
+                !string.IsNullOrWhiteSpace(remoteConnection))
+            {
+                connectionString = remoteConnection;
+            }
+
             if (string.IsNullOrWhiteSpace(connectionString))
             {
-                connectionString = configuration.GetConnectionString("RemoteConnection");
+                connectionString = remoteConnection;
             }
 
             services.AddDbContext<AppDbContext>(options =>
