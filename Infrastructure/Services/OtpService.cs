@@ -55,16 +55,19 @@ public class OtpService : IOtpService
     {
         var code = await CreateOtpAsync(userId, OtpType.Email);
 
-        // DevMode is ONLY active when running in Development environment AND explicitly configured
-        bool isDevMode = _env.IsDevelopment() && bool.TryParse(_config["Otp:DevMode"], out var dm) && dm;
-
-        if (isDevMode)
+        // Always log OTP in development console for fast developer testing
+        if (_env.IsDevelopment())
         {
-            // In local dev mode only: log code for easy local testing
             _logger.LogWarning("╔══════════════════════════════════════╗");
-            _logger.LogWarning("║  📧 [DEV MODE] EMAIL OTP for {Email}", email);
+            _logger.LogWarning("║  📧 EMAIL OTP for {Email}", email);
             _logger.LogWarning("║  Code: {Code}  (valid 10 minutes)", code);
             _logger.LogWarning("╚══════════════════════════════════════╝");
+        }
+
+        bool isDevMode = _env.IsDevelopment() && bool.TryParse(_config["Otp:DevMode"], out var dm) && dm;
+        if (isDevMode)
+        {
+            // If explicit DevMode is enabled, skip sending actual SMTP email
             return;
         }
 
