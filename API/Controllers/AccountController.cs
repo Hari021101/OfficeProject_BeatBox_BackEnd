@@ -124,16 +124,24 @@ namespace API.Controllers
             if (string.IsNullOrWhiteSpace(dto.Identifier))
                 return BadRequest(new { message = "Email or phone number is required." });
 
+            var cleanId = dto.Identifier.Trim();
             AppUser? user = null;
-            var isEmail = dto.Identifier.Contains('@');
+            var isEmail = cleanId.Contains('@');
 
             if (isEmail)
-                user = await _userManager.FindByEmailAsync(dto.Identifier);
+            {
+                user = await _userManager.FindByEmailAsync(cleanId);
+            }
             else
-                user = await _userManager.Users.FirstOrDefaultAsync(u => u.PhoneNumber == dto.Identifier);
+            {
+                var digitsOnly = new string(cleanId.Where(char.IsDigit).ToArray());
+                user = await _userManager.Users.FirstOrDefaultAsync(u => 
+                    u.PhoneNumber == cleanId || 
+                    (digitsOnly.Length >= 10 && u.PhoneNumber != null && u.PhoneNumber.EndsWith(digitsOnly.Substring(digitsOnly.Length - 10))));
+            }
 
             if (user == null)
-                return NotFound(new { message = "No account found with this identifier." });
+                return BadRequest(new { message = "No account found with this email or phone number. Please check your spelling or create a new account." });
 
             if (!user.IsActive)
                 return BadRequest(new { message = "This account has been suspended. Please contact support." });
@@ -180,7 +188,7 @@ namespace API.Controllers
 
             var user = await _userManager.FindByIdAsync(dto.UserId);
             if (user == null)
-                return NotFound(new { message = "User not found." });
+                return BadRequest(new { message = "User not found or recovery session expired. Please request a new code." });
 
             // Verify OTP against Email or Phone records
             var isValidOtp = await _otpService.VerifyOtpAsync(user.Id, dto.Code, Domain.Entities.OtpType.Email)
