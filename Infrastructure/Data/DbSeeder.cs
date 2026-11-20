@@ -443,6 +443,7 @@ public static class DbSeeder
         {
             await EnsureAdminAsync(userManager, roleManager);
             await EnsureRegularUserAsync(userManager, roleManager);
+            await EnsureDeveloperUserAsync(userManager, roleManager);
 
             if (isDevelopment && !await context.Coupons.AnyAsync())
             {
@@ -672,6 +673,33 @@ public static class DbSeeder
         {
             if (!await userManager.IsInRoleAsync(standardUser, "User"))
                 await userManager.AddToRoleAsync(standardUser, "User");
+        }
+    }
+
+    private static async Task EnsureDeveloperUserAsync(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+    {
+        var devEmail = "mhariharan2019@gmail.com";
+        var user = await userManager.FindByEmailAsync(devEmail);
+        if (user == null)
+        {
+            user = new AppUser
+            {
+                UserName = devEmail,
+                Email = devEmail,
+                FullName = "Hariharan M",
+                PhoneNumber = "9876543210",
+                IsEmailVerified = true,
+                IsPhoneVerified = true,
+                IsActive = true
+            };
+
+            var result = await userManager.CreateAsync(user, "Hari0211!");
+            if (result.Succeeded)
+            {
+                if (!await roleManager.RoleExistsAsync("Customer"))
+                    await roleManager.CreateAsync(new IdentityRole("Customer"));
+                await userManager.AddToRoleAsync(user, "Customer");
+            }
         }
     }
 

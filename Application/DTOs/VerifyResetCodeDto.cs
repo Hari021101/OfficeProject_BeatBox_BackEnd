@@ -10,3 +10,4 @@ public class VerifyResetCodeDto
     [Required]
     public string Code { get; set; } = string.Empty;
 }
+
