@@ -14,3 +14,4 @@ public class ResetPasswordDto
     [StringLength(100, MinimumLength = 6, ErrorMessage = "Password must be at least 6 characters long.")]
     public string NewPassword { get; set; } = string.Empty;
 }
+
