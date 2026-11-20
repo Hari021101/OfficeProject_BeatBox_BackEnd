@@ -92,18 +92,49 @@ var configuredOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").
 
 var frontendBaseUrl = builder.Configuration["Frontend:BaseUrl"];
 
+var defaultOrigins = new[]
+{
+    "https://beatbox.rv-s.in",
+    "http://beatbox.rv-s.in",
+    "https://www.beatbox.rv-s.in",
+    "https://office-project-beat-box-front-end.vercel.app",
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:3000"
+};
+
 var allowedOrigins = configuredOrigins
-    .Concat(new[] { frontendBaseUrl, "http://localhost:5173", "https://office-project-beat-box-front-end.vercel.app" })
+    .Concat(defaultOrigins)
+    .Concat(new[] { frontendBaseUrl })
     .Where(o => !string.IsNullOrWhiteSpace(o))
     .Select(o => o.TrimEnd('/'))
-    .Distinct()
+    .Distinct(StringComparer.OrdinalIgnoreCase)
     .ToArray();
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", policy =>
     {
-        policy.WithOrigins(allowedOrigins)
+        policy.SetIsOriginAllowed(origin =>
+              {
+                  if (string.IsNullOrWhiteSpace(origin)) return false;
+                  try
+                  {
+                      var uri = new Uri(origin);
+                      if (uri.Host.Equals("localhost", StringComparison.OrdinalIgnoreCase) || uri.Host.Equals("127.0.0.1"))
+                          return true;
+                      if (uri.Host.EndsWith("rv-s.in", StringComparison.OrdinalIgnoreCase))
+                          return true;
+                      if (uri.Host.EndsWith("vercel.app", StringComparison.OrdinalIgnoreCase))
+                          return true;
+                  }
+                  catch
+                  {
+                      // ignore parse errors and fall back to exact matching
+                  }
+
+                  return allowedOrigins.Contains(origin.TrimEnd('/'), StringComparer.OrdinalIgnoreCase);
+              })
               .AllowAnyHeader()
               .AllowAnyMethod()
               .AllowCredentials();
@@ -209,10 +240,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHttpsRedirection();
 }
 
-app.UseResponseCaching();
+app.UseRouting();
 
-// Apply CORS Policy
+// Apply CORS Policy before Response Caching, Authentication, and Authorization
 app.UseCors("CorsPolicy");
+
+app.UseResponseCaching();
 
 // Enable Authentication and Authorization middlewares
 app.UseAuthentication();
